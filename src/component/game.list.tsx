@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from "react"
 import { fieldInitial } from "./field/field.initial"
 import { dice } from "../service/dice"
 import { playerInitial } from "./player/player.initial"
-import { FieldShow } from "../containers/field/field.show"
+import { FieldShow } from "../container/field/field.show"
 
 export const GameList = () => {
     const [field, setField] = useState(fieldInitial)

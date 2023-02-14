@@ -1,5 +1,5 @@
 import { ErrorMessage } from "../../assets/error/errorMessage";
-import { Auth } from "../../components/auth/auth.interface";
+import { Auth } from "../../component/auth/auth.interface";
 
 export interface stateAuth {
     loading: boolean,

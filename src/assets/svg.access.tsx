@@ -1,6 +1,6 @@
 import menuIcon from "./menuIcon.svg";
 import PropTypes from 'prop-types';
-import { stitches } from '../containers/globalStyles'
+import { stitches } from '../container/globalStyles'
 
 const { styled } = stitches;
 

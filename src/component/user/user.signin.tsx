@@ -1,31 +1,32 @@
-import { useState, ChangeEvent, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { signinAction, logoutAction, refreshTokenAction } from '../../reducers/actions/action.creator.auth'
+import { useState, ChangeEvent } from 'react';
+import { create } from "../../service/service"
 import { User } from "./user.interface";
-import { Auth } from "../auth/auth.interface";
 import { initialUser } from './user.initial';
-import { initialAuth } from '../auth/auth.initial';
+import { ErrorMessage } from '../../assets/error/errorMessage';
 
 export const UserSignin = () => {
-    const dispatch = useDispatch();
     const [state, setState] = useState<User>(initialUser)
-    const [stateAuth, setStateAuth] = useState<Auth>(initialAuth)
-    const { loading, error, itens, item } = useTypedSelector((state) => state.users);
-
-    useEffect(() => {
-        // retrieveItem()
-    }, [dispatch])
+    
     const resetItem = () => {
         setState(initialUser)
     }
-    const signinItem = () => {
-        dispatch(signinAction(stateAuth))
+    const createUser = async() => {
+        try {
+            const { data } = await create<User>("/user", state);
+        } catch(error: any) {
+            var errorMessage: ErrorMessage[] = []
+            if (error.response.data.errors != undefined) {
+                error.response.data.errors.forEach((element: any) => {
+                    errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                })
+            } else {
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
+            }
+        }
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const { name } = event.target
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
-        setState({ ...state, [name]: value })
+        setState({ ...state, [event.target.name]: value })
     }
     return (
         <section>
@@ -57,9 +58,9 @@ export const UserSignin = () => {
                     <label htmlFor="password">Password</label>
                 </div>
                 <button onClick={resetItem} className="w-20 btn btn-secondary">Reset</button>
-                <button onClick={signinItem} className="w-20 btn btn-primary">Signin</button>
-                {loading && <>Loading...</>}
-                {error != null && JSON.stringify(error)}
+                <button onClick={createUser} className="w-20 btn btn-primary">Signin</button>
+                {/* {loading && <>Loading...</>}
+                {error != null && JSON.stringify(error)} */}
             </article>
         </section>
     );

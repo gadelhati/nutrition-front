@@ -1,5 +1,5 @@
 import { constants } from "../../reducers/constants"
-import { stateReducer } from "../../reducers/reducers/reducer.state";
+import { stateReducer } from "../../reducer/reducers/reducer.state";
 import { User } from "./user.interface";
 import { initialErrorMessage } from "../../assets/error/errorMessage.initial";
 import { initialUser } from "./user.initial";

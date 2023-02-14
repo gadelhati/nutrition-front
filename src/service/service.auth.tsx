@@ -1,11 +1,10 @@
 import { api } from "../assets/api/api"
 import { setUser, removeToken } from "./service.token"
-import { Auth } from "../components/auth/auth.interface"
-import { User } from "../components/user/user.interface"
+import { Auth } from "../component/auth/auth.interface"
+import { User } from "../component/user/user.interface"
 
 export const signin = async (data: Auth) => {
-  // const response = await api.post<Auth>(`/auth/login`, data)
-  const response = await api.post<Auth>(`/user/signin`, data)
+  const response = await api.post<Auth>(`/auth/login`, data)
   if (response.data.accessToken) {
     setUser(response.data)
   }

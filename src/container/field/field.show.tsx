@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Field } from "./field"
-import { fieldInitial } from "../../components/field/field.initial"
-import { Player } from "../../components/player/player.interface"
+import { fieldInitial } from "../../component/field/field.initial"
+import { Player } from "../../component/player/player.interface"
 import { Player as PP } from "../Player"
 
 export const FieldShow = (player: Player) => {

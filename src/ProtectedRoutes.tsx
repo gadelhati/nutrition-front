@@ -12,8 +12,6 @@ export const ProtectedRoute = ({ isAuthenticated, authenticationPath, outlet, al
     const { roles } = useAuth();
     
     if (isAuthenticated) {
-        // auth?.roles?.find(role => allowedRoles?.includes(role))
-    // if (roles?.find(role => role) == "ROLE_USER") {
         return outlet;
     } else {
         return <Navigate to={{ pathname: authenticationPath }} />;

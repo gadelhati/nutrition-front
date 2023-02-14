@@ -29,9 +29,7 @@ npm create vite@latest aliado -- --template react-ts
 ```
 ## how to install dependencies for this project
 ```
-npm install
-npm install react-router-dom
-npm install @stitches/react
+npm install react-router-dom @stitches/react axios
 ```
 
 ## how to run this project
