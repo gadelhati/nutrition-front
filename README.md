@@ -1,4 +1,4 @@
-# _Aliado_
+# _Nutrition_
 
 <!-- ![gitlab](https://img.shields.io/gitlab/stars/Instituto-Hidrografico/aliado?style=social "Gitlab") -->
 ![github](https://img.shields.io/github/stars/Instituto-Hidrografico/aliado?style=social "Github")
@@ -23,15 +23,31 @@
 # Description
 As a naval tradition, the board game called Aliado is very similar to Ludo, which in the Merchant Navy was called Pitoco, in the Brazilian Navy it was called Aliado.
 
+## Roadmap
+- [ ] user: alter active/inactive
+- [ ] counter only increases by 1
+- [ ] add global css
+- [ ] login: assume visual id
+- [ ] consume service that provide sidebar access
+- [ ] use pageable retrieve
+- [ ] stitches: float label
+- [ ] stitches: modal
+- [ ] stitches: datatable
+- [ ] sidebar: personal icons
+- [ ] sidebar: minimized exclude title
+- [ ] sidebar: minimized show figure
+- [ ] sidebar: minimized show tooltip by tag
+- [ ] header: sandwich to restore body
+
 ## how to create this project
 ```
-npm create vite@latest aliado -- --template react-ts
+npm create vite@latest nutrition-front -- --template react-ts
 ```
 ## how to install dependencies for this project
 ```
 npm install react-router-dom @stitches/react axios
+npm install surge
 ```
-
 ## how to run this project
 ```
 npm run dev
@@ -70,7 +86,18 @@ npm run build
 # Git
 
 ```
+//ADD PROXY
 git config --global http.proxy http://username:password@proxy-armacao.mb:6060
+//REMOVE PROXY
+git config --global --unset http.proxy
+
+//REPEAT THIS TWO COMMAND EVERY COMMIT, IF THERE ARE TROUBLE
+git config --global gpg.program "C:\Users\<User_Name>\AppData\Local\GnuPG\bin\gpg.exe"
+gpg --list-secret-keys --keyid-format=long
+
+gpg --armor --export <xxxxxxxxxxxxxxxx>
+git config --global user.signingkey <xxxxxxxxxxxxxxxx>
+
 
 git config --global user.name "GadelhaTI"
 git config --global user.email "gadelha.ti@gmail.com"
@@ -114,15 +141,19 @@ location /<folder> {
 surge
  >project: <path to /dist directory>
 ```
+### Edit /etc/nginx/conf.d/default.conf
+
+Add the new code
+```
+location /<folder> {
+    root    /usr/share/nginx/html;
+    index   index.html  index.htm;
+}
+```
 # Developers
 
 > [Gadelha TI](https://github.com/gadelhati)
 
-> [Diego](https://github.com/diegoferreirapinto)
-
-> [Augusto](https://github.com/augustmat)
-
-> [Lucas](https://github.com/lucassmartins)
 # License
 
 > [MIT License](https://choosealicense.com/licenses/mit/)

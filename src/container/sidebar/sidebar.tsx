@@ -1,9 +1,9 @@
 import { getRoles } from "../../service/service.token"
-import logo from '../../../assets/image/heraldica.png'
+// import logo from '../../../assets/image/heraldica.png'
 import { Icon } from '../../assets/svg.access'
 import { A, ATitle, Ul, Collapsible, Nav } from './sidebar.stitches'
 
-import "../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js"
+// import "../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js"
 import './sidebars.css'
 
 export const SideBar = () => {
@@ -21,7 +21,7 @@ export const SideBar = () => {
         <main>
             <Nav>
                 <ATitle href="/application-front">
-                    <img src={logo}></img><span>CHM</span>
+                    {/* <img src={logo}></img><span>CHM</span> */}
                 </ATitle>
                 <hr></hr>
                 <Ul>
