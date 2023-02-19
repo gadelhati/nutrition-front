@@ -1,49 +1,43 @@
 export const currentUserisLogged = () => {
-  return localStorage.getItem('user') ? true : false;
+  return localStorage.getItem(`token`) ? true : false;
 }
 
-export const updateLocalAccessToken = (token: any) => {
-  let user = JSON.parse(`${localStorage.getItem("user")}`);
-  user.accessToken = token;
-  localStorage.setItem("user", JSON.stringify(user));
+export const getToken = () => {
+  return JSON.parse(`${localStorage.getItem(`token`)}`);
 }
 
-export const getUser = () => {
-  return JSON.parse(`${localStorage.getItem("user")}`);
-}
-
-export const setUser = (user: any) => {
-  localStorage.setItem("user", JSON.stringify(user));
+export const setToken = (token: any) => {
+  localStorage.setItem(`token`, JSON.stringify(token));
 }
 
 export const getLocalRefreshToken = () => {
-  const user = JSON.parse(`${localStorage.getItem("user")}`);
-  return user?.refreshToken;
+  const token = JSON.parse(`${localStorage.getItem(`token`)}`);
+  return token?.refreshToken;
 }
 
 export const getId = () => {
-  const user = JSON.parse(`${localStorage.getItem("user")}`);
-  return user?.id;
+  const token = JSON.parse(`${localStorage.getItem(`token`)}`);
+  return token?.id;
 }
 
 export const getUserName = () => {
-  const user = JSON.parse(`${localStorage.getItem("user")}`);
-  return user?.username;
+  const token = JSON.parse(`${localStorage.getItem(`token`)}`);
+  return token?.username;
 }
 
 export const getEmail = () => {
-  const user = JSON.parse(`${localStorage.getItem("user")}`);
-  return user?.email;
+  const token = JSON.parse(`${localStorage.getItem(`token`)}`);
+  return token?.email;
 }
 
 export const getRoles = () => {
-  const user = JSON.parse(`${localStorage.getItem("user")}`);
-  return user?.roles;
+  const token = JSON.parse(`${localStorage.getItem(`token`)}`);
+  return token?.roles;
 }
 
 export const getLocalAccessToken = () => {
-  const user = JSON.parse(`${localStorage.getItem("user")}`);
-  return user?.accessToken;
+  const token = JSON.parse(`${localStorage.getItem(`token`)}`);
+  return token?.accessToken;
 }
 
 export const removeToken = () => {
