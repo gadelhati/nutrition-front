@@ -5,6 +5,7 @@ import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
 import { login, create, retrieve, update, remove, removeAll } from './crud.service';
 import { Crud } from './crud.buttons';
+import { UserContainer, UserField } from '../../container/field/user.field';
 
 export const UserForm = () => {
     const [state, setState] = useState<User>(initialUser)
@@ -59,16 +60,16 @@ export const UserForm = () => {
 
     return (
         <>
-            <>
+            <UserContainer>
                 {Object.entries(state).map(([key, value], index) => {
                     return (
                         <>
-                            <input type={atribute[index]} placeholder={key} name={key} value={value} onChange={handleInputChange} />
+                            <UserField type={atribute[index]} placeholder={key} name={key} value={value} onChange={handleInputChange} />
                             <br />
                         </>
                     )
                 })}
-            </>
+            </UserContainer>
             <button onClick={resetItem}>Reset</button>
             <button onClick={createItem}>Create</button>
             <button onClick={retrieveItem}>Retrieve</button>
