@@ -7,4 +7,6 @@ export interface User {
     password: string,
     active?: boolean,
     roles?: Role[],
+    date: Date,
+    number: number
 }

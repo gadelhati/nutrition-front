@@ -36,6 +36,17 @@ export const UserForm = () => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
         setState({ ...state, [event.target.name]: value })
     }
+    const ar = (ss: any) => {
+        console.log(typeof ss)
+        switch (ss) {
+            case "loading":
+              return "loading request";
+            // case "failed":
+            //   return `failed with code ${s.code}`;
+            case "success":
+              return "got response";
+          }
+    }
 
     return (
         <>
@@ -43,7 +54,16 @@ export const UserForm = () => {
                 {Object.entries(state).map(([key, value]) => {
                     return (
                         <>
-                            <input placeholder={key} key={key} name={key} value={value} onChange={handleInputChange} />
+                            <input 
+                                type={
+                                    (key === 'password' ? 'password':
+                                    (typeof value === 'boolean' ? 'checkbox':
+                                    // range
+                                    (typeof value === 'number' ? 'number':
+                                    // (typeof value === [] ? 'string':
+                                    // select_option, radio
+                                    (typeof value === 'string' ? 'text':'date'))))} 
+                                placeholder={key} key={key} name={key} value={value} onChange={handleInputChange} />
                             <br />
                         </>
                     )
