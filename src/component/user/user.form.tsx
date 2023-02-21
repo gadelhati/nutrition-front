@@ -75,6 +75,7 @@ export const UserForm = () => {
                     )
                 })}
             </Container>
+            {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
             <button onClick={resetItem}>Reset</button>
             <button onClick={createItem}>Create</button>
             <button onClick={retrieveItem}>Retrieve</button>
