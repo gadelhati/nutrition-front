@@ -5,9 +5,9 @@ import { UserSignin } from './component/user/user.signin'
 
 const App = () => {
   return (
-    // <Appx />
+    <Appx />
     // <AppRoutes />
-    <UserForm />
+    // <UserForm />
     // <UserSignin />
   )
 }

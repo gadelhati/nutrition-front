@@ -5,6 +5,7 @@ import { Icon } from './assets/svg.access'
 // import image from './assets/image/hamburger2.png'
 import hamburger from './assets/hamburger-list.svg'
 import { Tooltip } from './container/tootip/Tooltip'
+import { UserForm } from './component/user/user.form'
 
 const Appx = () => {
   const [show, setShow] = useState(true)
@@ -27,6 +28,7 @@ const Appx = () => {
           <SideItem>3</SideItem>
         </FlexCointainer>
         <FlexCointainer element='content'>
+          <UserForm />
           {/* <GameList></GameList> */}
         </FlexCointainer>
         {/* <FlexCointainer element='nav'>
