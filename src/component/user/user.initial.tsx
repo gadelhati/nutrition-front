@@ -9,5 +9,5 @@ export const initialUser : User = {
     active: true,
     roles: [],
     date: new Date(),
-    number: 5
+    number: 0
 }

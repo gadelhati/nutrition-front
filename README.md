@@ -26,11 +26,10 @@ As a naval tradition, the board game called Aliado is very similar to Ludo, whic
 ## Roadmap
 - [ ] user: alter active/inactive
 - [ ] counter only increases by 1
-- [ ] add global css
 - [ ] login: assume visual id
 - [ ] consume service that provide sidebar access
 - [ ] use pageable retrieve
-- [ ] stitches: float label
+- [x] stitches: float label
 - [ ] stitches: modal
 - [ ] stitches: datatable
 - [ ] sidebar: personal icons

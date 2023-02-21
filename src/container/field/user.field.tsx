@@ -2,45 +2,42 @@ import { stitches } from "../globalStyles";
 
 const { styled } = stitches;
 
-export const UserContainer = styled('div',{
+export const Container = styled('div',{
+    position: 'relative',
+    margin: '40px 0 20px',
     display: 'flex',
     height: '300px',
-    // flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    border: '1px solid #ddd',
     padding: '3vw',
     flexDirection: 'column',
-    borderRadius: '5px',
 })
-export const UserField = styled('input',{
-    backgroundColor: '$letterBackgroudColor',
-    variants: {
-        position:{
-            one: {
-                color: '$one',
-                backgroundColor: '$six'
-            },
-            two: {
-                color: '$two',
-                backgroundColor: '$five'
-            },
-            three: {
-                color: '$three',
-                backgroundColor: '$four'
-            },
-            four: {
-                color: '$four',
-                backgroundColor: '$three'
-            },
-            five: {
-                color: '$five',
-                backgroundColor: '$two'
-            },
-            six: {
-                color: '$six',
-                backgroundColor: '$one'
-            },
-        },
+
+export const ContainerInput = styled('input',{
+    fontSize: '18px',
+    padding: '10px 10px 10px 5px',
+    display: 'block',
+    width: '300px',
+    border: 'none',
+    backgroundColor: '$three',
+    borderBottom: '1px solid #757575',
+    '&:focus': {
+        outline: 'none',
     },
-}) 
+    // '&:focus ~ label, input:valid ~ label': {
+    //     top: '-20px',
+    //     fontSize: '14px',
+    //     color: '#4285f4',
+    // }
+})
+
+export const ContainerLabel = styled('label',{
+    color: '#999',
+    fontSize: '18px',
+    fontWeight: 'normal',
+    position: 'relative',
+    pointerEvents: 'none',
+    left: '5px',
+    top: '10px',
+    transition: '0.2s ease all',
+})
