@@ -7,6 +7,9 @@ import { getRoles, getToken } from "./service/service.token"
 
 // import { UserList } from "./component/user/user.list";
 import { UserSignin } from "./component/user/user.signin";
+import { UserForm } from "./component/user/user.form";
+import { SideContainer } from "./container/Sidebar";
+import { FlexCointainer, SideItem } from "./container/template/Flex";
 // import { Header } from "./container/menus/header";
 // import { Footer } from "./container/menus/footer";
 // import { AuthProvider } from "./assets/context/AuthProvider";
@@ -34,33 +37,42 @@ export default function AppRoutes() {
         <body>
             <HashRouter>
                 {/* <AuthProvider> */}
-                    <aside>
-                        {/* {getToken() && <SideBar />} */}
-                    </aside>
-                    <main>
-                        {/* <Header /> */}
-                        <Routes>
-                            <Route path="*" element={getToken() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route>
+                <FlexCointainer element='all'>
+                    <SideContainer />
+                    <FlexCointainer element='main'>
+                        <FlexCointainer element='nav'>
+                            <SideItem>Sistema1</SideItem>
+                            {/* <FlexItem>2</FlexItem> */}
+                            <SideItem>3</SideItem>
+                        </FlexCointainer>
+                        <FlexCointainer element='content'>
+                            {/* <Header /> */}
+                            <Routes>
+                                {/* <Route path="*" element={getToken() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route>
                             <Route path="/" element={getToken() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route>
-                            <Route path="/signin" element={getToken() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route>
+                            <Route path="/signin" element={getToken() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route> */}
 
-                            {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}></Route> */}
-                            {/* <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} /> */}
-                            {/* <Route path="/researcher" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ResearcherList />} allowedRoles={"ROLE_ADMIN"} />} /> */}
+                                <Route path="/auth" element={<UserSignin />}></Route>
+                                <Route path="/user" element={<UserForm />}></Route>
 
-                            {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}> */}
+                                {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}></Route> */}
+                                {/* <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} /> */}
+                                {/* <Route path="/researcher" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ResearcherList />} allowedRoles={"ROLE_ADMIN"} />} /> */}
+
+                                {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}> */}
                                 {/* <Route path="/users" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<UserList />} />} />
                                 <Route path="/roles" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<RoleList />} />} /> */}
                                 {/* <Route path="/country" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<CountryList />} />} />
                                 <Route path="/institution" element={<InstitutionList />} /> */}
-                            {/* </Route> */}
-                            
-                            {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.Moderador]} />}>
-                                <Route path="/om" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<OMList />} />} />
-                            </Route> */}
-                        </Routes>
-                        {/* <Footer /> */}
-                    </main>
+                                {/* </Route> */}
+
+                                {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.Moderador]} />}>
+                                <Route path="/om" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<OMList />} />} /> </Route> */}
+                            </Routes>
+                            {/* <Footer /> */}
+                        </FlexCointainer>
+                    </FlexCointainer>
+                </FlexCointainer>
                 {/* </AuthProvider> */}
             </HashRouter>
         </body>

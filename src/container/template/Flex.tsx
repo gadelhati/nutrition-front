@@ -42,7 +42,9 @@ export const FlexCointainer = styled('div',{
         },
     },
 })
-export const SideItem = styled('div',{
+export const SideItem = styled('a',{
+    textDecoration: 'none',
+    color: '$five1',
     height: '$xss',
     width: '$xss',
     userSelect: 'none',
@@ -86,7 +88,7 @@ export const Sidebar = styled('aside',{
             },
             false: {
                 width: '2.9rem',
-                'div > p': {
+                'p': {
                     display: 'none',
                 },
                 // '@bp4': {
