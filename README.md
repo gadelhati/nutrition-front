@@ -30,6 +30,7 @@ It is called nutritional information, also known as nutritional labeling, the ta
 - [ ] consume service that provide sidebar access
 - [x] use pageable retrieve
 - [x] stitches: float label
+- [ ] add errors on tooltip
 - [ ] stitches: modal
 - [ ] stitches: datatable
 - [ ] sidebar: personal icons
