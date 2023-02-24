@@ -7,13 +7,13 @@ export const login = async<Auth,>(url: string, object: Auth): Promise<Auth | voi
     await api.post(url, object)
         .then(response => {
             response.data?.errors?.forEach((element: ErrorMessage) => {
-                errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
+                errorMessage.push({ field: element.field, message: element.message })
             })
             setToken(response.data)
             return errorMessage
         })
         .catch(function (error) {
-            return errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
+            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
         });
 }
 
@@ -25,9 +25,9 @@ export const create = async<T,>(url: string, object: T): Promise<T> => {
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
-                errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
+                errorMessage.push({ field: element.field, message: element.message })
             })
-            return errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
+            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
         });
 }
 
@@ -39,9 +39,9 @@ export const retrieve = async<T,>(url: string, id: string): Promise<T> => {
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
-                errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
+                errorMessage.push({ field: element.field, message: element.message })
             })
-            return errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
+            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
         });
 }
 
@@ -53,9 +53,9 @@ export const retrieveAll = async<T,>(url: string, search: string): Promise<T> =>
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
-                errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
+                errorMessage.push({ field: element.field, message: element.message })
             })
-            return errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
+            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
         });
 }
 
@@ -67,9 +67,9 @@ export const update = async<T,>(url: string, object: T): Promise<T> => {
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
-                errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
+                errorMessage.push({ field: element.field, message: element.message })
             })
-            return errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
+            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
         });
 }
 
@@ -81,9 +81,9 @@ export const remove = async<T,>(url: string, id: string): Promise<T> => {
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
-                errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
+                errorMessage.push({ field: element.field, message: element.message })
             })
-            return errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
+            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
         });
 }
 
@@ -95,8 +95,8 @@ export const removeAll = async<T,>(url: string): Promise<T> => {
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
-                errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
+                errorMessage.push({ field: element.field, message: element.message })
             })
-            return errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
+            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
         });
 }
