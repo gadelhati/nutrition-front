@@ -1,56 +1,43 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { Food } from "../../component/food/food.interface";
-import { initialFood } from '../../component/food/food.initial';
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
-import { login, create, retrieve, retrieveAll, update, remove, removeAll } from '../../component/user/crud.service';
+import { create, retrieve, retrieveAll, update, remove, removeAll } from '../../component/user/crud.service';
 import { Container, ContainerInput, ContainerLabel } from '../field/user.field';
-import { api } from '../../assets/api/api';
-import { Crud } from '../../component/user/crud.buttons';
 
-export const FoodList = () => {
-    const [state, setState] = useState<Food>(initialFood)
-    const [states, setStates] = useState<Food[]>([initialFood])
+export const FoodList = (initial: Food) => {
+    const [state, setState] = useState<Food>(initial)
+    const [states, setStates] = useState<Food[]>([initial])
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
     const [atribute, setAtribute] = useState<string[]>([])
 
-    
-    // Pendente (Pending).
-    // Resolvida (Resolved) (não está na documentação, mas gosto de definir esse estado também).
-    // Rejeitada (Rejected).
-    // Realizada (Fulfilled).
-    // Estabelecida (Settled).
-
     useEffect(() => {
-        setAtributeItem(initialFood)
+        setAtributeItem(initial)
     }, [])
     const resetItem = () => {
-        setState(initialFood)
+        setState(initial)
     }
-    const createItem = () => {
-        create('food', state)
+    const createItem = async () => {
+        await create('food', state)
     }
-    const retrieve2 = async<T extends {}>(url: string, search: string): Promise<T> => {
-        let errorMessage: ErrorMessage[] = []
-        return await api.get(`/${url}/${search}`)
-            .then(response => {
-                setState(response.data.content[0])
-                console.log(response.data.content[0])
-                return response.data?.content[0]
-            })
-            .catch(function (error) {
-                error.response.data?.errors?.forEach((element: ErrorMessage) => {
-                    errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
-                })
-                return errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
-            });
+    const retrieveItem = async() => {
+        setState(await retrieve('food', state.id))
     }
-    const updateItem = () => {
-        update('food', state)
+    const retrieveAllItem = async() => {
+        setState(await retrieveAll('food', state.name))
+    }
+    const updateItem = async() => {
+        await update('food', state)
     }
     const deleteItem = () => {
         remove('food', state.id)
+        resetItem()
     }
+    const deleteAllItem = () => {
+        removeAll('food')
+        resetItem()
+    }
+
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
         setState({ ...state, [event.target.name]: value })
@@ -84,9 +71,13 @@ export const FoodList = () => {
                     )
                 })}
             </Container>
-            <button onClick={() => retrieve2('food', state.name)}>Retrieve 2</button>
-            <Crud initialObject={initialFood} object={state} name={"food"} error={error}></Crud>
-            {JSON.stringify(state)}
+            <button onClick={resetItem}>Reset</button>
+            <button onClick={createItem}>Create</button>
+            <button onClick={retrieveItem}>Retrieve</button>
+            <button onClick={retrieveAllItem}>Retrieve All</button>
+            <button onClick={updateItem}>Update</button>
+            <button onClick={deleteItem}>Delete</button>
+            <br/>
         </>
     );
 }
