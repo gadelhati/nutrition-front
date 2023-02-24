@@ -28,14 +28,11 @@ It is called nutritional information, also known as nutritional labeling, the ta
 - [ ] counter only increases by 1
 - [ ] login: assume visual id
 - [ ] consume service that provide sidebar access
-- [ ] use pageable retrieve
+- [x] use pageable retrieve
 - [x] stitches: float label
 - [ ] stitches: modal
 - [ ] stitches: datatable
 - [ ] sidebar: personal icons
-- [ ] sidebar: minimized exclude title
-- [ ] sidebar: minimized show figure
-- [ ] sidebar: minimized show tooltip by tag
 - [ ] header: sandwich to restore body
 
 ## how to create this project
