@@ -11,6 +11,7 @@ import { UserForm } from "./component/user/user.form";
 import { SideContainer } from "./container/Sidebar";
 import { FlexCointainer, SideItem } from "./container/template/Flex";
 import { FoodList } from "./container/food/food.list";
+import { initialFood } from "./component/food/food.initial";
 // import { Header } from "./container/menus/header";
 // import { Footer } from "./container/menus/footer";
 // import { AuthProvider } from "./assets/context/AuthProvider";
@@ -53,9 +54,11 @@ export default function AppRoutes() {
                             <Route path="/" element={getToken() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route>
                             <Route path="/signin" element={getToken() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route> */}
 
+                                <Route path="*" element={<UserSignin />}></Route>
+                                <Route path="/" element={<UserSignin />}></Route>
                                 <Route path="/auth" element={<UserSignin />}></Route>
                                 <Route path="/user" element={<UserForm />}></Route>
-                                <Route path="/food" element={<FoodList />}></Route>
+                                <Route path="/food" element={<FoodList id="" name="" ibgeCode="" />}></Route>
 
                                 {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}></Route> */}
                                 {/* <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} /> */}
