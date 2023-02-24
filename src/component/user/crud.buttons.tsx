@@ -9,28 +9,28 @@ export const Crud = (crud: crudInterface) => {
         setState(crud.initialObject)
     }
     const createItem = () => {
-        create(crud.name, crud.object)
+        create(crud.url, crud.object)
         // resetItem()
         // if(itens == null) resetItem()
     }
     const retrieveItem = () => {
-        retrieve(crud.name, crud.object.id)
+        retrieve(crud.url, crud.object.id)
         // resetItem()
     }
     const retrieveAllItem = () => {
-        retrieveAll(crud.name, crud.object.name)
+        retrieveAll(crud.url, crud.object.name)
         // resetItem()
     }
     const updateItem = () => {
-        update(crud.name, crud.object)
+        update(crud.url, crud.object)
         // if(itens == null) resetItem()
     }
     const deleteItem = () => {
-        remove(crud.name, crud.object.id)
+        remove(crud.url, crud.object.id)
         // resetItem()
     }
     const deleteAllItem = () => {
-        removeAll(crud.name)
+        removeAll(crud.url)
         // resetItem()
     }
     const access = (): boolean => {
