@@ -10,6 +10,6 @@ export interface crudInterface {
     object?: any,
     initialObject?: any,
     type?: any,
-    name: string,
+    url: string,
     error: ErrorMessage[] | null,
 }
