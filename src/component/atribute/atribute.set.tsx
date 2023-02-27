@@ -1,26 +1,26 @@
 import { User } from "../user/user.interface";
 import { initialAtribute } from "./atribute.initial";
 
-export const AtributeSet = (initial: User) => {
+export const AtributeSet = <T extends Object>(initial: T) => {
     var atributes: [{ type: string, worth: any }]
     atributes = [initialAtribute]
 
-    let atribute_name: string
+    let type_name: string
     atributes.shift()
     Object.entries(initial).map(([key, value]) => {
         if (key === 'password')
-            atribute_name = 'password'
+            type_name = 'password'
         else if (typeof value === 'boolean')
-            atribute_name = 'boolean'
+            type_name = 'checkbox'
         else if (typeof value === 'number')
-            atribute_name = 'number'
+            type_name = 'number'
         else if (typeof value.getMonth === 'function')
-            atribute_name = 'date'
+            type_name = 'date'
         else if (Array.isArray(value))
-            atribute_name = 'array'
+            type_name = 'array'
         else
-            atribute_name = 'text'
-        atributes.push({ type: atribute_name, worth: value })
+            type_name = 'text'
+        atributes.push({ type: type_name, worth: value })
     })
     return atributes
 }

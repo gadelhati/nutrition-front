@@ -4,16 +4,16 @@ import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
 import { create, retrieve, retrieveAll, update, remove, removeAll } from '../../component/user/crud.service';
 import { Container, ContainerInput, ContainerLabel } from '../field/user.field';
+import { AtributeSet } from '../../component/atribute/atribute.set';
+import { initialFood } from '../../component/food/food.initial';
+import { Atribute } from '../../component/atribute/atribute.interface';
 
 export const FoodList = (initial: Food) => {
     const [state, setState] = useState<Food>(initial)
     const [states, setStates] = useState<Food[]>([initial])
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
-    const [atribute, setAtribute] = useState<string[]>([])
+    const [atribute, setAtribute] = useState<Atribute[]>(AtributeSet(initialFood))
 
-    useEffect(() => {
-        setAtributeItem(initial)
-    }, [])
     const resetItem = () => {
         setState(initial)
     }
@@ -37,40 +37,33 @@ export const FoodList = (initial: Food) => {
         removeAll('food')
         resetItem()
     }
-
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
         setState({ ...state, [event.target.name]: value })
     }
-    const setAtributeItem = (object: Object) => {
-        setAtribute([])
-        Object.entries(state).map(([key, value]) => {
-            setAtribute(atribute => [...atribute, 
-                (key === 'password' ? 'password':
-                (typeof value === 'boolean' ? 'checkbox':
-                // range
-                (typeof value === 'number' ? 'number':
-                // select_option, radio
-                (typeof value === 'object' ? 'string':
-                (typeof value === 'string' ? 'text':'date'
-            )))))])
-        })
-    }
-    const showShow = () => {
-        console.log(atribute)
+    const handleInputChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
+        setState({ ...state, [event.target.name]: event.target.value })
     }
 
     return (
         <>
+            { atribute &&
             <Container>
                 {Object.entries(state).map(([key, value], index) => {
                     return (
                         <div>
-                            <ContainerInput type={atribute[index]} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off'/>
+                            {Array.isArray(atribute[index].worth) ?
+                                <select name={key} onChange={handleInputChangeSelect}>
+                                    {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
+                                </select> :
+                                <ContainerInput type={atribute[index].type} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off'/>
+                            }
+                            <ContainerLabel>{atribute[index].type}</ContainerLabel>
                         </div>
                     )
                 })}
             </Container>
+            }
             <button onClick={resetItem}>Reset</button>
             <button onClick={createItem}>Create</button>
             <button onClick={retrieveItem}>Retrieve</button>
