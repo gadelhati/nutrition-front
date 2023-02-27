@@ -4,23 +4,25 @@ import { initialUser } from './user.initial';
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
 import { login, create, retrieve, update, remove, removeAll } from './crud.service';
-import { Crud } from './crud.buttons';
 import { Container, ContainerInput, ContainerLabel } from '../../container/field/user.field';
+import { AtributeSet } from '../atribute/atribute.set';
+import { Atribute } from '../atribute/atribute.interface';
 
 export const UserForm = () => {
     const [state, setState] = useState<User>(initialUser)
+    const [states, setStates] = useState<User[]>([initialUser])
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
-    const [atribute, setAtribute] = useState<string[]>([])
-    
+    const [atribute, setAtribute] = useState<Atribute[]>(AtributeSet(initialUser))
+
     // Pendente (Pending).
     // Resolvida (Resolved) (não está na documentação, mas gosto de definir esse estado também).
     // Rejeitada (Rejected).
     // Realizada (Fulfilled).
     // Estabelecida (Settled).
 
-    useEffect(() => {
-        setAtributeItem(initialUser)
-    }, [])
+    // useEffect(() => {
+        
+    // }, [])
     const resetItem = () => {
         setState(initialUser)
     }
@@ -40,22 +42,8 @@ export const UserForm = () => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
         setState({ ...state, [event.target.name]: value })
     }
-    const setAtributeItem = (object: Object) => {
-        setAtribute([])
-        Object.entries(state).map(([key, value]) => {
-            setAtribute(atribute => [...atribute, 
-                (key === 'password' ? 'password':
-                (typeof value === 'boolean' ? 'checkbox':
-                // range
-                (typeof value === 'number' ? 'number':
-                // select_option, radio
-                (typeof value === 'object' ? 'string':
-                (typeof value === 'string' ? 'text':'date'
-            )))))])
-        })
-    }
-    const showShow = () => {
-        console.log(atribute)
+    const handleInputChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
+        setState({ ...state, [event.target.name]: event.target.value })
     }
 
     return (
@@ -64,25 +52,32 @@ export const UserForm = () => {
                 <ContainerInput type="text" required/>
                     <ContainerLabel>Username</ContainerLabel>
             </Container> */}
-
+            {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
+            
+            { atribute &&
             <Container>
                 {Object.entries(state).map(([key, value], index) => {
                     return (
                         <div>
-                            <ContainerInput type={atribute[index]} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off'/>
-                            {/* <ContainerLabel>{key}</ContainerLabel> */}
+                            {Array.isArray(atribute[index].worth) ?
+                                <select name={key} onChange={handleInputChangeSelect}>
+                                    {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
+                                </select> :
+                                <ContainerInput type={atribute[index].type} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off'/>
+                            }
+                            <ContainerLabel>{atribute[index].type}</ContainerLabel>
                         </div>
                     )
                 })}
             </Container>
-            {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
+            }
+            
             <button onClick={resetItem}>Reset</button>
             <button onClick={createItem}>Create</button>
             <button onClick={retrieveItem}>Retrieve</button>
             <button onClick={updateItem}>Update</button>
             <button onClick={deleteItem}>Delete</button>
-            <button onClick={setAtributeItem}>Set</button>
-            <button onClick={showShow}>Show</button>
+            
             {/* <Crud initialObject={initialUser} name={'user'} object={state} error={error}/> */}
             {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}

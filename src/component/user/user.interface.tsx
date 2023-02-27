@@ -7,6 +7,7 @@ export interface User {
     password: string,
     active?: boolean,
     roles?: Role[],
+    testes: string[],
     date: Date,
     number: number
 }
