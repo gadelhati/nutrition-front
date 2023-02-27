@@ -1,12 +1,12 @@
 import { useState, ChangeEvent, useEffect } from 'react';
-import { User } from "./user.interface";
-import { initialUser } from './user.initial';
+import { User } from "../../component/user/user.interface";
+import { initialUser } from '../../component/user/user.initial';
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
-import { login, create, retrieve, update, remove, removeAll } from './crud.service';
-import { Container, ContainerInput, ContainerLabel } from '../../container/field/user.field';
-import { AtributeSet } from '../atribute/atribute.set';
-import { Atribute } from '../atribute/atribute.interface';
+import { login, create, retrieve, update, remove, removeAll } from '../../component/user/crud.service';
+import { Container, ContainerInput, ContainerLabel } from '../field/user.field';
+import { AtributeSet } from '../../component/atribute/atribute.set';
+import { Atribute } from '../../component/atribute/atribute.interface';
 
 export const UserForm = () => {
     const [state, setState] = useState<User>(initialUser)

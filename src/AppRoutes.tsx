@@ -7,11 +7,13 @@ import { getRoles, getToken } from "./service/service.token"
 
 // import { UserList } from "./component/user/user.list";
 import { UserSignin } from "./component/user/user.signin";
-import { UserForm } from "./component/user/user.form";
+import { UserForm } from "./container/user/user.form";
 import { SideContainer } from "./container/Sidebar";
 import { FlexCointainer, SideItem } from "./container/template/Flex";
 import { FoodList } from "./container/food/food.list";
 import { initialFood } from "./component/food/food.initial";
+import { GenericForm } from "./container/generic.form";
+import { initialUser } from "./component/user/user.initial";
 // import { Header } from "./container/menus/header";
 // import { Footer } from "./container/menus/footer";
 // import { AuthProvider } from "./assets/context/AuthProvider";
@@ -58,6 +60,7 @@ export default function AppRoutes() {
                                 <Route path="/" element={<UserSignin />}></Route>
                                 <Route path="/auth" element={<UserSignin />}></Route>
                                 <Route path="/user" element={<UserForm />}></Route>
+                                <Route path="/gen" element={<GenericForm url='user' object={initialUser} />}></Route>
                                 <Route path="/food" element={<FoodList id="" name="" ibgeCode="" />}></Route>
 
                                 {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}></Route> */}

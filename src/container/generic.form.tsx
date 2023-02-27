@@ -1,82 +1,92 @@
-import { useState, ChangeEvent, useEffect, useCallback } from 'react';
+import { useState, ChangeEvent, useEffect } from 'react';
 import { ErrorMessage } from '../assets/error/errorMessage';
 import { initialErrorMessage } from '../assets/error/errorMessage.initial';
 import { create, retrieve, retrieveAll, update, remove, removeAll } from '../component/user/crud.service';
 import { Container, ContainerInput, ContainerLabel } from './field/user.field';
+import { AtributeSet } from '../component/atribute/atribute.set';
+import { Atribute } from '../component/atribute/atribute.interface';
 
-export const GenericForm = (state: any, setState: any) => {
-    // const [state, setState] = useState<T>(initial)
-    // const [states, setStates] = useState<T[]>([initial])
+export const GenericForm = <T extends Object>(url: string, object: T) => {
+    const [state, setState] = useState<T>(object)
+    const [states, setStates] = useState<T[]>([object])
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
-    const [atribute, setAtribute] = useState<string[]>([])
+    const [atribute, setAtribute] = useState<Atribute[]>(AtributeSet(object))
+
+    // Pendente (Pending).
+    // Resolvida (Resolved) (não está na documentação, mas gosto de definir esse estado também).
+    // Rejeitada (Rejected).
+    // Realizada (Fulfilled).
+    // Estabelecida (Settled).
 
     // useEffect(() => {
-    //     setAtributeItem(initial)
+        
     // }, [])
-    // const resetItem = () => {
-    //     setState(initial)
-    // }
-    const createItem = async () => {
-        await create('food', state)
+    const resetItem = () => {
+        setState(object)
     }
-    const retrieveItem = async() => {
-        setState(await retrieve('food', 'state.id'))
+    const createItem = () => {
+        create(url, state)
     }
-    const retrieveAllItem = async() => {
-        setState(await retrieveAll('food', 'state.name'))
+    const retrieveItem = () => {
+        // retrieve(url, state.id)
     }
-    const updateItem = async() => {
-        await update('food', state)
+    const retrieveAllItem = () => {
+        // retrieveAll(url, state.username)
+    }
+    const updateItem = () => {
+        update(url, state)
     }
     const deleteItem = () => {
-        remove('food', 'state.id')
-        // resetItem()
+        // remove(url, state.id)
     }
     const deleteAllItem = () => {
-        removeAll('food')
-        // resetItem()
+        removeAll(url)
     }
-
-    const handleInputChange = useCallback((event: { target: { value: any; }; }) => {
-        setState(event.target.value)
-    }, [setState])
-    
-    const setAtributeItem = (object: Object) => {
-        setAtribute([])
-        Object.entries(state).map(([key, value]) => {
-            setAtribute(atribute => [...atribute, 
-                (key === 'password' ? 'password':
-                (typeof value === 'boolean' ? 'checkbox':
-                // range
-                (typeof value === 'number' ? 'number':
-                // select_option, radio
-                (typeof value === 'object' ? 'string':
-                (typeof value === 'string' ? 'text':'date'
-            )))))])
-        })
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+        setState({ ...state, [event.target.name]: value })
     }
-    const showShow = () => {
-        console.log(atribute)
+    const handleInputChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
+        setState({ ...state, [event.target.name]: event.target.value })
     }
 
     return (
         <>
+            {/* <Container>
+                <ContainerInput type="text" required/>
+                    <ContainerLabel>Username</ContainerLabel>
+            </Container> */}
+            {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
+            
+            { atribute &&
             <Container>
                 {Object.entries(state).map(([key, value], index) => {
                     return (
                         <div>
-                            <ContainerInput type={atribute[index]} placeholder={key} name={key} /*value={value}*/ onChange={handleInputChange} autoComplete='off'/>
+                            {Array.isArray(atribute[index].worth) ?
+                                <select name={key} onChange={handleInputChangeSelect}>
+                                    {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
+                                </select> :
+                                <ContainerInput type={atribute[index].type} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off'/>
+                            }
+                            <ContainerLabel>{atribute[index].type}</ContainerLabel>
                         </div>
                     )
                 })}
             </Container>
-            {/* <button onClick={resetItem}>Reset</button> */}
+            }
+            
+            <button onClick={resetItem}>Reset</button>
             <button onClick={createItem}>Create</button>
-            <button onClick={retrieveItem}>Retrieve</button>
-            <button onClick={retrieveAllItem}>Retrieve All</button>
+            <button onClick={retrieveItem}>Retrieve by ID</button>
+            <button onClick={retrieveAllItem}>Retrieve All by search</button>
             <button onClick={updateItem}>Update</button>
             <button onClick={deleteItem}>Delete</button>
-            <br/>
+            <button onClick={deleteAllItem}>Delete All</button>
+            
+            {/* <Crud initialObject={initialUser} name={url} object={state} error={error}/> */}
+            {/* {loading && <>Loading...</>}
+                {error != null && JSON.stringify(error)} */}
         </>
     );
 }
