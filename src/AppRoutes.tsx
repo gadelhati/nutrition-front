@@ -7,10 +7,8 @@ import { getRoles, getToken } from "./service/service.token"
 
 // import { UserList } from "./component/user/user.list";
 import { UserSignin } from "./component/user/user.signin";
-import { UserForm } from "./container/user/user.form";
 import { SideContainer } from "./container/Sidebar";
 import { FlexCointainer, SideItem } from "./container/template/Flex";
-import { FoodList } from "./container/food/food.list";
 import { initialFood } from "./component/food/food.initial";
 import { GenericForm } from "./container/generic.form";
 import { initialUser } from "./component/user/user.initial";
@@ -59,10 +57,9 @@ export default function AppRoutes() {
                                 <Route path="*" element={<UserSignin />}></Route>
                                 <Route path="/" element={<UserSignin />}></Route>
                                 <Route path="/auth" element={<UserSignin />}></Route>
-                                <Route path="/user" element={<UserForm />}></Route>
-                                <Route path="/gen" element={<GenericForm url='user' object={initialUser} />}></Route>
-                                <Route path="/food" element={<FoodList id="" name="" ibgeCode="" />}></Route>
-
+                                <Route path="/user" element={<GenericForm object={initialUser} url={'user'} />}></Route>
+                                <Route path="/food" element={<GenericForm object={initialFood} url={'food'} />}></Route>
+                                
                                 {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}></Route> */}
                                 {/* <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} /> */}
                                 {/* <Route path="/researcher" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ResearcherList />} allowedRoles={"ROLE_ADMIN"} />} /> */}

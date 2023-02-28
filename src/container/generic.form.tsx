@@ -6,11 +6,11 @@ import { Container, ContainerInput, ContainerLabel } from './field/user.field';
 import { AtributeSet } from '../component/atribute/atribute.set';
 import { Atribute } from '../component/atribute/atribute.interface';
 
-export const GenericForm = <T extends Object>(url: string, object: T) => {
-    const [state, setState] = useState<T>(object)
-    const [states, setStates] = useState<T[]>([object])
+export const GenericForm = <T extends Object>(object: any, url: string) => {
+    const [state, setState] = useState<T>(object.object)
+    const [states, setStates] = useState<T[]>([object.object])
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
-    const [atribute, setAtribute] = useState<Atribute[]>(AtributeSet(object))
+    const [atribute, setAtribute] = useState<Atribute[]>(AtributeSet(object.object))
 
     // Pendente (Pending).
     // Resolvida (Resolved) (não está na documentação, mas gosto de definir esse estado também).
@@ -25,22 +25,22 @@ export const GenericForm = <T extends Object>(url: string, object: T) => {
         setState(object)
     }
     const createItem = () => {
-        create(url, state)
+        create(object.constructor.name.toLowerCase(), state)
     }
     const retrieveItem = () => {
-        // retrieve(url, state.id)
+        // retrieve(object.url.toLowerCase(), state.id)
     }
     const retrieveAllItem = () => {
-        // retrieveAll(url, state.username)
+        // retrieveAll(object.url.toLowerCase(), state.name)
     }
     const updateItem = () => {
-        update(url, state)
+        update(object.url.toLowerCase(), state)
     }
     const deleteItem = () => {
-        // remove(url, state.id)
+        // remove(object.url.toLowerCase(), state.id)
     }
     const deleteAllItem = () => {
-        removeAll(url)
+        removeAll(object.url.toLowerCase())
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
