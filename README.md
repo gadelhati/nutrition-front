@@ -24,17 +24,16 @@
 It is called nutritional information, also known as nutritional labeling, the table of information regarding the amounts of vitamins, mineral salts, fats, proteins, fibers, among others, per portion, contained in most product packaging.
 
 ## Roadmap
+- [ ] add errors on tooltip
+- [ ] stitches: datatable
+- [x] stitches: float label
+- [ ] stitches: modal
 - [ ] user: alter active/inactive
 - [ ] counter only increases by 1
-- [ ] login: assume visual id
 - [ ] consume service that provide sidebar access
-- [x] use pageable retrieve
-- [x] stitches: float label
-- [ ] add errors on tooltip
-- [ ] stitches: modal
-- [ ] stitches: datatable
-- [ ] sidebar: personal icons
+- [ ] login: assume visual id
 - [ ] header: sandwich to restore body
+- [ ] sidebar: personal icons
 
 ## how to create this project
 ```
