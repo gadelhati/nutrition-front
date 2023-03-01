@@ -1,4 +1,4 @@
-import { ErrorMessage } from "../../assets/error/errorMessage";
+import { ErrorMessage } from "../assets/error/errorMessage";
 
 export interface crudInterface {
     createItem?: any,

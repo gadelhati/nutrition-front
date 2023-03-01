@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { crudInterface } from './crud.interface';
+import { crudInterface } from '../crud.interface';
 import { create, retrieve, retrieveAll, update, remove, removeAll } from './crud.service';
 
 export const Crud = (crud: crudInterface) => {
