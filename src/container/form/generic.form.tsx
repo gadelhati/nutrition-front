@@ -1,10 +1,10 @@
 import { useState, ChangeEvent, useEffect } from 'react';
-import { ErrorMessage } from '../assets/error/errorMessage';
-import { initialErrorMessage } from '../assets/error/errorMessage.initial';
-import { create, retrieve, retrieveAll, update, remove, removeAll } from '../component/user/crud.service';
-import { Container, ContainerInput, ContainerLabel } from './field/user.field';
-import { AtributeSet } from '../component/atribute/atribute.set';
-import { Atribute } from '../component/atribute/atribute.interface';
+import { ErrorMessage } from '../../assets/error/errorMessage';
+import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
+import { create, retrieve, retrieveAll, update, remove, removeAll } from '../../component/user/crud.service';
+import { Container, ContainerInput, ContainerLabel } from './generic.field';
+import { AtributeSet } from '../../component/atribute/atribute.set';
+import { Atribute } from '../../component/atribute/atribute.interface';
 
 export const GenericForm = <T extends Object>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
@@ -19,13 +19,16 @@ export const GenericForm = <T extends Object>(object: any, url: string) => {
     // Estabelecida (Settled).
 
     // useEffect(() => {
-        
+    //     refresh
     // }, [])
+    // const refresh = () => {
+    //     window.location.reload()
+    // }
     const resetItem = () => {
         setState(object)
     }
     const createItem = () => {
-        create(object.constructor.name.toLowerCase(), state)
+        create(object.url.toLowerCase(), state)
     }
     const retrieveItem = () => {
         // retrieve(object.url.toLowerCase(), state.id)
@@ -83,6 +86,8 @@ export const GenericForm = <T extends Object>(object: any, url: string) => {
             <button onClick={updateItem}>Update</button>
             <button onClick={deleteItem}>Delete</button>
             <button onClick={deleteAllItem}>Delete All</button>
+            
+            {/* <button onClick={refresh}>Refresh</button> */}
             
             {/* <Crud initialObject={initialUser} name={url} object={state} error={error}/> */}
             {/* {loading && <>Loading...</>}

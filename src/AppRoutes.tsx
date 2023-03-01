@@ -10,8 +10,9 @@ import { UserSignin } from "./component/user/user.signin";
 import { SideContainer } from "./container/Sidebar";
 import { FlexCointainer, SideItem } from "./container/template/Flex";
 import { initialFood } from "./component/food/food.initial";
-import { GenericForm } from "./container/generic.form";
+import { GenericForm } from "./container/form/generic.form";
 import { initialUser } from "./component/user/user.initial";
+import { initialRole } from "./component/role/role.initial";
 // import { Header } from "./container/menus/header";
 // import { Footer } from "./container/menus/footer";
 // import { AuthProvider } from "./assets/context/AuthProvider";
@@ -57,8 +58,9 @@ export default function AppRoutes() {
                                 <Route path="*" element={<UserSignin />}></Route>
                                 <Route path="/" element={<UserSignin />}></Route>
                                 <Route path="/auth" element={<UserSignin />}></Route>
-                                <Route path="/user" element={<GenericForm object={initialUser} url={'user'} />}></Route>
-                                <Route path="/food" element={<GenericForm object={initialFood} url={'food'} />}></Route>
+                                <Route path="/user" element={<GenericForm key='user' object={initialUser} url={'user'} />}></Route>
+                                <Route path="/role" element={<GenericForm key='role' object={initialRole} url={'role'} />}></Route>
+                                <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
                                 
                                 {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}></Route> */}
                                 {/* <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} /> */}

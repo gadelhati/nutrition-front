@@ -1,4 +1,3 @@
-import { User } from "../user/user.interface";
 import { initialAtribute } from "./atribute.initial";
 
 export const AtributeSet = <T extends Object>(initial: T) => {
