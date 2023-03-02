@@ -1,9 +1,9 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
-import { create, retrieve, retrieveAll, update, remove, removeAll } from '../../component/user/crud.service';
+import { create, retrieve, retrieveAll, update, remove, removeAll } from '../../service/crud.service';
 import { Container, ContainerInput, ContainerLabel } from './generic.field';
-import { AtributeSet } from '../../component/atribute/atribute.set';
+import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
 
 export const GenericForm = <T extends Object>(object: any, url: string) => {

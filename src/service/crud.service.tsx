@@ -1,6 +1,6 @@
-import { api } from "../../assets/api/api"
-import { ErrorMessage } from "../../assets/error/errorMessage"
-import { setToken } from "../../service/service.token"
+import { api } from "../assets/api/api"
+import { ErrorMessage } from "../assets/error/errorMessage"
+import { setToken } from "./service.token"
 
 export const login = async<Auth,>(url: string, object: Auth): Promise<Auth | void> => {
     let errorMessage: ErrorMessage[] = []

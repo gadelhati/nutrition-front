@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { crudInterface } from '../crud.interface';
-import { create, retrieve, retrieveAll, update, remove, removeAll } from './crud.service';
+import { crudInterface } from '../../component/crud.interface';
+import { create, retrieve, retrieveAll, update, remove, removeAll } from '../../service/crud.service';
 
 export const Crud = (crud: crudInterface) => {
     const [state, setState] = useState<Object>(crud.initialObject)

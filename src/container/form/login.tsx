@@ -1,9 +1,9 @@
 import { useState, ChangeEvent } from 'react';
-import { User } from "./user.interface";
-import { initialUser } from './user.initial';
+import { User } from "../../component/user/user.interface";
+import { initialUser } from '../../component/user/user.initial';
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
-import { login, create, retrieve, update, remove, removeAll } from './crud.service';
+import { login, create, retrieve, update, remove, removeAll } from '../../service/crud.service';
 import { Crud } from './crud.buttons';
 
 export const UserSignin = () => {
