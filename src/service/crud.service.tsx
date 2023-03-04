@@ -13,90 +13,90 @@ export const login = async<Auth,>(url: string, object: Auth): Promise<Auth | voi
             return errorMessage
         })
         .catch(function (error) {
-            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
+            return errorMessage.push({ field: error.response.data.status, message: error.response.data})
         });
 }
 
-export const create = async<T,>(url: string, object: T): Promise<T> => {
+export const create = async<T,>(url: string, object: T) => {
     return await api.post(`/${url}`, object)
         .then(response => {
-            return response.data?.content
+            return response.data
         })
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
                 errorMessage.push({ field: element.field, message: element.message })
             })
-            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
+            return errorMessage
         });
 }
 
-export const retrieve = async<T,>(url: string, id: string): Promise<T> => {
+export const retrieve = async<T,>(url: string, id: string) => {
     return await api.get(`/${url}/id/${id}`)
         .then(response => {
-            return response.data?.content
+            return response.data
         })
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
                 errorMessage.push({ field: element.field, message: element.message })
             })
-            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
+            return errorMessage
         });
 }
 
-export const retrieveAll = async<T,>(url: string, search: string): Promise<T> => {
+export const retrieveAll = async<T,>(url: string, search: string) => {
     return await api.get(`/${url}/${search}`)
         .then(response => {
-            return response.data?.content[0]
+            return response.data
         })
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
                 errorMessage.push({ field: element.field, message: element.message })
             })
-            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
+            return errorMessage
         });
 }
 
-export const update = async<T,>(url: string, object: T): Promise<T> => {
+export const update = async<T,>(url: string, object: T) => {
     return await api.put(`/${url}`, object)
         .then(response => {
-            return response.data?.content
+            return response.data
         })
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
                 errorMessage.push({ field: element.field, message: element.message })
             })
-            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
+            return errorMessage
         });
 }
 
-export const remove = async<T,>(url: string, id: string): Promise<T> => {
+export const remove = async<T,>(url: string, id: string) => {
     return await api.delete(`/${url}/${id}`)
         .then(response => {
-            return response.data?.content
+            return response.data
         })
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
                 errorMessage.push({ field: element.field, message: element.message })
             })
-            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
+            return errorMessage
         });
 }
 
-export const removeAll = async<T,>(url: string): Promise<T> => {
+export const removeAll = async<T,>(url: string) => {
     return await api.delete(`/${url}`)
         .then(response => {
-            return response.data?.content
+            return response.data
         })
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
                 errorMessage.push({ field: element.field, message: element.message })
             })
-            return errorMessage.push({ field: error.response.data.status, message: [error.response.data]})
+            return errorMessage
         });
 }

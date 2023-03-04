@@ -2,16 +2,17 @@ import { useState, ChangeEvent, useEffect } from 'react';
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
 import { create, retrieve, retrieveAll, update, remove, removeAll } from '../../service/crud.service';
-import { Container, ContainerInput, ContainerLabel } from './generic.field';
-import { AtributeSet } from './generic.atribute';
+import { Container, ContainerInput, ContainerLabel } from '../../container/form/generic.field';
+import { AtributeSet } from '../../container/form/generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
-import { Tooltip } from '../tootip/Tooltip';
+import { Role } from './role.interface';
+import { initialRole } from './role.initial';
 
-export const GenericForm = <T extends Object>(object: any, url: string) => {
-    const [state, setState] = useState<T>(object.object)
-    const [states, setStates] = useState<T[]>([object.object])
+export const RoleForm = () => {
+    const [state, setState] = useState<Role>(initialRole)
+    const [states, setStates] = useState<Role[]>([initialRole])
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
-    const [atribute, setAtribute] = useState<Atribute[]>(AtributeSet(object.object))
+    const [atribute, setAtribute] = useState<Atribute[]>(AtributeSet(initialRole))
 
     // Pendente (Pending).
     // Resolvida (Resolved) (não está na documentação, mas gosto de definir esse estado também).
@@ -26,7 +27,7 @@ export const GenericForm = <T extends Object>(object: any, url: string) => {
     //     window.location.reload()
     // }
     const resetItem = () => {
-        setState(object.object)
+        setState(initialRole)
     }
     const validAction = (data: any) => {
         if (data?.id) {
@@ -37,23 +38,23 @@ export const GenericForm = <T extends Object>(object: any, url: string) => {
         }
     }
     const createItem = async() => {
-        let data = await create(object.url.toLowerCase(), state)
+        let data = await create('role', state)
         validAction(data)
     }
     const retrieveItem = () => {
-        // retrieve(object.url.toLowerCase(), state.id)
+        retrieve('role', state.id)
     }
     const retrieveAllItem = () => {
-        // retrieveAll(object.url.toLowerCase(), state.name)
+        retrieveAll('role', state.name)
     }
     const updateItem = () => {
-        update(object.url.toLowerCase(), state)
+        update('role', state)
     }
     const deleteItem = () => {
-        // remove(object.url.toLowerCase(), state.id)
+        remove('role', state.id)
     }
     const deleteAllItem = () => {
-        removeAll(object.url.toLowerCase())
+        removeAll('role')
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
@@ -75,7 +76,8 @@ export const GenericForm = <T extends Object>(object: any, url: string) => {
                     <ContainerLabel>Username</ContainerLabel>
             </Container> */}
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
-            
+            {JSON.stringify(error)}
+            {validation('DTORequestRole')}
             { atribute &&
             <Container>
                 {Object.entries(state).map(([key, value], index) => {
@@ -85,9 +87,9 @@ export const GenericForm = <T extends Object>(object: any, url: string) => {
                                 <select name={key} onChange={handleInputChangeSelect}>
                                     {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
                                 </select> :
-                                <Tooltip data-tip={validation(key)}><ContainerInput type={atribute[index].type} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off' /></Tooltip>
+                                <ContainerInput type={atribute[index].type} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off' />
                             }
-                            {/* <ContainerLabel>{key}</ContainerLabel> */}
+                            <ContainerLabel>{key}</ContainerLabel>
                         </div>
                     )
                 })}
@@ -101,9 +103,9 @@ export const GenericForm = <T extends Object>(object: any, url: string) => {
             <button onClick={updateItem}>Update</button>
             <button onClick={deleteItem}>Delete</button>
             <button onClick={deleteAllItem}>Delete All</button>
-            
-            <button onClick={() => validation('name')}>Validation</button>
 
+            <button onClick={() => validation('name')}>Validation</button>
+            
             {/* <button onClick={refresh}>Refresh</button> */}
             
             {/* <Crud initialObject={initialUser} name={url} object={state} error={error}/> */}
