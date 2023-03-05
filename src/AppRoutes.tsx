@@ -13,7 +13,6 @@ import { initialFood } from "./component/food/food.initial";
 import { GenericForm } from "./container/form/generic.form";
 import { initialUser } from "./component/user/user.initial";
 import { initialRole } from "./component/role/role.initial";
-import { RoleForm } from "./component/role/role.form";
 // import { Header } from "./container/menus/header";
 // import { Footer } from "./container/menus/footer";
 // import { AuthProvider } from "./assets/context/AuthProvider";
@@ -42,7 +41,7 @@ export default function AppRoutes() {
             <HashRouter>
                 {/* <AuthProvider> */}
                 <FlexCointainer element='all'>
-                    <SideContainer />
+                    {getToken() && <SideContainer />}
                     <FlexCointainer element='main'>
                         <FlexCointainer element='nav'>
                             <SideItem>Sistema1</SideItem>
