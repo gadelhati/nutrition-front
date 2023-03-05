@@ -29,7 +29,7 @@ It is called nutritional information, also known as nutritional labeling, the ta
 - [ ] stitches: modal
 - [ ] counter only increases by 1
 - [ ] consume service that provide sidebar access
-- [ ] login: assume visual id
+- [x] login: assume visual id
 - [ ] header: sandwich to restore body
 - [ ] sidebar: personal icons
 

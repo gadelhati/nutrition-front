@@ -4,19 +4,32 @@ import { initialUser } from '../../component/user/user.initial';
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
 import { login, create, retrieve, update, remove, removeAll } from '../../service/crud.service';
-import { Crud } from './crud.buttons';
+import { Tooltip } from '../tootip/Tooltip';
+import { ContainerInput } from './generic.field';
 
 export const UserSignin = () => {
     const [state, setState] = useState<User>(initialUser)
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
     
-    const loginUser = () => {
-        let resposta = login('auth/login', state);
+    const refresh = () => {
+        window.location.reload()
     }
     const resetItem = () => {
         setState(initialUser)
     }
-
+    const validAction = (data: any) => {
+        if (data?.id) {
+            setState(data)
+            setError([initialErrorMessage])
+        } else {
+            setError(data)
+        }
+        refresh()
+    }
+    const loginUser = async() => {
+        let data = await login('auth/login', state);
+        validAction(data)
+    }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
         setState({ ...state, [event.target.name]: value })
@@ -24,32 +37,12 @@ export const UserSignin = () => {
     return (
         <section>
             <article>
-                <div className="form-floating">
-                    <input
-                        placeholder="USERNAME"
-                        type="text"
-                        className="form-control"
-                        // className={state.name == "" ? "form-control is-invalid" : "form-control is-valid"}
-                        value={state.username}
-                        onChange={handleInputChange}
-                        name="username"
-                    />
-                    <label htmlFor="username">Username</label>
-                    {/* <div className="valid-feedback">Looks good!</div> */}
-                    {/* <div className="invalid-feedback">Looks bad!</div> */}
-                </div>
-                <div className="form-floating">
-                    <input
-                        placeholder="PASSWORD"
-                        type="password"
-                        className="form-control"
-                        value={state.password}
-                        onChange={handleInputChange}
-                        name="password"
-                        readOnly={state.id != ""}
-                    />
-                    <label htmlFor="password">Password</label>
-                </div>
+                <Tooltip data-tip={'user'} hidden={true} >
+                    <ContainerInput type={'text'} placeholder={'username'} name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
+                </Tooltip>
+                <Tooltip data-tip={'password'} hidden={true} >
+                    <ContainerInput type={'password'} placeholder={'password'} name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
+                </Tooltip>
                 <button onClick={resetItem}>Reset</button>
                 <button onClick={loginUser}>Login</button>
                 {/* {loading && <>Loading...</>}
