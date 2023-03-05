@@ -34,7 +34,7 @@ export const create = async<T,>(url: string, object: T) => {
 export const retrieve = async<T,>(url: string, id: string) => {
     return await api.get(`/${url}/id/${id}`)
         .then(response => {
-            return response.data
+            return response.data.content
         })
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []
@@ -48,7 +48,7 @@ export const retrieve = async<T,>(url: string, id: string) => {
 export const retrieveAll = async<T,>(url: string, search: string) => {
     return await api.get(`/${url}/${search}`)
         .then(response => {
-            return response.data
+            return response.data.content
         })
         .catch(function (error) {
             let errorMessage: ErrorMessage[] = []

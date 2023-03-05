@@ -24,7 +24,7 @@
 It is called nutritional information, also known as nutritional labeling, the table of information regarding the amounts of vitamins, mineral salts, fats, proteins, fibers, among others, per portion, contained in most product packaging.
 
 ## Roadmap
-- [ ] stitches: datatable
+- [x] stitches: datatable
 - [x] stitches: float label
 - [ ] stitches: modal
 - [ ] counter only increases by 1

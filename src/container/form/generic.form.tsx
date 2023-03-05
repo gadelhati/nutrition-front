@@ -6,6 +6,7 @@ import { Container, ContainerInput, ContainerLabel } from './generic.field';
 import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
 import { Tooltip } from '../tootip/Tooltip';
+import { GenericDatatable } from './generic.datatable';
 
 export const GenericForm = <T extends {id: string, name: string}>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
@@ -19,9 +20,9 @@ export const GenericForm = <T extends {id: string, name: string}>(object: any, u
     // Realizada (Fulfilled).
     // Estabelecida (Settled).
 
-    // useEffect(() => {
-        
-    // }, [])
+    useEffect(() => {
+        retrieveAllItem()
+    }, [])
     const resetItem = () => {
         setState(object.object)
     }
@@ -37,20 +38,21 @@ export const GenericForm = <T extends {id: string, name: string}>(object: any, u
         let data = await create(object.url.toLowerCase(), state)
         validAction(data)
     }
-    const retrieveItem = () => {
-        retrieve(object.url.toLowerCase(), state.id)
+    const retrieveItem = async() => {
+        await retrieve(object.url.toLowerCase(), state.id)
     }
-    const retrieveAllItem = () => {
-        retrieveAll(object.url.toLowerCase(), state.name)
+    const retrieveAllItem = async() => {
+        await retrieveAll(object.url.toLowerCase(), state.name)
     }
-    const updateItem = () => {
-        update(object.url.toLowerCase(), state)
+    const updateItem = async() => {
+        let data = await update(object.url.toLowerCase(), state)
+        validAction(data)
     }
-    const deleteItem = () => {
-        remove(object.url.toLowerCase(), state.id)
+    const deleteItem = async() => {
+        await remove(object.url.toLowerCase(), state.id)
     }
-    const deleteAllItem = () => {
-        removeAll(object.url.toLowerCase())
+    const deleteAllItem = async() => {
+        await removeAll(object.url.toLowerCase())
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
@@ -99,6 +101,8 @@ export const GenericForm = <T extends {id: string, name: string}>(object: any, u
             <button onClick={deleteItem}>Delete</button>
             <button onClick={deleteAllItem}>Delete All</button>
             
+            <GenericDatatable key='gen' object={object.object} url={object.url.toLowerCase()} />
+
             {/* <Crud initialObject={initialUser} name={url} object={state} error={error}/> */}
             {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}
