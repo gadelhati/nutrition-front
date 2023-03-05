@@ -98,3 +98,20 @@ export const Sidebar = styled('aside',{
         },
     },
 })
+
+export const CenterContainer = styled('div',{
+    minHeight: '100vh',
+    padding: '0',
+    margin: '0',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+})
+export const CenterItem = styled('div', {
+    backgroundColor: 'gold',
+    borderRadius: '10px',
+    width: '20vw',
+    height: '60vh',
+    padding: '0',
+    margin: '0',
+})

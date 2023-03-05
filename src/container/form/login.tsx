@@ -6,11 +6,12 @@ import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
 import { login, create, retrieve, update, remove, removeAll } from '../../service/crud.service';
 import { Tooltip } from '../tootip/Tooltip';
 import { ContainerInput } from './generic.field';
+import { CenterContainer, CenterItem } from '../template/Flex';
 
 export const UserSignin = () => {
     const [state, setState] = useState<User>(initialUser)
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
-    
+
     const refresh = () => {
         window.location.reload()
     }
@@ -26,7 +27,7 @@ export const UserSignin = () => {
         }
         refresh()
     }
-    const loginUser = async() => {
+    const loginUser = async () => {
         let data = await login('auth/login', state);
         validAction(data)
     }
@@ -35,8 +36,8 @@ export const UserSignin = () => {
         setState({ ...state, [event.target.name]: value })
     }
     return (
-        <section>
-            <article>
+        <CenterContainer>
+            <CenterItem>
                 <Tooltip data-tip={'user'} hidden={true} >
                     <ContainerInput type={'text'} placeholder={'username'} name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
                 </Tooltip>
@@ -47,7 +48,7 @@ export const UserSignin = () => {
                 <button onClick={loginUser}>Login</button>
                 {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}
-            </article>
-        </section>
+            </CenterItem>
+        </CenterContainer>
     );
 }
