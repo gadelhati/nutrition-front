@@ -42,7 +42,8 @@ export const GenericForm = <T extends {id: string, name: string}>(object: any, u
         await retrieve(object.url.toLowerCase(), state.id)
     }
     const retrieveAllItem = async() => {
-        await retrieveAll(object.url.toLowerCase(), state.name)
+        let data = await retrieveAll(object.url.toLowerCase(), state.name)
+        setStates(data)
     }
     const updateItem = async() => {
         let data = await update(object.url.toLowerCase(), state)
@@ -100,8 +101,14 @@ export const GenericForm = <T extends {id: string, name: string}>(object: any, u
             <button onClick={updateItem}>Update</button>
             <button onClick={deleteItem}>Delete</button>
             <button onClick={deleteAllItem}>Delete All</button>
+
+            <table>
+                 {states.map((element)=>{
+                     return <tr><td>{element.id}</td><td>{element.name}</td></tr>
+                 })}
+            </table>
             
-            <GenericDatatable key='gen' object={object.object} url={object.url.toLowerCase()} />
+            {/* <GenericDatatable key='gen' objects={states} url={object.url.toLowerCase()} /> */}
 
             {/* <Crud initialObject={initialUser} name={url} object={state} error={error}/> */}
             {/* {loading && <>Loading...</>}

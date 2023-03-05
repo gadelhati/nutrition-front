@@ -3,14 +3,13 @@ import { retrieveAll } from '../../service/crud.service';
 
 export const GenericDatatable = <T extends {id: string, name: string}>(objects: any, url: string) => {
     const [state, setState] = useState<T>(objects.object)
-    const [states, setStates] = useState<T[]>([objects.objects])
+    const [states, setStates] = useState<T[]>(objects.objects)
 
     useEffect(() => {
         retrieveAllItem()
     }, [])
     const validActions = (data: any) => {
         setStates(data)
-        console.log(states)
     }
     const retrieveAllItem = async() => {
         let data = await retrieveAll(objects.url.toLowerCase(), state.name)
@@ -19,6 +18,7 @@ export const GenericDatatable = <T extends {id: string, name: string}>(objects: 
 
     return (
         <>
+            {JSON.stringify(states)}
             <table>
                  {states.map((element)=>{
                      return <tr><td>{element.id}</td><td>{element.name}</td></tr>
