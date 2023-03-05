@@ -75,7 +75,7 @@ export const GenericForm = <T extends Object>(object: any, url: string) => {
                     <ContainerLabel>Username</ContainerLabel>
             </Container> */}
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
-            
+
             { atribute &&
             <Container>
                 {Object.entries(state).map(([key, value], index) => {
@@ -85,7 +85,7 @@ export const GenericForm = <T extends Object>(object: any, url: string) => {
                                 <select name={key} onChange={handleInputChangeSelect}>
                                     {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
                                 </select> :
-                                <Tooltip data-tip={validation(key)}><ContainerInput type={atribute[index].type} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off' /></Tooltip>
+                                <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} ><ContainerInput type={atribute[index].type} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off' /></Tooltip>
                             }
                             {/* <ContainerLabel>{key}</ContainerLabel> */}
                         </div>

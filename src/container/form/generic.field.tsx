@@ -21,7 +21,7 @@ export const ContainerInput = styled('input',{
     border: 'none',
     backgroundColor: '$five1',
     borderBottom: '1px solid #757575',
-    // borderRadius: '5px',
+    borderRadius: '5px',
     // paddingTop: '5px',
     '&:focus': {
         outline: 'none',

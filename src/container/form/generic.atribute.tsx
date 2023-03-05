@@ -9,6 +9,8 @@ export const AtributeSet = <T extends Object>(initial: T) => {
     Object.entries(initial).map(([key, value]) => {
         if (key === 'password')
             type_name = 'password'
+        else if (key === 'id')
+            type_name = 'hidden'
         else if (typeof value === 'boolean')
             type_name = 'checkbox'
         else if (typeof value === 'number')

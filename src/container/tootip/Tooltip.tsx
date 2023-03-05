@@ -49,4 +49,21 @@ export const Tooltip = styled('div',{
         visibility: 'visible',
         opacity: '1',
     },
+    '[data-tip!=[]]': {
+        background: 'yellow',
+    },
+    variants: {
+        hidden: {
+            false: {
+                color: '$four1',
+                border: '3px solid $five',
+                // background: 'red',
+            },
+        },
+        // tip: {
+        //     false: {
+        //         display: 'none',
+        //     },
+        // }
+    },
 })
