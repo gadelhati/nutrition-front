@@ -7,7 +7,7 @@ import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
 import { Tooltip } from '../tootip/Tooltip';
 
-export const GenericForm = <T extends Object>(object: any, url: string) => {
+export const GenericForm = <T extends {id: string, name: string}>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
     const [states, setStates] = useState<T[]>([object.object])
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
@@ -20,11 +20,8 @@ export const GenericForm = <T extends Object>(object: any, url: string) => {
     // Estabelecida (Settled).
 
     // useEffect(() => {
-    //     refresh
+        
     // }, [])
-    // const refresh = () => {
-    //     window.location.reload()
-    // }
     const resetItem = () => {
         setState(object.object)
     }
@@ -41,16 +38,16 @@ export const GenericForm = <T extends Object>(object: any, url: string) => {
         validAction(data)
     }
     const retrieveItem = () => {
-        // retrieve(object.url.toLowerCase(), state.id)
+        retrieve(object.url.toLowerCase(), state.id)
     }
     const retrieveAllItem = () => {
-        // retrieveAll(object.url.toLowerCase(), state.name)
+        retrieveAll(object.url.toLowerCase(), state.name)
     }
     const updateItem = () => {
         update(object.url.toLowerCase(), state)
     }
     const deleteItem = () => {
-        // remove(object.url.toLowerCase(), state.id)
+        remove(object.url.toLowerCase(), state.id)
     }
     const deleteAllItem = () => {
         removeAll(object.url.toLowerCase())
@@ -101,10 +98,6 @@ export const GenericForm = <T extends Object>(object: any, url: string) => {
             <button onClick={updateItem}>Update</button>
             <button onClick={deleteItem}>Delete</button>
             <button onClick={deleteAllItem}>Delete All</button>
-            
-            <button onClick={() => validation('name')}>Validation</button>
-
-            {/* <button onClick={refresh}>Refresh</button> */}
             
             {/* <Crud initialObject={initialUser} name={url} object={state} error={error}/> */}
             {/* {loading && <>Loading...</>}
