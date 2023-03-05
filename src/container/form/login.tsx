@@ -6,7 +6,7 @@ import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
 import { login, create, retrieve, update, remove, removeAll } from '../../service/crud.service';
 import { Tooltip } from '../tootip/Tooltip';
 import { ContainerInput } from './generic.field';
-import { CenterContainer, CenterItem } from '../template/Flex';
+import { Button, CenterContainer, CenterItem } from '../template/Flex';
 
 export const UserSignin = () => {
     const [state, setState] = useState<User>(initialUser)
@@ -44,8 +44,8 @@ export const UserSignin = () => {
                 <Tooltip data-tip={'password'} hidden={true} >
                     <ContainerInput type={'password'} placeholder={'password'} name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
                 </Tooltip>
-                <button onClick={resetItem}>Reset</button>
-                <button onClick={loginUser}>Login</button>
+                <Button onClick={resetItem}>Reset</Button>
+                <Button onClick={loginUser}>Login</Button>
                 {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}
             </CenterItem>

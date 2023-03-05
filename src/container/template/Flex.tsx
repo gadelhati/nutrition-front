@@ -1,6 +1,6 @@
-import { stitches } from "../globalStyles";
+import { stitches } from "../globalStyles"
 
-const { styled } = stitches;
+const { styled } = stitches
 
 export const FlexCointainer = styled('div',{
     height: '100vh',
@@ -114,4 +114,59 @@ export const CenterItem = styled('div', {
     height: '60vh',
     padding: '0',
     margin: '0',
+})
+
+export const Button = styled('button', {
+    alignItems: 'center',
+    appearance: 'none',
+    backgroundImage: 'radial-gradient(100% 100% at 100% 0, $one1 0, $five1 100%)',
+    border: '0',
+    borderRadius: '6px',
+    boxShadow: '$one 0 2px 4px, $two 0 7px 13px -3px, $three 0 -3px 0 inset',
+    boxSizing: 'border-box',
+    color: '#fff',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    fontFamily: '"JetBrains Mono",monospace',
+    height: '48px',
+    justifyContent: 'center',
+    lineHeight: '1',
+    listStyle: 'none',
+    overflow: 'hidden',
+    paddingLeft: '16px',
+    paddingRight: '16px',
+    position: 'relative',
+    textAlign: 'left',
+    textDecoration: 'none',
+    transition: 'box-shadow .15s,transform .15s',
+    userSelect: 'none',
+    touchAction: 'manipulation',
+    whiteSpace: 'nowrap',
+    willChange: 'box-shadow,transform',
+    fontSize: '18px',
+    '&:focus': {
+        boxShadow: '$six 0 2px 4px, $five 0 7px 13px -3px, $four 0 -3px 0 inset',
+    },
+    '&:hover': {
+        boxShadow: '$one1 0 2px 4px, $two1 0 7px 13px -3px, $three1 0 -3px 0 inset',
+        transform: 'translateY(-2px)',
+    },
+    '&:active': {
+        boxShadow: '#3c4fe0 0 3px 7px inset',
+        transform: 'translateY(2px)',
+    },
+})
+
+export const Table = styled('table', {
+    fontFamily: 'arial, sans-serif',
+    borderCollapse: 'collapse',
+    width: '100%',
+    'td, th': {
+        border: '1px solid #dddddd',
+        textAlign: 'left',
+        padding: '8px',
+    },
+    'tr:nth-child(even)': {
+        backgroundColor: '#dddddd',
+    }
 })
