@@ -48,7 +48,8 @@ export default function AppRoutes() {
                             {/* <FlexItem>2</FlexItem> */}
                             <SideItem>3</SideItem>
                         </FlexCointainer>
-                        <FlexCointainer element='content'>
+                        {/* <FlexCointainer element='content'> */}
+                        <div>
                             {/* <Header /> */}
                             <Routes>
                                 {/* <Route path="*" element={getToken() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route>
@@ -77,7 +78,8 @@ export default function AppRoutes() {
                                 <Route path="/om" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<OMList />} />} /> </Route> */}
                             </Routes>
                             {/* <Footer /> */}
-                        </FlexCointainer>
+                        {/* </FlexCointainer> */}
+                        </div>
                     </FlexCointainer>
                 </FlexCointainer>
                 {/* </AuthProvider> */}
