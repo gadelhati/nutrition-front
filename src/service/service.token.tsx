@@ -10,14 +10,14 @@ export const setToken = (token: any) => {
   localStorage.setItem(`token`, JSON.stringify(token));
 }
 
-export const getLocalRefreshToken = () => {
+export const getLocalAccessToken = () => {
   const token = JSON.parse(`${localStorage.getItem(`token`)}`);
-  return token?.refreshToken;
+  return token?.accessToken;
 }
 
-export const getId = () => {
+export const getLocalTokenType = () => {
   const token = JSON.parse(`${localStorage.getItem(`token`)}`);
-  return token?.id;
+  return token?.tokenType;
 }
 
 export const getUserName = () => {
@@ -25,19 +25,9 @@ export const getUserName = () => {
   return token?.username;
 }
 
-export const getEmail = () => {
-  const token = JSON.parse(`${localStorage.getItem(`token`)}`);
-  return token?.email;
-}
-
 export const getRoles = () => {
   const token = JSON.parse(`${localStorage.getItem(`token`)}`);
   return token?.roles;
-}
-
-export const getLocalAccessToken = () => {
-  const token = JSON.parse(`${localStorage.getItem(`token`)}`);
-  return token?.accessToken;
 }
 
 export const removeToken = () => {
