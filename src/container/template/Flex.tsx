@@ -7,7 +7,7 @@ export const FlexCointainer = styled('div',{
     width: '100%',
     display: 'flex',
     justifyContent: 'start',
-    alignItems: 'center',
+    // alignItems: 'center',
     overflow: 'hidden',
     variants: {
         element:{
@@ -108,7 +108,7 @@ export const CenterContainer = styled('div',{
     justifyContent: 'center',
 })
 export const CenterItem = styled('div', {
-    backgroundColor: 'gold',
+    backgroundColor: '$one1',
     borderRadius: '10px',
     width: '20vw',
     height: '60vh',
