@@ -108,9 +108,13 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
 
             <Table>
                 <tbody>
-                {states.map((element) => {
-                    return <tr><td>{element.id}</td><td>{element.name}</td><td><Button onClick={() => selectItem(element)}>S</Button></td></tr>
-                })}
+                    <thead>
+                        <tr><th>ID</th><th>NAME</th></tr>
+                    </thead>
+                    {states.map((element) => {
+                        return <tr><td>{element.id}</td><td>{element.name}</td><td><Button onClick={() => selectItem(element)}>S</Button></td></tr>
+                    })}
+                    <tfoot>FOOTER</tfoot>
                 </tbody>
             </Table>
 

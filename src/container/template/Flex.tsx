@@ -141,8 +141,10 @@ export const Button = styled('button', {
 
 export const Table = styled('table', {
     fontFamily: 'arial, sans-serif',
+    fontSize: '0.8em',
     borderCollapse: 'collapse',
     width: '100%',
+    
     'tbody': {
         display: 'block',
         height: '100vh',
