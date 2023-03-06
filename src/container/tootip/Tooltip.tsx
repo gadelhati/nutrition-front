@@ -57,13 +57,8 @@ export const Tooltip = styled('div',{
             false: {
                 color: '$four1',
                 border: '3px solid $five',
-                // background: 'red',
+                borderRadius: '0.5em',
             },
         },
-        // tip: {
-        //     false: {
-        //         display: 'none',
-        //     },
-        // }
     },
 })
