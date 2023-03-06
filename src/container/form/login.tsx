@@ -1,12 +1,13 @@
-import { useState, ChangeEvent } from 'react';
-import { User } from "../../component/user/user.interface";
-import { initialUser } from '../../component/user/user.initial';
-import { ErrorMessage } from '../../assets/error/errorMessage';
-import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
-import { login, create, retrieve, update, remove, removeAll } from '../../service/crud.service';
-import { Tooltip } from '../tootip/Tooltip';
-import { ContainerInput } from './generic.field';
-import { Button, CenterContainer, CenterItem } from '../template/Flex';
+import { useState, ChangeEvent } from 'react'
+import { User } from "../../component/user/user.interface"
+import { initialUser } from '../../component/user/user.initial'
+import { ErrorMessage } from '../../assets/error/errorMessage'
+import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
+import { login, create, retrieve, update, remove, removeAll } from '../../service/crud.service'
+import { Tooltip } from '../tootip/Tooltip'
+import { ContainerInput } from './generic.field'
+import { Button, CenterContainer, CenterItem } from '../template/Flex'
+import { logout } from '../../service/service.auth'
 
 export const UserSignin = () => {
     const [state, setState] = useState<User>(initialUser)
@@ -28,8 +29,12 @@ export const UserSignin = () => {
         refresh()
     }
     const loginUser = async () => {
-        let data = await login('auth/login', state);
+        let data = await login('auth/login', state)
         validAction(data)
+    }
+    const logoutUser = async () => {
+        logout()
+        resetItem()
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
@@ -46,6 +51,7 @@ export const UserSignin = () => {
                 </Tooltip>
                 <Button onClick={resetItem}>Reset</Button>
                 <Button onClick={loginUser}>Login</Button>
+                <Button onClick={logoutUser}>Logout</Button>
                 {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}
             </CenterItem>
