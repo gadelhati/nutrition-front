@@ -98,13 +98,13 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                 </Container>
             }
 
-            <button onClick={resetItem}>Reset</button>
-            <button onClick={createItem}>Create</button>
-            <button onClick={retrieveItem}>Retrieve by ID</button>
-            <button onClick={retrieveAllItem}>Retrieve All by search</button>
-            <button onClick={updateItem}>Update</button>
-            <button onClick={deleteItem}>Delete</button>
-            <button onClick={deleteAllItem}>Delete All</button>
+            <Button onClick={resetItem}>Reset</Button>
+            <Button onClick={createItem}>Create</Button>
+            <Button onClick={retrieveItem}>Retrieve by ID</Button>
+            <Button onClick={retrieveAllItem}>Retrieve All by search</Button>
+            <Button onClick={updateItem}>Update</Button>
+            <Button onClick={deleteItem}>Delete</Button>
+            <Button onClick={deleteAllItem}>Delete All</Button>
 
             <Table>
                 {states.map((element) => {
