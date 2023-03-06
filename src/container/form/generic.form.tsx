@@ -107,9 +107,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
             <Button onClick={deleteAllItem}>Delete All</Button>
 
             <Table>
+                <tbody>
                 {states.map((element) => {
                     return <tr><td>{element.id}</td><td>{element.name}</td><td><Button onClick={() => selectItem(element)}>S</Button></td></tr>
                 })}
+                </tbody>
             </Table>
 
             {/* <GenericDatatable key='gen' objects={states} url={object.url.toLowerCase()} /> */}

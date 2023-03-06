@@ -143,12 +143,22 @@ export const Table = styled('table', {
     fontFamily: 'arial, sans-serif',
     borderCollapse: 'collapse',
     width: '100%',
+    'tbody': {
+        display: 'block',
+        height: '100vh',
+        overflowY: 'auto',
+        overflowX: 'hidden',
+    },
     'td, th': {
         border: '1px solid #dddddd',
         textAlign: 'left',
         padding: '8px',
+        width: '100%',
     },
     'tr:nth-child(even)': {
         backgroundColor: '#dddddd',
-    }
+    },
+    'tr:hover': {
+        backgroundColor: '$six1',
+    },
 })
