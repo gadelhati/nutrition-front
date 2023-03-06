@@ -134,6 +134,9 @@ export const Button = styled('button', {
     '&:hover': {
         borderColor: '$five1',
     },
+    '&:focus': {
+        borderColor: '$five1',
+    },
 })
 
 export const Table = styled('table', {
