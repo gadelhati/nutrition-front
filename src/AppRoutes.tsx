@@ -41,7 +41,7 @@ export default function AppRoutes() {
     return (
         <body>
             <HashRouter>
-                {/* <AuthProvider> */}
+                <AuthProvider>
                 <FlexCointainer element='all'>
                     {getToken() && <SideContainer />}
                     <FlexCointainer element='main'>
@@ -85,7 +85,7 @@ export default function AppRoutes() {
                         </div>
                     </FlexCointainer>
                 </FlexCointainer>
-                {/* </AuthProvider> */}
+                </AuthProvider>
             </HashRouter>
         </body>
     )
