@@ -3,7 +3,7 @@ import { getToken, getUserName } from "../../service/service.token";
 import { initialAuth } from "./auth.initial";
 import { Auth } from "./auth.interface";
 
-const AuthContext = createContext<Auth>({} as Auth);
+export const AuthContext = createContext<Auth>({} as Auth);
 
 export const AuthProvider = ({ children }: any) => {
     const [state, setState] = useState<Auth>(initialAuth)
@@ -17,5 +17,3 @@ export const AuthProvider = ({ children }: any) => {
         </AuthContext.Provider>
     )
 }
-
-export default AuthContext;
