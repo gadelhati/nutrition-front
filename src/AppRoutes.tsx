@@ -1,11 +1,9 @@
 import { Route, HashRouter, Routes, Navigate } from "react-router-dom";
 
 // import { ProtectedRoute, ProtectedRouteProps } from "./ProtectedRoutes";
-// import { Profile } from "./component/user/profile";
-// import { SideBar } from "./container/menus/sidebar/sidebar";
+import { RequireAuth } from "./RequireAuth";
 import { getRoles, getToken } from "./service/service.token"
 
-// import { UserList } from "./component/user/user.list";
 import { UserSignin } from "./container/form/login";
 import { SideContainer } from "./container/Sidebar";
 import { FlexCointainer, SideItem } from "./container/template/Flex";
@@ -13,31 +11,20 @@ import { initialFood } from "./component/food/food.initial";
 import { GenericForm } from "./container/form/generic.form";
 import { initialUser } from "./component/user/user.initial";
 import { initialRole } from "./component/role/role.initial";
+import { NotAllowed } from "./container/not.allowed";
 import { AuthProvider } from "./component/auth/AuthProvider";
-import RequireAuth from "./RequireAuth";
 // import { Header } from "./container/menus/header";
 // import { Footer } from "./container/menus/footer";
-// import { AuthProvider } from "./assets/context/AuthProvider";
-// import RequireAuth from "./RequireAuth";
-// import { useAuth } from "./assets/hook/useAuth";
-// import { RoleList } from "./component/role/role.list";
-// import { SigninContainer } from "./component/auth/signin";
-// import { SideBar } from "./container/sidebar/sidebar";
+// import { Profile } from "./component/user/profile";
 
 const ROLES = {
-    'User': "ROLE_USER",
-    'Admin': "ROLE_ADMIN",
-    'Moderador': "ROLE_MODERATOR"
+    'USER': "ROLE_USER",
+    'ADMIN': "ROLE_ADMIN",
+    'MODERATOR': "ROLE_MODERATOR"
 }
 
 export default function AppRoutes() {
-    // const { roles } = useAuth();
-    // const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
-    //     isAuthenticated: getToken(),
-    //     authenticationPath: '/signin',
-    //     allowedRoles: "",
-    //     // allowedRoles: getUser()?.roles.find((role: any) => role),
-    // };
+    
     return (
         <body>
             <HashRouter>
@@ -60,10 +47,13 @@ export default function AppRoutes() {
 
                                 <Route path="*" element={<UserSignin />}></Route>
                                 <Route path="/" element={<UserSignin />}></Route>
+                                <Route path="/notAllowed" element={<NotAllowed />}></Route>
                                 <Route path="/auth" element={<UserSignin />}></Route>
-                                <Route path="/user" element={<GenericForm key='user' object={initialUser} url={'user'} />}></Route>
-                                <Route path="/role" element={<GenericForm key='role' object={initialRole} url={'role'} />}></Route>
-                                <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+                                <Route element={<RequireAuth allowedRoles={[ROLES.USER, ROLES.ADMIN, ROLES.MODERATOR]} />}>
+                                    <Route path="/user" element={<GenericForm key='user' object={initialUser} url={'user'} />}></Route>
+                                    <Route path="/role" element={<GenericForm key='role' object={initialRole} url={'role'} />}></Route>
+                                </Route>
+                                <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}>
                                     <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
                                 </Route>
                                 {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}></Route> */}
