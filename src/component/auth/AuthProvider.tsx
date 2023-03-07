@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }: any) => {
     const [state, setState] = useState<Auth>(initialAuth)
 
     useEffect(() => {
-        setState(getToken())
+        if (getToken() != null) setState(getToken())
     }, []);
     return (
         <AuthContext.Provider value={state}>
