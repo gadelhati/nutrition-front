@@ -1,6 +1,5 @@
 import { Route, HashRouter, Routes, Navigate } from "react-router-dom";
 
-// import { ProtectedRoute, ProtectedRouteProps } from "./ProtectedRoutes";
 import { RequireAuth } from "./RequireAuth";
 import { getRoles, getToken } from "./service/service.token"
 
@@ -13,6 +12,7 @@ import { initialUser } from "./component/user/user.initial";
 import { initialRole } from "./component/role/role.initial";
 import { NotAllowed } from "./container/not.allowed";
 import { AuthProvider } from "./component/auth/AuthProvider";
+import { initialFoodCategory } from "./component/foodCategory/food.category.initial";
 // import { Header } from "./container/menus/header";
 // import { Footer } from "./container/menus/footer";
 // import { Profile } from "./component/user/profile";
@@ -41,10 +41,6 @@ export default function AppRoutes() {
                         <div>
                             {/* <Header /> */}
                             <Routes>
-                                {/* <Route path="*" element={getToken() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route>
-                            <Route path="/" element={getToken() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route>
-                            <Route path="/signin" element={getToken() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route> */}
-
                                 <Route path="*" element={<UserSignin />}></Route>
                                 <Route path="/" element={<UserSignin />}></Route>
                                 <Route path="/notAllowed" element={<NotAllowed />}></Route>
@@ -55,20 +51,9 @@ export default function AppRoutes() {
                                 </Route>
                                 <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}>
                                     <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
+                                    <Route path="/food_category" element={<GenericForm key='food_category' object={initialFoodCategory} url={'food_category'} />}></Route>
                                 </Route>
-                                {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}></Route> */}
-                                {/* <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} /> */}
-                                {/* <Route path="/researcher" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ResearcherList />} allowedRoles={"ROLE_ADMIN"} />} /> */}
-
-                                {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}> */}
-                                {/* <Route path="/users" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<UserList />} />} />
-                                <Route path="/roles" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<RoleList />} />} /> */}
-                                {/* <Route path="/country" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<CountryList />} />} />
-                                <Route path="/institution" element={<InstitutionList />} /> */}
-                                {/* </Route> */}
-
-                                {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.Moderador]} />}>
-                                <Route path="/om" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<OMList />} />} /> </Route> */}
+                                
                             </Routes>
                             {/* <Footer /> */}
                         {/* </FlexCointainer> */}
