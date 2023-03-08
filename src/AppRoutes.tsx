@@ -13,6 +13,7 @@ import { initialRole } from "./component/role/role.initial";
 import { NotAllowed } from "./container/not.allowed";
 import { AuthProvider } from "./component/auth/AuthProvider";
 import { initialFoodCategory } from "./component/foodCategory/food.category.initial";
+import { initialPreparation } from "./component/preparation/preparation.initial";
 // import { Header } from "./container/menus/header";
 // import { Footer } from "./container/menus/footer";
 // import { Profile } from "./component/user/profile";
@@ -51,6 +52,7 @@ export default function AppRoutes() {
                                 </Route>
                                 <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}>
                                     <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
+                                    <Route path="/preparation" element={<GenericForm key='preparation' object={initialPreparation} url={'preparation'} />}></Route>
                                     <Route path="/food_category" element={<GenericForm key='food_category' object={initialFoodCategory} url={'food_category'} />}></Route>
                                 </Route>
                                 
