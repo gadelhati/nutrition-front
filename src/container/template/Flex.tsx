@@ -68,6 +68,7 @@ export const Sidebar = styled('aside',{
     justifyContent: 'start',
     flexDirection: 'column',
     padding: '$xxs',
+    paddingLeft: '$md',
     margin: '$xxs',
     borderRadius: '.3rem',
     color: '$five1',
@@ -142,9 +143,9 @@ export const Button = styled('button', {
 export const Table = styled('table', {
     fontFamily: 'arial, sans-serif',
     fontSize: '0.8em',
-    borderCollapse: 'collapse',
+    boxSizing: 'border-box',
     width: '100%',
-    
+    padding: '$sm',
     'tbody': {
         display: 'block',
         height: '100vh',
@@ -152,15 +153,17 @@ export const Table = styled('table', {
         overflowX: 'hidden',
     },
     'td, th': {
-        border: '1px solid #dddddd',
         textAlign: 'left',
-        padding: '8px',
         width: '100%',
     },
     'tr:nth-child(even)': {
-        backgroundColor: '#dddddd',
+        backgroundColor: '$six',
+    },
+    'tr:nth-child(odd)': {
+        backgroundColor: '$five1',
     },
     'tr:hover': {
-        backgroundColor: '$six1',
+        color: '$one1',
+        backgroundColor: '$five1',
     },
 })
