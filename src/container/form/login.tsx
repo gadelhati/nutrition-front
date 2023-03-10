@@ -29,7 +29,7 @@ export const UserSignin = () => {
         refresh()
     }
     const loginUser = async () => {
-        let data = await login('auth/login', state)
+        let data = await login('auth', state)
         validAction(data)
     }
     const logoutUser = async () => {
