@@ -8,6 +8,7 @@ import { Atribute } from '../../component/atribute/atribute.interface';
 import { Tooltip } from '../tootip/Tooltip';
 import { GenericDatatable } from './generic.datatable';
 import { Button, Table } from '../template/Flex';
+import { getToken } from '../../service/service.token';
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
@@ -24,6 +25,31 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     useEffect(() => {
         retrieveAllItem()
     }, [])
+    const parseJwt = () => {
+        var token = getToken().accessToken
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        let unix_timestamp = 1549312452
+        // Create a new JavaScript Date object based on the timestamp
+        // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+        var date = new Date(unix_timestamp * 1000);
+        // Hours part from the timestamp
+        var hours = date.getHours();
+        // Minutes part from the timestamp
+        var minutes = "0" + date.getMinutes();
+        // Seconds part from the timestamp
+        var seconds = "0" + date.getSeconds();
+        
+        // Will display time in 10:30:23 format
+        var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+        
+        console.log('Date: ', date);
+        console.log('Hour: ', formattedTime);
+        return JSON.parse(jsonPayload);
+    }
     const resetItem = () => {
         setState(object.object)
     }
@@ -79,7 +105,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                     <ContainerLabel>Username</ContainerLabel>
             </Container> */}
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
-
+            {/* {getToken() && JSON.stringify(parseJwt(getToken()))} */}
+            {getToken() && JSON.stringify(parseJwt())}
             {atribute &&
                 <Container>
                     {Object.entries(state).map(([key, value], index) => {
