@@ -1,7 +1,7 @@
 import { Route, HashRouter, Routes, Navigate } from "react-router-dom";
 
 import { RequireAuth } from "./RequireAuth";
-import { getRoles, getToken } from "./service/service.token"
+import { getRoles, getToken, isValidToken } from "./service/service.token"
 
 import { UserSignin } from "./container/form/login";
 import { SideContainer } from "./container/Sidebar";
@@ -31,7 +31,7 @@ export default function AppRoutes() {
             <HashRouter>
                 <AuthProvider>
                 <FlexCointainer element='all'>
-                    {getToken() && <SideContainer />}
+                    {getToken() && isValidToken() && <SideContainer />}
                     <FlexCointainer element='main'>
                         <FlexCointainer element='nav'>
                             <SideItem>Sistema1</SideItem>
