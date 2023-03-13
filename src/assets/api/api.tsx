@@ -1,7 +1,7 @@
 import axios from "axios"
-import { getLocalAccessToken } from "../../service/service.token"
+import { getAccessToken } from "../../service/service.token"
 
-const token = getLocalAccessToken();
+const token = getAccessToken();
 
 export const api = axios.create({
   baseURL: "http://localhost:3119/nutrition-back",
@@ -10,7 +10,7 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use(async config => {
-  const token = getLocalAccessToken();
+  const token = getAccessToken();
   if (token) {
     config.headers!.Authorization = `Bearer ${token}`;
   }

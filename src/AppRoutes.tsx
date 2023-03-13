@@ -27,7 +27,7 @@ const ROLES = {
 export default function AppRoutes() {
     
     return (
-        <body>
+        <>
             <HashRouter>
                 <AuthProvider>
                 <FlexCointainer element='all'>
@@ -39,7 +39,6 @@ export default function AppRoutes() {
                             <SideItem>3</SideItem>
                         </FlexCointainer>
                         {/* <FlexCointainer element='content'> */}
-                        <div>
                             {/* <Header /> */}
                             <Routes>
                                 <Route path="*" element={<UserSignin />}></Route>
@@ -59,11 +58,10 @@ export default function AppRoutes() {
                             </Routes>
                             {/* <Footer /> */}
                         {/* </FlexCointainer> */}
-                        </div>
                     </FlexCointainer>
                 </FlexCointainer>
                 </AuthProvider>
             </HashRouter>
-        </body>
+        </>
     )
 }

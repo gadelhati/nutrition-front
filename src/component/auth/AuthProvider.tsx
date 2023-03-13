@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getToken, getUserName, isValidToken } from "../../service/service.token";
+import { getToken, isValidToken } from "../../service/service.token";
 import { initialAuth } from "./auth.initial";
 import { Auth } from "./auth.interface";
 

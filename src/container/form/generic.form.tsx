@@ -8,7 +8,6 @@ import { Atribute } from '../../component/atribute/atribute.interface';
 import { Tooltip } from '../tootip/Tooltip';
 import { GenericDatatable } from './generic.datatable';
 import { Button, Table } from '../template/Flex';
-import { getToken, getTokenPayload, isValidToken } from '../../service/service.token';
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
@@ -80,7 +79,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                     <ContainerLabel>Username</ContainerLabel>
             </Container> */}
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
-            {JSON.stringify(getTokenPayload().sub)}
+            
             {atribute &&
                 <Container>
                     {Object.entries(state).map(([key, value], index) => {
