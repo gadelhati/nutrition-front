@@ -8,7 +8,7 @@ import { Tooltip } from '../tootip/Tooltip'
 import { ContainerInput } from './generic.field'
 import { Button, CenterContainer, CenterItem } from '../template/Flex'
 import { logout } from '../../service/service.auth'
-import { getToken, isValidToken } from '../../service/service.token'
+import { existsToken, getToken, isValidToken } from '../../service/service.token'
 
 export const UserSignin = () => {
     const [state, setState] = useState<User>(initialUser)
@@ -50,9 +50,9 @@ export const UserSignin = () => {
                 <Tooltip data-tip={'password'} hidden={true} >
                     <ContainerInput type={'password'} placeholder={'password'} name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
                 </Tooltip>
-                {!getToken() && !isValidToken() && <Button onClick={loginUser}>Login</Button>}
-                {getToken() && isValidToken() && <Button onClick={logoutUser}>Logout</Button>}
-                <Button onClick={resetItem}>Reset</Button>
+                {!isValidToken() && <Button onClick={loginUser}>Login</Button>}
+                {isValidToken() && <Button onClick={logoutUser}>Logout</Button>}
+                <Button onClick={resetItem}>Reset{existsToken()}</Button>
                 {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}
             </CenterItem>
