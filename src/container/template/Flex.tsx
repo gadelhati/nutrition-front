@@ -68,7 +68,7 @@ export const Sidebar = styled('aside',{
     justifyContent: 'start',
     flexDirection: 'column',
     padding: '$xxs',
-    paddingLeft: '$md',
+    paddingLeft: '$xxs',
     margin: '$xxs',
     borderRadius: '.3rem',
     color: '$five1',
