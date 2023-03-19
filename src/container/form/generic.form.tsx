@@ -97,15 +97,15 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                     })}
                 </Container>
             }
-
-            <Button onClick={resetItem}>Reset</Button>
-            <Button onClick={createItem}>Create</Button>
-            <Button onClick={retrieveItem}>Retrieve by ID</Button>
-            <Button onClick={retrieveAllItem}>Retrieve All by search</Button>
-            <Button onClick={updateItem}>Update</Button>
-            <Button onClick={deleteItem}>Delete</Button>
-            <Button onClick={deleteAllItem}>Delete All</Button>
-
+            <div>
+                <Button onClick={resetItem}>Reset</Button>
+                <Button onClick={createItem}>Create</Button>
+                <Button onClick={retrieveItem}>Retrieve by ID</Button>
+                <Button onClick={retrieveAllItem}>Retrieve All by search</Button>
+                <Button onClick={updateItem}>Update</Button>
+                <Button onClick={deleteItem}>Delete</Button>
+                <Button onClick={deleteAllItem}>Delete All</Button>
+            </div>
             <Table>
                 <tbody>
                     <thead>
