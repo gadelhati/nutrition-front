@@ -42,6 +42,21 @@ export const FlexCointainer = styled('div',{
         },
     },
 })
+export const SideTitle = styled('a',{
+    textDecoration: 'none',
+    color: '$three1',
+    backgroundColor: '$five1',
+    height: '$md',
+    width: '$xss',
+    userSelect: 'none',
+    borderRadius: '5px',
+    padding: '.5em',
+    textTransform: 'capitalize',
+    transition: '.5s',
+    p : {
+        display: 'inline',
+    },
+})
 export const SideItem = styled('a',{
     textDecoration: 'none',
     color: '$five1',

@@ -6,7 +6,7 @@ export const Container = styled('div',{
     position: 'relative',
     margin: '40px 0 20px',
     display: 'flex',
-    height: '300px',
+    height: '200px',
     justifyContent: 'center',
     alignItems: 'center',
     padding: '3vw',
