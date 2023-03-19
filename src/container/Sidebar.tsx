@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { SideItem, Sidebar } from './template/Flex'
+import { SideTitle, SideItem, Sidebar } from './template/Flex'
 import { Icon } from '../assets/svg.access' 
 import { Tooltip } from './tootip/Tooltip'
 
@@ -10,10 +10,11 @@ export const SideContainer = () => {
 
   return (
       <Sidebar sidehide={show}>
+        <SideTitle key={0} href={`#/`} ><Icon name="speedometer" /><p>Title</p></SideTitle>
         {vector.map((element) => {
           return <SideItem key={element[1]} href={`#/${element[2]}`} ><Tooltip data-tip={element[0]}><Icon name={element[1]} /></Tooltip><p>{element[2]}</p></SideItem>
         })}
-        <SideItem ><Tooltip data-tip="collapsible"><Icon name="speedometer" /></Tooltip><p>Collapsible</p></SideItem>
+        {/* <SideItem ><Tooltip data-tip="collapsible"><Icon name="speedometer" /></Tooltip><p>Collapsible</p></SideItem> */}
         <SideItem onClick={changeShow}><Tooltip data-tip="hide items"><Icon name="grid" /></Tooltip><p>hide</p></SideItem>
       </Sidebar>
   )
