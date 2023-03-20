@@ -43,8 +43,6 @@ export default function AppRoutes() {
                         {/* <FlexCointainer element='content'> */}
                             {/* <Header /> */}
                             <Routes>
-                                {/* <Route path="*" element={getToken() != null && isValidToken() ? <UserSignin /> : <Navigate to="/" />}></Route> */}
-                                {/* <Route path="/" element={getToken() != null && isValidToken() ? <UserSignin /> : <Navigate to="/" />}></Route> */}
                                 <Route path="*" element={<UserSignin />}></Route>
                                 <Route path="/" element={<UserSignin />}></Route>
                                 <Route path="/notAllowed" element={<NotAllowed />}></Route>
