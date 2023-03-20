@@ -75,15 +75,22 @@ export const SideItem = styled('a',{
     p : {
         display: 'inline',
     },
+    variants: {
+        element:{
+            final: {
+                alignSelf: 'stretch',
+            },
+        },
+    },
 })
 
 export const Sidebar = styled('aside',{
     width: '256px',
     display: 'flex',
-    justifyContent: 'start',
+    justifyContent: 'space-between',
     flexDirection: 'column',
     padding: '$xxs',
-    paddingLeft: '$xxs',
+    // paddingLeft: '$xxs',
     margin: '$xxs',
     borderRadius: '.3rem',
     color: '$five1',
@@ -114,7 +121,12 @@ export const Sidebar = styled('aside',{
         },
     },
 })
-
+export const SidebarHeader = styled('div',{
+    display: 'flex',
+    flexDirection: 'column',
+    borderRadius: '.3rem',
+    color: '$five1',
+})
 export const CenterContainer = styled('div',{
     minHeight: '100vh',
     padding: '0',
