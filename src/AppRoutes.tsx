@@ -33,13 +33,13 @@ export default function AppRoutes() {
                 <FlexCointainer element='all'>
                     {getToken() && isValidToken() && <SideContainer />}
                     <FlexCointainer element='main'>
-                        {getToken() && isValidToken() && 
+                        {/* {getToken() && isValidToken() && 
                             <FlexCointainer element='nav'>
                                 <SideItem>Sistema1</SideItem>
-                                {/* <FlexItem>2</FlexItem> */}
+                                <FlexItem>2</FlexItem>
                                 <SideItem>3</SideItem>
                             </FlexCointainer>
-                        }
+                        } */}
                         {/* <FlexCointainer element='content'> */}
                             {/* <Header /> */}
                             <Routes>
