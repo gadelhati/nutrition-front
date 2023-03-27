@@ -59,6 +59,21 @@ export const retrieveAll = async<T,>(url: string, search: string) => {
         });
 }
 
+export const retrieveAllPage = async<T,>(url: string, page: number, size: number, sort: string) => {
+    // return await api.get(`/${url}/${page}/${size}/${sort}/${value}`)
+    return await api.get(`/${url}/${page}/${size}/${sort}`)
+        .then(response => {
+            return response.data
+        })
+        .catch(function (error) {
+            let errorMessage: ErrorMessage[] = []
+            error.response.data?.errors?.forEach((element: ErrorMessage) => {
+                errorMessage.push({ field: element.field, message: element.message })
+            })
+            return errorMessage
+        });
+}
+
 export const update = async<T,>(url: string, object: T) => {
     return await api.put(`/${url}`, object)
         .then(response => {

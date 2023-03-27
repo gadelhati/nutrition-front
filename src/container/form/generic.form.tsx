@@ -1,19 +1,23 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
-import { create, retrieve, retrieveAll, update, remove, removeAll } from '../../service/crud.service';
+import { create, retrieve, retrieveAll, update, remove, removeAll, retrieveAllPage } from '../../service/crud.service';
 import { Container, ContainerInput, ContainerLabel } from './generic.field';
 import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
 import { Tooltip } from '../tootip/Tooltip';
 import { GenericDatatable } from './generic.datatable';
 import { Button, Table } from '../template/Flex';
+import { Pageable } from '../../component/Pageable';
+import { initialPageable } from '../../component/initialPageable';
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
     const [states, setStates] = useState<T[]>([object.object])
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
     const [atribute, setAtribute] = useState<Atribute[]>(AtributeSet(object.object))
+    const [page, setPage] = useState<number>(0)
+    const [pageable, setPageable] = useState<Pageable>(initialPageable)
 
     // Pendente (Pending).
     // Resolvida (Resolved) (não está na documentação, mas gosto de definir esse estado também).
@@ -22,8 +26,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     // Estabelecida (Settled).
 
     useEffect(() => {
-        retrieveAllItem()
-    }, [])
+        retrieveAllItemPage()
+    }, [page])
     const resetItem = () => {
         setState(object.object)
     }
@@ -49,6 +53,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         let data = await retrieveAll(object.url.toLowerCase(), state.name)
         setStates(data)
     }
+    const retrieveAllItemPage = async () => {
+        let data = await retrieveAllPage(object.url.toLowerCase(), page, 20, "name")
+        setPageable(data)
+        setStates(data.content)
+    }
     const updateItem = async () => {
         let data = await update(object.url.toLowerCase(), state)
         validAction(data)
@@ -71,6 +80,15 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const handleInputChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
+    const previousPage = () => {
+        setPage(page - 1)
+    }
+    const nextPage = () => {
+        setPage(page + 1)
+    }
+    const numberPage = (page: number) => {
+        setPage(page)
+    }
 
     return (
         <>
@@ -80,7 +98,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
             </Container> */}
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
             
-            {atribute &&
+            {/* {atribute &&
                 <Container>
                     {Object.entries(state).map(([key, value], index) => {
                         return (
@@ -91,12 +109,12 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                     </select> :
                                     <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} ><ContainerInput type={atribute[index].type} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off' /></Tooltip>
                                 }
-                                {/* <ContainerLabel>{key}</ContainerLabel> */}
+                                
                             </div>
                         )
                     })}
                 </Container>
-            }
+            } */}
             <div>
                 <Button onClick={resetItem}>Reset</Button>
                 <Button onClick={createItem}>Create</Button>
@@ -114,7 +132,15 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                     {states.map((element) => {
                         return <tr><td>{element.id}</td><td>{element.name}</td><td><Button onClick={() => selectItem(element)}>Select</Button></td></tr>
                     })}
-                    <tfoot>FOOTER</tfoot>
+                    <tfoot >
+                        <button onClick={()=>numberPage(0)}>Primeira {0 + 1}</button>
+                        <button onClick={previousPage} disabled={page <= 0 ? true : false}>Anterior</button>
+                        {/* <button onClick={()=>numberPage(page)}>{page}</button> */}
+                        <button onClick={()=>numberPage(page + 1)} disabled >{page + 1}</button>
+                        {/* <button onClick={()=>numberPage(page + 2)} disabled={page >= pageable.totalPages - 1 ? true : false} >{page + 2}</button> */}
+                        <button onClick={nextPage}disabled={page >= pageable.totalPages - 1 ? true : false}>Próxima</button>
+                        <button onClick={()=>numberPage(pageable.totalPages - 1)}>Última {pageable.totalPages - 1}</button>
+                    </tfoot>
                 </tbody>
             </Table>
 
