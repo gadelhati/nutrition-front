@@ -138,7 +138,7 @@ export const CenterContainer = styled('div',{
 export const CenterItem = styled('div', {
     backgroundColor: '$four1',
     borderRadius: '10px',
-    width: '20vw',
+    width: '25vw',
     height: '60vh',
     padding: '0',
     margin: '0',
