@@ -16,6 +16,7 @@ import { initialFoodCategory } from "./component/foodCategory/food.category.init
 import { initialPreparation } from "./component/preparation/preparation.initial";
 import { RoleForm } from "./container/form/role.form";
 import { UserForm } from "./container/form/user.form";
+import { ProfileForm } from "./container/form/profile";
 // import { Header } from "./container/menus/header";
 // import { Footer } from "./container/menus/footer";
 // import { Profile } from "./component/user/profile";
@@ -49,11 +50,12 @@ export default function AppRoutes() {
                                 <Route path="/" element={<UserSignin />}></Route>
                                 <Route path="/notAllowed" element={<NotAllowed />}></Route>
                                 <Route path="/auth" element={<UserSignin />}></Route>
-                                <Route element={<RequireAuth allowedRoles={[ROLES.USER, ROLES.ADMIN, ROLES.MODERATOR]} />}>
+                                <Route path="/profile" element={<ProfileForm key='user' object={initialUser} url={'user'} />}></Route>
+                                <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}>
                                     <Route path="/user" element={<UserForm key='user' object={initialUser} url={'user'} />}></Route>
                                     <Route path="/role" element={<RoleForm key='role' object={initialRole} url={'role'} />}></Route>
                                 </Route>
-                                <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}>
+                                <Route element={<RequireAuth allowedRoles={[ROLES.USER, ROLES.ADMIN, ROLES.MODERATOR]} />}>
                                     <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
                                     <Route path="/preparation" element={<GenericForm key='preparation' object={initialPreparation} url={'preparation'} />}></Route>
                                     <Route path="/food_category" element={<GenericForm key='food_category' object={initialFoodCategory} url={'food_category'} />}></Route>
