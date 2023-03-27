@@ -14,6 +14,8 @@ import { NotAllowed } from "./container/not.allowed";
 import { AuthProvider } from "./component/auth/AuthProvider";
 import { initialFoodCategory } from "./component/foodCategory/food.category.initial";
 import { initialPreparation } from "./component/preparation/preparation.initial";
+import { RoleForm } from "./container/form/role.form";
+import { UserForm } from "./container/form/user.form";
 // import { Header } from "./container/menus/header";
 // import { Footer } from "./container/menus/footer";
 // import { Profile } from "./component/user/profile";
@@ -48,8 +50,8 @@ export default function AppRoutes() {
                                 <Route path="/notAllowed" element={<NotAllowed />}></Route>
                                 <Route path="/auth" element={<UserSignin />}></Route>
                                 <Route element={<RequireAuth allowedRoles={[ROLES.USER, ROLES.ADMIN, ROLES.MODERATOR]} />}>
-                                    <Route path="/user" element={<GenericForm key='user' object={initialUser} url={'user'} />}></Route>
-                                    <Route path="/role" element={<GenericForm key='role' object={initialRole} url={'role'} />}></Route>
+                                    <Route path="/user" element={<UserForm key='user' object={initialUser} url={'user'} />}></Route>
+                                    <Route path="/role" element={<RoleForm key='role' object={initialRole} url={'role'} />}></Route>
                                 </Route>
                                 <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}>
                                     <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
