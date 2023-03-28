@@ -137,13 +137,13 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                     })}
                     </ErrorBoundary>
                     <tfoot >
-                        <button onClick={()=>numberPage(0)}>Primeira {0 + 1}</button>
-                        <button onClick={previousPage} disabled={page <= 0 ? true : false}>Anterior</button>
-                        {/* <button onClick={()=>numberPage(page)}>{page}</button> */}
-                        <button onClick={()=>numberPage(page + 1)} disabled >{page + 1}</button>
-                        {/* <button onClick={()=>numberPage(page + 2)} disabled={page >= pageable.totalPages - 1 ? true : false} >{page + 2}</button> */}
-                        <button onClick={nextPage}disabled={page >= pageable.totalPages - 1 ? true : false}>Próxima</button>
-                        <button onClick={()=>numberPage(pageable.totalPages - 1)}>Última {pageable.totalPages - 1}</button>
+                        <button onClick={()=>numberPage(0)}>Primeira</button>
+                        <button onClick={()=>numberPage(page - 2)} disabled={page <= 0 ? true : false}>{page -1}</button>
+                        <button onClick={()=>numberPage(page - 1)} disabled={page <= 0 ? true : false}>{page}</button>
+                        <button disabled  >{page + 1}</button>
+                        <button onClick={()=>numberPage(page + 1)} disabled={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</button>
+                        <button onClick={()=>numberPage(page + 2)} disabled={page >= pageable.totalPages - 2 ? true : false}>{page + 3}</button>
+                        <button onClick={()=>numberPage(pageable.totalPages - 1)}>Última</button>
                     </tfoot>
                 </tbody>
             </Table>
