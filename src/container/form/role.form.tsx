@@ -6,7 +6,8 @@ import { Container, ContainerInput, ContainerLabel } from './generic.field';
 import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
 import { Tooltip } from '../tootip/Tooltip';
-import { Button, Table } from '../template/Flex';
+import { Button } from '../template/Flex';
+import { Table } from '../template/Table';
 import { Role } from '../../component/role/role.interface';
 
 export const RoleForm = <T extends Role>(object: any, url: string) => {

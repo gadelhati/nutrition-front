@@ -166,31 +166,3 @@ export const Button = styled('button', {
         borderColor: '$five1',
     },
 })
-
-export const Table = styled('table', {
-    fontFamily: 'arial, sans-serif',
-    fontSize: '0.8em',
-    boxSizing: 'border-box',
-    width: '100%',
-    padding: '$sm',
-    'tbody': {
-        display: 'block',
-        height: '100vh',
-        overflowY: 'auto',
-        overflowX: 'hidden',
-    },
-    'td, th': {
-        textAlign: 'left',
-        width: '100%',
-    },
-    'tr:nth-child(even)': {
-        backgroundColor: '$six',
-    },
-    'tr:nth-child(odd)': {
-        backgroundColor: '$five1',
-    },
-    'tr:hover': {
-        color: '$one1',
-        backgroundColor: '$five1',
-    },
-})

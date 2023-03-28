@@ -7,7 +7,8 @@ import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
 import { Tooltip } from '../tootip/Tooltip';
 import { GenericDatatable } from './generic.datatable';
-import { Button, Table } from '../template/Flex';
+import { Button } from '../template/Flex';
+import { Table } from '../template/Table';
 import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -99,7 +100,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
             </Container> */}
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
             
-            {/* {atribute &&
+            {atribute &&
                 <Container>
                     {Object.entries(state).map(([key, value], index) => {
                         return (
@@ -115,7 +116,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                         )
                     })}
                 </Container>
-            } */}
+            }
             <div>
                 <Button onClick={resetItem}>Reset</Button>
                 <Button onClick={createItem}>Create</Button>
@@ -133,7 +134,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                     </thead>
                     <ErrorBoundary fallback = { <div> Algo deu errado </div> } >
                     {states.map((element) => {
-                        return <tr><td>{element.id}</td><td>{element.name}</td><td><Button onClick={() => selectItem(element)}>Select</Button></td></tr>
+                        return <tr onClick={() => selectItem(element)}><td>{element.id}</td><td>{element.name}</td></tr>
                     })}
                     </ErrorBoundary>
                     <tfoot >

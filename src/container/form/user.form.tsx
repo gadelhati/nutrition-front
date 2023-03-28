@@ -6,7 +6,8 @@ import { Container, ContainerInput, ContainerLabel } from './generic.field';
 import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
 import { Tooltip } from '../tootip/Tooltip';
-import { Button, Table } from '../template/Flex';
+import { Button } from '../template/Flex';
+import { Table } from '../template/Table';
 import { User } from '../../component/user/user.interface';
 
 export const UserForm = <T extends User>(object: any, url: string) => {
