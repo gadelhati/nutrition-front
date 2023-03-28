@@ -82,12 +82,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const handleInputChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
-    const previousPage = () => {
-        setPage(page - 1)
-    }
-    const nextPage = () => {
-        setPage(page + 1)
-    }
     const numberPage = (page: number) => {
         setPage(page)
     }
@@ -137,14 +131,16 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                         return <tr onClick={() => selectItem(element)}><td>{element.id}</td><td>{element.name}</td></tr>
                     })}
                     </ErrorBoundary>
-                    <tfoot >
-                        <button onClick={()=>numberPage(0)}>Primeira</button>
+                    <tfoot hidden={pageable.totalElements < 15 ? true : false} >
+                        <button onClick={()=>numberPage(0)}>{'<<'}</button>
+                        <button onClick={()=>numberPage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</button>
                         <button onClick={()=>numberPage(page - 2)} disabled={page <= 0 ? true : false}>{page -1}</button>
                         <button onClick={()=>numberPage(page - 1)} disabled={page <= 0 ? true : false}>{page}</button>
                         <button disabled  >{page + 1}</button>
                         <button onClick={()=>numberPage(page + 1)} disabled={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</button>
                         <button onClick={()=>numberPage(page + 2)} disabled={page >= pageable.totalPages - 2 ? true : false}>{page + 3}</button>
-                        <button onClick={()=>numberPage(pageable.totalPages - 1)}>Última</button>
+                        <button onClick={()=>numberPage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</button>
+                        <button onClick={()=>numberPage(pageable.totalPages - 1)}>{'>>'}</button>
                     </tfoot>
                 </tbody>
             </Table>
