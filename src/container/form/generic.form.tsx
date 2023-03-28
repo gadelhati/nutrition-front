@@ -56,7 +56,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         setStates(data)
     }
     const retrieveAllItemPage = async () => {
-        let data = await retrieveAllPage(object.url.toLowerCase(), page, 20, "name")
+        let data = await retrieveAllPage(object.url.toLowerCase(), page, 15, "name")
         setPageable(data)
         setStates(data.content)
     }
