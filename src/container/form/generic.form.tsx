@@ -10,6 +10,7 @@ import { GenericDatatable } from './generic.datatable';
 import { Button, Table } from '../template/Flex';
 import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
+import { ErrorBoundary } from 'react-error-boundary';
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
@@ -124,14 +125,17 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                 <Button onClick={deleteItem}>Delete</Button>
                 <Button onClick={deleteAllItem}>Delete All</Button>
             </div>
+
             <Table>
                 <tbody>
                     <thead>
                         <tr><th>ID</th><th>NAME</th></tr>
                     </thead>
+                    <ErrorBoundary fallback = { <div> Algo deu errado </div> } >
                     {states.map((element) => {
                         return <tr><td>{element.id}</td><td>{element.name}</td><td><Button onClick={() => selectItem(element)}>Select</Button></td></tr>
                     })}
+                    </ErrorBoundary>
                     <tfoot >
                         <button onClick={()=>numberPage(0)}>Primeira {0 + 1}</button>
                         <button onClick={previousPage} disabled={page <= 0 ? true : false}>Anterior</button>
@@ -143,7 +147,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                     </tfoot>
                 </tbody>
             </Table>
-
+            
             {/* <GenericDatatable key='gen' objects={states} url={object.url.toLowerCase()} /> */}
 
             {/* <Crud initialObject={initialUser} name={url} object={state} error={error}/> */}
