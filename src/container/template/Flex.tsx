@@ -144,7 +144,7 @@ export const CenterItem = styled('div', {
     margin: '0',
 })
 
-export const Button = styled('button', {
+export const ButtonG = styled('button', {
     display: 'inline-block',
     padding: '0.5em 1.7em',
     margin: '0 0.1em 0.1em 0',

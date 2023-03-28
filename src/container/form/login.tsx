@@ -6,7 +6,8 @@ import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { login, create, retrieve, update, remove, removeAll } from '../../service/crud.service'
 import { Tooltip } from '../tootip/Tooltip'
 import { ContainerInput } from './generic.field'
-import { Button, CenterContainer, CenterItem } from '../template/Flex'
+import { CenterContainer, CenterItem } from '../template/Flex'
+import { Button } from '../template/Button';
 import { logout } from '../../service/service.auth'
 import { existsToken, getToken, isValidToken } from '../../service/service.token'
 

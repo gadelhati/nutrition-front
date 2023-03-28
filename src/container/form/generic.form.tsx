@@ -7,8 +7,9 @@ import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
 import { Tooltip } from '../tootip/Tooltip';
 import { GenericDatatable } from './generic.datatable';
-import { Button } from '../template/Flex';
+import { ButtonG } from '../template/Flex';
 import { Table } from '../template/Table';
+import { Button } from '../template/Button';
 import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -115,34 +116,34 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                 <Button onClick={resetItem}>Reset</Button>
                 <Button onClick={createItem}>Create</Button>
                 <Button onClick={retrieveItem}>Retrieve by ID</Button>
-                <Button onClick={retrieveAllItem}>Retrieve All by search</Button>
-                <Button onClick={updateItem}>Update</Button>
-                <Button onClick={deleteItem}>Delete</Button>
-                <Button onClick={deleteAllItem}>Delete All</Button>
+                <ButtonG onClick={retrieveAllItem}>Retrieve All by search</ButtonG>
+                <ButtonG onClick={updateItem}>Update</ButtonG>
+                <ButtonG onClick={deleteItem}>Delete</ButtonG>
+                <ButtonG onClick={deleteAllItem}>Delete All</ButtonG>
             </div>
 
             <Table>
-                <tbody>
-                    <thead>
-                        <tr><th>ID</th><th>NAME</th></tr>
-                    </thead>
-                    <ErrorBoundary fallback = { <div> Algo deu errado </div> } >
-                    {states.map((element) => {
-                        return <tr onClick={() => selectItem(element)}><td>{element.id}</td><td>{element.name}</td></tr>
-                    })}
-                    </ErrorBoundary>
-                    <tfoot hidden={pageable.totalElements < 15 ? true : false} >
-                        <button onClick={()=>numberPage(0)}>{'<<'}</button>
-                        <button onClick={()=>numberPage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</button>
-                        <button onClick={()=>numberPage(page - 2)} disabled={page <= 0 ? true : false}>{page -1}</button>
-                        <button onClick={()=>numberPage(page - 1)} disabled={page <= 0 ? true : false}>{page}</button>
-                        <button disabled  >{page + 1}</button>
-                        <button onClick={()=>numberPage(page + 1)} disabled={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</button>
-                        <button onClick={()=>numberPage(page + 2)} disabled={page >= pageable.totalPages - 2 ? true : false}>{page + 3}</button>
-                        <button onClick={()=>numberPage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</button>
-                        <button onClick={()=>numberPage(pageable.totalPages - 1)}>{'>>'}</button>
-                    </tfoot>
-                </tbody>
+                <thead>
+                    <tr><th>ID</th><th>NAME</th></tr>
+                </thead>
+                <ErrorBoundary fallback={<div> Algo deu errado </div>} >
+                    <tbody>
+                        {states.map((element) => {
+                            return <tr onClick={() => selectItem(element)}><td>{element.id}</td><td>{element.name}</td></tr>
+                        })}
+                    </tbody>
+                </ErrorBoundary>
+                <tfoot>
+                    <button onClick={() => numberPage(0)}>{'<<'}</button>
+                    <button onClick={() => numberPage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</button>
+                    <button onClick={() => numberPage(page - 2)} disabled={page <= 0 ? true : false}>{page - 1}</button>
+                    <button onClick={() => numberPage(page - 1)} disabled={page <= 0 ? true : false}>{page}</button>
+                    <button disabled  >{page + 1}</button>
+                    <button onClick={() => numberPage(page + 1)} disabled={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</button>
+                    <button onClick={() => numberPage(page + 2)} disabled={page >= pageable.totalPages - 2 ? true : false}>{page + 3}</button>
+                    <button onClick={() => numberPage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</button>
+                    <button onClick={() => numberPage(pageable.totalPages - 1)}>{'>>'}</button>
+                </tfoot>
             </Table>
             
             {/* <GenericDatatable key='gen' objects={states} url={object.url.toLowerCase()} /> */}
