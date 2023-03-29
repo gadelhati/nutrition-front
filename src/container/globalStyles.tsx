@@ -44,6 +44,15 @@ export const stitches = createStitches({
             six1: '#FFFFFF',
 
             back: 'LightGray',
+
+            head: '#E2E3E5',
+            title: '#36304A',
+            odd: '#F2F2F2',
+            even: '#FFFFFF',
+            selected: '#ECECEC',
+            line: '#CED4DA',
+            button: '#6C757D',
+            blueButton: '#0D6EFD',
         },
         space: {
             side: "256px",

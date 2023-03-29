@@ -4,7 +4,8 @@ const { styled } = stitches
 
 export const Table = styled('table', {
     fontFamily: 'arial, sans-serif',
-    fontSize: '0.8em',
+    fontSize: '0.9em',
+    color: '$dark',
     padding: '$sm',
     margin: '$sm',
     boxSizing: 'border-box',
@@ -15,27 +16,26 @@ export const Table = styled('table', {
     borderCollapse: 'collapse',
     border: 'solid $two1 1px',
     boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
-    'thead > tr': {
-        color: 'red',
+    'thead > tr:first-child': {
         fontWeight: 'bold',
         textTransform: 'uppercase',
-        backgroundColor: '$one1',
+        backgroundColor: '$even',
     },
     'td, th': {
+        borderBottom: '1px solid $line',
         paddingLeft: '1em',
         textAlign: 'left',
-        height: '2em',
+        height: '3em',
         width: '10%',
     },
     'tr:nth-child(even)': {
-        backgroundColor: '$six',
+        backgroundColor: '$even',
     },
     'tr:nth-child(odd)': {
-        backgroundColor: '$five1',
+        backgroundColor: '$odd',
     },
     'tr:hover': {
         cursor: 'pointer',
-        color: '$six1',
-        backgroundColor: '$eight1',
+        backgroundColor: '$selected',
     },
 })

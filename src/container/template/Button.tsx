@@ -30,3 +30,30 @@ export const Button = styled('button', {
         transform: 'translateY(2px)',
     }
 })
+
+export const GroupButton = styled('div', {
+    'button:first-child': {
+        borderRadius: '5px 0px 0px 5px',
+    },
+    'button:last-child': {
+        borderRadius: '0px 5px 5px 0px',
+    },
+})
+
+export const ButtonPage = styled('button', {
+    // color: '$blueButton',
+    backgroundColor: '$six1',
+    fontFamily: 'Montserrat,sans-serif',
+    height: '2.5em',
+    width: '2.5em',
+    // marginTop: '.5em',
+    border: 'solid $line 1px',
+    variants: {
+        selected: {
+            true: {
+                color: '$selected',
+                backgroundColor: '$blueButton',
+            },
+        },
+    },
+})
