@@ -21,6 +21,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const [atribute, setAtribute] = useState<Atribute[]>(AtributeSet(object.object))
     const [page, setPage] = useState<number>(0)
     const [pageable, setPageable] = useState<Pageable>(initialPageable)
+    const paginator = 5;
 
     // Pendente (Pending).
     // Resolvida (Resolved) (não está na documentação, mas gosto de definir esse estado também).
@@ -86,6 +87,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const numberPage = (page: number) => {
         setPage(page)
     }
+    const pagina = () => {
+        for(let i = 0; i < paginator; i++) {
+            return <ButtonPage onClick={() => numberPage(pageable.totalPages - 1)}>{i}{'>p>'}</ButtonPage>
+        }
+    }
 
     return (
         <>
@@ -142,6 +148,15 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                         <ButtonPage selected={true} disabled  >{page + 1}</ButtonPage>
                         <ButtonPage onClick={() => numberPage(page + 1)} disabled={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</ButtonPage>
                         <ButtonPage onClick={() => numberPage(page + 2)} disabled={page >= pageable.totalPages - 2 ? true : false}>{page + 3}</ButtonPage>
+                        <ButtonPage onClick={() => numberPage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
+                        <ButtonPage onClick={() => numberPage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
+                    </GroupButton>
+                    <GroupButton>
+                        <ButtonPage onClick={() => numberPage(0)}>{'<<'}</ButtonPage>
+                        <ButtonPage onClick={() => numberPage(page - 1)} disabled={page >= pageable.totalPages + 2 ? true : false}>{'<'}</ButtonPage>
+                        {Array(paginator).fill(0).map((p, index) => {
+                            return <ButtonPage selected={page === index + 2} onClick={() => numberPage(index + 2)} /*hidden={page >= pageable.totalPages - 2 ? true : false}*/>{index + 3}</ButtonPage>
+                        })}
                         <ButtonPage onClick={() => numberPage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
                         <ButtonPage onClick={() => numberPage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
                     </GroupButton>
