@@ -14,6 +14,7 @@ export const Container = styled('div',{
 })
 
 export const ContainerInput = styled('input',{
+    fontFamily: 'Montserrat,sans-serif',
     fontSize: '18px',
     padding: '10px 10px 10px 5px',
     display: 'block',
