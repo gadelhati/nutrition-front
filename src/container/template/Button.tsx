@@ -24,6 +24,7 @@ export const Button = styled('button', {
         // backgroundImage: 'linear-gradient($three1, $one1, $three1)',
         // color: '$four1',
         textShadow: '0 0 3px #000, 0 0 5px #000',
+        outline: '0',
     },
     '&:active': {
         boxShadow: 'lightGray 0 3px 7px inset',
