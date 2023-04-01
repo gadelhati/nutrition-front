@@ -18,12 +18,11 @@ export const Button = styled('button', {
     userSelect: 'none',
     touchAction: 'manipulation',
     '&:hover': {
-        boxShadow: 'rgba(0, 0, 0, .3) 0 5px 10px',
+        transition: '.5s',
+        boxShadow: '0 0 1em hsla(0, 0%, 0.0%, 0.75000)',
     },
     '&:focus': {
-        // backgroundImage: 'linear-gradient($three1, $one1, $three1)',
-        // color: '$four1',
-        textShadow: '0 0 3px #000, 0 0 5px #000',
+        textShadow: '0 0 2px #FFF, 0 0 3px #FFF',
         outline: '0',
     },
     '&:active': {
