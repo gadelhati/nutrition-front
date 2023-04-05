@@ -70,6 +70,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         error?.map(element => { if (name == element.field) return vector.push(element?.message) })
         return vector
     }
+    const validationDTO = (): string[] => {
+        let vector: string[] = []
+        error?.map(element => { if (element.field?.startsWith("DTO")) return vector.push(element?.message) })
+        return vector
+    }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
         setState({ ...state, [event.target.name]: value })
@@ -100,10 +105,10 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                     </select> :
                                     <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} ><ContainerInput type={atribute[index].type} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off' /></Tooltip>
                                 }
-                                
                             </div>
                         )
                     })}
+                    <div>{validationDTO()}</div>
                 </Container>
             }
             <div>
