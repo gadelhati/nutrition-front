@@ -3,7 +3,7 @@ import { User } from "../../component/user/user.interface"
 import { initialUser } from '../../component/user/user.initial'
 import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
-import { login, create, retrieve, update, remove, removeAll } from '../../service/crud.service'
+import { login } from '../../service/crud.service'
 import { Tooltip } from '../tootip/Tooltip'
 import { ContainerInput } from './generic.field'
 import { CenterContainer, CenterItem } from '../template/Flex'

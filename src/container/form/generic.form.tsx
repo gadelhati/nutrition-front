@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
-import { create, retrieve, retrieveAll, update, remove, removeAll, retrieveAllPage } from '../../service/crud.service';
+import { create, retrieve, update, remove, removeAll } from '../../service/crud.service';
 import { Container, ContainerInput, ContainerLabel } from './generic.field';
 import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
@@ -30,7 +30,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     // Estabelecida (Settled).
 
     useEffect(() => {
-        retrieveAllItemPage()
+        retrieveItem()
     }, [page])
     const resetItem = () => {
         setState(object.object)
@@ -51,14 +51,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         validAction(data)
     }
     const retrieveItem = async () => {
-        await retrieve(object.url.toLowerCase(), state.id)
-    }
-    const retrieveAllItem = async () => {
-        let data = await retrieveAll(object.url.toLowerCase(), state.name)
-        setStates(data)
-    }
-    const retrieveAllItemPage = async () => {
-        let data = await retrieveAllPage(object.url.toLowerCase(), page, 8, "name")
+        let data = await retrieve(object.url.toLowerCase(), page, 8, "name")
         setPageable(data)
         setStates(data.content)
     }
@@ -117,7 +110,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                 <Button onClick={resetItem}>Reset</Button>
                 <Button onClick={createItem}>Create</Button>
                 <Button onClick={retrieveItem}>Retrieve by ID</Button>
-                <ButtonG onClick={retrieveAllItem}>Retrieve All by search</ButtonG>
                 <ButtonG onClick={updateItem}>Update</ButtonG>
                 <ButtonG onClick={deleteItem}>Delete</ButtonG>
                 <ButtonG onClick={deleteAllItem}>Delete All</ButtonG>

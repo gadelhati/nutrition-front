@@ -31,37 +31,9 @@ export const create = async<T,>(url: string, object: T) => {
         });
 }
 
-export const retrieve = async<T,>(url: string, id: string) => {
-    return await api.get(`/${url}/id/${id}`)
-        .then(response => {
-            return response.data.content
-        })
-        .catch(function (error) {
-            let errorMessage: ErrorMessage[] = []
-            error.response.data?.errors?.forEach((element: ErrorMessage) => {
-                errorMessage.push({ field: element.field, message: element.message })
-            })
-            return errorMessage
-        });
-}
-
-export const retrieveAll = async<T,>(url: string, search: string) => {
-    return await api.get(`/${url}/${search}`)
-        .then(response => {
-            return response.data.content
-        })
-        .catch(function (error) {
-            let errorMessage: ErrorMessage[] = []
-            error.response.data?.errors?.forEach((element: ErrorMessage) => {
-                errorMessage.push({ field: element.field, message: element.message })
-            })
-            return errorMessage
-        });
-}
-
-export const retrieveAllPage = async<T,>(url: string, page: number, size: number, sort: string) => {
-    // return await api.get(`/${url}/${page}/${size}/${sort}/${value}`)
-    return await api.get(`/${url}/${page}/${size}/${sort}`)
+export const retrieve = async<T,>(url: string, page: number, size: number, sort: string) => {
+    return await api.get(`/${url}`, { params: { page: page, size: size } } )
+    // return await api.get(`/${url}`, { params: { page: page, size: size, sort: sort } } )
         .then(response => {
             return response.data
         })

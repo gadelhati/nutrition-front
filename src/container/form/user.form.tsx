@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
-import { create, retrieve, retrieveAll, update, remove, removeAll } from '../../service/crud.service';
+import { create, retrieve, update, remove, removeAll } from '../../service/crud.service';
 import { Container, ContainerInput, ContainerLabel } from './generic.field';
 import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
@@ -9,15 +9,20 @@ import { Tooltip } from '../tootip/Tooltip';
 import { Button } from '../template/Button';
 import { Table } from '../template/Table';
 import { User } from '../../component/user/user.interface';
+import { Pageable } from '../../component/Pageable';
+import { initialPageable } from '../../component/initialPageable';
 
 export const UserForm = <T extends User>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
     const [states, setStates] = useState<T[]>([object.object])
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
     const [atribute, setAtribute] = useState<Atribute[]>(AtributeSet(object.object))
+    const [page, setPage] = useState<number>(0)
+    const [pageable, setPageable] = useState<Pageable>(initialPageable)
+    const paginator = 5;
 
     useEffect(() => {
-        retrieveAllItem()
+        retrieveItem()
     }, [])
     const resetItem = () => {
         setState(object.object)
@@ -38,11 +43,9 @@ export const UserForm = <T extends User>(object: any, url: string) => {
         validAction(data)
     }
     const retrieveItem = async () => {
-        await retrieve(object.url.toLowerCase(), state.id)
-    }
-    const retrieveAllItem = async () => {
-        let data = await retrieveAll(object.url.toLowerCase(), state.username)
-        setStates(data)
+        let data = await retrieve(object.url.toLowerCase(), page, 8, "name")
+        setPageable(data)
+        setStates(data.content)
     }
     const updateItem = async () => {
         let data = await update(object.url.toLowerCase(), state)
@@ -90,7 +93,6 @@ export const UserForm = <T extends User>(object: any, url: string) => {
                 <Button onClick={resetItem}>Reset</Button>
                 <Button onClick={createItem}>Create</Button>
                 <Button onClick={retrieveItem}>Retrieve by ID</Button>
-                <Button onClick={retrieveAllItem}>Retrieve All by search</Button>
                 <Button onClick={updateItem}>Update</Button>
                 <Button onClick={deleteItem}>Delete</Button>
                 <Button onClick={deleteAllItem}>Delete All</Button>
