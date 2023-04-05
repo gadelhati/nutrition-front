@@ -6,7 +6,6 @@ import { Container, ContainerInput, ContainerLabel } from './generic.field';
 import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
 import { Tooltip } from '../tootip/Tooltip';
-import { GenericDatatable } from './generic.datatable';
 import { ButtonG } from '../template/Flex';
 import { Table } from '../template/Table';
 import { Button, ButtonPage, GroupButton } from '../template/Button';
@@ -154,8 +153,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                 </tfoot>
             </Table>
             
-            {/* <GenericDatatable key='gen' objects={states} url={object.url.toLowerCase()} /> */}
-
             {/* <Crud initialObject={initialUser} name={url} object={state} error={error}/> */}
             {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}
