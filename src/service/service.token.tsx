@@ -1,7 +1,7 @@
 import { Header, Payload, Token } from "../token.interface";
 
 export const existsToken = (): boolean => {
-  return JSON.parse(`${localStorage.getItem(`token`) != null}`);
+  return localStorage.getItem(`token`) != null;
 }
 
 export const isValidToken = (): boolean => {

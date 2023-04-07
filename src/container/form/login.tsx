@@ -9,7 +9,7 @@ import { ContainerInput } from './generic.field'
 import { CenterContainer, CenterItem } from '../template/Flex'
 import { Button } from '../template/Button';
 import { logout } from '../../service/service.auth'
-import { existsToken, getToken, isValidToken } from '../../service/service.token'
+import { existsToken, isValidToken } from '../../service/service.token'
 
 export const UserSignin = () => {
     const [state, setState] = useState<User>(initialUser)

@@ -9,7 +9,7 @@ import { Tooltip } from '../tootip/Tooltip';
 import { Button } from '../template/Button';
 import { Table } from '../template/Table';
 import { User } from '../../component/user/user.interface';
-import { getPayload, getToken, isValidToken } from '../../service/service.token';
+import { getPayload, getRoles, isValidToken } from '../../service/service.token';
 import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
 
@@ -73,10 +73,10 @@ export const ProfileForm = <T extends User>(object: any, url: string) => {
 
     return (
         <>
-            {getToken() && isValidToken() && 
+            {isValidToken() && 
             <>
                 {getPayload().sub}
-                {getToken().roles}
+                {getRoles()}
             </>}
             <div>
                 <Button onClick={resetItem}>Reset</Button>
