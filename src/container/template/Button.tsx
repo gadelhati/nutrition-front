@@ -18,12 +18,10 @@ export const Button = styled('button', {
     userSelect: 'none',
     touchAction: 'manipulation',
     '&:hover': {
-        transition: '.5s',
         boxShadow: '0 0 1em hsla(0, 0%, 0.0%, 0.75000)',
     },
     '&:focus': {
-        textShadow: '0 0 2px #FFF, 0 0 3px #FFF',
-        outline: '0',
+        outline: '3px solid $six',
     },
     '&:active': {
         boxShadow: 'lightGray 0 3px 7px inset',

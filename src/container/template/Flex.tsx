@@ -143,26 +143,3 @@ export const CenterItem = styled('div', {
     padding: '0',
     margin: '0',
 })
-
-export const ButtonG = styled('button', {
-    display: 'inline-block',
-    padding: '0.5em 1.7em',
-    margin: '0 0.1em 0.1em 0',
-    border: '0.16em solid $one1',
-    backgroundColor: '$one1',
-    borderRadius: '0.5em',
-    boxSizing: 'border-box',
-    textDecoration: 'none',
-    fontFamily: '"Roboto", sans-serif',
-    fontWeight: '300',
-    color: '#ffffff',
-    textShadow: '0 0.04em 0.04em rgba(0, 0, 0, 0.35)',
-    textAlign: 'center',
-    transition: 'all 0.2s',
-    '&:hover': {
-        borderColor: '$five1',
-    },
-    '&:focus': {
-        borderColor: '$five1',
-    },
-})
