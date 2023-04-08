@@ -3,6 +3,8 @@ import { stitches } from "../globalStyles"
 const { styled } = stitches
 
 export const Button = styled('button', {
+    maxWidth: '8em',
+    maxHeight: '4em',
     backgroundImage: 'linear-gradient($three1, $one1)',
     border: '0',
     borderRadius: '4px',
@@ -39,12 +41,10 @@ export const GroupButton = styled('div', {
 })
 
 export const ButtonPage = styled('button', {
-    // color: '$blueButton',
     backgroundColor: '$six1',
     fontFamily: 'Montserrat,sans-serif',
     height: '2.5em',
     width: '2.5em',
-    // marginTop: '.5em',
     border: 'solid $line 1px',
     variants: {
         selected: {
