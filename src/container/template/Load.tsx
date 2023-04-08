@@ -1,4 +1,4 @@
-import { keyframes } from "@stitches/react";
+import { keyframes } from "@stitches/react"
 import { stitches } from "../globalStyles"
 
 const { styled } = stitches
