@@ -31,9 +31,9 @@ export const ContainerInput = styled('input',{
 })
 
 export const ContainerInput2 = styled('div',{
-    fontSize: '.8rem',
+    fontSize: '.9rem',
     fontFamily: 'Segoe UI, sans-serif',
-    // margin: '1em 0 1em 0',
+    margin: '1em 0 0 0',
     maxWidth: '190px',
     position: 'relative',
     padding: '.1rem',
