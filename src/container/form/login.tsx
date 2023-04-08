@@ -47,9 +47,6 @@ export const UserSignin = () => {
     return (
         <CenterContainer>
             <CenterItem>
-                {/* <Tooltip data-tip={'user'} hidden={true} >
-                    <ContainerInput type={'text'} placeholder={'username'} name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
-                </Tooltip> */}
                 <Rotate src={logo} alt="" width="120" height="128"></Rotate>
                 <Tooltip data-tip={'user'} hidden={true} >
                     <ContainerInput2>
