@@ -128,18 +128,31 @@ export const SidebarHeader = styled('div',{
     color: '$five1',
 })
 export const CenterContainer = styled('div',{
+    backgroundColor: '$one1',
+    backgroundImage: 'linear-gradient(to bottom, $one1, $three1)',
     minHeight: '100vh',
-    padding: '0',
-    margin: '0',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
 })
 export const CenterItem = styled('div', {
-    backgroundColor: '$four1',
+    // backgroundColor: '$four1',
     borderRadius: '10px',
-    width: '25vw',
-    height: '60vh',
-    padding: '0',
-    margin: '0',
+    minWidth: '25vw',
+    minHeight: '60vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    variants: {
+        direction: {
+            column: {
+                flexDirection: 'column',
+            },
+            row: {
+                minHeight: '0',
+                flexDirection: 'row',
+                justifyContent: 'center',
+            },
+        },
+    },
 })

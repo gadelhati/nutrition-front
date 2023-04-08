@@ -3,7 +3,7 @@ import { isValidToken } from '../../service/service.token'
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
 import { create, retrieve, update, remove, removeAll } from '../../service/crud.service';
-import { Container, ContainerInput, ContainerLabel } from './generic.field';
+import { Container, ContainerInput, ContainerInput2, ContainerLabel } from './generic.field';
 import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
 import { Tooltip } from '../tootip/Tooltip';
@@ -103,7 +103,15 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                         <select name={key} onChange={handleInputChangeSelect}>
                                             {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
                                         </select> :
-                                        <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} ><ContainerInput type={atribute[index].type} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off' /></Tooltip>
+                                        // <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
+                                        //     <ContainerInput type={atribute[index].type} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off' />
+                                        // </Tooltip>
+                                        <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
+                                            <ContainerInput2>
+                                                <input type={atribute[index].type} required name={key} value={value} onChange={handleInputChange} autoComplete='off' />
+                                                <label htmlFor={key} hidden={atribute[index].type === 'hidden' ? true : false}>{key}</label>
+                                            </ContainerInput2>
+                                        </Tooltip>
                                     }
                                 </div>
                             )

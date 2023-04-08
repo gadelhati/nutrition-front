@@ -5,11 +5,13 @@ import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { login } from '../../service/crud.service'
 import { Tooltip } from '../tootip/Tooltip'
-import { ContainerInput } from './generic.field'
+import { ContainerInput, ContainerInput2, ContainerInput3 } from './generic.field'
 import { CenterContainer, CenterItem } from '../template/Flex'
 import { Button } from '../template/Button';
 import { logout } from '../../service/service.auth'
 import { existsToken, isValidToken } from '../../service/service.token'
+import logo from '../../assets/image/heraldica.png'
+import { Rotate } from '../template/Rotate'
 
 export const UserSignin = () => {
     const [state, setState] = useState<User>(initialUser)
@@ -45,15 +47,27 @@ export const UserSignin = () => {
     return (
         <CenterContainer>
             <CenterItem>
-                <Tooltip data-tip={'user'} hidden={true} >
+                {/* <Tooltip data-tip={'user'} hidden={true} >
                     <ContainerInput type={'text'} placeholder={'username'} name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
+                </Tooltip> */}
+                <Rotate src={logo} alt="" width="120" height="128"></Rotate>
+                <Tooltip data-tip={'user'} hidden={true} >
+                    <ContainerInput2>
+                        <input type={'text'} required name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
+                        <label htmlFor="name">Name</label>
+                    </ContainerInput2>
                 </Tooltip>
                 <Tooltip data-tip={'password'} hidden={true} >
-                    <ContainerInput type={'password'} placeholder={'password'} name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
+                    <ContainerInput2>
+                        <input type={'password'} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
+                        <label htmlFor="password">Password</label>
+                    </ContainerInput2>
                 </Tooltip>
-                {!isValidToken() && <Button onClick={loginUser}>Login</Button>}
-                {isValidToken() && <Button onClick={logoutUser}>Logout</Button>}
-                <Button onClick={resetItem}>Reset{existsToken()}</Button>
+                <CenterItem direction={'row'}>
+                    {!isValidToken() && <Button onClick={loginUser}>Login</Button>}
+                    {isValidToken() && <Button onClick={logoutUser}>Logout</Button>}
+                    <Button onClick={resetItem}>Reset{existsToken()}</Button>
+                </CenterItem>
                 {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}
             </CenterItem>
