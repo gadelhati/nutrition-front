@@ -3,14 +3,15 @@ import { stitches } from "../globalStyles";
 const { styled } = stitches;
 
 export const Container = styled('div',{
-    position: 'relative',
-    margin: '40px 0 20px',
+    // position: 'relative',
+    // margin: '40px 0 20px',
     display: 'flex',
-    height: '200px',
+    height: '20em',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '3vw',
+    // padding: '3vw',
     flexDirection: 'column',
+    flexWrap: 'wrap',
 })
 
 export const ContainerInput = styled('input',{
@@ -18,7 +19,7 @@ export const ContainerInput = styled('input',{
     fontSize: '18px',
     padding: '10px 10px 10px 5px',
     display: 'block',
-    width: '300px',
+    // width: '300px',
     border: 'none',
     backgroundColor: '$five1',
     borderBottom: '1px solid #757575',
