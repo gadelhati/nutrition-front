@@ -88,10 +88,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
 
     return (
         <>
-            {/* <Container>
-                <ContainerInput type="text" required/>
-                    <ContainerLabel>Username</ContainerLabel>
-            </Container> */}
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
             {isValidToken() && atribute &&
                 <>
@@ -103,9 +99,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                         <select name={key} onChange={handleInputChangeSelect}>
                                             {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
                                         </select> :
-                                        // <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
-                                        //     <ContainerInput type={atribute[index].type} placeholder={key} name={key} value={value} onChange={handleInputChange} autoComplete='off' />
-                                        // </Tooltip>
                                         <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
                                             <ContainerInput2>
                                                 <input type={atribute[index].type} required name={key} value={value} onChange={handleInputChange} autoComplete='off' />
