@@ -38,6 +38,7 @@ export const ContainerInput2 = styled('div',{
     position: 'relative',
     padding: '.1rem',
     'input': {
+        color: '$five1',
         fontSize: '100%',
         padding: '0.8em',
         outline: 'none',
