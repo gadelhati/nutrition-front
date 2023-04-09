@@ -10,7 +10,7 @@ import { CenterContainer, CenterItem } from '../template/Flex'
 import { Button } from '../template/Button';
 import { logout } from '../../service/service.auth'
 import { existsToken, isValidToken } from '../../service/service.token'
-import logo from '../../assets/image/heraldica.png'
+import logo from '../../assets/image/marinha.png'
 import { Rotate } from '../template/Rotate'
 
 export const UserSignin = () => {
