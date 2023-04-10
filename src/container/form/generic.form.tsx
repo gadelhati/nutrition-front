@@ -3,7 +3,7 @@ import { isValidToken } from '../../service/service.token'
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
 import { create, retrieve, update, remove, removeAll } from '../../service/crud.service';
-import { Container, ContainerInput, ContainerInput2 } from './generic.field';
+import { Container, ContainerInput } from './generic.field';
 import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
 import { Tooltip } from '../tootip/Tooltip';
@@ -12,6 +12,7 @@ import { Button, ButtonPage, GroupButton } from '../template/Button';
 import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
 import { ErrorBoundary } from 'react-error-boundary';
+import { Modal } from '../template/Modal';
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
@@ -22,6 +23,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const [pageable, setPageable] = useState<Pageable>(initialPageable)
     const paginator = 5;
     const [ispending, startTransition] = useTransition();
+    const [modal, setModal] = useState<boolean>(false)
 
     // Pendente (Pending).
     // Resolvida (Resolved) (não está na documentação, mas gosto de definir esse estado também).
@@ -45,6 +47,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     }
     const selectItem = async (data: any) => {
         setState(data)
+        handleModal()
     }
     const createItem = async () => {
         let data = await create(object.url.toLowerCase(), state)
@@ -85,42 +88,50 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const numberPage = (page: number) => {
         setPage(page)
     }
+    const handleModal = () => {
+        setModal(!modal)
+    }
 
     return (
         <>
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
-            {isValidToken() && atribute &&
-                <>
-                    <Container>
-                        {Object.entries(state).map(([key, value], index) => {
-                            return (
-                                <div>
-                                    {Array.isArray(atribute[index].worth) ?
-                                        <select name={key} onChange={handleInputChangeSelect}>
-                                            {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
-                                        </select> :
-                                        <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
-                                            <ContainerInput2>
-                                                <input type={atribute[index].type} required name={key} value={value} onChange={handleInputChange} autoComplete='off' />
-                                                <label htmlFor={key} hidden={atribute[index].type === 'hidden' ? true : false}>{key}</label>
-                                            </ContainerInput2>
-                                        </Tooltip>
-                                    }
-                                </div>
-                            )
-                        })}
-                        <div>{validationDTO()}</div>
-                    </Container>
-                    <div>
-                        <Button onClick={resetItem}>Reset</Button>
-                        <Button onClick={createItem}>Create</Button>
-                        <Button onClick={retrieveItem}>Retrieve</Button>
-                        <Button onClick={updateItem}>Update</Button>
-                        <Button onClick={deleteItem}>Delete</Button>
-                        <Button onClick={deleteAllItem}>Delete All</Button>
-                    </div>
-                </>
-            }
+            <Modal show={modal}>
+                <article>
+                    <span onClick={handleModal}>&times;</span>
+                    {isValidToken() && atribute &&
+                        <>
+                            <Container>
+                                {Object.entries(state).map(([key, value], index) => {
+                                    return (
+                                        <div>
+                                            {Array.isArray(atribute[index].worth) ?
+                                                <select name={key} onChange={handleInputChangeSelect}>
+                                                    {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
+                                                </select> :
+                                                <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
+                                                    <ContainerInput>
+                                                        <input type={atribute[index].type} required name={key} value={value} onChange={handleInputChange} autoComplete='off' />
+                                                        <label htmlFor={key} hidden={atribute[index].type === 'hidden' ? true : false}>{key}</label>
+                                                    </ContainerInput>
+                                                </Tooltip>
+                                            }
+                                        </div>
+                                    )
+                                })}
+                                <div>{validationDTO()}</div>
+                            </Container>
+                            <div>
+                                <Button onClick={resetItem}>Reset</Button>
+                                <Button onClick={createItem}>Create</Button>
+                                <Button onClick={retrieveItem}>Retrieve</Button>
+                                <Button onClick={updateItem}>Update</Button>
+                                <Button onClick={deleteItem}>Delete</Button>
+                                <Button onClick={deleteAllItem}>Delete All</Button>
+                            </div>
+                        </>
+                    }
+                </article>
+            </Modal>
             {isValidToken() &&
                 <Table>
                     <thead>

@@ -12,12 +12,10 @@ import { logout } from '../../service/service.auth'
 import { existsToken, isValidToken } from '../../service/service.token'
 import logo from '../../assets/image/marinha.png'
 import { Rotate } from '../template/Rotate'
-import { Modal } from '../template/Modal'
 
 export const UserSignin = () => {
     const [state, setState] = useState<User>(initialUser)
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
-    const [modal, setModal] = useState<boolean>(false)
 
     const refresh = () => {
         window.location.reload()
@@ -46,10 +44,7 @@ export const UserSignin = () => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
         setState({ ...state, [event.target.name]: value })
     }
-    const handleModal = () => {
-        setModal(!modal)
-    }
-
+    
     return (
         <CenterContainer>
             <CenterItem>
@@ -73,15 +68,6 @@ export const UserSignin = () => {
                 </CenterItem>
                 {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}
-
-                <Button onClick={handleModal}>Open Modal</Button>
-                <Modal show={modal}>
-                    <div>
-                        <span onClick={handleModal}>&times;</span>
-                        <p>{JSON.stringify(state)}</p>
-                    </div>
-                </Modal>
-
             </CenterItem>
         </CenterContainer>
     );
