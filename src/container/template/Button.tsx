@@ -28,7 +28,38 @@ export const Button = styled('button', {
     '&:active': {
         boxShadow: 'lightGray 0 3px 7px inset',
         transform: 'translateY(2px)',
-    }
+    },
+    variants: {
+        category: {
+            primary: {
+                backgroundImage: '$one',
+            },
+            secondary: {
+                backgroundImage: 'linear-gradient($three, $one)',
+            },
+            success: {
+                backgroundImage: '$three',
+            },
+            danger: {
+                backgroundImage: '$four',
+            },
+            warning: {
+                backgroundImage: '$five',
+            },
+            info: {
+                backgroundImage: '$six',
+            },
+            light: {
+                backgroundImage: '$selected',
+            },
+            dark: {
+                backgroundImage: '$selected',
+            },
+            muted: {
+                backgroundImage: '$selected',
+            },
+        },
+    },
 })
 
 export const GroupButton = styled('div', {
