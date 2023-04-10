@@ -34,7 +34,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
 
     useEffect(() => {
         retrieveItem()
-    }, [page])
+    }, [page, size])
     const resetItem = () => {
         setState(object.object)
     }
@@ -95,8 +95,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     }
     const handleSize = (event: ChangeEvent<HTMLSelectElement>) => {
         setSize(Number(event.target.value))
-        console.log('oi')
-        retrieveItem()
     }
     const handleModal = () => {
         setModal(!modal)
@@ -146,9 +144,12 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
             </Modal>
             {isValidToken() &&
                 <Table>
+                    <Button onClick={handleModal}>New</Button>
+                    Items per page
                     <select onChange={handleSize} >
-                        <option value={8}>8</option>
-                        <option value={16}>16</option>
+                        <option value={5}>5</option>
+                        <option value={10}>10</option>
+                        <option value={15}>15</option>
                     </select>
                     <thead>
                         <tr><th>id</th><th>name</th></tr>
@@ -169,7 +170,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                             <ButtonPage onClick={() => handlePage(page + 1)} hidden={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</ButtonPage>
                             <ButtonPage onClick={() => handlePage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
                             <ButtonPage onClick={() => handlePage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
-                            Quantidade Total {pageable.totalElements}
+                            Total amount {pageable.totalElements}
                         </GroupButton>
                     </tfoot>
                 </Table>
