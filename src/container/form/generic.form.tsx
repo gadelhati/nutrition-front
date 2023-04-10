@@ -20,6 +20,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
     const [atribute, setAtribute] = useState<Atribute[]>(AtributeSet(object.object))
     const [page, setPage] = useState<number>(0)
+    const [size, setSize] = useState<number>(8)
     const [pageable, setPageable] = useState<Pageable>(initialPageable)
     const paginator = 5;
     const [ispending, startTransition] = useTransition();
@@ -52,21 +53,25 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const createItem = async () => {
         let data = await create(object.url.toLowerCase(), state)
         validAction(data)
+        handleModal()
     }
     const retrieveItem = async () => {
-        let data = await retrieve(object.url.toLowerCase(), page, 8, "name")
+        let data = await retrieve(object.url.toLowerCase(), page, size, "name")
         setPageable(data)
         startTransition(() => setStates(data.content))
     }
     const updateItem = async () => {
         let data = await update(object.url.toLowerCase(), state)
         validAction(data)
+        handleModal()
     }
     const deleteItem = async () => {
         await remove(object.url.toLowerCase(), state.id)
+        handleModal()
     }
     const deleteAllItem = async () => {
         await removeAll(object.url.toLowerCase())
+        handleModal()
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
@@ -85,11 +90,17 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const handleInputChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
-    const numberPage = (page: number) => {
+    const handlePage = (page: number) => {
         setPage(page)
+    }
+    const handleSize = (event: ChangeEvent<HTMLSelectElement>) => {
+        setSize(Number(event.target.value))
+        console.log('oi')
+        retrieveItem()
     }
     const handleModal = () => {
         setModal(!modal)
+        retrieveItem()
     }
 
     return (
@@ -122,11 +133,12 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                             </Container>
                             <Container>
                                 <Button onClick={resetItem}>Reset</Button>
-                                <Button onClick={createItem}>Create</Button>
-                                <Button onClick={retrieveItem}>Retrieve</Button>
-                                <Button onClick={updateItem}>Update</Button>
-                                <Button onClick={deleteItem}>Delete</Button>
-                                <Button onClick={deleteAllItem}>Delete All</Button>
+                                <Button onClick={createItem} hidden={ state.id === "" ? false : true }>Create</Button>
+                                {/* <Button onClick={retrieveItem}>Retrieve</Button> */}
+                                <Button onClick={updateItem} hidden={ state.id === "" ? true : false }>Update</Button>
+                                <Button onClick={deleteItem} hidden={ state.id === "" ? true : false }>Delete</Button>
+                                {/* <Button onClick={deleteAllItem}>Delete All</Button> */}
+                                <Button onClick={handleModal}>Close</Button>
                             </Container>
                         </>
                     }
@@ -134,6 +146,10 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
             </Modal>
             {isValidToken() &&
                 <Table>
+                    <select onChange={handleSize} >
+                        <option value={8}>8</option>
+                        <option value={16}>16</option>
+                    </select>
                     <thead>
                         <tr><th>id</th><th>name</th></tr>
                     </thead>
@@ -146,15 +162,15 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                     </ErrorBoundary>
                     <tfoot>
                         <GroupButton>
-                            <ButtonPage onClick={() => numberPage(0)}>{'<<'}</ButtonPage>
-                            <ButtonPage onClick={() => numberPage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</ButtonPage>
-                            <ButtonPage onClick={() => numberPage(page - 1)} hidden={page <= 0 ? true : false}>{page}</ButtonPage>
+                            <ButtonPage onClick={() => handlePage(0)}>{'<<'}</ButtonPage>
+                            <ButtonPage onClick={() => handlePage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</ButtonPage>
+                            <ButtonPage onClick={() => handlePage(page - 1)} hidden={page <= 0 ? true : false}>{page}</ButtonPage>
                             <ButtonPage selected={true} disabled  >{page + 1}</ButtonPage>
-                            <ButtonPage onClick={() => numberPage(page + 1)} hidden={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</ButtonPage>
-                            <ButtonPage onClick={() => numberPage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
-                            <ButtonPage onClick={() => numberPage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
+                            <ButtonPage onClick={() => handlePage(page + 1)} hidden={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</ButtonPage>
+                            <ButtonPage onClick={() => handlePage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
+                            <ButtonPage onClick={() => handlePage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
+                            Quantidade Total {pageable.totalElements}
                         </GroupButton>
-
                     </tfoot>
                 </Table>
             }
