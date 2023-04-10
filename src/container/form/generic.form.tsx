@@ -104,10 +104,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     return (
         <>
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
+            {isValidToken() && 
             <Modal show={modal}>
                 <article>
                     <header><span onClick={handleModal}>&times;</span><h2>Modal Header</h2></header>
-                    {isValidToken() && atribute &&
+                    {atribute &&
                         <>
                             <Container>
                                 {Object.entries(state).map(([key, value], index) => {
@@ -142,6 +143,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                     }
                 </article>
             </Modal>
+            }
             {isValidToken() &&
                 <Table>
                     <Button onClick={handleModal}>New</Button>
