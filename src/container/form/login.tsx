@@ -5,17 +5,19 @@ import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { login } from '../../service/crud.service'
 import { Tooltip } from '../tootip/Tooltip'
-import { ContainerInput, ContainerInput2, ContainerInput3 } from './generic.field'
+import { ContainerInput } from './generic.field'
 import { CenterContainer, CenterItem } from '../template/Flex'
 import { Button } from '../template/Button';
 import { logout } from '../../service/service.auth'
 import { existsToken, isValidToken } from '../../service/service.token'
 import logo from '../../assets/image/marinha.png'
 import { Rotate } from '../template/Rotate'
+import { Modal } from '../template/Modal'
 
 export const UserSignin = () => {
     const [state, setState] = useState<User>(initialUser)
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
+    const [modal, setModal] = useState<boolean>(false)
 
     const refresh = () => {
         window.location.reload()
@@ -44,21 +46,25 @@ export const UserSignin = () => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
         setState({ ...state, [event.target.name]: value })
     }
+    const handleModal = () => {
+        setModal(!modal)
+    }
+
     return (
         <CenterContainer>
             <CenterItem>
                 <Rotate src={logo} alt="" width="120" height="128"></Rotate>
                 <Tooltip data-tip={'user'} hidden={true} >
-                    <ContainerInput2>
+                    <ContainerInput>
                         <input type={'text'} required name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
                         <label htmlFor="name">Name</label>
-                    </ContainerInput2>
+                    </ContainerInput>
                 </Tooltip>
                 <Tooltip data-tip={'password'} hidden={true} >
-                    <ContainerInput2>
+                    <ContainerInput>
                         <input type={'password'} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
                         <label htmlFor="password">Password</label>
-                    </ContainerInput2>
+                    </ContainerInput>
                 </Tooltip>
                 <CenterItem direction={'row'}>
                     {!isValidToken() && <Button onClick={loginUser}>Login</Button>}
@@ -67,6 +73,15 @@ export const UserSignin = () => {
                 </CenterItem>
                 {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}
+
+                <Button onClick={handleModal}>Open Modal</Button>
+                <Modal show={modal}>
+                    <div>
+                        <span onClick={handleModal}>&times;</span>
+                        <p>{JSON.stringify(state)}</p>
+                    </div>
+                </Modal>
+
             </CenterItem>
         </CenterContainer>
     );

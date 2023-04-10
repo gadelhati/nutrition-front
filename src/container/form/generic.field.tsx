@@ -10,32 +10,12 @@ export const Container = styled('div',{
     flexWrap: 'wrap',
 })
 
-export const ContainerInput = styled('input',{
-    fontFamily: 'Montserrat,sans-serif',
-    fontSize: '18px',
-    marginTop: '.1em',
-    display: 'block',
-    border: 'none',
-    backgroundColor: '$five1',
-    borderBottom: '1px solid #757575',
-    borderRadius: '5px',
-    padding: '10px 10px 10px 5px',
-    '&:focus': {
-        outline: 'none',
-    },
-    // '&:focus ~ label, input:valid ~ label': {
-    //     top: '-20px',
-    //     fontSize: '14px',
-    //     color: '#4285f4',
-    // }
-})
-
-export const ContainerInput2 = styled('div',{
+export const ContainerInput = styled('div',{
     fontSize: '.9rem',
     fontFamily: 'Segoe UI, sans-serif',
-    margin: '1em 0 0 0',
-    maxWidth: '190px',
-    position: 'relative',
+    margin: '1rem 0 0 0',
+    // maxWidth: '190px',
+    // position: 'relative',
     padding: '.1rem',
     'input': {
         color: '$five1',
@@ -69,47 +49,6 @@ export const ContainerInput2 = styled('div',{
         transition: 'all 0.3s ease',
         borderBottom: '2px solid $one1',
     },
-})
-
-export const ContainerInput3 = styled('div',{
-    position: 'relative',
-    margin: '50px auto',
-    width: '200px',
-    'input[type="text"]': {
-        fontSize: '20px',
-        width: '100%',
-        border: 'none',
-        borderBottom: '2px solid #ccc',
-        padding: '5px 0',
-        backgroundColor: 'transparent',
-        outline: 'none',
-    },
-    'label': {
-        position: 'absolute',
-        top: '0',
-        left: '0',
-        color: '#ccc',
-        transition: 'all 0.3s ease',
-        pointerEvents: 'none',
-    },
-    'input[type="text"]:focus ~ .label, input[type="text"]:valid ~ .label': {
-        top: '-20px',
-        fontSize: '16px',
-        color: '#333',
-    },
-    'div': {
-        position: 'absolute',
-        bottom: '0',
-        left: '0',
-        height: '2px',
-        width: '100%',
-        backgroundColor: '#333',
-        transform: 'scaleX(0)',
-        transition: 'all 0.3s ease',
-    },
-    'input[type="text"]:focus ~ div, input[type="text"]:valid ~ div': {
-        transform: 'scaleX(1)',
-    }
 })
 
 export const ContainerLabel = styled('label',{
