@@ -59,6 +59,11 @@ export const Tooltip = styled('div',{
                 border: '3px solid $five',
                 borderRadius: '0.5em',
             },
+            true: {
+                '&:before, &:after': {
+                    display: 'none',
+                },
+            },
         },
     },
 })
