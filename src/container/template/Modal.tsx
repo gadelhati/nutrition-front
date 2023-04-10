@@ -22,7 +22,6 @@ export const Modal = styled('div', {
         maxHeight: '85vh',
         backgroundColor: '$three1',
         margin: 'auto',
-        padding: '1em',
         border: '1px solid #888',
         maxWidth: '80%',
         boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)',
@@ -40,6 +39,24 @@ export const Modal = styled('div', {
             textDecoration: 'none',
             cursor: 'pointer',
         },
+    },
+    'header': {
+        padding: '2px 16px',
+        margin: '0 auto',
+        backgroundColor: '$one1',
+        color: 'white',
+        borderRadius: '.5rem .5rem 0 0',
+    },
+    'footer': {
+        // padding: '2px 16px',
+        display: 'flex',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        backgroundColor: '$one1',
+        color: 'white',
+        borderRadius: '0 0 .5rem .5rem',
     },
     variants: {
         show: {

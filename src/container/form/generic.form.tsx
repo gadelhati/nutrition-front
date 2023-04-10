@@ -97,7 +97,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
             <Modal show={modal}>
                 <article>
-                    <span onClick={handleModal}>&times;</span>
+                    <header><span onClick={handleModal}>&times;</span><h2>Modal Header</h2></header>
                     {isValidToken() && atribute &&
                         <>
                             <Container>
