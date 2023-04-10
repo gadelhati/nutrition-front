@@ -27,6 +27,9 @@ export const ContainerInput = styled('div',{
         backgroundColor: 'transparent',
         width: '100%',
     },
+    'input[type="number"]': {
+        appearance: 'textfield',
+    },
     'label': {
         fontSize: '100%',
         position: 'absolute',
