@@ -19,9 +19,8 @@ export const Modal = styled('div', {
     overflow: 'auto',
     backgroundColor: 'rgba(0,0,0,0.4)',
     'article': {
-        maxHeight: '80vh',
-        position: 'relative',
-        backgroundColor: '#fefefe',
+        maxHeight: '85vh',
+        backgroundColor: '$three1',
         margin: 'auto',
         padding: '1em',
         border: '1px solid #888',
