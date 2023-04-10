@@ -66,12 +66,14 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         handleModal()
     }
     const deleteItem = async () => {
-        await remove(object.url.toLowerCase(), state.id)
-        handleModal()
+        await remove(object.url.toLowerCase(), state.id).then((value: any) => 
+            handleModal()
+        )
     }
     const deleteAllItem = async () => {
-        await removeAll(object.url.toLowerCase())
-        handleModal()
+        await removeAll(object.url.toLowerCase()).then((value: any) => 
+            handleModal()
+        )
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
