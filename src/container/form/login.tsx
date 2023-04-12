@@ -23,6 +23,16 @@ export const UserSignin = () => {
     const resetItem = () => {
         setState(initialUser)
     }
+    const validation = (name: string): string[] => {
+        let vector: string[] = []
+        error?.map(element => { if (name == element.field) return vector.push(element?.message) })
+        return vector
+    }
+    const validationConnection = (): string[] => {
+        let vector: string[] = []
+        error?.map(element => { if (element.field?.startsWith("conection")) return vector.push(element?.message) })
+        return vector
+    }
     const validAction = (data: any) => {
         if (data?.id) {
             setState(data)
@@ -33,8 +43,17 @@ export const UserSignin = () => {
         refresh()
     }
     const loginUser = async () => {
-        let data = await login('auth', state)
-        validAction(data)
+        await login('auth', state)
+        .then((data)=>{
+            if(data[0]?.field === undefined) {
+                validAction(data)
+            } else {
+                setError(data)
+            }
+        })
+        .catch((error) => {
+            setError([{ field: 'conection', message: 'API error' }])
+        })
     }
     const logoutUser = async () => {
         logout()
@@ -49,13 +68,13 @@ export const UserSignin = () => {
         <CenterContainer>
             <CenterItem>
                 <Rotate src={logo} alt="" width="120" height="128"></Rotate>
-                <Tooltip data-tip={'user'} hidden={true} >
+                <Tooltip data-tip={validation('username')} hidden={validation('username').length === 0} >
                     <ContainerInput>
                         <input type={'text'} required name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
                         <label htmlFor="name">Name</label>
                     </ContainerInput>
                 </Tooltip>
-                <Tooltip data-tip={'password'} hidden={true} >
+                <Tooltip data-tip={validation('password')} hidden={validation('password').length === 0} >
                     <ContainerInput>
                         <input type={'password'} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
                         <label htmlFor="password">Password</label>
@@ -68,6 +87,7 @@ export const UserSignin = () => {
                 </CenterItem>
                 {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}
+                <div>{validationConnection()}</div>
             </CenterItem>
         </CenterContainer>
     );

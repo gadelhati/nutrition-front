@@ -25,7 +25,6 @@ It is called nutritional information, also known as nutritional labeling, the ta
 
 ## Roadmap
 ### in development
-- [ ] response without connection
 - [ ] counter only increases by 1
 - [ ] consume service that provide sidebar access
 - [ ] header: sandwich to restore body
