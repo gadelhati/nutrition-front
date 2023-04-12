@@ -51,9 +51,18 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         handleModal()
     }
     const createItem = async () => {
-        let data = await create(object.url.toLowerCase(), state)
-        validAction(data)
-        handleModal()
+        await create(object.url.toLowerCase(), state)
+        .then((data)=>{
+            if(data[0]?.field === undefined) {
+                validAction(data)
+                handleModal()
+            } else {
+                setError(data)
+            }
+        })
+        .catch((error) => {
+            setError([{ field: 'conection', message: 'API error' }])
+        })
     }
     const retrieveItem = async () => {
         let data = await retrieve(object.url.toLowerCase(), page, size, "name")

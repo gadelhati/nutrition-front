@@ -2,27 +2,29 @@ import { api } from "../assets/api/api"
 import { ErrorMessage } from "../assets/error/errorMessage"
 import { setToken } from "./service.token"
 
-export const login = async<Auth,>(url: string, object: Auth): Promise<Auth | void> => {
-    let errorMessage: ErrorMessage[] = []
-    await api.post(url, object)
+export const login = async<Auth,>(url: string, object: Auth) => {
+    return await api.post(url, object)
         .then(response => {
-            response.data?.errors?.forEach((element: ErrorMessage) => {
+            setToken(response.data)
+            return response.data
+        })
+        .catch((error) => {
+            let errorMessage: ErrorMessage[] = []
+            error.response.data?.errors?.forEach((element: ErrorMessage) => {
                 errorMessage.push({ field: element.field, message: element.message })
             })
-            setToken(response.data)
             return errorMessage
-        })
-        .catch(function (error) {
-            return errorMessage.push({ field: error.response.data.status, message: error.response.data})
         });
 }
 
 export const create = async<T,>(url: string, object: T) => {
     return await api.post(`/${url}`, object)
         .then(response => {
+            console.log("sim")
             return response.data
         })
         .catch(function (error) {
+            console.log("não")
             let errorMessage: ErrorMessage[] = []
             error.response.data?.errors?.forEach((element: ErrorMessage) => {
                 errorMessage.push({ field: element.field, message: element.message })
