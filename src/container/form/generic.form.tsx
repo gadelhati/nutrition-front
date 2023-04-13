@@ -37,6 +37,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     }, [page, size])
     const resetItem = () => {
         setState(object.object)
+        setError([initialErrorMessage])
     }
     const validAction = (data: any) => {
         if (data?.id) {

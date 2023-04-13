@@ -22,6 +22,7 @@ export const UserSignin = () => {
     }
     const resetItem = () => {
         setState(initialUser)
+        setError([initialErrorMessage])
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
