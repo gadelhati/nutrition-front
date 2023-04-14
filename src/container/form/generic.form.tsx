@@ -66,9 +66,12 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         })
     }
     const retrieveItem = async () => {
-        let data = await retrieve(object.url.toLowerCase(), page, size, "name")
-        setPageable(data)
-        startTransition(() => setStates(data.content))
+        await retrieve(object.url.toLowerCase(), page, size, "name")
+            .then((data) => startTransition(() => setPageable(data)))
+        startTransition(() => setStates(pageable.content))
+        // let data = await retrieve(object.url.toLowerCase(), page, size, "name")
+        // setPageable(data)
+        // startTransition(() => setStates(data.content))
     }
     const updateItem = async () => {
         let data = await update(object.url.toLowerCase(), state)
