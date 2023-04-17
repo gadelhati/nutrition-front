@@ -25,6 +25,10 @@ It is called nutritional information, also known as nutritional labeling, the ta
 
 ## Roadmap
 ### in development
+- [ ] criar com objeto vazio
+- [ ] conservar os botões dentro do modal
+- [ ] mensagem de finalização de execução de comando: crud
+
 - [ ] counter only increases by 1
 - [ ] consume service that provide sidebar access
 - [ ] header: sandwich to restore body

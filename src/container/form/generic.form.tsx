@@ -13,6 +13,8 @@ import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Modal } from '../template/Modal';
+import { initialState } from '../../component/initial.state';
+import { Toast } from '../template/Toast';
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
@@ -25,6 +27,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const paginator = 5;
     const [ispending, startTransition] = useTransition();
     const [modal, setModal] = useState<boolean>(false)
+    const [toast, setToast] = useState<boolean>(false)
 
     // Pendente (Pending).
     // Resolvida (Resolved) (não está na documentação, mas gosto de definir esse estado também).
@@ -39,43 +42,40 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         setState(object.object)
         setError([initialErrorMessage])
     }
-    const validAction = (data: any) => {
-        if (data?.id) {
-            setState(data)
-            setError([initialErrorMessage])
-        } else {
-            setError(data)
-        }
-    }
     const selectItem = async (data: any) => {
         setState(data)
         handleModal()
     }
+    const validItem = (data: any) => {
+        if (data?.id) {
+            // setState(data)
+            handleModal()
+            setError([initialErrorMessage])
+            retrieveItem()
+        } else {
+            setError(data)
+        }
+    }
     const createItem = async () => {
         await create(object.url.toLowerCase(), state)
         .then((data)=>{
-            if(data[0]?.field === undefined) {
-                validAction(data)
-                handleModal()
-            } else {
-                setError(data)
-            }
+            validItem(data)
         })
         .catch((error) => {
             setError([{ field: 'conection', message: 'API error' }])
         })
     }
     const retrieveItem = async () => {
-        await retrieve(object.url.toLowerCase(), page, size, "name")
-            .then((data) => startTransition(() => setPageable(data)))
-        startTransition(() => setStates(pageable.content))
-        // let data = await retrieve(object.url.toLowerCase(), page, size, "name")
-        // setPageable(data)
-        // startTransition(() => setStates(data.content))
+        // await retrieve(object.url.toLowerCase(), page, size, "name")
+        //     .then((data) => startTransition(() => setPageable(data)))
+        // startTransition(() => setStates(pageable.content))
+        let data = await retrieve(object.url.toLowerCase(), page, size, "name")
+        setPageable(data)
+        startTransition(() => setStates(data.content))
     }
     const updateItem = async () => {
         let data = await update(object.url.toLowerCase(), state)
-        validAction(data)
+        validItem(data)
         handleModal()
     }
     const deleteItem = async () => {
@@ -113,9 +113,15 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     }
     const handleModal = () => {
         setModal(!modal)
-        retrieveItem()
     }
-
+    const newItem = () => {
+        setModal(!modal)
+        resetItem()
+    }
+    const toastItem = () => {
+        setToast(true)
+        setTimeout(()=> setToast(false), 5000)
+    }
     return (
         <>
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
@@ -161,7 +167,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
             }
             {isValidToken() &&
                 <Table>
-                    <Button onClick={handleModal}>New</Button>
+                    <Button onClick={newItem}>New</Button>
                     Items per page
                     <select onChange={handleSize} >
                         <option value={5}>5</option>
@@ -192,6 +198,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                     </tfoot>
                 </Table>
             }
+            <button onClick={toastItem}>Show Toast</button>
+            <Toast show={toast}>
+                <span>Icon</span>
+                <div>A notification message..</div>
+            </Toast>
             {/* <GroupButton>
                 <ButtonPage onClick={() => numberPage(0)}>{'<<'}</ButtonPage>
                 <ButtonPage onClick={() => numberPage(page - 1)} disabled={page >= pageable.totalPages + 2 ? true : false}>{'<'}</ButtonPage>
