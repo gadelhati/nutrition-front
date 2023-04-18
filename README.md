@@ -35,6 +35,7 @@ It is called nutritional information, also known as nutritional labeling, the ta
 - [ ] sidebar: personal icons
 ### in concept
 - [ ] collapsible
+- [ ] implements the vanilla-extract
 
 ## how to create this project
 ```
