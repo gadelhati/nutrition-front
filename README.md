@@ -25,9 +25,11 @@ It is called nutritional information, also known as nutritional labeling, the ta
 
 ## Roadmap
 ### in development
-- [ ] criar com objeto vazio
-- [ ] conservar os botões dentro do modal
-- [ ] mensagem de finalização de execução de comando: crud
+- [ ] keep the buttons inside the modal
+- [ ] command execution completion message: crud
+- [ ] change password on profile
+- [ ] load privileges on role's form
+- [ ] set combobox, turn with switch
 
 - [ ] counter only increases by 1
 - [ ] consume service that provide sidebar access
