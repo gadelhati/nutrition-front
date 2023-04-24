@@ -3,5 +3,5 @@ import { Role } from "./role.interface";
 export const initialRole : Role = {
     id: '',
     name: '',
-    privileges: []
+    privileges: ['READ_PRIVILEGE', 'WRITE_PRIVILEGE']
 }
