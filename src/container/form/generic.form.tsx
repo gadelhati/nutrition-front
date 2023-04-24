@@ -2,7 +2,7 @@ import { useState, ChangeEvent, useEffect, useTransition } from 'react';
 import { isValidToken } from '../../service/service.token'
 import { ErrorMessage } from '../../assets/error/errorMessage';
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
-import { create, retrieve, update, remove, removeAll } from '../../service/crud.service';
+import { create, retrieve, update, remove, removeAll } from '../../service/service.crud';
 import { Container, ContainerInput } from './generic.field';
 import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';

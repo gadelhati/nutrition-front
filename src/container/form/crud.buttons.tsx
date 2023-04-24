@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { crudInterface } from '../../component/crud.interface';
-import { create, retrieve, update, remove, removeAll } from '../../service/crud.service';
+import { create, retrieve, update, remove, removeAll } from '../../service/service.crud';
 import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
 
