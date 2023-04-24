@@ -20,6 +20,7 @@ export const Modal = styled('div', {
     backgroundColor: 'rgba(0,0,0,0.4)',
     'article': {
         maxHeight: '85vh',
+        minWidth: '50vw',
         backgroundColor: '$three1',
         margin: 'auto',
         border: '1px solid #888',
