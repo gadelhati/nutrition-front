@@ -135,9 +135,14 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                     return (
                                         <div>
                                             {Array.isArray(atribute[index].worth) ?
-                                                <select name={key} onChange={handleInputChangeSelect}>
-                                                    {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
-                                                </select> :
+                                                <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
+                                                    <ContainerInput>
+                                                        <select name={key} onChange={handleInputChangeSelect}>
+                                                            {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
+                                                        </select>
+                                                    </ContainerInput>
+                                                </Tooltip>
+                                                :
                                                 <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
                                                     <ContainerInput>
                                                         <input type={atribute[index].type} required name={key} value={value} onChange={handleInputChange} autoComplete='off' />
