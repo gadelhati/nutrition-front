@@ -13,7 +13,6 @@ import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Modal } from '../template/Modal';
-import { initialState } from '../../component/initial.state';
 import { Toast } from '../template/Toast';
 import { Notification } from '../template/Notification';
 
@@ -49,46 +48,41 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     }
     const validItem = (data: any) => {
         if (data?.id) {
-            // setState(data)
             handleModal()
-            setError([initialErrorMessage])
             retrieveItem()
         } else {
-            setError(data)
+            startTransition(() => setError(data))
         }
     }
+    const networkError = () => {
+        setError([{ field: 'DTO', message: 'Network Error' }])
+    }
     const createItem = async () => {
-        await create(object.url.toLowerCase(), state)
-        .then((data)=>{
+        await create(object.url.toLowerCase(), state).then((data) => {
             validItem(data)
-        })
-        .catch((error) => {
-            setError([{ field: 'conection', message: 'API error' }])
-        })
+        }).catch((error) => { networkError() })
     }
     const retrieveItem = async () => {
-        // await retrieve(object.url.toLowerCase(), page, size, "name")
-        //     .then((data) => startTransition(() => setPageable(data)))
-        // startTransition(() => setStates(pageable.content))
-        let data = await retrieve(object.url.toLowerCase(), page, size, "name")
-        setPageable(data)
-        startTransition(() => setStates(data.content))
+        await retrieve(object.url.toLowerCase(), page, size, "name").then((data) => {
+            startTransition(() => setPageable(data) )
+            startTransition(() => setStates(data.content) )
+        }).catch((error) => { networkError() })
     }
     const updateItem = async () => {
-        let data = await update(object.url.toLowerCase(), state)
-        validItem(data)
-        handleModal()
+        await update(object.url.toLowerCase(), state).then((data) => {
+            validItem(data)
+        }).catch((error) => { networkError() })
     }
     const deleteItem = async () => {
-        await remove(object.url.toLowerCase(), state.id).then((value: any) => 
-            handleModal()
-        )
+        await remove(object.url.toLowerCase(), state.id).then((data) => {
+            validItem(data)
+        }).catch((error) => { networkError() })
     }
-    const deleteAllItem = async () => {
-        await removeAll(object.url.toLowerCase()).then((value: any) => 
-            handleModal()
-        )
-    }
+    // const deleteAllItem = async () => {
+    //     await removeAll(object.url.toLowerCase()).then((data) => 
+    //         handleModal()
+    //     )
+    // }
     const validation = (name: string): string[] => {
         let vector: string[] = []
         error?.map(element => { if (name == element.field) return vector.push(element?.message) })
@@ -114,6 +108,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     }
     const handleModal = () => {
         setModal(!modal)
+        setError([initialErrorMessage])
     }
     const newItem = () => {
         setModal(!modal)
