@@ -26,7 +26,6 @@ It is called nutritional information, also known as nutritional labeling, the ta
 ## Roadmap
 ### in development
 - [ ] keep the buttons inside the modal
-- [ ] command execution completion message: crud
 - [ ] change password on profile
 - [ ] load privileges on role's form
 - [ ] set combobox, turn with switch

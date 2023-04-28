@@ -13,8 +13,7 @@ import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Modal } from '../template/Modal';
-import { Toast } from '../template/Toast';
-import { Notification } from '../template/Notification';
+import { Toast } from '../Toast/Toast';
 import { Role } from '../../component/role/role.interface';
 import { initialRole } from '../../component/role/role.initial';
 
@@ -205,18 +204,7 @@ export const RoleForm = () => {
                     </tfoot>
                 </Table>
             }
-            <button onClick={toastItem}>Show Toast</button>
-            <Toast show={toast}>
-                <span>Icon</span>
-                <div>A notification message..</div>
-            </Toast>
-            <Notification show={toast}></Notification>
-            <div className="buttons">
-                <button className="btn" id="success">Success</button>
-                <button className="btn" id="error">Error</button>
-                <button className="btn" id="warning">Warning</button>
-                <button className="btn" id="info">Info</button>
-            </div>
+            <Toast className="notifications"></Toast>
             {/* <GroupButton>
                 <ButtonPage onClick={() => numberPage(0)}>{'<<'}</ButtonPage>
                 <ButtonPage onClick={() => numberPage(page - 1)} disabled={page >= pageable.totalPages + 2 ? true : false}>{'<'}</ButtonPage>

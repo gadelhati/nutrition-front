@@ -9,6 +9,13 @@ export const stitches = createStitches({
     },
     theme: {
         colors: {
+            tdark: '#34495E',
+            tlight: '#ffffff',
+            tsuccess: '#0ABF30',
+            terror: '#E24D4C',
+            twarning: '#E9BD0C',
+            tinfo: '#3498DB',
+            
             letterColor: '#A1E0B0',
             letterBackgroudColor: '#06532F',
             letterColorHover: 'forestGreen',

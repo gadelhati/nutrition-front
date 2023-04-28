@@ -8,6 +8,13 @@ export const Container = styled('div',{
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
+    variants: {
+        block: {
+            true: {
+                display: 'inline-block',
+            },
+        },
+    },
 })
 
 export const ContainerInput = styled('div',{

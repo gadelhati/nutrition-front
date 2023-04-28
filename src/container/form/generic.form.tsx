@@ -13,8 +13,8 @@ import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Modal } from '../template/Modal';
-import { Toast } from '../template/Toast';
-import { Notification } from '../template/Notification';
+import { Toast } from '../Toast/Toast';
+import { createToast, toastDetails } from '../Toast/toast.message';
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
@@ -28,6 +28,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const [ispending, startTransition] = useTransition();
     const [modal, setModal] = useState<boolean>(false)
     const [toast, setToast] = useState<boolean>(false)
+    const [toast2, setToast2] = useState<boolean>(true)
 
     // Pendente (Pending).
     // Resolvida (Resolved) (não está na documentação, mas gosto de definir esse estado também).
@@ -50,8 +51,10 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         if (data?.id) {
             handleModal()
             retrieveItem()
+            createToast(toastDetails[0])
         } else {
             startTransition(() => setError(data))
+            createToast(toastDetails[1])
         }
     }
     const networkError = () => {
@@ -118,9 +121,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         setToast(true)
         setTimeout(()=> setToast(false), 5000)
     }
-    const notificationItem = () => {
-
-    }
     return (
         <>
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
@@ -155,7 +155,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                 })}
                                 <div>{validationDTO()}</div>
                             </Container>
-                            <Container>
+                            <Container block={true} >
                                 <Button onClick={resetItem}>Reset</Button>
                                 <Button onClick={createItem} hidden={ state.id === "" ? false : true }>Create</Button>
                                 {/* <Button onClick={retrieveItem}>Retrieve</Button> */}
@@ -202,18 +202,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                     </tfoot>
                 </Table>
             }
-            <button onClick={toastItem}>Show Toast</button>
-            <Toast show={toast}>
-                <span>Icon</span>
-                <div>A notification message..</div>
-            </Toast>
-            <Notification show={toast}></Notification>
-            <div className="buttons">
-                <button className="btn" id="success">Success</button>
-                <button className="btn" id="error">Error</button>
-                <button className="btn" id="warning">Warning</button>
-                <button className="btn" id="info">Info</button>
-            </div>
+            <Toast className="notifications"></Toast>
             {/* <GroupButton>
                 <ButtonPage onClick={() => numberPage(0)}>{'<<'}</ButtonPage>
                 <ButtonPage onClick={() => numberPage(page - 1)} disabled={page >= pageable.totalPages + 2 ? true : false}>{'<'}</ButtonPage>
@@ -224,8 +213,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                 <ButtonPage onClick={() => numberPage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
                 <ButtonPage onClick={() => numberPage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
             </GroupButton> */}
-
-            {/* <Crud initialObject={initialUser} name={url} object={state} error={error}/> */}
             {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}
         </>
