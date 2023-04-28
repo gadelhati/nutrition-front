@@ -13,8 +13,8 @@ import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Modal } from '../template/Modal';
-import { Toast } from '../Toast/Toast';
-import { createToast, toastDetails } from '../Toast/toast.message';
+import { Toast } from '../toast/Toast';
+import { createToast, toastDetails } from '../toast/toast.message';
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)

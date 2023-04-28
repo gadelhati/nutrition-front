@@ -13,7 +13,7 @@ import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Modal } from '../template/Modal';
-import { Toast } from '../Toast/Toast';
+import { Toast } from '../toast/Toast';
 import { Role } from '../../component/role/role.interface';
 import { initialRole } from '../../component/role/role.initial';
 
