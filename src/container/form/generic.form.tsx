@@ -67,8 +67,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     }
     const retrieveItem = async () => {
         await retrieve(object.url.toLowerCase(), page, size, "name").then((data) => {
-            startTransition(() => setPageable(data) )
-            startTransition(() => setStates(data.content) )
+                startTransition(() => setPageable(data) )
+                startTransition(() => setStates(data.content) )
         }).catch((error) => { networkError() })
     }
     const updateItem = async () => {
@@ -82,9 +82,9 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         }).catch((error) => { networkError() })
     }
     // const deleteAllItem = async () => {
-    //     await removeAll(object.url.toLowerCase()).then((data) => 
+    //     await removeAll(object.url.toLowerCase()).then((data) => {
     //         handleModal()
-    //     )
+    //     }).catch((error) => { networkError() })
     // }
     const validation = (name: string): string[] => {
         let vector: string[] = []

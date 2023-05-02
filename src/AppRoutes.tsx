@@ -38,10 +38,10 @@ export default function AppRoutes() {
                             <Route path="/notAllowed" element={<NotAllowed />}></Route>
                             <Route path="/auth" element={<UserSignin />}></Route>
                             <Route path="/profile" element={<ProfileForm key='user' object={initialUser} url={'user'} />}></Route>
-                            <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}>
+                            {/* <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}> */}
                                 <Route path="/user" element={<UserForm />}></Route>
                                 <Route path="/role" element={<RoleForm />}></Route>
-                            </Route>
+                            {/* </Route> */}
                             <Route element={<RequireAuth allowedRoles={[ROLES.USER, ROLES.ADMIN, ROLES.MODERATOR]} />}>
                                 <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
                                 <Route path="/preparation" element={<GenericForm key='preparation' object={initialPreparation} url={'preparation'} />}></Route>
