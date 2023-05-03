@@ -27,8 +27,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const paginator = 5;
     const [ispending, startTransition] = useTransition();
     const [modal, setModal] = useState<boolean>(false)
-    const [toast, setToast] = useState<boolean>(false)
-    const [toast2, setToast2] = useState<boolean>(true)
 
     // Pendente (Pending).
     // Resolvida (Resolved) (não está na documentação, mas gosto de definir esse estado também).
@@ -67,8 +65,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     }
     const retrieveItem = async () => {
         await retrieve(object.url.toLowerCase(), page, size, "name").then((data) => {
-                startTransition(() => setPageable(data) )
-                startTransition(() => setStates(data.content) )
+            startTransition(() => setPageable(data))
+            startTransition(() => setStates(data.content))
         }).catch((error) => { networkError() })
     }
     const updateItem = async () => {
@@ -117,90 +115,101 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         setModal(!modal)
         resetItem()
     }
-    const toastItem = () => {
-        setToast(true)
-        setTimeout(()=> setToast(false), 5000)
-    }
     return (
         <>
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
-            {isValidToken() && 
-            <Modal show={modal}>
-                <article>
-                    <header><span onClick={handleModal}>&times;</span><h2>Modal Header</h2></header>
-                    {atribute &&
-                        <>
-                            <Container>
-                                {Object.entries(state).map(([key, value], index) => {
-                                    return (
-                                        <div>
-                                            {Array.isArray(atribute[index].worth) ?
-                                                <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
-                                                    <ContainerInput>
-                                                        <select name={key} onChange={handleInputChangeSelect}>
-                                                            {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
-                                                        </select>
-                                                    </ContainerInput>
-                                                </Tooltip>
-                                                :
-                                                <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
-                                                    <ContainerInput>
-                                                        <input type={atribute[index].type} required name={key} value={value} onChange={handleInputChange} autoComplete='off' />
-                                                        <label htmlFor={key} hidden={atribute[index].type === 'hidden' ? true : false}>{key}</label>
-                                                    </ContainerInput>
-                                                </Tooltip>
-                                            }
-                                        </div>
-                                    )
-                                })}
-                                <div>{validationDTO()}</div>
-                            </Container>
-                            <Container block={true} >
-                                <Button onClick={resetItem}>Reset</Button>
-                                <Button onClick={createItem} hidden={ state.id === "" ? false : true }>Create</Button>
-                                {/* <Button onClick={retrieveItem}>Retrieve</Button> */}
-                                <Button onClick={updateItem} hidden={ state.id === "" ? true : false }>Update</Button>
-                                <Button onClick={deleteItem} hidden={ state.id === "" ? true : false }>Delete</Button>
-                                {/* <Button onClick={deleteAllItem}>Delete All</Button> */}
-                                <Button onClick={handleModal}>Close</Button>
-                            </Container>
-                        </>
-                    }
-                </article>
-            </Modal>
-            }
             {isValidToken() &&
-                <Table>
-                    <Button onClick={newItem}>New</Button>
-                    Items per page
-                    <select onChange={handleSize} >
-                        <option value={5}>5</option>
-                        <option value={10}>10</option>
-                        <option value={15}>15</option>
-                    </select>
-                    <thead>
-                        <tr><th>id</th><th>name</th></tr>
-                    </thead>
-                    <ErrorBoundary fallback={<div> Algo deu errado </div>} >
+                <>
+                    <Modal show={modal}>
+                        <article>
+                            <header><span onClick={handleModal}>&times;</span><h2>Modal Header</h2></header>
+                            {atribute &&
+                                <>
+                                    <Container>
+                                        {Object.entries(state).map(([key, value], index) => {
+                                            return (
+                                                <div>
+                                                    {Array.isArray(atribute[index].worth) ?
+                                                        <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
+                                                            <ContainerInput>
+                                                                <select name={key} onChange={handleInputChangeSelect}>
+                                                                    {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
+                                                                </select>
+                                                            </ContainerInput>
+                                                        </Tooltip>
+                                                        :
+                                                        <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
+                                                            <ContainerInput>
+                                                                <input type={atribute[index].type} required name={key} value={value} onChange={handleInputChange} autoComplete='off' />
+                                                                <label htmlFor={key} hidden={atribute[index].type === 'hidden' ? true : false}>{key}</label>
+                                                            </ContainerInput>
+                                                        </Tooltip>
+                                                    }
+                                                </div>
+                                            )
+                                        })}
+                                        <div>{validationDTO()}</div>
+                                    </Container>
+                                    <Container block={true} >
+                                        <Button onClick={resetItem}>Reset</Button>
+                                        <Button onClick={createItem} hidden={state.id === "" ? false : true}>Create</Button>
+                                        {/* <Button onClick={retrieveItem}>Retrieve</Button> */}
+                                        <Button onClick={updateItem} hidden={state.id === "" ? true : false}>Update</Button>
+                                        <Button onClick={deleteItem} hidden={state.id === "" ? true : false}>Delete</Button>
+                                        {/* <Button onClick={deleteAllItem}>Delete All</Button> */}
+                                        <Button onClick={handleModal}>Close</Button>
+                                    </Container>
+                                </>
+                            }
+                        </article>
+                    </Modal>
+                    <Container block={false} >
+                        <Button onClick={newItem}>New</Button>
+                        Items per page
+                        <select onChange={handleSize} >
+                            <option value={5}>5</option>
+                            <option value={10}>10</option>
+                            <option value={15}>15</option>
+                        </select>
+                    </Container>
+                    <Table>
+                        <thead>
+                            <tr>
+                                {Object.entries(state).map(([key, value], index) => {
+                                    return (<th>{key}</th>)
+                                })}
+                            </tr>
+                        </thead>
+                        {/* <ErrorBoundary fallback={<div> Algo deu errado </div>} > */}
                         <tbody>
                             {states.map((element) => {
-                                return <tr onClick={() => selectItem(element)}><td>{element.id}</td><td>{element.name}</td></tr>
+                                return (
+                                    <tr onClick={() => selectItem(element)}>
+                                        {Object.entries(element).map(([key, value], index) => {
+                                            return (<td>{value}</td>)
+                                        })}
+                                    </tr>)
                             })}
                         </tbody>
-                    </ErrorBoundary>
-                    <tfoot>
-                        <GroupButton>
-                            <ButtonPage onClick={() => handlePage(0)}>{'<<'}</ButtonPage>
-                            <ButtonPage onClick={() => handlePage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</ButtonPage>
-                            <ButtonPage onClick={() => handlePage(page - 1)} hidden={page <= 0 ? true : false}>{page}</ButtonPage>
-                            <ButtonPage selected={true} disabled  >{page + 1}</ButtonPage>
-                            <ButtonPage onClick={() => handlePage(page + 1)} hidden={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</ButtonPage>
-                            <ButtonPage onClick={() => handlePage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
-                            <ButtonPage onClick={() => handlePage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
-                            Total amount {pageable.totalElements}
-                        </GroupButton>
-                    </tfoot>
-                </Table>
+                        {/* </ErrorBoundary> */}
+                        <tfoot>
+                            <tr>
+                                <td>
+                                    <GroupButton>
+                                        <ButtonPage onClick={() => handlePage(0)}>{'<<'}</ButtonPage>
+                                        <ButtonPage onClick={() => handlePage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</ButtonPage>
+                                        <ButtonPage onClick={() => handlePage(page - 1)} hidden={page <= 0 ? true : false}>{page}</ButtonPage>
+                                        <ButtonPage selected={true} disabled  >{page + 1}</ButtonPage>
+                                        <ButtonPage onClick={() => handlePage(page + 1)} hidden={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</ButtonPage>
+                                        <ButtonPage onClick={() => handlePage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
+                                        <ButtonPage onClick={() => handlePage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
+                                        Total amount {pageable.totalElements}
+                                    </GroupButton>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </Table>
+                </>
             }
             <Toast className="notifications"></Toast>
             {/* <GroupButton>
