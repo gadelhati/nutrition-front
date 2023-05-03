@@ -25,17 +25,20 @@ It is called nutritional information, also known as nutritional labeling, the ta
 
 ## Roadmap
 ### in development
+- [x] user: change password on profile
+- [x] user: improve visual of add multiple roles
 - [ ] keep the buttons inside the modal
-- [ ] change password on profile
 - [ ] load privileges on role's form
 - [ ] set combobox, turn with switch
-
+- [ ] show list of objects added
 - [ ] counter only increases by 1
+- [ ] collapsible
+- [ ] refactoring on global css
+
+### in concept
 - [ ] consume service that provide sidebar access
 - [ ] header: sandwich to restore body
 - [ ] sidebar: personal icons
-### in concept
-- [ ] collapsible
 - [ ] implements the vanilla-extract
 
 ## how to create this project
