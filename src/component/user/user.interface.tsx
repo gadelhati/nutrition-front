@@ -4,7 +4,7 @@ export interface User {
 	id: string,
 	username: string,
 	email: string,
-    password: string,
+    // password: string,
 	active: boolean,
 	roles: string[]
 	// roles: [
