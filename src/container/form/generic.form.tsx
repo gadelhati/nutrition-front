@@ -186,8 +186,12 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                 return (
                                     <tr onClick={() => selectItem(element)}>
                                         {Object.entries(element).map(([key, value], index) => {
-                                            // return (Array.isArray(value) || typeof element === 'object' ? <td>{JSON.stringify(value)}</td> : <td>{value}</td>)
-                                            return (<td>{JSON.stringify(value)}</td>)
+                                            return (Array.isArray(value) ?
+                                                Object.entries(value).map(([key, value], index) => {
+                                                    return (<td>{JSON.stringify(value)}</td>)
+                                                })
+                                                :
+                                                <td>{value}</td>)
                                         })}
                                     </tr>)
                             })}
