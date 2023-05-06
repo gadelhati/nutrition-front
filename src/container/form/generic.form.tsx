@@ -1,20 +1,20 @@
-import { useState, ChangeEvent, useEffect, useTransition } from 'react';
+import { useState, ChangeEvent, useEffect, useTransition } from 'react'
 import { isValidToken } from '../../service/service.token'
-import { ErrorMessage } from '../../assets/error/errorMessage';
-import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
-import { create, retrieve, update, remove, removeAll } from '../../service/service.crud';
-import { Container, ContainerInput } from './generic.field';
-import { AtributeSet } from './generic.atribute';
-import { Atribute } from '../../component/atribute/atribute.interface';
-import { Tooltip } from '../tootip/Tooltip';
-import { Table } from '../template/Table';
-import { Button, ButtonPage, GroupButton } from '../template/Button';
-import { Pageable } from '../../component/Pageable';
-import { initialPageable } from '../../component/initialPageable';
-import { ErrorBoundary } from 'react-error-boundary';
-import { Modal } from '../template/Modal';
-import { Toast } from '../toast/Toast';
-import { createToast, toastDetails } from '../toast/toast.message';
+import { ErrorMessage } from '../../assets/error/errorMessage'
+import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
+import { create, retrieve, update, remove, removeAll } from '../../service/service.crud'
+import { Container, ContainerInput } from './generic.field'
+import { AtributeSet } from './generic.atribute'
+import { Atribute } from '../../component/atribute/atribute.interface'
+import { Tooltip } from '../tootip/Tooltip'
+import { Table } from '../template/Table'
+import { Button, ButtonPage, GroupButton } from '../template/Button'
+import { Pageable } from '../../component/Pageable'
+import { initialPageable } from '../../component/initialPageable'
+import { ErrorBoundary } from 'react-error-boundary'
+import { Modal } from '../template/Modal'
+import { Toast } from '../toast/Toast'
+import { createToast, toastDetails } from '../toast/toast.message'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
@@ -24,8 +24,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const [page, setPage] = useState<number>(0)
     const [size, setSize] = useState<number>(8)
     const [pageable, setPageable] = useState<Pageable>(initialPageable)
-    const paginator = 5;
-    const [ispending, startTransition] = useTransition();
+    const paginator = 5
+    const [ispending, startTransition] = useTransition()
     const [modal, setModal] = useState<boolean>(false)
 
     // Pendente (Pending).
@@ -86,16 +86,16 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     // }
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        error?.map(element => { if (name == element.field) return vector.push(element?.message) })
+        error?.map((element: any) => { if (name == element.field) return vector.push(element?.message) })
         return vector
     }
     const validationDTO = (): string[] => {
         let vector: string[] = []
-        error?.map(element => { if (element.field?.startsWith("DTO")) return vector.push(element?.message) })
+        error?.map((element: any) => { if (element.field?.startsWith("DTO")) return vector.push(element?.message) })
         return vector
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+        const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
         setState({ ...state, [event.target.name]: value })
     }
     const handleInputChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -230,5 +230,5 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
             {/* {loading && <>Loading...</>}
                 {error != null && JSON.stringify(error)} */}
         </>
-    );
+    )
 }
