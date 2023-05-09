@@ -122,7 +122,10 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                     Array.isArray(value) ?
                         <td>{showObject(value)}</td>
                         :
-                        <td>{JSON.stringify(value)}</td>
+                        typeof value === 'object' ?
+                            <td>{JSON.stringify(value)}</td>
+                            :
+                            <td>{value}</td>
                 )
             }))
     }
