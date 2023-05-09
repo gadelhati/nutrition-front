@@ -115,6 +115,17 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         setModal(!modal)
         resetItem()
     }
+    const showObject = (values: any) => {
+        return (
+            Object.entries(values).map(([key, value], index) => {
+                return (
+                    Array.isArray(value) ?
+                        <td>{showObject(value)}</td>
+                        :
+                        <td>{JSON.stringify(value)}</td>
+                )
+            }))
+    }
     return (
         <>
             {/* https://cdpn.io/agrimsrud/fullpage/RwKbwXN?anon=true&view= */}
@@ -185,21 +196,14 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                             {states.map((element) => {
                                 return (
                                     <tr onClick={() => selectItem(element)}>
-                                        {Object.entries(element).map(([key, value], index) => {
-                                            return (Array.isArray(value) ?
-                                                Object.entries(value).map(([key, value], index) => {
-                                                    return (<td>{JSON.stringify(value)}</td>)
-                                                })
-                                                :
-                                                <td>{value}</td>)
-                                        })}
+                                        <>{showObject(element)}</>
                                     </tr>)
                             })}
                         </tbody>
                         {/* </ErrorBoundary> */}
                         <tfoot>
                             <tr>
-                                <td>
+                                <td> 
                                     <GroupButton>
                                         <ButtonPage onClick={() => handlePage(0)}>{'<<'}</ButtonPage>
                                         <ButtonPage onClick={() => handlePage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</ButtonPage>
