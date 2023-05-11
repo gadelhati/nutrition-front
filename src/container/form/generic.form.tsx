@@ -19,6 +19,7 @@ import { createToast, toastDetails } from '../toast/toast.message'
 export const GenericForm = <T extends { id: string, name: string }>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)
     const [states, setStates] = useState<T[]>([object.object])
+    const [subStates, setSubStates] = useState<{}[]>([{}])
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
     const [atribute, setAtribute] = useState<Atribute[]>(AtributeSet(object.object))
     const [page, setPage] = useState<number>(0)
@@ -69,6 +70,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
             startTransition(() => setStates(data.content))
         }).catch((error) => { networkError() })
     }
+    const retrieveSubItem = async (search: string) => {
+        await retrieve(search.toLowerCase(), page, size, "name").then((data) => {
+            startTransition(() => setSubStates(data.content))
+        }).catch((error) => { networkError() })
+    }
     const updateItem = async () => {
         await update(object.url.toLowerCase(), state).then((data) => {
             validItem(data)
@@ -116,6 +122,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         resetItem()
     }
     const showObject = (values: any): any => {
+        console.log(1, values.constructor.name)
+        console.log(2, values)
         return (
             Object.entries(values).map(([key, value], index) => {
                 return (<td>
@@ -156,12 +164,21 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                         {Object.entries(state).map(([key, value], index) => {
                                             return (
                                                 <div>
+                                                    {/* {value.constructor.name} */}
                                                     {Array.isArray(atribute[index].worth) ?
                                                         <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
                                                             <ContainerInput>
-                                                                <select name={key} onChange={handleInputChangeSelect}>
-                                                                    {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
-                                                                </select>
+                                                                {typeof value === 'object' ?
+                                                                    <select name={key} onChange={handleInputChangeSelect} onClick={() => retrieveSubItem('role')}>
+                                                                    {/* // <option placeholder={key}>{value.constructor.name}</option> */}
+                                                                        {/* {subStates.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)} */}
+                                                                        {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
+                                                                    </select>
+                                                                    :
+                                                                    <select name={key} onChange={handleInputChangeSelect} >
+                                                                        {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
+                                                                    </select>
+                                                                }
                                                             </ContainerInput>
                                                         </Tooltip>
                                                         :

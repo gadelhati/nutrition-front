@@ -1,3 +1,4 @@
+import { Privilege } from '../privilege/privilege.interface';
 import { Role } from '../role/role.interface';
 
 export interface User {
@@ -6,6 +7,7 @@ export interface User {
 	email: string,
     password: string,
 	active: boolean,
+	// roles: Role[]
 	roles: string[]
 	// roles: [
 	// 	// {
