@@ -134,7 +134,10 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                         typeof value === 'boolean' ?
                             <>{JSON.stringify(value)}</>
                             :
-                            <>{value}</>
+                            key === 'password' ?
+                                <>*</>
+                                :
+                                <>{value}</>
                     }
                 </td>)
             }))
