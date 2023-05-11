@@ -4,7 +4,7 @@ export const initialUser : User = {
 	id: '',
 	username: '',
 	email: '',
-	// password: '',
+	password: '',
 	active: true,
 	roles: ['ROLE_USER', 'ROLE_MODERATOR']
 }
