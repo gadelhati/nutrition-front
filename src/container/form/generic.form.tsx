@@ -126,7 +126,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                     typeof value === 'object' ?
                                         <>{showObject(key)}</>
                                         :
-                                        <>value</>
+                                        <>{value}</>
                                 )
                             })}
                         </>
