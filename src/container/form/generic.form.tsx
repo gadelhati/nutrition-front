@@ -115,18 +115,28 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         setModal(!modal)
         resetItem()
     }
-    const showObject = (values: any) => {
+    const showObject = (values: any): any => {
         return (
             Object.entries(values).map(([key, value], index) => {
-                return (
-                    Array.isArray(value) ?
-                        <td>{showObject(value)}</td>
+                return (<td>
+                    {Array.isArray(value) ?
+                        <>
+                            {value.map((key) => {
+                                return (
+                                    typeof value === 'object' ?
+                                        <>{showObject(key)}</>
+                                        :
+                                        <>value</>
+                                )
+                            })}
+                        </>
                         :
-                        typeof value === 'object' ?
-                            <td>{Object.values(value)[5]}</td>
+                        typeof value === 'boolean' ?
+                            <>{JSON.stringify(value)}</>
                             :
-                            <td>{value}</td>
-                )
+                            <>{value}</>
+                    }
+                </td>)
             }))
     }
     return (
