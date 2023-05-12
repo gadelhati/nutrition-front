@@ -107,6 +107,13 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const handleInputChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
+    const handleInputChangeSelect2 = (event: ChangeEvent<HTMLSelectElement>) => {
+        console.log(subStates.find((item: any) => { item === event.target.value }))
+        let ii = subStates.find((item: any) => {
+            item === event.target.value 
+            setState({ ...state, [event.target.name]: [item] })
+        })
+    }
     const handlePage = (page: number) => {
         setPage(page)
     }
@@ -122,8 +129,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         resetItem()
     }
     const showObject = (values: any): any => {
-        console.log(1, values.constructor.name)
-        console.log(2, values)
         return (
             Object.entries(values).map(([key, value], index) => {
                 return (<td>
@@ -164,15 +169,15 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                         {Object.entries(state).map(([key, value], index) => {
                                             return (
                                                 <div>
-                                                    {/* {value.constructor.name} */}
+                                                    {/* {subStates.map((index: any) => { return index })} */}
                                                     {Array.isArray(atribute[index].worth) ?
                                                         <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
                                                             <ContainerInput>
                                                                 {typeof value === 'object' ?
-                                                                    <select name={key} onChange={handleInputChangeSelect} onClick={() => retrieveSubItem('role')}>
+                                                                    <select name={key} onChange={handleInputChangeSelect2} onClick={() => retrieveSubItem(key)}>
                                                                     {/* // <option placeholder={key}>{value.constructor.name}</option> */}
-                                                                        {/* {subStates.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)} */}
-                                                                        {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)}
+                                                                        {subStates.map((result: any, index: any) => <option placeholder={key} data-value={result} >{result.id}</option>)}
+                                                                        {/* {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)} */}
                                                                     </select>
                                                                     :
                                                                     <select name={key} onChange={handleInputChangeSelect} >

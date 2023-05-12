@@ -7,8 +7,8 @@ export interface User {
 	email: string,
     password: string,
 	active: boolean,
-	// roles: Role[]
-	roles: string[]
+	roles: Role[]
+	// roles: string[]
 	// roles: [
 	// 	// {
 	// 	// 	id: 7c12004d-e843-4e00-be40-01845ad75834,
