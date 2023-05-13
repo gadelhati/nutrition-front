@@ -6,14 +6,14 @@ import { create, retrieve, update, remove, removeAll } from '../../service/servi
 import { Container, ContainerInput } from './generic.field';
 import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
-import { Tooltip } from '../tootip/Tooltip';
-import { Table } from '../template/Table';
-import { Button, ButtonPage, GroupButton } from '../template/Button';
+import { Tooltip } from '../tootip/tooltip';
+import { Table } from '../template/table';
+import { Button, ButtonPage, GroupButton } from '../template/button';
 import { Pageable } from '../../component/Pageable';
 import { initialPageable } from '../../component/initialPageable';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Modal } from '../template/Modal';
-import { Toast } from '../toast/Toast';
+import { Modal } from '../template/modal';
+import { Toast } from '../toast/toast';
 import { User } from '../../component/user/user.interface';
 import { initialUser } from '../../component/user/user.initial';
 
