@@ -10,8 +10,8 @@ import { Button } from '../template/button';
 import { Table } from '../template/table';
 import { User } from '../../component/user/user.interface';
 import { getPayload, getRoles, isValidToken } from '../../service/service.token';
-import { Pageable } from '../../component/Pageable';
-import { initialPageable } from '../../component/initialPageable';
+import { Pageable } from '../../component/pageable/pageable.interface';
+import { initialPageable } from '../../component/pageable.initial';
 
 export const ProfileForm = <T extends User>(object: any, url: string) => {
     const [state, setState] = useState<T>(object.object)

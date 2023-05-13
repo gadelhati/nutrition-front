@@ -11,7 +11,7 @@ import { GenericForm } from "./container/form/generic.form";
 import { initialUser } from "./component/user/user.initial";
 import { initialRole } from "./component/role/role.initial";
 import { NotAllowed } from "./container/not.allowed";
-import { AuthProvider } from "./component/auth/AuthProvider";
+import { AuthProvider } from "./component/auth/auth.provider";
 import { initialFoodCategory } from "./component/foodCategory/food.category.initial";
 import { initialPreparation } from "./component/preparation/preparation.initial";
 import { ProfileForm } from "./container/form/profile";

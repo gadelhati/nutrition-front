@@ -1,4 +1,4 @@
-import { Pageable } from "./Pageable";
+import { Pageable } from "./pageable.interface";
 
 export const initialPageable: Pageable = {
     content: [],
