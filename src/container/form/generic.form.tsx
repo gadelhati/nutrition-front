@@ -108,11 +108,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
         setState({ ...state, [event.target.name]: event.target.value })
     }
     const handleInputChangeSelect2 = (event: ChangeEvent<HTMLSelectElement>) => {
-        console.log(subStates.find((item: any) => { item === event.target.value }))
-        let ii = subStates.find((item: any) => {
-            item === event.target.value 
-            setState({ ...state, [event.target.name]: [item] })
-        })
+        setState({ ...state, [event.target.name]: [subStates.find((item: any) => item.id === event.target.value )] })
     }
     const handlePage = (page: number) => {
         setPage(page)
@@ -176,7 +172,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                                                 {typeof value === 'object' ?
                                                                     <select name={key} onChange={handleInputChangeSelect2} onClick={() => retrieveSubItem(key)}>
                                                                     {/* // <option placeholder={key}>{value.constructor.name}</option> */}
-                                                                        {subStates.map((result: any, index: any) => <option placeholder={key} data-value={result} >{result.id}</option>)}
+                                                                        {subStates.map((result: any, index: any) => <option placeholder={key} value={result.id} >{result.id}</option>)}
                                                                         {/* {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)} */}
                                                                     </select>
                                                                     :
