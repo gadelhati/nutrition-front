@@ -5,8 +5,8 @@ import { create, retrieve, update, remove, removeAll } from '../../service/servi
 import { Container, ContainerInput, ContainerLabel } from './generic.field';
 import { AtributeSet } from './generic.atribute';
 import { Atribute } from '../../component/atribute/atribute.interface';
-import { Tooltip } from '../tootip/Tooltip';
-import { Button } from '../template/Button';
+import { Tooltip } from '../tootip/tooltip';
+import { Button } from '../template/button';
 import { Table } from '../template/table';
 import { User } from '../../component/user/user.interface';
 import { getPayload, getRoles, isValidToken } from '../../service/service.token';

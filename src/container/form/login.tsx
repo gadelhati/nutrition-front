@@ -4,14 +4,14 @@ import { initialUser } from '../../component/user/user.initial'
 import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { login } from '../../service/service.crud'
-import { Tooltip } from '../tootip/Tooltip'
+import { Tooltip } from '../tootip/tooltip'
 import { ContainerInput } from './generic.field'
-import { CenterContainer, CenterItem } from '../template/Flex'
-import { Button } from '../template/Button';
+import { CenterContainer, CenterItem } from '../template/flex'
+import { Button } from '../template/button';
 import { logout } from '../../service/service.auth'
 import { existsToken, isValidToken } from '../../service/service.token'
 import logo from '../../assets/image/marinha.png'
-import { Rotate } from '../template/Rotate'
+import { Rotate } from '../template/rotate'
 
 export const UserSignin = () => {
     const [state, setState] = useState<User>(initialUser)
