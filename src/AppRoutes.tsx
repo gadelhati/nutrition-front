@@ -32,14 +32,16 @@ export default function AppRoutes() {
                     <FlexCointainer element='main'>
                         <Routes>
                             <Route path="*" element={<LoginForm />}></Route>
-                            <Route path="/" element={<LoginForm />}></Route>
                             <Route path="/notAllowed" element={<NotAllowed />}></Route>
-                            <Route path="/auth" element={<LoginForm />}></Route>
-                            <Route path="/profile" element={<Profile />}></Route>
-                            {/* <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}> */}
+                            {isValidToken() ?
+                                <Route path="/profile" element={<Profile />}></Route>
+                                :
+                                <Route path="/" element={<LoginForm />}></Route>
+                            }
+                            <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}>
                                 <Route path="/user" element={<GenericForm key='user_entity' object={initialUser} url={'user_entity'} />}></Route>
                                 <Route path="/role" element={<GenericForm key='role' object={initialRole} url={'role'} />}></Route>
-                            {/* </Route> */}
+                            </Route>
                             <Route element={<RequireAuth allowedRoles={[ROLES.USER, ROLES.ADMIN, ROLES.MODERATOR]} />}>
                                 <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
                                 <Route path="/preparation" element={<GenericForm key='preparation' object={initialPreparation} url={'preparation'} />}></Route>

@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { SideTitle, SideItem, Sidebar, SidebarHeader } from './template/Flex'
+import { SideTitle, SideItem, Sidebar, SidebarHeader } from './template/flex'
 import { Icon } from '../assets/svg.access' 
-import { Tooltip } from './tootip/Tooltip'
+import { Tooltip } from './tootip/tooltip'
 
 export const SideContainer = () => {
   const [show, setShow] = useState(true)
   const changeShow = () => { setShow( !show ) }
-  const vector: string[][] = [["tooltip auth", "collection", "auth"], ["tooltip user", "people-circle", "user"], ["tooltip role", "calendar3", "role"],["tooltip food", "toggles2", "food"], ["tooltip food category", "chat-quote-fill", "food_category"], ["tooltip profile", "people-circle", "profile"]/*, ["tooltip preparation", "table", "preparation"], ["tooltip a", "chat-quote-fill", "item a"], ["tooltip b", "people-circle", "item b"], ["tooltip c", "table", "item c"],["tooltip a", "chat-quote-fill", "item a"], ["tooltip b", "people-circle", "item b"], ["tooltip c", "table", "item c"],["tooltip a", "chat-quote-fill", "item a"], ["tooltip b", "people-circle", "item b"], ["tooltip c", "table", "item c"],["tooltip a", "chat-quote-fill", "item a"], ["tooltip b", "people-circle", "item b"], ["tooltip c", "table", "item c"]*/]
+  const vector: string[][] = [["tooltip user", "people-circle", "user"], ["tooltip role", "calendar3", "role"],["tooltip food", "toggles2", "food"], ["tooltip food category", "chat-quote-fill", "food_category"], ["tooltip profile", "people-circle", "profile"]/*, ["tooltip preparation", "table", "preparation"], ["tooltip a", "chat-quote-fill", "item a"], ["tooltip b", "people-circle", "item b"], ["tooltip c", "table", "item c"],["tooltip a", "chat-quote-fill", "item a"], ["tooltip b", "people-circle", "item b"], ["tooltip c", "table", "item c"],["tooltip a", "chat-quote-fill", "item a"], ["tooltip b", "people-circle", "item b"], ["tooltip c", "table", "item c"],["tooltip a", "chat-quote-fill", "item a"], ["tooltip b", "people-circle", "item b"], ["tooltip c", "table", "item c"]*/]
 
   return (
       <Sidebar sidehide={show}>
