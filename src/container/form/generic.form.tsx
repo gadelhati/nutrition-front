@@ -29,12 +29,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const [ispending, startTransition] = useTransition()
     const [modal, setModal] = useState<boolean>(false)
 
-    // Pendente (Pending).
-    // Resolvida (Resolved) (não está na documentação, mas gosto de definir esse estado também).
-    // Rejeitada (Rejected).
-    // Realizada (Fulfilled).
-    // Estabelecida (Settled).
-
     useEffect(() => {
         retrieveItem()
     }, [page, size])
@@ -85,11 +79,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
             validItem(data)
         }).catch((error) => { networkError() })
     }
-    // const deleteAllItem = async () => {
-    //     await removeAll(object.url.toLowerCase()).then((data) => {
-    //         handleModal()
-    //     }).catch((error) => { networkError() })
-    // }
     const validation = (name: string): string[] => {
         let vector: string[] = []
         error?.map((element: any) => { if (name == element.field) return vector.push(element?.message) })
@@ -165,15 +154,12 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                         {Object.entries(state).map(([key, value], index) => {
                                             return (
                                                 <div>
-                                                    {/* {subStates.map((index: any) => { return index })} */}
                                                     {Array.isArray(atribute[index].worth) ?
                                                         <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
                                                             <ContainerInput>
                                                                 {typeof value === 'object' ?
                                                                     <select name={key} onChange={handleInputChangeSelect2} onClick={() => retrieveSubItem(key)}>
-                                                                    {/* // <option placeholder={key}>{value.constructor.name}</option> */}
                                                                         {subStates.map((result: any, index: any) => <option placeholder={key} value={result.id} >{result.id}</option>)}
-                                                                        {/* {atribute[index].worth.map((result: any) => <option placeholder={key} data-value={result} >{result}</option>)} */}
                                                                     </select>
                                                                     :
                                                                     <select name={key} onChange={handleInputChangeSelect} >
@@ -198,10 +184,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                     <Container block={true} >
                                         <Button onClick={resetItem}>Reset</Button>
                                         <Button onClick={createItem} hidden={state.id === "" ? false : true}>Create</Button>
-                                        {/* <Button onClick={retrieveItem}>Retrieve</Button> */}
                                         <Button onClick={updateItem} hidden={state.id === "" ? true : false}>Update</Button>
                                         <Button onClick={deleteItem} hidden={state.id === "" ? true : false}>Delete</Button>
-                                        {/* <Button onClick={deleteAllItem}>Delete All</Button> */}
                                         <Button onClick={handleModal}>Close</Button>
                                     </Container>
                                 </>
@@ -225,7 +209,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                 })}
                             </tr>
                         </thead>
-                        {/* <ErrorBoundary fallback={<div> Algo deu errado </div>} > */}
+                        <ErrorBoundary fallback={<div> Something went wrong </div>} >
                         <tbody>
                             {states.map((element) => {
                                 return (
@@ -234,7 +218,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                     </tr>)
                             })}
                         </tbody>
-                        {/* </ErrorBoundary> */}
+                        </ErrorBoundary>
                         <tfoot>
                             <tr>
                                 <td> 
@@ -255,18 +239,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                 </>
             }
             <Toast className="notifications"></Toast>
-            {/* <GroupButton>
-                <ButtonPage onClick={() => numberPage(0)}>{'<<'}</ButtonPage>
-                <ButtonPage onClick={() => numberPage(page - 1)} disabled={page >= pageable.totalPages + 2 ? true : false}>{'<'}</ButtonPage>
-                {Array(paginator).fill(0).map((p, index) => {
-                    return <ButtonPage selected={page === page + index - 2} onClick={() => numberPage(page + index - 2)} 
-                    >{page + index - 1}</ButtonPage>
-                })}
-                <ButtonPage onClick={() => numberPage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
-                <ButtonPage onClick={() => numberPage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
-            </GroupButton> */}
-            {/* {loading && <>Loading...</>}
-                {error != null && JSON.stringify(error)} */}
         </>
     )
 }
