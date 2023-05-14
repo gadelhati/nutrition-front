@@ -1,21 +1,21 @@
 import { useRoutes } from "react-router-dom";
 import { initialUser } from "./component/user/user.initial";
 import { GenericForm } from "./container/form/generic.form";
-import { UserSignin } from "./container/form/login";
+import { LoginForm } from "./container/form/login.form";
 
 export default function App() {
     const routes = useRoutes([
         {
             path: "*",
-            element: <UserSignin />
+            element: <LoginForm />
         },
         {
             path: "/",
-            element: <UserSignin />
+            element: <LoginForm />
         },
         {
             path: "/auth",
-            element: <UserSignin />
+            element: <LoginForm />
         },
         {
             path: "/user",

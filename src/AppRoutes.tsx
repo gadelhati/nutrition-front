@@ -3,9 +3,9 @@ import { Route, HashRouter, Routes, Navigate } from "react-router-dom";
 import { RequireAuth } from "./RequireAuth";
 import { isValidToken } from "./service/service.token"
 
-import { UserSignin } from "./container/form/login";
-import { SideContainer } from "./container/Sidebar";
-import { FlexCointainer, SideItem } from "./container/template/Flex";
+import { LoginForm } from "./container/form/login.form";
+import { SideContainer } from "./container/sidebar";
+import { FlexCointainer, SideItem } from "./container/template/flex";
 import { initialFood } from "./component/food/food.initial";
 import { GenericForm } from "./container/form/generic.form";
 import { initialUser } from "./component/user/user.initial";
@@ -14,7 +14,7 @@ import { NotAllowed } from "./container/not.allowed";
 import { AuthProvider } from "./component/auth/auth.provider";
 import { initialFoodCategory } from "./component/foodCategory/food.category.initial";
 import { initialPreparation } from "./component/preparation/preparation.initial";
-import { ProfileForm } from "./container/form/profile";
+import { Profile } from "./container/form/profile";
 
 const ROLES = {
     'USER': "ROLE_USER",
@@ -31,11 +31,11 @@ export default function AppRoutes() {
                     {isValidToken() && <SideContainer />}
                     <FlexCointainer element='main'>
                         <Routes>
-                            <Route path="*" element={<UserSignin />}></Route>
-                            <Route path="/" element={<UserSignin />}></Route>
+                            <Route path="*" element={<LoginForm />}></Route>
+                            <Route path="/" element={<LoginForm />}></Route>
                             <Route path="/notAllowed" element={<NotAllowed />}></Route>
-                            <Route path="/auth" element={<UserSignin />}></Route>
-                            <Route path="/profile" element={<ProfileForm key='user_entity' object={initialUser} url={'user_entity'} />}></Route>
+                            <Route path="/auth" element={<LoginForm />}></Route>
+                            <Route path="/profile" element={<Profile />}></Route>
                             {/* <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}> */}
                                 <Route path="/user" element={<GenericForm key='user_entity' object={initialUser} url={'user_entity'} />}></Route>
                                 <Route path="/role" element={<GenericForm key='role' object={initialRole} url={'role'} />}></Route>
