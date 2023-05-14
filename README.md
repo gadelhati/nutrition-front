@@ -30,7 +30,6 @@ It is called nutritional information, also known as nutritional labeling, the ta
 - [ ] keep the buttons inside the modal
 - [ ] load privileges on role's form
 - [ ] set combobox, turn with switch
-- [ ] show list of objects added
 - [ ] counter only increases by 1
 - [ ] collapsible
 - [ ] refactoring on global css
