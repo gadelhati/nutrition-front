@@ -27,7 +27,7 @@ export const LoginForm = () => {
         setError([initialErrorMessage])
     }
     const validItem = (data: any) => {
-        if (data?.id) {
+        if (data?.accessToken) {
             setState(data)
             setError([initialErrorMessage])
             refresh()
