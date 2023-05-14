@@ -4,8 +4,8 @@ import { RequireAuth } from "./RequireAuth";
 import { isValidToken } from "./service/service.token"
 
 import { LoginForm } from "./container/form/login.form";
-import { SideContainer } from "./container/sidebar/2sidebar";
-import { FlexCointainer, SideItem } from "./container/template/2flex";
+import { SideContainer } from "./container/sidebar/sidebar";
+import { FlexCointainer, SideItem } from "./container/template/flex";
 import { initialFood } from "./component/food/food.initial";
 import { GenericForm } from "./container/form/generic.form";
 import { initialUser } from "./component/user/user.initial";
