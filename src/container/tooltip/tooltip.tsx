@@ -1,4 +1,4 @@
-import { stitches } from '../globalStyles'
+import { stitches } from '../global.styles'
 
 const { styled } = stitches
 

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { SideTitle, SideItem, Sidebar, SidebarHeader } from './template/flex'
-import { Icon } from '../assets/svg.access' 
-import { Tooltip } from './tootip/tooltip'
+import { SideTitle, SideItem, Sidebar, SidebarHeader } from '../template/2flex'
+import { Icon } from '../../assets/svg.access' 
+import { Tooltip } from '../tooltip/tooltip'
 
 export const SideContainer = () => {
   const [show, setShow] = useState(true)
