@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, useTransition } from 'react'
 import { User } from "../../component/user/user.interface"
 import { initialUser } from '../../component/user/user.initial'
 import { ErrorMessage } from '../../assets/error/errorMessage'
@@ -12,10 +12,12 @@ import { logout } from '../../service/service.auth'
 import { existsToken, isValidToken } from '../../service/service.token'
 import logo from '../../assets/image/marinha.png'
 import { Rotate } from '../template/rotate'
+import { Toast } from '../toast/toast'
 
-export const UserSignin = () => {
+export const LoginForm = () => {
     const [state, setState] = useState<User>(initialUser)
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
+    const [ispending, startTransition] = useTransition()
 
     const refresh = () => {
         window.location.reload()
@@ -24,41 +26,36 @@ export const UserSignin = () => {
         setState(initialUser)
         setError([initialErrorMessage])
     }
-    const validation = (name: string): string[] => {
-        let vector: string[] = []
-        error?.map(element => { if (name == element.field) return vector.push(element?.message) })
-        return vector
-    }
-    const validationConnection = (): string[] => {
-        let vector: string[] = []
-        error?.map(element => { if (element.field?.startsWith("conection")) return vector.push(element?.message) })
-        return vector
-    }
-    const validAction = (data: any) => {
+    const validItem = (data: any) => {
         if (data?.id) {
             setState(data)
             setError([initialErrorMessage])
+            refresh()
         } else {
-            setError(data)
+            startTransition(() => setError(data))
         }
-        refresh()
+    }
+    const networkError = () => {
+        setError([{ field: 'DTO', message: 'Network Error' }])
     }
     const loginUser = async () => {
-        await login('auth', state)
-        .then((data)=>{
-            if(data[0]?.field === undefined) {
-                validAction(data)
-            } else {
-                setError(data)
-            }
-        })
-        .catch((error) => {
-            setError([{ field: 'conection', message: 'API error' }])
-        })
+        await login('auth', state).then((data)=>{
+            validItem(data)
+        }).catch((error) => { networkError() })
     }
     const logoutUser = async () => {
         logout()
         resetItem()
+    }
+    const validation = (name: string): string[] => {
+        let vector: string[] = []
+        error?.map((element: any) => { if (name == element.field) return vector.push(element?.message) })
+        return vector
+    }
+    const validationConnection = (): string[] => {
+        let vector: string[] = []
+        error?.map((element: any) => { if (element.field?.startsWith("DTO")) return vector.push(element?.message) })
+        return vector
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
@@ -67,6 +64,7 @@ export const UserSignin = () => {
     
     return (
         <CenterContainer>
+            {/* {JSON.stringify(error)} */}
             <CenterItem>
                 <Rotate src={logo} alt="" width="120" height="128"></Rotate>
                 <Tooltip data-tip={validation('username')} hidden={validation('username').length === 0} >
@@ -90,6 +88,7 @@ export const UserSignin = () => {
                 {error != null && JSON.stringify(error)} */}
                 <div>{validationConnection()}</div>
             </CenterItem>
+            <Toast className="notifications"></Toast>
         </CenterContainer>
     );
 }

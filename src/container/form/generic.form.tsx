@@ -25,7 +25,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const [page, setPage] = useState<number>(0)
     const [size, setSize] = useState<number>(8)
     const [pageable, setPageable] = useState<Pageable>(initialPageable)
-    const paginator = 5
     const [ispending, startTransition] = useTransition()
     const [modal, setModal] = useState<boolean>(false)
 
@@ -96,7 +95,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
     const handleInputChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
-    const handleInputChangeSelect2 = (event: ChangeEvent<HTMLSelectElement>) => {
+    const handleInputChangeSubSelect = (event: ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: [subStates.find((item: any) => item.id === event.target.value )] })
     }
     const handlePage = (page: number) => {
@@ -158,7 +157,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                                                         <Tooltip data-tip={validation(key)} hidden={validation(key).length === 0} >
                                                             <ContainerInput>
                                                                 {typeof value === 'object' ?
-                                                                    <select name={key} onChange={handleInputChangeSelect2} onClick={() => retrieveSubItem(key)}>
+                                                                    <select name={key} onChange={handleInputChangeSubSelect} onClick={() => retrieveSubItem(key)}>
                                                                         {subStates.map((result: any, index: any) => <option placeholder={key} value={result.id} >{result.id}</option>)}
                                                                     </select>
                                                                     :
@@ -236,9 +235,9 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any,
                             </tr>
                         </tfoot>
                     </Table>
+                    <Toast className="notifications"></Toast>
                 </>
             }
-            <Toast className="notifications"></Toast>
         </>
     )
 }
