@@ -3,7 +3,7 @@ import { Route, HashRouter, Routes, Navigate } from "react-router-dom";
 import { RequireAuth } from "./RequireAuth";
 import { isValidToken } from "./service/service.token"
 
-import { LoginForm } from "./container/form/login.form";
+import { LoginProfile } from "./container/form/login.profile";
 import { SideContainer } from "./container/sidebar/sidebar";
 import { FlexCointainer, SideItem } from "./container/template/flex";
 import { initialFood } from "./component/food/food.initial";
@@ -14,7 +14,6 @@ import { NotAllowed } from "./container/not.allowed";
 import { AuthProvider } from "./component/auth/auth.provider";
 import { initialFoodCategory } from "./component/foodCategory/food.category.initial";
 import { initialPreparation } from "./component/preparation/preparation.initial";
-import { Profile } from "./container/form/profile";
 
 const ROLES = {
     'USER': "ROLE_USER",
@@ -31,13 +30,9 @@ export default function AppRoutes() {
                     {isValidToken() && <SideContainer />}
                     <FlexCointainer element='main'>
                         <Routes>
-                            <Route path="*" element={<LoginForm />}></Route>
+                            <Route path="*" element={<LoginProfile />}></Route>
+                            <Route path="/" element={<LoginProfile />}></Route>
                             <Route path="/notAllowed" element={<NotAllowed />}></Route>
-                            {isValidToken() ?
-                                <Route path="/profile" element={<Profile />}></Route>
-                                :
-                                <Route path="/" element={<LoginForm />}></Route>
-                            }
                             <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}>
                                 <Route path="/user" element={<GenericForm key='user_entity' object={initialUser} url={'user_entity'} />}></Route>
                                 <Route path="/role" element={<GenericForm key='role' object={initialRole} url={'role'} />}></Route>
