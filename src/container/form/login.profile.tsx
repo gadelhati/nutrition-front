@@ -67,7 +67,7 @@ export const LoginProfile = () => {
             {isValidToken() ?
                 <>
                     {getPayload().sub}{getRoles()}
-                    {!isValidToken() && <Button onClick={logoutUser}>Logout</Button>}
+                    {isValidToken() && <Button onClick={logoutUser}>Logout</Button>}
                 </>
                 :
                 <CenterItem>
