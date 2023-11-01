@@ -1,6 +1,6 @@
 # _Nutrition_
 
-<!-- ![gitlab](https://img.shields.io/gitlab/stars/Instituto-Hidrografico/aliado?style=social "Gitlab") -->
+![gitlab](https://img.shields.io/gitlab/stars/gadelhati/nutrition-front?style=social "Gitlab")
 ![github](https://img.shields.io/github/stars/gadelhati/nutrition-front?style=social "Github")
 ![typescript](https://img.shields.io/badge/typescript-4.7-0076c6 "Typescript")
 ![node](https://img.shields.io/badge/node-18.8.0-75AC64 "Node")
@@ -25,14 +25,10 @@ It is called nutritional information, also known as nutritional labeling, the ta
 
 ## Roadmap
 ### in development
-- [x] user: change password on profile
 - [x] user: improve visual of add multiple roles
-- [ ] keep the buttons inside the modal
 - [ ] load privileges on role's form
 - [ ] set combobox, turn with switch
 - [ ] counter only increases by 1
-- [ ] collapsible
-- [ ] refactoring on global css
 
 ### in concept
 - [ ] consume service that provide sidebar access
@@ -46,7 +42,7 @@ npm create vite@latest nutrition-front -- --template react-ts
 ```
 ## how to install dependencies for this project
 ```
-npm install react-router-dom @stitches/react axios
+npm install react-router-dom @stitches/react axios react-error-boundary prop-types
 npm install surge
 ```
 ## how to run this project
@@ -77,13 +73,14 @@ npm run build
 
 > [SVG Icons](https://www.svgrepo.com/)
 
-<!-- # Reference API download link -->
+# Reference API download link
 
-<!-- > [https://github.com/Instituto-Hidrografico/aliado-back](https://github.com/Instituto-Hidrografico/aliado-back) -->
+> [https://github.com/gadelhati/nutrition-back](https://github.com/gadelhati/nutrition-back)
 
-<!-- # Reference API, running locally -->
+# Reference API, running locally
 
-<!-- > [http://localhost:8080/aliado-back](http://localhost:8080/aliado-back) -->
+> [http://localhost:8080/nutrition-back](http://localhost:8080/nutrition-back)
+
 # Git
 
 ```
@@ -137,11 +134,6 @@ location /<folder> {
     index   index.html  index.htm;
 }
 ```
-## Deploy in surge
-```
-surge
- >project: <path to /dist directory>
-```
 ### Edit /etc/nginx/conf.d/default.conf
 
 Add the new code
@@ -150,6 +142,11 @@ location /<folder> {
     root    /usr/share/nginx/html;
     index   index.html  index.htm;
 }
+```
+## Deploy in surge
+```
+surge
+ >project: <path to /dist directory>
 ```
 # Developers
 
