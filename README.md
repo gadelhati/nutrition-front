@@ -42,7 +42,7 @@ npm create vite@latest nutrition-front -- --template react-ts
 ```
 ## how to install dependencies for this project
 ```
-npm install react-router-dom @stitches/react axios react-error-boundary prop-types
+npm install @types/react@latest react-router-dom @stitches/react axios react-error-boundary prop-types
 npm install surge
 ```
 ## how to run this project
@@ -120,20 +120,11 @@ service nginx stop
 rm -rf /usr/share/nginx/html/<old-name>
 cp /home/<user>/<application-name>.zip /usr/share/nginx/html/
 unzip /usr/share/nginx/html/<application-name>.zip
-chown tomcat:tomcat /usr/share/nginx/html/<application-name>
+chown nginx:nginx /usr/share/nginx/html/<application-name>
 rm /usr/share/nginx/html/<application-name>.zip
 service nginx start
 ```
 
-### Edit /etc/nginx/conf.d/default.conf
-
-Add the new code
-```
-location /<folder> {
-    root    /usr/share/nginx/html;
-    index   index.html  index.htm;
-}
-```
 ### Edit /etc/nginx/conf.d/default.conf
 
 Add the new code
