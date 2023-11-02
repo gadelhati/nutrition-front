@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { SideTitle, SideItem, Sidebar, SidebarHeader } from '../template/flex'
 import { Icon } from '../../assets/svg.access' 
 import { Tooltip } from '../tooltip/tooltip'
+import { UriScreenFormat } from '../../service/uri.format'
 
 export const SideContainer = () => {
   const [show, setShow] = useState(true)
@@ -13,7 +14,7 @@ export const SideContainer = () => {
         <SidebarHeader>
         <SideTitle key={0} href={`#/`} ><Icon name="speedometer" /><p>Title</p></SideTitle>
         {vector.map((element) => {
-          return <SideItem key={element[1]} href={`#/${element[2]}`} ><Tooltip data-tip={element[0]}><Icon name={element[1]} /></Tooltip><p>{element[2]}</p></SideItem>
+          return <SideItem key={element[1]} href={`#/${element[2]}`} ><Tooltip data-tip={element[0]}><Icon name={element[1]} /></Tooltip><p>{UriScreenFormat(element[2])}</p></SideItem>
         })}
         {/* <SideItem ><Tooltip data-tip="collapsible"><Icon name="speedometer" /></Tooltip><p>Collapsible</p></SideItem> */}
         </SidebarHeader>
