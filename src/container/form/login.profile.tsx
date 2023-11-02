@@ -3,12 +3,11 @@ import { User } from "../../component/user/user.interface"
 import { initialUser } from '../../component/user/user.initial'
 import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
-import { login } from '../../service/service.crud'
+import { login, logout } from '../../service/service.crud'
 import { Tooltip } from '../tooltip/tooltip'
 import { ContainerInput } from './generic.field'
 import { CenterContainer, CenterItem } from '../template/flex'
 import { Button } from '../template/button';
-import { logout } from '../../service/service.auth'
 import { existsToken, getPayload, getRoles, isValidToken } from '../../service/service.token'
 import logo from '../../assets/image/marinha.png'
 import { Rotate } from '../template/rotate'
