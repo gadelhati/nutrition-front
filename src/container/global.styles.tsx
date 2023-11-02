@@ -98,7 +98,7 @@ export const stitches = createStitches({
             radios: "5px",
 
             xxxs: "0.06rem",
-            xxs: "0.422rem",
+            xxs: "0.222rem",
             xs: "0.563rem",
             sm: "0.75rem",
             rg: "1rem",
@@ -136,7 +136,8 @@ export const stitches = createStitches({
 })
 
 const injectGlobalStyles = stitches.globalCss({
-    "*": { boxSizing: "border-box", fontFamily: "inherit", flexShrink: 0 },
+    // "*": { boxSizing: "border-box", fontFamily: "inherit", flexShrink: 0 },
+    "*": { boxSizing: "border-box", fontFamily: "Montserrat, sans-serif", flexShrink: 0 },
     "*:after": { boxSizing: "border-box", fontFamily: "inherit" },
     "*:before": { boxSizing: "border-box", fontFamily: "inherit" },
     body: { margin: 0, padding: 0, minHeight: '100vh' },

@@ -49,7 +49,7 @@ export const SideTitle = styled('a',{
     height: '$md',
     width: '$xss',
     userSelect: 'none',
-    borderRadius: '3px',
+    borderRadius: '.3rem',
     padding: '$xs',
     margin: '$xxxs',
     textTransform: 'capitalize',
@@ -65,7 +65,7 @@ export const SideItem = styled('a',{
     height: '$xss',
     width: '$xss',
     userSelect: 'none',
-    borderRadius: '3px',
+    borderRadius: '.3rem',
     padding: '$xs',
     margin: '$xxxs',
     textTransform: 'capitalize',
@@ -140,7 +140,7 @@ export const CenterContainer = styled('div',{
 })
 export const CenterItem = styled('div', {
     // backgroundColor: '$four1',
-    borderRadius: '.3em',
+    borderRadius: '.3rem',
     minWidth: '25vw',
     minHeight: '60vh',
     display: 'flex',
