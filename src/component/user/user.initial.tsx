@@ -8,5 +8,4 @@ export const initialUser : User = {
 	password: '',
 	active: true,
 	roles: [initialRole]
-	// roles: ['ROLE_USER', 'ROLE_MODERATOR']
 }
