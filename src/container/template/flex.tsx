@@ -44,33 +44,41 @@ export const FlexCointainer = styled('div',{
 })
 export const SideTitle = styled('a',{
     textDecoration: 'none',
-    color: '$three1',
-    backgroundColor: '$five1',
+    color: '$third',
+    backgroundColor: '$tenth',
     height: '$md',
     width: '$xss',
     userSelect: 'none',
-    borderRadius: '5px',
-    padding: '.5em',
+    borderRadius: '3px',
+    padding: '$xs',
+    margin: '$xxxs',
     textTransform: 'capitalize',
     transition: '.5s',
     p : {
         display: 'inline',
     },
+    boxShadow: '0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset',
 })
 export const SideItem = styled('a',{
     textDecoration: 'none',
-    color: '$five1',
+    color: '$ninth',
     height: '$xss',
     width: '$xss',
     userSelect: 'none',
-    borderRadius: '5px',
-    padding: '.5em',
+    borderRadius: '3px',
+    padding: '$xs',
+    margin: '$xxxs',
     textTransform: 'capitalize',
-    transition: '.5s',
+    transition: '.3s',
     '&:hover': {
-        color: '$five1',
-        backgroundColor: '$three1',
-        boxShadow: '0 0 0.2em #000, 0 0 0.2em #999, 0 0 0.2em #888',
+        color: '$second',
+        backgroundColor: '$ninth',
+        boxShadow: '0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset',
+    },
+    '&:focus': {
+        color: '$first',
+        backgroundColor: '$tenth',
+        boxShadow: '0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset',
     },
     p : {
         display: 'inline',
@@ -90,18 +98,14 @@ export const Sidebar = styled('aside',{
     justifyContent: 'space-between',
     flexDirection: 'column',
     padding: '$xxs',
-    // paddingLeft: '$xxs',
     margin: '$xxs',
     borderRadius: '.3rem',
-    color: '$five1',
-    backgroundColor: '$one1',
-    backgroundImage: 'linear-gradient(to bottom, $one1, $three1)',
+    backgroundColor: '$third',
+    backgroundImage: 'linear-gradient(to bottom, $fourth, $third)',
+    boxShadow: '0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .1rem #AAA inset',
     // scrollBehavior: 'smooth',
     // overflowY: 'auto',
     // overflowX: 'hidden',
-    '&:hover' : {
-        // textShadow: '0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000',
-    },
     variants: {
         sidehide: {
             true: {
@@ -124,8 +128,7 @@ export const Sidebar = styled('aside',{
 export const SidebarHeader = styled('div',{
     display: 'flex',
     flexDirection: 'column',
-    borderRadius: '.3rem',
-    color: '$five1',
+    color: '$ninth',
 })
 export const CenterContainer = styled('div',{
     backgroundColor: '$one1',
@@ -137,7 +140,7 @@ export const CenterContainer = styled('div',{
 })
 export const CenterItem = styled('div', {
     // backgroundColor: '$four1',
-    borderRadius: '10px',
+    borderRadius: '.3em',
     minWidth: '25vw',
     minHeight: '60vh',
     display: 'flex',
