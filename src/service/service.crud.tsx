@@ -1,6 +1,6 @@
 import { api } from "../assets/api/api"
 import { ErrorMessage } from "../assets/error/errorMessage"
-import { setToken } from "./service.token"
+import { removeToken, setToken } from "./service.token"
 
 // Respostas de informação (100-199),
 // Respostas de sucesso (200-299),
@@ -32,33 +32,70 @@ export const login = async<Auth,>(url: string, object: Auth) => {
         .catch(error => { return addError(error) })
 }
 
+export const logout = () => {
+    removeToken()
+}
+
+export const changePassword = async<User,>(data: User) => {
+    return await api.put<User>(`/userEntity/changePassword`, data)
+        .then(response => {
+            return response.data
+        })
+        .catch(error => { 
+            console.log(error)
+            return addError(error) })
+}
+// export const changePassword = (id: string, data: User) => {
+//     return api.put<User>(`/user/changePassword/${id}`, data)
+// }
+
 export const create = async<T,>(url: string, object: T) => {
     return await api.post(`/${url}`, object)
         .then(response => { return response.data })
         .catch(error => { return addError(error) })
 }
 
-export const retrieve = async<T,>(url: string, page: number, size: number, sort: string) => {
-    return await api.get(`/${url}`, { params: { page: page, size: size } } )
+export const createAll = async<T,>(url: string, object: T[]) => {
+    return await api.post<T>(`/${url}/createAll`, object)
+        .then(response => { return response.data })
+        .catch(error => { return addError(error) })
+}
+
+// export const retrieve = async<T,>(url: string, page: number, size: number, sort: string) => {
+//     return await api.get(`/${url}`, { params: { page: page, size: size } } )
     // return await api.get(`/${url}`, { params: { page: page, size: size, sort: sort } } )
+export const retrieve = async<T,>(url: string, page: number, size: number, key: string, value: string) => {
+        return await api.get<T>(`/${url}?key=${key}&value=${value}`, { params: { page: page, size: size } } )
         .then(response => { return response.data })
         .catch(error => { return addError(error) })
 }
 
 export const update = async<T,>(url: string, object: T) => {
-    return await api.put(`/${url}`, object)
+    return await api.put<T>(`/${url}`, object)
         .then(response => { return response.data })
         .catch(error => { return addError(error) })
 }
 
 export const remove = async<T,>(url: string, id: string) => {
-    return await api.delete(`/${url}/${id}`)
+    return await api.delete<T>(`/${url}/${id}`)
         .then(response => { return response.data })
         .catch(error => { return addError(error) })
 }
 
+export const removeComposite = async<T,>(url: string, one: string, two: string, three: string, four: string) => {
+    if(three !== null && four !== null){
+        return await api.delete<T>(`/${url}/${one}/${three}/${four}`)
+            .then(response => { return response.data })
+            .catch(error => { return addError(error) })
+    } else {
+        return await api.delete<T>(`/${url}/${one}/${two}`)
+            .then(response => { return response.data })
+            .catch(error => { return addError(error) })
+    }
+}
+
 export const removeAll = async<T,>(url: string) => {
-    return await api.delete(`/${url}`)
+    return await api.delete<T>(`/${url}`)
         .then(response => { return response.data })
         .catch(error => { return addError(error) });
 }
