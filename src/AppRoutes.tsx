@@ -1,5 +1,6 @@
 import { Route, HashRouter, Routes, Navigate } from "react-router-dom";
-
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import { PDFDocument } from "./component/pdf/PDFDocument";
 import { RequireAuth } from "./RequireAuth";
 import { isValidToken } from "./service/service.token"
 
@@ -42,6 +43,18 @@ export default function AppRoutes() {
                                 <Route path="/preparation" element={<GenericForm key='preparation' object={initialPreparation} url={'preparation'} />}></Route>
                                 <Route path="/food_category" element={<GenericForm key='food_category' object={initialFoodCategory} url={'food_category'} />}></Route>
                             </Route>
+                            <Route path="/pdf" element={
+                                    // <PDFViewer>
+                                    //     <MyDocument />
+                                    // </PDFViewer>
+                                    <div>
+                                        <PDFDownloadLink document={<PDFDocument />} fileName="somename.pdf">
+                                            {({ loading }) =>
+                                                loading ? 'Loading document...' : 'Download now!'
+                                            }
+                                        </PDFDownloadLink>
+                                    </div>
+                            }></Route>
                         </Routes>
                     </FlexCointainer>
                 </FlexCointainer>
