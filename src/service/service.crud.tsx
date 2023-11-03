@@ -24,7 +24,7 @@ const addError = (error: any):ErrorMessage[] => {
 }
 
 export const login = async<Auth,>(url: string, object: Auth) => {
-    return await api.post(url, object)
+    return await api.post<Auth>(url, object)
         .then(response => {
             setToken(response.data)
             return response.data
