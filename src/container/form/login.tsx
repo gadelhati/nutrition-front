@@ -1,20 +1,20 @@
 import { useState, ChangeEvent, useTransition, useEffect } from 'react'
-import { User } from "../component/user/user.interface"
-import { initialUser } from '../component/user/user.initial'
-import { ErrorMessage } from '../assets/error/errorMessage'
-import { initialErrorMessage } from '../assets/error/errorMessage.initial'
-import { login, retrieve } from '../service/service.crud'
-import { Tooltip } from './tooltip/tooltip'
-import { ContainerInput } from './form/generic.field'
+import { User } from "../../component/user/user.interface"
+import { initialUser } from '../../component/user/user.initial'
+import { ErrorMessage } from '../../assets/error/errorMessage'
+import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
+import { login, retrieve } from '../../service/service.crud'
+import { Tooltip } from '../tooltip/tooltip'
+import { ContainerInput } from './generic.field'
 // import { CenteredContainer, CenteredContainerItem } from './template/flex'
-import { Button } from './template/button';
-import { logout } from '../service/service.crud'
-import { existsToken, getPayload, isValidToken } from '../service/service.token'
-import logo from '../assets/image/coffee.png'
-import { Rotate } from './template/rotate'
-import { Toast } from './toast/toast'
-import { Home } from './home'
-import { CenterContainer, CenterItem } from './template/flex'
+import { Button } from '../template/button';
+import { logout } from '../../service/service.crud'
+import { existsToken, getPayload, isValidToken } from '../../service/service.token'
+import logo from '../../assets/image/coffee.png'
+import { Rotate } from '../template/rotate'
+import { Toast } from '../toast/toast'
+import { Home } from '../home'
+import { CenterContainer, CenterItem } from '../template/flex'
 
 export const Login = () => {
     const [state, setState] = useState<User>(initialUser)

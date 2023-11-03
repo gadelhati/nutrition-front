@@ -4,7 +4,6 @@ import { PDFDocument } from "./component/pdf/PDFDocument";
 import { RequireAuth } from "./RequireAuth";
 import { isValidToken } from "./service/service.token"
 
-import { LoginProfile } from "./container/form/login.profile";
 import { SideContainer } from "./container/sidebar/sidebar";
 import { FlexCointainer, SideItem } from "./container/template/flex";
 import { initialFood } from "./component/food/food.initial";
@@ -15,7 +14,7 @@ import { NotAllowed } from "./container/not.allowed";
 import { AuthProvider } from "./component/auth/auth.provider";
 import { initialFoodCategory } from "./component/foodCategory/food.category.initial";
 import { initialPreparation } from "./component/preparation/preparation.initial";
-import { Login } from "./container/login";
+import { Login } from "./container/form/login";
 import { Home } from "./container/home";
 import { Profile } from "./container/profile";
 
