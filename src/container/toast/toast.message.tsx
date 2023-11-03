@@ -45,6 +45,7 @@ export const createToast = (classe: ToastDetails) => {
     notifications?.appendChild(toast);
     setTimeout(()=> removeToast(toast), 5000)
 }
+
 const removeToast = (toast: any) => {
     toast.classList.add('hide') 
     if(toast.timeoutId) clearTimeout(toast.timeoutId)
