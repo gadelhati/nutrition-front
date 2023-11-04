@@ -35,7 +35,7 @@ export const Button = styled('button', {
                 backgroundImage: '$one',
             },
             secondary: {
-                backgroundImage: 'linear-gradient($three, $one)',
+                backgroundImage: 'linear-gradient($tsecondary, $secondary)',
             },
             success: {
                 backgroundImage: 'linear-gradient($tsuccess, $success)',
