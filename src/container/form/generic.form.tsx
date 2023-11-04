@@ -279,11 +279,10 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                                 {({ loading }) => loading ? <Button category={'warning'} >Wait</Button> : <Button category={'secondary'} >Download</Button> }
                                         </PDFDownloadLink>}
                                         <Button type='reset' category={'secondary'} onClick={resetItem}>Reset</Button>
-                                        {/* <Button type='reset' category={'secondary'} onClick={resetItem}>Reset</Button> */}
                                         <Button category={'success'} onClick={createItem} hidden={state.id !== "" && !object.url.includes('istoric') || object.url.includes('istoric') ? true : false}>Create</Button>
                                         <Button category={'warning'} onClick={updateItem} hidden={state.id === "" || object.url.includes('istoric') ? true : false}>Update</Button>
                                         <Button category={'danger'} onClick={deleteItem} hidden={state.id === "" || object.url.includes('istoric') ? true : false}>Delete</Button>
-                                        {/* <Button category={'secondary'} onClick={handleModal}>Close</Button> */}
+                                        <Button category={'secondary'} onClick={handleModal}>Close</Button>
                                     </Container>
                                 </>
                             }
