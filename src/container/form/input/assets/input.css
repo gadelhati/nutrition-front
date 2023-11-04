@@ -1,13 +1,14 @@
-@import 'variables.scss';
+/* @charset "UTF-8" */
+@import 'variables.css';
 
-// div {
+/* // div {
 //     display: 'flex';
 //     min-height: '6rem';
 //     justify-content: 'center';
 //     align-items: 'center';
 //     flex-wrap: 'wrap';
 //     padding: '$space-lg';
-// }
+// } */
 
 input[type=checkbox] {
 
@@ -34,8 +35,8 @@ select {
     width: 26em;
     padding: 10px;
     font-weight: normal;
-    color: $color-fourth;
-    background: $color-tenth;
+    color: --color-fourth;
+    background: --color-tenth;
     border: 0;
     border-radius: .25rem;
     outline: 0;
@@ -94,18 +95,18 @@ input:focus,
 input:active,
 select:focus,
 select:active {
-    color: $color-fourth;
+    color: --color-fourth;
     text-indent: 0;
-    background: $color-tenth;
+    background: --color-tenth;
 
     +label {
         width: 100%;
         overflow: visible;
-        color: $color-tenth;
+        color: --color-tenth;
         text-shadow: 0 1px o rgba(19, 74, 70, .4);
         background: rgba(122, 184, 147, 1);
         transform: translateY(-1.9rem);
-    }
+    };
 
     +label+label {
         margin-top: .3rem;
@@ -114,18 +115,18 @@ select:active {
         display: none;
         width: 100%;
         overflow: visible;
-        color: $color-tenth;
+        color: --color-tenth;
         text-shadow: 0 1px o rgba(19, 74, 70, .4);
-        background: $color-danger;
+        background: --color-danger;
         transform: translateY(+1.9rem);
     }
 }
 
-// .error {
+/* // .error {
 //     input,
 //     select {
-//         color: $color-tenth;
-//         background: $color-danger;
+//         color: --color-tenth;
+//         background: --color-danger;
 //     }
 //     input:focus,
 //     input:active,
@@ -133,7 +134,7 @@ select:active {
 //     select:active {
 //         +label+label {
 //             height: 4rem;
-//             background: $color-danger;
+//             background: --color-danger;
 //             display: inline-block;
 //             z-index: 1;
 //         }
@@ -147,4 +148,4 @@ select:active {
 //             width: 8em;
 //         }
 //     }
-// }
+// } */

@@ -6,7 +6,7 @@ import { retrieve } from '../../../service/service.crud'
 import { SubAtributeSet } from '../../../component/atribute/subAtribute'
 import { SetAtributes } from './assets/setAtributes'
 import { initialInput } from './assets/input.initial'
-import './assets/input.scss'
+import './assets/input.css'
 
 export const Input = (object: InputInterface) => {
     const [state, setState] = useState<any>(initialInput)
