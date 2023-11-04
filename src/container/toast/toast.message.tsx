@@ -39,7 +39,7 @@ export const createToast = (classe: ToastDetails) => {
     toast.innerHTML = `<div class="column">
                          <i>${classe.icon}</i>                     
                          <i>${classe.title}</i>
-                         <span>${classe.text}</span>
+                         <p>${classe.text}</p>
                       </div>
                       <i onClick="removeToast(this.parentElement)">&#10006;</i>`;
     notifications?.appendChild(toast);
