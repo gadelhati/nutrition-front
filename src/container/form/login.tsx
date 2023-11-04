@@ -81,7 +81,7 @@ export const Login = () => {
                         <Rotate src={logo} alt="" width="120" height="128"></Rotate>
                         <Tooltip data-tip={validation('username')} hidden={validation('username').length === 0} >
                             <ContainerInput>
-                                <input type={'text'} required name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
+                                <input type={'text'} required autoFocus name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
                                 <label htmlFor="name">Name</label>
                             </ContainerInput>
                         </Tooltip>
