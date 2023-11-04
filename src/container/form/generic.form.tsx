@@ -3,7 +3,7 @@ import { isValidToken } from '../../service/service.token'
 import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { create, update, remove, retrieve, removeComposite } from '../../service/service.crud'
-import { Container, ContainerInput } from './generic.field'
+import { Container, ContainerInput, ContainerInput2 } from './generic.field'
 import { AtributeSet } from './generic.atribute'
 import { Atribute } from '../../component/atribute/atribute.interface'
 import { Table } from '../template/table'
@@ -222,7 +222,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                         {Object.entries(state).map(([key, value]: any, index) => {
                                             return (
                                                 <div style={atribute[index]?.type === 'hidden' ? { display: 'none' } : { display: 'flex'  }}>
-                                                        <ContainerInput>
+                                                        <ContainerInput2>
                                                             <span>
                                                                 {Array.isArray(atribute[index]?.worth) ?
                                                                     atribute[index]?.type === 'checkbox' || atribute[index]?.type === 'date' || value === null && atribute[index]?.worth === 0 || value === null && atribute[index]?.worth === '' || value !== null && typeof value !== 'object' ?
@@ -257,7 +257,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                                                         </>
                                                                 }
                                                             </span>
-                                                        </ContainerInput>
+                                                        </ContainerInput2>
                                                 </div>
                                             )
                                         })}
