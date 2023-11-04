@@ -38,13 +38,13 @@ export const Button = styled('button', {
                 backgroundImage: 'linear-gradient($three, $one)',
             },
             success: {
-                backgroundImage: '$three',
+                backgroundImage: 'linear-gradient($tsuccess, $success)',
             },
             danger: {
-                backgroundImage: '$four',
+                backgroundImage: 'linear-gradient($tdanger, $danger)',
             },
             warning: {
-                backgroundImage: '$five',
+                backgroundColor: '#588FEB',
             },
             info: {
                 backgroundImage: '$six',

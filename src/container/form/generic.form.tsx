@@ -224,7 +224,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                             <header><span onClick={handleModal}>&times;</span><h2>{UriScreenFormat(object.url)}</h2></header>
                             {atribute &&
                                 <>
-                                    <Container style={{ flex: '1', overflow: 'auto'}}>
+                                    <Container block={false} style={{ flex: '1', overflow: 'auto'}}>
                                         {Object.entries(state).map(([key, value]: any, index) => {
                                             return (
                                                 // <Input childToParent={handleInputChangeFather} key={Math.random()} type={atribute[index]?.type} name={key} value={value} readOnly={false} show={modal}></Input>
