@@ -20,7 +20,7 @@ export const FlexCointainer = styled('div',{
                 flexGrow: '1.5',
                 flexDirection: "column",
                 color: '$four1',
-                backgroundColor: '$three1'
+                backgroundColor: '$back'
             },
             content: {
                 height: '94vh',
