@@ -227,46 +227,46 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                     <Container style={{ flex: '1', overflow: 'auto'}}>
                                         {Object.entries(state).map(([key, value]: any, index) => {
                                             return (
-                                                <Input childToParent={handleInputChangeFather} key={Math.random()} type={atribute[index]?.type} name={key} value={value} readOnly={false} show={modal}></Input>
-                                                // <div style={atribute[index]?.type === 'hidden' ? { display: 'none' } : { display: 'flex'  }}>
-                                                //         <ContainerInput2>
-                                                //             <span>
-                                                //                 {Array.isArray(atribute[index]?.worth) ?
-                                                //                     atribute[index]?.type === 'checkbox' || atribute[index]?.type === 'date' || value === null && atribute[index]?.worth === 0 || value === null && atribute[index]?.worth === '' || value !== null && typeof value !== 'object' ?
-                                                //                         <>
-                                                //                             <input type={atribute[index]?.type} name={key} required value={atribute[index]?.type === 'date' ? removeTimeFromDate(value) : value} onChange={handleInputChange} autoComplete='off' readOnly={object.url.includes('istoric') ? true : false} />
-                                                //                             <label htmlFor={key} hidden={atribute[index]?.type === 'hidden' || atribute[index]?.type === 'checkbox' ? true : false} >{key}</label>
-                                                //                             <label htmlFor={key}>{validation(key)}</label>
-                                                //                         </>
-                                                //                         :
-                                                //                         <>
-                                                //                             <select name={key} onChange={handleInputChangeSubSelectArray} defaultValue={value} value={value}>
-                                                //                                 <option value={value} selected>{value === null ? '' : value[0]?.name ? value[0].name : value[0].id}</option>
-                                                //                                 {subStates[index]?.map(((result: any) => <option placeholder={key} value={result.id}>{result?.name ? result.name : result.id}</option>))}
-                                                //                             </select>
-                                                //                             <label className='label' htmlFor={key} hidden={atribute[index]?.type === 'hidden' ? true : false}>{key}</label>
-                                                //                         </>
-                                                //                     :
-                                                //                     atribute[index]?.type === 'checkbox' || atribute[index]?.type === 'date' || value === null && atribute[index]?.worth === 0 || value === null && atribute[index]?.worth === '' || atribute[index]?.type !== 'undefined' ?
-                                                //                         <>
-                                                //                             <input type={atribute[index]?.type} name={key} required value={atribute[index]?.type === 'date' ? removeTimeFromDate(value) : value} onChange={handleInputChange} autoComplete='off' readOnly={object.url.includes('istoric') ? true : false} />
-                                                //                             <label htmlFor={key} hidden={atribute[index]?.type === 'hidden' || atribute[index]?.type === 'checkbox' ? true : false} >{key}</label>
-                                                //                             <label htmlFor={key}>{validation(key)}</label>
-                                                //                         </>
-                                                //                         :
-                                                //                         <>
-                                                //                             <select name={key} onChange={handleInputChangeSubSelect} defaultValue={value}>
-                                                //                                 {/* <option value={value} selected>{value === null || value === undefined ? '' : value[0]?.name ? value[0].name : value[0].id}</option> */}
-                                                //                                 <option value={value} selected>{value === null || value === undefined ? '' : value?.name ? value.name : value.id}</option>
-                                                //                                 {subStates[index]?.map(((result: any) => <option placeholder={key} value={result.id}>{result?.name ? result.name : result.id}</option>))}
-                                                //                             </select>
-                                                //                             <label className='label' htmlFor={key} hidden={atribute[index]?.type === 'hidden' ? true : false}>{key}</label>
-                                                //                             <label htmlFor={key}>{validation(key)}</label>
-                                                //                         </>
-                                                //                 }
-                                                //             </span>
-                                                //         </ContainerInput2>
-                                                // </div>
+                                                // <Input childToParent={handleInputChangeFather} key={Math.random()} type={atribute[index]?.type} name={key} value={value} readOnly={false} show={modal}></Input>
+                                                <div style={atribute[index]?.type === 'hidden' ? { display: 'none' } : { display: 'flex'  }}>
+                                                        <ContainerInput2>
+                                                            <span>
+                                                                {Array.isArray(atribute[index]?.worth) ?
+                                                                    atribute[index]?.type === 'checkbox' || atribute[index]?.type === 'date' || value === null && atribute[index]?.worth === 0 || value === null && atribute[index]?.worth === '' || value !== null && typeof value !== 'object' ?
+                                                                        <>
+                                                                            <input type={atribute[index]?.type} name={key} required value={atribute[index]?.type === 'date' ? removeTimeFromDate(value) : value} onChange={handleInputChange} autoComplete='off' readOnly={object.url.includes('istoric') ? true : false} />
+                                                                            <label htmlFor={key} hidden={atribute[index]?.type === 'hidden' || atribute[index]?.type === 'checkbox' ? true : false} >{key}</label>
+                                                                            <label htmlFor={key}>{validation(key)}</label>
+                                                                        </>
+                                                                        :
+                                                                        <>
+                                                                            <select name={key} onChange={handleInputChangeSubSelectArray} defaultValue={value} value={value}>
+                                                                                <option value={value} selected>{value === null ? '' : value[0]?.name ? value[0].name : value[0].id}</option>
+                                                                                {subStates[index]?.map(((result: any) => <option placeholder={key} value={result.id}>{result?.name ? result.name : result.id}</option>))}
+                                                                            </select>
+                                                                            <label className='label' htmlFor={key} hidden={atribute[index]?.type === 'hidden' ? true : false}>{key}</label>
+                                                                        </>
+                                                                    :
+                                                                    atribute[index]?.type === 'checkbox' || atribute[index]?.type === 'date' || value === null && atribute[index]?.worth === 0 || value === null && atribute[index]?.worth === '' || atribute[index]?.type !== 'undefined' ?
+                                                                        <>
+                                                                            <input type={atribute[index]?.type} name={key} required value={atribute[index]?.type === 'date' ? removeTimeFromDate(value) : value} onChange={handleInputChange} autoComplete='off' readOnly={object.url.includes('istoric') ? true : false} />
+                                                                            <label htmlFor={key} hidden={atribute[index]?.type === 'hidden' || atribute[index]?.type === 'checkbox' ? true : false} >{key}</label>
+                                                                            <label htmlFor={key}>{validation(key)}</label>
+                                                                        </>
+                                                                        :
+                                                                        <>
+                                                                            <select name={key} onChange={handleInputChangeSubSelect} defaultValue={value}>
+                                                                                {/* <option value={value} selected>{value === null || value === undefined ? '' : value[0]?.name ? value[0].name : value[0].id}</option> */}
+                                                                                <option value={value} selected>{value === null || value === undefined ? '' : value?.name ? value.name : value.id}</option>
+                                                                                {subStates[index]?.map(((result: any) => <option placeholder={key} value={result.id}>{result?.name ? result.name : result.id}</option>))}
+                                                                            </select>
+                                                                            <label className='label' htmlFor={key} hidden={atribute[index]?.type === 'hidden' ? true : false}>{key}</label>
+                                                                            <label htmlFor={key}>{validation(key)}</label>
+                                                                        </>
+                                                                }
+                                                            </span>
+                                                        </ContainerInput2>
+                                                </div>
                                             )
                                         })}
                                     </Container>
