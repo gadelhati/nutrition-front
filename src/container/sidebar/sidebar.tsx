@@ -8,7 +8,7 @@ import { getPayload } from '../../service/service.token'
 export const SideContainer = () => {
   const [show, setShow] = useState(true)
   const changeShow = () => { setShow( !show ) }
-  const vector: string[][] = [["tooltip user", "people-circle", "user"], ["tooltip role", "calendar3", "role"],["tooltip food", "toggles2", "food"], ["tooltip food category", "chat-quote-fill", "food_category"]/*, ["tooltip profile", "people-circle", "profile"], ["tooltip preparation", "table", "preparation"], ["tooltip a", "chat-quote-fill", "item a"], ["tooltip b", "people-circle", "item b"], ["tooltip c", "table", "item c"],["tooltip a", "chat-quote-fill", "item a"], ["tooltip b", "people-circle", "item b"], ["tooltip c", "table", "item c"],["tooltip a", "chat-quote-fill", "item a"], ["tooltip b", "people-circle", "item b"], ["tooltip c", "table", "item c"],["tooltip a", "chat-quote-fill", "item a"], ["tooltip b", "people-circle", "item b"], ["tooltip c", "table", "item c"]*/]
+  const vector: string[][] = [["user", "people-circle", "user"], ["role", "calendar3", "role"],["food", "toggles2", "food"], ["food category", "chat-quote-fill", "food_category"]/*, ["profile", "people-circle", "profile"], ["preparation", "table", "preparation"], ["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"],["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"],["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"],["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"]*/]
 
   return (
       <Sidebar sidehide={show}>
@@ -20,7 +20,7 @@ export const SideContainer = () => {
         {/* <SideItem ><Tooltip data-tip="collapsible"><Icon name="speedometer" /></Tooltip><p>Collapsible</p></SideItem> */}
         </SidebarHeader>
         {/* <SideItem element={'final'} onClick={changeShow} ><Tooltip data-tip="hide items"><Icon name="grid" /></Tooltip><p>hide</p></SideItem> */}
-        <SideItem element={'final'} href={`#/${'profile'}`} ><Tooltip data-tip="tooltip profile"><Icon name="people-circle" /></Tooltip><p>{getPayload().sub}</p></SideItem>
+        <SideItem element={'final'} href={`#/${'profile'}`} ><Tooltip data-tip="profile"><Icon name="people-circle" /></Tooltip><p>{getPayload().sub}</p></SideItem>
       </Sidebar>
   )
 }
