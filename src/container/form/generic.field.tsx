@@ -4,10 +4,16 @@ const { styled } = stitches
 
 export const Container = styled('div',{
     display: 'flex',
-    height: '20em',
+    minHeight: '6rem',
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
+    padding: '$lg',
+    '.tab': {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    },
     variants: {
         block: {
             true: {
@@ -16,6 +22,16 @@ export const Container = styled('div',{
             false: {
                 height: '5em',
             },
+        },
+        align: {
+            column: {
+                display: 'inline-block',
+            },
+            line: {
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+            }
         },
     },
 })
