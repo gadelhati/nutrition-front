@@ -53,7 +53,7 @@ export const Tooltip = styled('div',{
         hidden: {
             false: {
                 color: '$fifth',
-                border: '3px solid $danger',
+                border: '3px solid $fifteenth',
                 borderRadius: '.25rem',
             },
             true: {

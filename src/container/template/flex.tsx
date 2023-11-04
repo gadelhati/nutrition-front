@@ -13,21 +13,21 @@ export const FlexCointainer = styled('div',{
         element:{
             all: {
                 alignItems: 'stretch',
-                backgroundColor: '$back',
+                backgroundColor: '$ninth',
             },
             main: {
                 flexBasis: '0',
                 flexGrow: '1.5',
                 flexDirection: "column",
-                color: '$four1',
-                backgroundColor: '$back'
+                color: '$fifth',
+                backgroundColor: '$ninth'
             },
             content: {
                 height: '94vh',
                 flexDirection: "row",
                 
-                color: '$three1',
-                backgroundColor: '$four1'
+                color: '$fourth',
+                backgroundColor: '$fifth'
             },
             nav: {
                 height: '6vh',
@@ -36,8 +36,8 @@ export const FlexCointainer = styled('div',{
                 flexDirection: "row",
                 justifyContent: 'space-between',
                 
-                color: '$two1',
-                backgroundColor: '$five1'
+                color: '$third',
+                backgroundColor: '$ninth'
             },
         },
     },
@@ -131,15 +131,15 @@ export const SidebarHeader = styled('div',{
     color: '$ninth',
 })
 export const CenterContainer = styled('div',{
-    backgroundColor: '$one1',
-    backgroundImage: 'linear-gradient(to bottom, $one1, $three1)',
+    backgroundColor: '$second',
+    backgroundImage: 'linear-gradient(to bottom, $second, $fourth)',
     minHeight: '100vh',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
 })
 export const CenterItem = styled('div', {
-    // backgroundColor: '$four1',
+    // backgroundColor: '$fifth',
     borderRadius: '.3rem',
     minWidth: '25vw',
     minHeight: '60vh',

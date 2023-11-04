@@ -5,7 +5,7 @@ const { styled } = stitches
 export const Button = styled('button', {
     width: '6em',
     maxHeight: '4em',
-    backgroundImage: 'linear-gradient($three1, $one1)',
+    backgroundImage: 'linear-gradient($fourth, $second)',
     border: '0',
     borderRadius: '4px',
     boxShadow: 'rgba(0, 0, 0, .3) 0 5px 15px',
@@ -23,7 +23,7 @@ export const Button = styled('button', {
         boxShadow: '0 0 1em hsla(0, 0%, 0.0%, 0.75000)',
     },
     '&:focus': {
-        outline: '3px solid $six',
+        outline: '3px solid $tenth',
     },
     '&:active': {
         boxShadow: 'lightGray 0 3px 7px inset',
@@ -32,31 +32,31 @@ export const Button = styled('button', {
     variants: {
         category: {
             primary: {
-                backgroundImage: '$one',
+                backgroundImage: 'linear-gradient($fourteenth, $thirteenth)',
             },
             secondary: {
-                backgroundImage: 'linear-gradient($tsecondary, $secondary)',
+                backgroundImage: 'linear-gradient($twelfth, $twelfth)',
             },
             success: {
-                backgroundImage: 'linear-gradient($tsuccess, $success)',
+                backgroundImage: 'linear-gradient($fourteenth, $thirteenth)',
             },
             danger: {
-                backgroundImage: 'linear-gradient($tdanger, $danger)',
+                backgroundImage: 'linear-gradient($seventeenth, $fifteenth)',
             },
             warning: {
-                backgroundColor: 'linear-gradient($twarning, $warning)',
+                backgroundColor: 'linear-gradient($nineteenth, $eighteenth)',
             },
             info: {
-                backgroundImage: '$six',
+                backgroundImage: '$tenth',
             },
             light: {
-                backgroundImage: '$selected',
+                backgroundImage: '$seventh',
             },
             dark: {
-                backgroundImage: '$selected',
+                backgroundImage: '$seventh',
             },
             muted: {
-                backgroundImage: '$selected',
+                backgroundImage: '$seventh',
             },
         },
     },
@@ -72,16 +72,16 @@ export const GroupButton = styled('div', {
 })
 
 export const ButtonPage = styled('button', {
-    backgroundColor: '$six1',
+    backgroundColor: '$tenth',
     fontFamily: 'Montserrat,sans-serif',
     height: '2.5em',
     width: '2.5em',
-    border: 'solid $line 1px',
+    border: 'solid $eighth 1px',
     variants: {
         selected: {
             true: {
-                color: '$selected',
-                backgroundColor: '$twentieth',
+                color: '$seventh',
+                backgroundColor: '$twentyFirst',
             },
         },
     },

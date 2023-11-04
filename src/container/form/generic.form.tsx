@@ -302,7 +302,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         {/* {object.url.includes('weather') && !object.url.includes('istoric') &&
                             <WeatherUpload />
                         } */}
-                        {!object.url.includes('istoric') && <Button onClick={newItem}>New</Button>}
+                        {!object.url.includes('istoric') && <Button category={'warning'} onClick={newItem}>New</Button>}
                     </Header>
                     {/* {ispending && <Load></Load>} */}
                     <Table>

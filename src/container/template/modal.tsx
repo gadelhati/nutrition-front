@@ -21,7 +21,7 @@ export const Modal = styled('div', {
     'article': {
         maxHeight: '85vh',
         minWidth: '50vw',
-        backgroundColor: '$three1',
+        backgroundColor: '$fourth',
         margin: 'auto',
         border: '1px solid #888',
         maxWidth: '80%',
@@ -44,7 +44,7 @@ export const Modal = styled('div', {
     'header': {
         padding: '2px 16px',
         margin: '0 auto',
-        backgroundColor: '$one1',
+        backgroundColor: '$second',
         color: 'white',
         borderRadius: '.5rem .5rem 0 0',
     },
@@ -55,7 +55,7 @@ export const Modal = styled('div', {
         justifyContent: 'center',
         alignItems: 'center',
         flexWrap: 'wrap',
-        backgroundColor: '$one1',
+        backgroundColor: '$second',
         color: 'white',
         borderRadius: '0 0 .5rem .5rem',
     },

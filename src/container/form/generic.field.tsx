@@ -133,7 +133,7 @@ export const ContainerInput2 = styled('div',{
             overflow: 'visible',
             color: '$tenth',
             textShadow: '0 1px o rgba(19, 74, 70, .4)',
-            background: '$danger',
+            background: '$fifteenth',
             transform: 'translateY(+1.9rem)',
         },
     },
@@ -159,12 +159,12 @@ export const ContainerInput2 = styled('div',{
             true: {
                 'input, select': {
                     color: '$tenth',
-                    background: '$danger',
+                    background: '$fifteenth',
                 },
                 'input:focus, input:active, select:focus, select:active': {
                     '+ label + label': {
                         height: '4rem',
-                        background: '$danger',
+                        background: '$fifteenth',
                         display: 'inline-block',
                         zIndex: '1',
                     },
@@ -182,7 +182,7 @@ export const ContainerInput = styled('div',{
     // position: 'relative',
     padding: '.1rem',
     'input': {
-        color: '$five1',
+        color: '$ninth',
         fontSize: '100%',
         padding: '0.8em',
         outline: 'none',
@@ -214,7 +214,7 @@ export const ContainerInput = styled('div',{
     },
     ':is(input:focus, input:valid)': {
         transition: 'all 0.3s ease',
-        borderBottom: '2px solid $one1',
+        borderBottom: '2px solid $second',
     },
 })
 

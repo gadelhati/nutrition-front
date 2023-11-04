@@ -28,43 +28,43 @@ export const Toast = styled('ul', {
         alignItems: 'center',
     },
     '.success': {
-        border: '$tsuccess solid 0.1rem',
-        borderLeft: '$tsuccess solid 1rem',
+        border: '$fourteenth solid 0.1rem',
+        borderLeft: '$fourteenth solid 1rem',
         '::before': {
-            background: '$tsuccess',
+            background: '$fourteenth',
         },
         '.column i': {
-            color: '$tsuccess',
+            color: '$fourteenth',
         }
     },
     '.error': {
         border: 'red solid 0.1rem',
         borderLeft: 'red solid 1rem',
         '::before': {
-            background: '$tdanger',
+            background: '$seventeenth',
         },
         '.column i': {
-            color: '$tdanger',
+            color: '$seventeenth',
         }
     },
     '.warning': {
-        border: '$twarning solid 0.1rem',
-        borderLeft: '$twarning solid 1rem',
+        border: '$nineteenth solid 0.1rem',
+        borderLeft: '$nineteenth solid 1rem',
         '::before': {
-            background: '$twarning',
+            background: '$nineteenth',
         },
         '.column i': {
-            color: '$twarning',
+            color: '$nineteenth',
         }
     },
     '.info': {
-        border: '$tinfo solid 0.1rem',
-        borderLeft: '$tinfo solid 1rem',
+        border: '$twentyFirst solid 0.1rem',
+        borderLeft: '$twentyFirst solid 1rem',
         '::before': {
-            background: '$tinfo',
+            background: '$twentyFirst',
         },
         '.column i': {
-            color: '$tinfo',
+            color: '$twentyFirst',
         }
     },
     '.hide': {
@@ -82,7 +82,7 @@ export const Toast = styled('ul', {
         cursor: 'pointer',
     },
     'i:last-child:hover': {
-        color: '$tdark',
+        color: '$twelfth',
     },
     li: {
         width: '400px',
