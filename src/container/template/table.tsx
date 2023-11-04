@@ -14,7 +14,7 @@ export const Table = styled('table', {
     borderRadius: '.3rem',
     display: 'block',
     borderCollapse: 'collapse',
-    border: 'solid $two1 1px',
+    // border: 'solid $two1 1px',
     boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
     'thead > tr:first-child': {
         fontWeight: 'bold',
