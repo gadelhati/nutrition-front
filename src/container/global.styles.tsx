@@ -28,7 +28,7 @@ export const stitches = createStitches({
             seventeenth: '#0E0C0C',
             eighteenth: '#000000',
             nineteenth: '#66C462',
-            thirty: '#A4B5B2',
+            twentieth: '#0D6EFD',//'#A4B5B2',
             
             tsuccess: '#124010',
             tinfo: '#3498DB',
@@ -90,7 +90,6 @@ export const stitches = createStitches({
             selected: '#ECECEC',
             line: '#CED4DA',
             button: '#6C757D',
-            blueButton: '#0D6EFD',
         },
         space: {
             first: '1px',

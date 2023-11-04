@@ -44,7 +44,7 @@ export const Button = styled('button', {
                 backgroundImage: 'linear-gradient($tdanger, $danger)',
             },
             warning: {
-                backgroundColor: '#588FEB',
+                backgroundColor: 'linear-gradient($twarning, $warning)',
             },
             info: {
                 backgroundImage: '$six',
@@ -81,7 +81,7 @@ export const ButtonPage = styled('button', {
         selected: {
             true: {
                 color: '$selected',
-                backgroundColor: '$blueButton',
+                backgroundColor: '$twentieth',
             },
         },
     },

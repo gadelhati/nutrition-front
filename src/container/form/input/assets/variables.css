@@ -18,6 +18,9 @@ ee {
 --color-fifteenth: #454545;
 --color-sixteenth: #363636;
 --color-seventeenth: #0E0C0C;
+--color-eighteenth: '#000000';
+--color-nineteenth: '#66C462';
+--color-twentieth: '#0D6EFD';/*'#A4B5B2',*/
 
 --color-tsuccess: #124010;
 --color-tinfo: #3498DB;
@@ -36,7 +39,7 @@ ee {
 --color-selected: #ECECEC;
 --color-line: #CED4DA;
 --color-button: #6C757D;
---color-blueButton: #0D6EFD;
+--color-twentieth: #0D6EFD;
 
 /* spaces */
 
