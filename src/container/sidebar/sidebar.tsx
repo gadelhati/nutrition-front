@@ -13,7 +13,7 @@ export const SideContainer = () => {
   return (
       <Sidebar sidehide={show}>
         <SidebarHeader>
-        <SideTitle key={0} href={`#/`} ><span onClick={changeShow} ><Icon name="collection"/></span><p>Home</p></SideTitle>
+        <SideTitle key={0} href={`#/`} ><Tooltip data-tip={'home'}><span onClick={changeShow} ><Icon name="collection"/></span></Tooltip><p>Home</p></SideTitle>
         {vector.map((element) => {
           return <SideItem key={element[1]} href={`#/${element[2]}`} ><Tooltip data-tip={element[0]}><Icon name={element[1]} /></Tooltip><p>{UriScreenFormat(element[2])}</p></SideItem>
         })}
