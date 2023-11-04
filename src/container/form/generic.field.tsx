@@ -20,7 +20,7 @@ export const Container = styled('div',{
                 display: 'inline-block',
             },
             false: {
-                height: '5em',
+                maxHeight: '15em',
             },
         },
         align: {
