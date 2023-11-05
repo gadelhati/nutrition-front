@@ -34,7 +34,7 @@ It is called nutritional information, also known as nutritional labeling, the ta
 - [ ] consume service that provide sidebar access
 - [ ] header: sandwich to restore body
 - [ ] sidebar: personal icons
-- [ ] implements the vanilla-extract
+- [ ] implements pure css
 
 ## how to create this project
 ```
