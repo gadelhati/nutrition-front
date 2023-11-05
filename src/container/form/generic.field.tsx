@@ -128,7 +128,7 @@ export const ContainerInput2 = styled('div',{
             marginTop: '.3rem',
             padding: '.5rem',
             opacity: '1',
-            display: 'none',
+            // display: 'none',
             width: '100%',
             overflow: 'visible',
             color: '$tenth',
@@ -163,6 +163,7 @@ export const ContainerInput2 = styled('div',{
                 },
                 'input:focus, input:active, select:focus, select:active': {
                     '+ label + label': {
+                        color: 'blue',
                         height: '4rem',
                         background: '$fifteenth',
                         display: 'inline-block',
