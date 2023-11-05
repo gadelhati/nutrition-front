@@ -37,7 +37,7 @@ export const logout = () => {
 }
 
 export const changePassword = async<User,>(data: User) => {
-    return await api.put<User>(`/userEntity/changePassword`, data)
+    return await api.put<User>(`/user_entity/changePassword`, data)
         .then(response => {
             return response.data
         })
