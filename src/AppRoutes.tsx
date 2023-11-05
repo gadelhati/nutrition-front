@@ -18,7 +18,7 @@ import { Login } from "./container/form/login";
 import { Home } from "./container/home";
 import { Profile } from "./container/profile";
 
-const ROLES = {
+export const ROLES = {
     'USER': "ROLE_USER",
     'ADMIN': "ROLE_ADMIN",
     'MODERATOR': "ROLE_MODERATOR"
