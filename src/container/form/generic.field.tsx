@@ -4,7 +4,7 @@ const { styled } = stitches
 
 export const Container = styled('div',{
     display: 'flex',
-    minHeight: '6rem',
+    minHeight: '1rem',
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
