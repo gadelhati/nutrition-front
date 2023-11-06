@@ -183,13 +183,13 @@ export const ContainerInput = styled('div',{
     // position: 'relative',
     padding: '.1rem',
     'input': {
-        color: '$ninth',
         fontSize: '100%',
-        padding: '0.8em',
+        padding: '0.7rem',
         outline: 'none',
         border: 'none',
         borderBottom: '2px solid #ccc',
-        backgroundColor: 'transparent',
+        borderRadius: '.3rem',
+        backgroundColor: '$sixth',
         width: '100%',
     },
     'input[type="number"]': {
@@ -208,8 +208,7 @@ export const ContainerInput = styled('div',{
         transform: 'scaleX(1)',
     },
     ':is(input:focus, input:valid)~label': {
-        // transform: 'translateY(-50%) scale(.9)',
-        transform: 'translateY(-50%)',
+        transform: 'translateY(-85%) scale(.9)',
         margin: '0em',
         padding: '0.4em',
     },

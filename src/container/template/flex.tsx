@@ -139,7 +139,9 @@ export const CenterContainer = styled('div',{
     justifyContent: 'center',
 })
 export const CenterItem = styled('div', {
-    // backgroundColor: '$fifth',
+    color: '$fourteenth',
+    backgroundColor: '$fifth',
+    padding: '1.5rem 0 1.5rem 0',
     borderRadius: '.3rem',
     minWidth: '25vw',
     minHeight: '60vh',
