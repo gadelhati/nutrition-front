@@ -42,6 +42,9 @@ export const Table = styled('table', {
     'tr:nth-child(odd)': {
         backgroundColor: '$sixth',
     },
+    'th': {
+        backgroundColor: '$tenth',
+    },
     'tr:hover': {
         cursor: 'pointer',
         backgroundColor: '$seventh',

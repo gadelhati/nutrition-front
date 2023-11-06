@@ -317,7 +317,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         </ErrorBoundary>
                         <tfoot>
                             <tr>
-                                <td colSpan={100}>
+                                <th colSpan={100}>
                                     <GroupButton>
                                         <ButtonPage onClick={() => handlePage(0)}>{'<<'}</ButtonPage>
                                         <ButtonPage onClick={() => handlePage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</ButtonPage>
@@ -328,7 +328,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                         <ButtonPage onClick={() => handlePage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
                                         Total amount {pageable.totalElements}
                                     </GroupButton>
-                                </td>
+                                </th>
                             </tr>
                         </tfoot>
                     </Table>
