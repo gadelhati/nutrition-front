@@ -26,6 +26,14 @@ It is called nutritional information, also known as nutritional labeling, the ta
 ## Roadmap
 ### in development
 - [x] user: improve visual of add multiple roles
+- [x] input group
+- [x] tabView
+- [ ] dashboard
+- [ ] breadcrumb
+- [ ] input mask
+- [ ] spinner with scrool to select number
+- [ ] signature with mouse
+- [ ] extract all records in pdf
 - [ ] load privileges on role's form
 - [ ] set combobox, turn with switch
 - [ ] counter only increases by 1
@@ -35,6 +43,9 @@ It is called nutritional information, also known as nutritional labeling, the ta
 - [ ] header: sandwich to restore body
 - [ ] sidebar: personal icons
 - [ ] implements pure css
+- [ ] context menu
+- [ ] charts
+- [ ] schedule
 
 ## how to create this project
 ```
