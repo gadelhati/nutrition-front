@@ -273,22 +273,24 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                     <Header>
                         <TitleHeader>
                             <h1>{UriScreenFormat(object.url)}</h1>
-                                <label>Items per page   </label>
-                                <select onChange={handleSize} >
-                                    <option value={5}>5</option>
-                                    <option value={10}>10</option>
-                                    {/* <option value={15}>15</option> */}
-                                </select>
                         </TitleHeader>
-                        <><label>{key}</label><input name={search} onChange={searchItem} placeholder={`${key}`} value={search}></input></>
-                        {/* {object.url.includes('weather') && !object.url.includes('istoric') &&
-                            <WeatherUpload />
-                        } */}
                         {!object.url.includes('istoric') && <Button category={'warning'} onClick={newItem}>New</Button>}
                     </Header>
                     {/* {ispending && <Load></Load>} */}
                     <Table>
                         <thead>
+                            <div className='head'>
+                                <span>show  </span>
+                                <select onChange={handleSize} >
+                                    <option value={5}>5</option>
+                                    <option value={10}>10</option>
+                                        {/* <option value={15}>15</option> */}
+                                </select>
+                                <div>
+                                    <span>  {   key}  </span>
+                                    <input name={search} onChange={searchItem} placeholder={`${key}`} value={search}></input>
+                                </div>
+                            </div>
                             <tr>
                                 {Object.entries(state).map(([key]: any, index) => {
                                     if (key !== 'id' && key !== 'password' && index < 7 && key !== 'role') {
