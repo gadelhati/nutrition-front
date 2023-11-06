@@ -290,7 +290,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                             </select>
                                         </div>
                                         <div>
-                                            <span>{key}</span>
+                                            <span>search by {key}</span>
                                             <input name={search} onChange={searchItem} placeholder={`${key}`} value={search}></input>
                                         </div>
                                     </div>

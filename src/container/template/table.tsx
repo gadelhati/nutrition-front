@@ -23,10 +23,6 @@ export const Table = styled('table', {
             content: " ",
         },
     },
-    'thead > div > span:after': {
-        color: 'red',
-        content: "   ",
-    },
     'thead > tr': {
         fontWeight: 'bold',
         textTransform: 'uppercase',
@@ -51,5 +47,37 @@ export const Table = styled('table', {
     'tr:hover': {
         cursor: 'pointer',
         backgroundColor: '$seventh',
+    },
+    '@bp1': {
+        '.header': {
+            flexWrap: "wrap",
+            'div': {
+                fontSize: '75%',
+                padding: '.25rem',
+                input: {
+                    boxSizing: 'border-box',
+                    width: '6rem',
+                },
+            },
+        },
+        'td:nth-child(3), th:nth-child(3), td:nth-child(4), th:nth-child(4)': {
+            display: "none",
+        }
+    },
+    '@bp2': {
+        '.header': {
+            flexWrap: "wrap",
+            'div': {
+                fontSize: '75%',
+                padding: '.25rem',
+                input: {
+                    boxSizing: 'border-box',
+                    width: '6rem',
+                },
+            },
+        },
+        'td:nth-child(5), th:nth-child(5), td:nth-child(6), th:nth-child(6)': {
+            display: "none",
+        }
     },
 })
