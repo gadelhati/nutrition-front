@@ -141,13 +141,14 @@ export const CenterContainer = styled('div',{
 export const CenterItem = styled('div', {
     color: '$fourteenth',
     backgroundColor: '$fifth',
-    padding: '1.5rem 0 1.5rem 0',
+    padding: '5rem 0rem 5rem 0',
     borderRadius: '.3rem',
     minWidth: '25vw',
     minHeight: '60vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    background: 'rgba(132, 169, 140, 0.85)',
     variants: {
         direction: {
             column: {

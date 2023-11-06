@@ -82,7 +82,7 @@ export const Login = () => {
                         <Tooltip data-tip={validation('username')} hidden={validation('username').length === 0} >
                             <ContainerInput>
                                 <input type={'text'} required autoFocus name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
-                                <label htmlFor="name">Name</label>
+                                <label htmlFor="username">Username</label>
                             </ContainerInput>
                         </Tooltip>
                         <Tooltip data-tip={validation('password')} hidden={validation('password').length === 0} >
@@ -91,15 +91,15 @@ export const Login = () => {
                                 <label htmlFor="password">Password</label>
                             </ContainerInput>
                         </Tooltip>
-                        <CenterItem direction={'row'}>
+                        <div>
                             {!isValidToken() && <Button onClick={loginUser}>Login</Button>}
                             {isValidToken() && <Button onClick={logoutUser}>Logout</Button>}
                             <Button onClick={resetItem}>Reset{existsToken()}</Button>
-                        </CenterItem>
+                        </div>
                         {ispending}
-                        <CenterItem direction={'row'}>
+                        <div>
                             {error[0].message !== 'Network Error' ? <>© Marinha do Brasil</> : <>{validationConnection()}</>}
-                        </CenterItem>
+                        </div>
                     </CenterItem>
                     <Toast className="notifications"></Toast>
                 </CenterContainer>
