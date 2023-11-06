@@ -19,6 +19,9 @@ export const Table = styled('table', {
     '.header': {
         display: 'flex',
         justifyContent: 'space-between',
+        'div span:after': {
+            content: " ",
+        },
     },
     'thead > div > span:after': {
         color: 'red',

@@ -282,16 +282,17 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                             <tr>
                                 <th colSpan={6}>
                                     <div className='header'>
-                                        <span>
-                                            show
+                                        <div>
+                                            <span>show</span>
                                             <select onChange={handleSize} >
                                                 <option value={5}>5</option>
                                                 <option value={10}>10</option>
                                             </select>
-                                        </span>
-                                        <span>{key}
+                                        </div>
+                                        <div>
+                                            <span>{key}</span>
                                             <input name={search} onChange={searchItem} placeholder={`${key}`} value={search}></input>
-                                        </span>
+                                        </div>
                                     </div>
                                 </th>
                             </tr>
