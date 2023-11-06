@@ -16,10 +16,9 @@ export const Table = styled('table', {
     borderCollapse: 'collapse',
     // border: 'solid $third 1px',
     boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
-    'thead > .head': {
+    '.header': {
         display: 'flex',
         justifyContent: 'space-between',
-        // width: '500px',
     },
     'thead > div > span:after': {
         color: 'red',

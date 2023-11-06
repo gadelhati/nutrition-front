@@ -279,18 +279,22 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                     {/* {ispending && <Load></Load>} */}
                     <Table>
                         <thead>
-                            <div className='head'>
-                                <span>show  </span>
-                                <select onChange={handleSize} >
-                                    <option value={5}>5</option>
-                                    <option value={10}>10</option>
-                                        {/* <option value={15}>15</option> */}
-                                </select>
-                                <div>
-                                    <span>  {   key}  </span>
-                                    <input name={search} onChange={searchItem} placeholder={`${key}`} value={search}></input>
-                                </div>
-                            </div>
+                            <tr>
+                                <th colSpan={6}>
+                                    <div className='header'>
+                                        <span>
+                                            show
+                                            <select onChange={handleSize} >
+                                                <option value={5}>5</option>
+                                                <option value={10}>10</option>
+                                            </select>
+                                        </span>
+                                        <span>{key}
+                                            <input name={search} onChange={searchItem} placeholder={`${key}`} value={search}></input>
+                                        </span>
+                                    </div>
+                                </th>
+                            </tr>
                             <tr>
                                 {Object.entries(state).map(([key]: any, index) => {
                                     if (key !== 'id' && key !== 'password' && index < 7 && key !== 'role') {
