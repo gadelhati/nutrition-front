@@ -3,6 +3,7 @@ import { stitches } from "../global.styles"
 const { styled } = stitches
 
 export const Container = styled('div',{
+    overflow: 'auto',
     display: 'flex',
     minHeight: '1rem',
     justifyContent: 'center',
@@ -15,14 +16,6 @@ export const Container = styled('div',{
         flexWrap: 'wrap',
     },
     variants: {
-        block: {
-            true: {
-                display: 'inline-block',
-            },
-            false: {
-                maxHeight: '15em',
-            },
-        },
         align: {
             column: {
                 display: 'inline-block',
@@ -31,7 +24,10 @@ export const Container = styled('div',{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-            }
+            },
+            other: {
+                maxHeight: '15em',
+            },
         },
     },
 })

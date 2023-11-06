@@ -220,11 +220,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                     <Modal show={modal} className='modal-div' onClick={(evt) => {
                         onClickModal(evt)
                     }}>
-                        <article style={{ maxWidth: `${width}%`}}>
+                        <article>
                             <header><span onClick={handleModal}>&times;</span><h2>{UriScreenFormat(object.url)}</h2></header>
                             {atribute &&
                                 <>
-                                    <Container block={false} style={{ flex: '1', overflow: 'auto'}}>
+                                    <Container align={'other'}>
                                         {Object.entries(state).map(([key, value]: any, index) => {
                                             return (
                                                 // <Input childToParent={handleInputChangeFather} key={Math.random()} type={atribute[index]?.type} name={key} value={value} readOnly={false} show={modal}></Input>
@@ -261,7 +261,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                                 {({ loading }) => loading ? <Button category={'warning'} >Wait</Button> : <Button category={'warning'} >Download</Button> }
                                         </PDFDownloadLink>}
                                         <Button category={'warning'} onClick={resetItem} type='reset' >Reset</Button>
-                                        <Button category={'warning'} onClick={createItem} hidden={state.id !== "" && !object.url.includes('istoric') || object.url.includes('istoric') ? true : false}>Create</Button>
+                                        <Button category={'success'} onClick={createItem} hidden={state.id !== "" && !object.url.includes('istoric') || object.url.includes('istoric') ? true : false}>Create</Button>
                                         <Button category={'warning'} onClick={updateItem} hidden={state.id === "" || object.url.includes('istoric') ? true : false}>Update</Button>
                                         <Button category={'danger'} onClick={deleteItem} hidden={state.id === "" || object.url.includes('istoric') ? true : false}>Delete</Button>
                                         <Button category={'warning'} onClick={handleModal}>Close</Button>
