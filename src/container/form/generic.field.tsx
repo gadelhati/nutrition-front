@@ -25,8 +25,11 @@ export const Container = styled('div',{
                 flexDirection: 'column',
                 alignItems: 'center',
             },
-            other: {
-                maxHeight: '15em',
+            inputs: {
+                maxHeight: '13.5rem',
+            },
+            response: {
+                height: '5rem',
             },
         },
     },

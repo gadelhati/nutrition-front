@@ -224,7 +224,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                             <header><span onClick={handleModal}>&times;</span><h2>{UriScreenFormat(object.url)}</h2></header>
                             {atribute &&
                                 <>
-                                    <Container align={'other'}>
+                                    <Container align={'inputs'}>
                                         {Object.entries(state).map(([key, value]: any, index) => {
                                             return (
                                                 // <Input childToParent={handleInputChangeFather} key={Math.random()} type={atribute[index]?.type} name={key} value={value} readOnly={false} show={modal}></Input>
@@ -252,20 +252,20 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                             )
                                         })}
                                     </Container>
-                                    <Container>
+                                    <Container align={'response'}>
                                         <div>{validationDTO()}</div>
                                     </Container>
-                                    <Container hidden={object.url.includes('istoric') ? true : false} >
+                                    <footer>
                                         {modal &&
                                         <PDFDownloadLink document={<PDFDocument object={state} />} fileName="somename.pdf">
                                                 {({ loading }) => loading ? <Button category={'warning'} >Wait</Button> : <Button category={'warning'} >Download</Button> }
                                         </PDFDownloadLink>}
                                         <Button category={'warning'} onClick={resetItem} type='reset' >Reset</Button>
-                                        <Button category={'success'} onClick={createItem} hidden={state.id !== "" && !object.url.includes('istoric') || object.url.includes('istoric') ? true : false}>Create</Button>
+                                        <Button category={'warning'} onClick={createItem} hidden={state.id !== "" && !object.url.includes('istoric') || object.url.includes('istoric') ? true : false}>Create</Button>
                                         <Button category={'warning'} onClick={updateItem} hidden={state.id === "" || object.url.includes('istoric') ? true : false}>Update</Button>
                                         <Button category={'danger'} onClick={deleteItem} hidden={state.id === "" || object.url.includes('istoric') ? true : false}>Delete</Button>
                                         <Button category={'warning'} onClick={handleModal}>Close</Button>
-                                    </Container>
+                                    </footer>
                                 </>
                             }
                         </article>
