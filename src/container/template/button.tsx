@@ -3,6 +3,7 @@ import { stitches } from "../global.styles"
 const { styled } = stitches
 
 export const Button = styled('button', {
+    justifyContent: 'center',
     width: '6em',
     maxHeight: '4em',
     backgroundImage: 'linear-gradient($fourth, $second)',
@@ -57,6 +58,9 @@ export const Button = styled('button', {
             },
             muted: {
                 backgroundImage: '$seventh',
+            },
+            small: {
+                paddingLeft: '.7rem',
             },
         },
     },

@@ -1,5 +1,5 @@
 import { useState, ChangeEvent, useEffect, useTransition } from 'react'
-import { isValidToken } from '../../service/service.token'
+import { getPayload, isValidToken } from '../../service/service.token'
 import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { create, update, remove, retrieve, removeComposite } from '../../service/service.crud'
@@ -24,6 +24,7 @@ import { PDFDownloadLink } from '@react-pdf/renderer'
 import { PDFDocument } from '../../component/pdf/PDFDocument'
 import { Input } from './input/Input'
 import { InputInterface } from './input/assets/input.interface'
+import { Icon } from '../../assets/svg.access'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -274,7 +275,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         <TitleHeader>
                             <h1>{UriScreenFormat(object.url)}</h1>
                         </TitleHeader>
-                        {!object.url.includes('istoric') && <Button category={'warning'} onClick={newItem}>New</Button>}
+                        <Button category={'small'} onClick={newItem}>{getPayload().sub}</Button>
                     </Header>
                     {/* {ispending && <Load></Load>} */}
                     <Table>
@@ -283,6 +284,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                 <th colSpan={6}>
                                     <div className='header'>
                                         <div>
+                                            {!object.url.includes('istoric') && <Button category={'warning'} onClick={newItem}>New</Button>}
                                             <span>show</span>
                                             <select onChange={handleSize} >
                                                 <option value={5}>5</option>
