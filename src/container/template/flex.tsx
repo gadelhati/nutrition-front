@@ -94,6 +94,7 @@ export const SideItem = styled('a',{
 
 export const Sidebar = styled('aside',{
     width: '256px',
+    minHeight: '20rem',
     display: 'flex',
     justifyContent: 'space-between',
     flexDirection: 'column',
