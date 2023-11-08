@@ -8,6 +8,7 @@ export const Tooltip = styled('div',{
     cursor: 'pointer',
     boxSizing: 'border-box',
     transition: 'all .25s ease-in-out',
+    zIndex: '1',
     '&:before': {
         content: 'attr(data-tip)',
         fontSize: '$rg',
