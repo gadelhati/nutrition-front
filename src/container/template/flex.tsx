@@ -107,6 +107,12 @@ export const Sidebar = styled('aside',{
     // scrollBehavior: 'smooth',
     // overflowY: 'auto',
     // overflowX: 'hidden',
+    '@bp1': {
+        width: '2.9rem',
+        'p': {
+            display: 'none',
+        },
+    },
     variants: {
         sidehide: {
             true: {

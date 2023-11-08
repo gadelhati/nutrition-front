@@ -3,6 +3,8 @@ import { stitches } from "../global.styles"
 const { styled } = stitches
 
 export const Table = styled('table', {
+    maxHeight: '75vh',
+    overflowY: 'auto',
     fontFamily: 'arial, sans-serif',
     fontSize: '0.9em',
     color: '$sixteenth',
@@ -20,10 +22,13 @@ export const Table = styled('table', {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingBottom: '.5rem',
         'div span:after': {
             content: " ",
         },
+    },
+    'thead': {
+        position: 'sticky',
+        top: '-.25rem',
     },
     'thead > tr': {
         fontWeight: 'bold',
