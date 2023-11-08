@@ -58,13 +58,13 @@ export const Toast = styled('ul', {
         }
     },
     '.info': {
-        border: '$twentyFirst solid 0.1rem',
-        borderLeft: '$twentyFirst solid 1rem',
+        border: '$twentieth solid 0.1rem',
+        borderLeft: '$twentieth solid 1rem',
         '::before': {
-            background: '$twentyFirst',
+            background: '$twentieth',
         },
         '.column i': {
-            color: '$twentyFirst',
+            color: '$twentieth',
         }
     },
     '.hide': {

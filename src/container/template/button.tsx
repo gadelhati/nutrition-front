@@ -85,7 +85,7 @@ export const ButtonPage = styled('button', {
         selected: {
             true: {
                 color: '$seventh',
-                backgroundColor: '$twentyFirst',
+                backgroundColor: '$fifth',
             },
         },
     },
