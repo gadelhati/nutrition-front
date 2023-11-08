@@ -289,10 +289,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                             <select onChange={handleSize} >
                                                 <option value={5}>5</option>
                                                 <option value={10}>10</option>
+                                                <option value={20}>20</option>
                                             </select>
                                         </div>
                                         <div>
-                                            <span>search by {key}</span>
+                                            <span>search {key}</span>
                                             <input name={search} onChange={searchItem} placeholder={`${key}`} value={search}></input>
                                         </div>
                                     </div>
