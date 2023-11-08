@@ -15,9 +15,6 @@ export const Home = () => {
             </Header>
             <CardContainer>
                 <Card>
-                    <h2><a href={`#/`} ><Icon name="collection"/><p>Home</p></a></h2>
-                </Card>
-                <Card>
                     <h2><a href={`#/food`} ><Icon name="collection"/><p>Food</p></a></h2>
                 </Card>
                 <Card>
