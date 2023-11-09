@@ -58,6 +58,18 @@ export const SideTitle = styled('a',{
         display: 'inline',
     },
     boxShadow: '0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    variants: {
+        sidehide: {
+            false: {
+                'span:first-child': {
+                    display: 'none',
+                },
+            },
+        },
+    },
 })
 export const SideItem = styled('a',{
     textDecoration: 'none',
