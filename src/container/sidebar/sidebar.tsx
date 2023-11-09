@@ -18,7 +18,7 @@ export const SideContainer = () => {
             <span>Home</span>
             <span onClick={changeShow} >
               <Tooltip data-tip={'collapse'}>
-                <Icon name="collection"/>
+                <Icon name="geo2"/>
               </Tooltip>
             </span>
         </SideTitle>
@@ -35,7 +35,7 @@ export const SideContainer = () => {
           <SideItem key={'food'} href={`#/food`} ><Tooltip data-tip={'food'}><Icon name={'toggles2'} /></Tooltip><p>{UriScreenFormat('food')}</p></SideItem>
           <SideItem key={'food category'} href={`#/food_category`} ><Tooltip data-tip={'food category'}><Icon name={'chat-quote-fill'} /></Tooltip><p>{UriScreenFormat('food_category')}</p></SideItem>
         </SidebarHeader>
-        <SideItem element={'final'} href={`#/${'profile'}`} ><Tooltip data-tip="profile"><Icon name="people-circle" /></Tooltip><p>{getPayload().sub}</p></SideItem>
+        <SideItem element={'final'} href={`#/${'profile'}`} ><Tooltip data-tip="profile"><Icon name="profile-circle" /></Tooltip><p>{getPayload().sub}</p></SideItem>
       </Sidebar>
   )
 }
