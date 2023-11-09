@@ -16,6 +16,11 @@ export const Header = styled('div', {
     justifyContent: 'space-between',
     alignItems: 'center',
     // flexWrap: 'wrap',
+    '@bp1': {
+        'button': {
+            fontSize: '75%',
+        },
+    },
 })
 
 export const TitleHeader = styled('div',{
