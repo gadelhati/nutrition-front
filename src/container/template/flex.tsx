@@ -67,6 +67,9 @@ export const SideTitle = styled('a',{
                 'span:first-child': {
                     display: 'none',
                 },
+                'svg': {
+                    transform: 'rotate(180deg)',
+                }
             },
         },
     },
