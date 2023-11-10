@@ -3,11 +3,11 @@ import { SideTitle, SideItem, Sidebar, SidebarHeader } from '../template/flex'
 import { Icon } from '../../assets/svg.access' 
 import { Tooltip } from '../tooltip/tooltip'
 import { UriScreenFormat } from '../../service/uri.format'
-import { getPayload, getRoles } from '../../service/service.token'
-import { ROLES } from '../../AppRoutes'
 import { logout } from '../../service/service.crud'
+import { accessList } from '../access.list'
 
 export const SideContainer = () => {
+  const [list, setList] = useState<boolean[]>(accessList())
   const [show, setShow] = useState(true)
   const changeShow = () => { setShow( !show ) }
   const vector: string[][] = [["user", "people-circle", "user"], ["role", "calendar3", "role"],["food", "toggles2", "food"], ["food category", "chat-quote-fill", "food_category"]/*, ["profile", "people-circle", "profile"], ["preparation", "table", "preparation"], ["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"],["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"],["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"],["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"]*/]
@@ -23,18 +23,9 @@ export const SideContainer = () => {
               </Tooltip>
             </span>
         </SideTitle>
-        {/* {vector.map((element) => {
-          return <SideItem key={element[1]} href={`#/${element[2]}`} ><Tooltip data-tip={element[0]}><Icon name={element[1]} /></Tooltip><p>{UriScreenFormat(element[2])}</p></SideItem>
-        })} */}
-        {/* <SideItem ><Tooltip data-tip="collapsible"><Icon name="speedometer" /></Tooltip><p>Collapsible</p></SideItem> */}
-          {getRoles().some((element: string) => element === ROLES.ADMIN || element === ROLES.MODERATOR) &&
-            <SideItem key={'user'} href={`#/user`} ><Tooltip data-tip={'user'}><Icon name={'people-circle'} /></Tooltip><p>{UriScreenFormat('user')}</p></SideItem>
-          }
-          {getRoles().some((element: string) => element === ROLES.ADMIN) &&
-            <SideItem key={'role'} href={`#/role`} ><Tooltip data-tip={'role'}><Icon name={'calendar3'} /></Tooltip><p>{UriScreenFormat('role')}</p></SideItem>
-          }
-          <SideItem key={'food'} href={`#/food`} ><Tooltip data-tip={'food'}><Icon name={'toggles2'} /></Tooltip><p>{UriScreenFormat('food')}</p></SideItem>
-          <SideItem key={'food category'} href={`#/food_category`} ><Tooltip data-tip={'food category'}><Icon name={'chat-quote-fill'} /></Tooltip><p>{UriScreenFormat('food_category')}</p></SideItem>
+        {list.map((element, index) => {
+          return element === true && <SideItem key={vector[index][1]} href={`#/${vector[index][2]}`}><Tooltip data-tip={vector[index][0]}><Icon name={vector[index][1]} /></Tooltip><p>{UriScreenFormat(vector[index][2])}</p></SideItem>
+        })}
         </SidebarHeader>
         <SideItem key={'logout'} href={`#/${'login'}`} element={'final'} onClick={logout}><Tooltip data-tip="profile"><Icon name={'profile-circle'} /></Tooltip><p>logout</p></SideItem>
       </Sidebar>

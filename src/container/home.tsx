@@ -6,22 +6,11 @@ import { Header, TitleHeader } from './template/header'
 import { vector } from './menu';
 import { UriScreenFormat } from '../service/uri.format';
 import { retrieve } from '../service/service.crud';
+import { accessList } from './access.list';
 
 export const Home = () => {
-    const [list, setList] = useState<boolean[]>([])
+    const [list, setList] = useState<boolean[]>(accessList())
 
-    useEffect(()=>{
-        retrieveItem()
-    },[])
-    const retrieveItem = async () => {
-        let list1: boolean[] = []
-        vector.map((element: string[], index: number) => {
-            retrieve(element[2], 20, 20, '', '').then((data: any) => {
-                list1[index]=true
-            }).catch((error) => { list1[index]=false })
-        })
-        setList(list1)
-    }
     return (
         <>
             <Header>
