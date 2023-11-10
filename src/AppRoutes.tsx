@@ -17,6 +17,7 @@ import { initialPreparation } from "./component/preparation/preparation.initial"
 import { Login } from "./container/form/login";
 import { Home } from "./container/home";
 import { Profile } from "./container/profile";
+import { Military } from "./container/Military";
 
 export const ROLES = {
     'USER': "ROLE_USER",
@@ -42,6 +43,7 @@ export default function AppRoutes() {
                             </Route>
                             <Route element={<RequireAuth allowedRoles={[ROLES.USER, ROLES.ADMIN, ROLES.MODERATOR]} />}>
                                 <Route path="/home" element={<Home />}></Route>
+                                <Route path="/military" element={<Military />}></Route>
                                 <Route path="/profile" element={<Profile />}></Route>
                                 <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
                                 <Route path="/preparation" element={<GenericForm key='preparation' object={initialPreparation} url={'preparation'} />}></Route>
