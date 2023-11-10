@@ -275,7 +275,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         <TitleHeader>
                             <h1>{UriScreenFormat(object.url)}</h1>
                         </TitleHeader>
-                        <Button category={'small'} onClick={newItem}>{getPayload().sub}</Button>
+                        <a href={`#/${'profile'}`}><Button category={'small'}>{getPayload().sub}</Button></a>
                     </Header>
                     {/* {ispending && <Load></Load>} */}
                     <Table>
