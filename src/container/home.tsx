@@ -1,13 +1,27 @@
+import { useState, useEffect } from 'react'
 import { Icon } from '../assets/svg.access';
 import { getPayload, getRoles } from '../service/service.token'
 import { Card, CardContainer } from './template/card';
 import { Header, TitleHeader } from './template/header'
 import { vector } from './menu';
 import { UriScreenFormat } from '../service/uri.format';
-import { ROLES } from '../AppRoutes';
+import { retrieve } from '../service/service.crud';
 
 export const Home = () => {
+    const [list, setList] = useState<boolean[]>([])
 
+    useEffect(()=>{
+        retrieveItem()
+    },[])
+    const retrieveItem = async () => {
+        let list1: boolean[] = []
+        vector.map((element: string[], index: number) => {
+            retrieve(element[2], 20, 20, '', '').then((data: any) => {
+                list1[index]=true
+            }).catch((error) => { list1[index]=false })
+        })
+        setList(list1)
+    }
     return (
         <>
             <Header>
@@ -15,23 +29,8 @@ export const Home = () => {
                 <p>{getRoles()}</p>
             </Header>
             <CardContainer>
-                <Card>
-                    <a href={`#/food`} ><Icon name="toggles2"/><h2><p>Food</p></h2></a>
-                </Card>
-                <Card>
-                    <a href={`#/food_category`} ><Icon name="calendar3"/><h2><p>Food Category</p></h2></a>
-                </Card>
-                <Card>
-                    <a href={`#/user`} ><Icon name="people-circle"/><h2><p>User</p></h2></a>
-                </Card>
-                <Card>
-                    <a href={`#/role`} ><Icon name="chat-quote-fill"/><h2><p>Role</p></h2></a>
-                </Card>
-                {vector.map((element) => {
-                    // getRoles().some((element: string) => element === ROLES.ADMIN || element === ROLES.MODERATOR) 
-                    return <Card><a key={element[1]} href={`#/${element[2]}`}><Icon name={element[1]} /><p>{UriScreenFormat(element[2])}</p></a></Card>
-                    // :
-                    // return null
+                {list.map((element, index) => {
+                    return element === true && <Card><a key={vector[index][1]} href={`#/${vector[index][2]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][2])}</p></a></Card>
                 })}
             </CardContainer>
         </>
