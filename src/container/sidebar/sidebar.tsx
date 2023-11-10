@@ -5,6 +5,7 @@ import { Tooltip } from '../tooltip/tooltip'
 import { UriScreenFormat } from '../../service/uri.format'
 import { getPayload, getRoles } from '../../service/service.token'
 import { ROLES } from '../../AppRoutes'
+import { logout } from '../../service/service.crud'
 
 export const SideContainer = () => {
   const [show, setShow] = useState(true)
@@ -35,7 +36,7 @@ export const SideContainer = () => {
           <SideItem key={'food'} href={`#/food`} ><Tooltip data-tip={'food'}><Icon name={'toggles2'} /></Tooltip><p>{UriScreenFormat('food')}</p></SideItem>
           <SideItem key={'food category'} href={`#/food_category`} ><Tooltip data-tip={'food category'}><Icon name={'chat-quote-fill'} /></Tooltip><p>{UriScreenFormat('food_category')}</p></SideItem>
         </SidebarHeader>
-        <SideItem element={'final'} href={`#/${'profile'}`} ><Tooltip data-tip="profile"><Icon name="profile-circle" /></Tooltip><p>{getPayload().sub}</p></SideItem>
+        <SideItem key={'logout'} href={`#/${'login'}`} element={'final'} onClick={logout}><Tooltip data-tip="profile"><Icon name={'profile-circle'} /></Tooltip><p>logout</p></SideItem>
       </Sidebar>
   )
 }
