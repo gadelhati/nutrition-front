@@ -28,11 +28,6 @@ It is called nutritional information, also known as nutritional labeling, the ta
 - [x] user: improve visual of add multiple roles
 - [x] input group
 - [x] tabView
-- [ ] dashboard
-- [ ] breadcrumb
-- [ ] input mask
-- [ ] spinner with scrool to select number
-- [ ] signature with mouse
 - [ ] extract all records in pdf
 - [ ] load privileges on role's form
 - [ ] set combobox, turn with switch
@@ -40,12 +35,16 @@ It is called nutritional information, also known as nutritional labeling, the ta
 
 ### in concept
 - [ ] consume service that provide sidebar access
-- [ ] header: sandwich to restore body
 - [ ] sidebar: personal icons
 - [ ] implements pure css
 - [ ] context menu
 - [ ] charts
 - [ ] schedule
+- [ ] dashboard
+- [ ] breadcrumb
+- [ ] input mask
+- [ ] spinner with scrool to select number
+- [ ] signature with mouse
 
 ## how to create this project
 ```
