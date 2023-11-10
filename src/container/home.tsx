@@ -1,21 +1,26 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useTransition } from 'react'
 import { Icon } from '../assets/svg.access';
 import { getPayload, getRoles } from '../service/service.token'
-import { Card, CardContainer } from './template/card';
+import { Card, CardContainer } from './template/card'
 import { Header, TitleHeader } from './template/header'
 import { vector } from './menu';
-import { UriScreenFormat } from '../service/uri.format';
-import { retrieve } from '../service/service.crud';
-import { accessList } from './access.list';
+import { UriScreenFormat } from '../service/uri.format'
+import { retrieve } from '../service/service.crud'
+import { accessList } from './access.list'
+import { Button } from './template/button'
 
 export const Home = () => {
-    const [list, setList] = useState<boolean[]>(accessList())
+    const [ispending, startTransition] = useTransition()
+    const [list, setList] = useState<boolean[]>([])
 
+    useEffect(()=> {
+        startTransition(() => setList(accessList()))
+    },[])
     return (
         <>
             <Header>
-                <TitleHeader>Home<h1>{getPayload().sub}</h1></TitleHeader>
-                <p>{getRoles()}</p>
+                <TitleHeader>{JSON.stringify(list)}Home<h1>{getPayload().sub}</h1></TitleHeader>
+                <a href={`#/${'profile'}`}><Button category={'small'}>{getPayload().sub}</Button></a>
             </Header>
             <CardContainer>
                 {list.map((element, index) => {

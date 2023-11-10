@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useTransition } from 'react'
 import { SideTitle, SideItem, Sidebar, SidebarHeader } from '../template/flex'
 import { Icon } from '../../assets/svg.access' 
 import { Tooltip } from '../tooltip/tooltip'
@@ -7,11 +7,15 @@ import { logout } from '../../service/service.crud'
 import { accessList } from '../access.list'
 
 export const SideContainer = () => {
-  const [list, setList] = useState<boolean[]>(accessList())
+  const [ispending, startTransition] = useTransition()
+  const [list, setList] = useState<boolean[]>([])
   const [show, setShow] = useState(true)
   const changeShow = () => { setShow( !show ) }
   const vector: string[][] = [["user", "people-circle", "user"], ["role", "calendar3", "role"],["food", "toggles2", "food"], ["food category", "chat-quote-fill", "food_category"]/*, ["profile", "people-circle", "profile"], ["preparation", "table", "preparation"], ["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"],["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"],["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"],["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"]*/]
 
+  useEffect(()=> {
+    startTransition(() => setList(accessList()))
+  },[])
   return (
       <Sidebar sidehide={show}>
         <SidebarHeader>
