@@ -25,9 +25,8 @@ It is called nutritional information, also known as nutritional labeling, the ta
 
 ## Roadmap
 ### in development
-- [x] user: improve visual of add multiple roles
 - [x] input group
-- [x] tabView
+- [ ] user: improve visual of add multiple roles
 - [ ] extract all records in pdf
 - [ ] load privileges on role's form
 - [ ] set combobox, turn with switch
