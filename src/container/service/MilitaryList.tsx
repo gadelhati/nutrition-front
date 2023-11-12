@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import militaries from './militaries.json'
+import militaries from '../militaries.json'
 
-export const Military = () => {
+export const MilitaryList = () => {
     const [list, setList] = useState<Object[][]>([])
     const [service, setService] = useState<number>(0)
 
@@ -60,8 +60,8 @@ export const Military = () => {
             <div>s1: {supervisor(3)?.name}</div>
             <div>s2: {supervisor(7)?.name}</div>
             <button onClick={division}>division</button>
-            {/* <div>{JSON.stringify(list[0][0])}</div>
-            <div>{JSON.stringify(list[1][0])}</div> */}
+            {/* <div>{JSON.stringify(list[0].length)}</div>
+            <div>{JSON.stringify(list[1].length)}</div> */}
             <button onClick={()=>serviceDay(service)}>serviceDay{service}</button>
             {/* <div>{JSON.stringify(militaries[service])}</div> */}
             <button onClick={()=>serviceDiv(list[1], service)}>serviceDiv{service}</button>

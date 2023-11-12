@@ -30,6 +30,13 @@ export const stitches = createStitches({
             nineteenth: '#E9BD0C',
             twentieth: '#0D6EFD',
             twentyFirst: '#3498DB',
+
+            one: '#73E86D',
+            two: '#000000',
+            three: '#A8C3E7',
+            four: '#E5E052',
+            five: '#C12525',
+            six: '#FFFFFF',
         },
         space: {
             xxxs: "0.06rem",
