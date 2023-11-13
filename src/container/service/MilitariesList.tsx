@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from 'react'
-import list from '../militaries.json'
+import list from './militaries.json'
 import { Military } from '../../component/military/military.interface'
 import { Supervisor } from './supervisor'
 import { initialMilitary } from '../../component/military/military.initial'
@@ -15,13 +15,18 @@ export const MilitariesList = () => {
 
     const week = (entrance: number, range: number) => {
         let services: Military[] = []
-        let servicesDay: Date[] = []
+        let d: Date = day
         while(range>0){
             if(entrance < militaries.length) {
-                services.push(militaries[entrance])
-                servicesDay.push()
-                entrance++
-                range--
+                if(militaries[entrance]?.vacation[0]?.begin !== undefined && militaries[entrance]?.vacation[0]?.finish !== undefined &&
+                    new Date(d.setDate(d.getDate() + 1)).getTime() >= new Date(militaries[entrance]?.vacation[0]?.begin).getTime() &&
+                    new Date(d.setDate(d.getDate() + 1)).getTime() <= new Date(militaries[entrance]?.vacation[0]?.finish).getTime()){
+                    entrance++
+                } else {
+                    services.push(militaries[entrance])
+                    entrance++
+                    range--
+                }
             } else if (entrance === militaries.length) {
                 entrance = 0
             }
@@ -34,9 +39,17 @@ export const MilitariesList = () => {
         let services: Service[] = []
         if(value !== undefined) {
             setMilitary(value)
-            week(militaries.indexOf(value), 7).map((military1: Military, index: number)=>{
-                services.push({date: new Date(d.setDate(d.getDate() + 1)), military: military1})
-            })
+            for(const military1 of week(militaries.indexOf(value), 7)) {
+                if(military1?.vacation[0]?.begin !== undefined && military1?.vacation[0]?.finish !== undefined &&
+                    new Date(d.setDate(d.getDate() + 1)).getTime() >= new Date(military1?.vacation[0]?.begin).getTime() &&
+                    new Date(d.setDate(d.getDate() + 1)).getTime() <= new Date(military1?.vacation[0]?.finish).getTime()){
+                        console.log(military1.name, "não")
+                        continue
+                    }else {
+                        console.log(military1.name, "sim")
+                        services.push({date: new Date(d.setDate(d.getDate() + 1)), military: military1})
+                    }
+            }
             setService(services)
         }
         setDay(new Date())
