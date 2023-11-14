@@ -19,12 +19,12 @@ export const Home = () => {
     return (
         <>
             <Header>
-                <TitleHeader>{JSON.stringify(list)}Home<h1>{getPayload().sub}</h1></TitleHeader>
+                <TitleHeader>Home<h1>{getPayload().sub}</h1></TitleHeader>
                 <a href={`#/${'profile'}`}><Button category={'small'}>{getPayload().sub}</Button></a>
             </Header>
             <CardContainer>
                 {list.map((element, index) => {
-                    return element === true && <Card><a key={vector[index][1]} href={`#/${vector[index][2]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][2])}</p></a></Card>
+                    return element === true && <Card key={vector[index][1]}><a key={vector[index][1]} href={`#/${vector[index][2]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][2])}</p></a></Card>
                 })}
             </CardContainer>
         </>
