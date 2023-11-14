@@ -26,7 +26,7 @@ export const Container = styled('div',{
                 alignItems: 'center',
             },
             inputs: {
-                minHeight: '13.5rem',
+                height: '13.5rem',
             },
             response: {
                 height: '5rem',
