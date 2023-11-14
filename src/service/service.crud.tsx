@@ -10,14 +10,11 @@ import { removeToken, setToken } from "./service.token"
 
 const addError = (error: any):ErrorMessage[] => {
     let errorMessage: ErrorMessage[] = []
-    if (error.response.data.errors.length){
+    if (error.response.data.errors !== undefined){
         error.response.data?.errors?.forEach((element: ErrorMessage) => {
             errorMessage.push({ field: element.field, message: element.message })
         })
     } else {
-        errorMessage.push({ field: 'DTO', message: 'outro erro' })
-    }
-    if (error.response.status != '401'){
         errorMessage.push({ field: 'DTO', message: 'Unauthorized' })
     }
     return errorMessage

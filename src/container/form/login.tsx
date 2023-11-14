@@ -6,7 +6,6 @@ import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { login, retrieve } from '../../service/service.crud'
 import { Tooltip } from '../tooltip/tooltip'
 import { ContainerInput } from './generic.field'
-// import { CenteredContainer, CenteredContainerItem } from './template/flex'
 import { Button } from '../template/button';
 import { logout } from '../../service/service.crud'
 import { existsToken, getPayload, isValidToken } from '../../service/service.token'
@@ -27,7 +26,7 @@ export const Login = () => {
     const retrieveItem = async () => {
         await retrieve('user_entity', 0, 20, 'username', getPayload().sub).then((data: any) => {
             startTransition(() => setState(data?.content[0]))
-        }).catch(() => { networkError() })
+        }).catch((error) => { setError(error) })
     }
     const refresh = () => {
         window.location.reload()
@@ -45,13 +44,10 @@ export const Login = () => {
             startTransition(() => setError(data))
         }
     }
-    const networkError = () => {
-        setError([{ field: 'DTO', message: 'Network Error' }])
-    }
     const loginUser = async () => {
         await login('auth/login', state).then((data) => {
             startTransition(() => validItem(data))
-        }).catch(() => { networkError() })
+        }).catch((error) => { setError(error) })
     }
     const logoutUser = async () => {
         logout()
@@ -59,12 +55,13 @@ export const Login = () => {
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        error?.map((element: any) => { if (name == element.field) return vector.push(element?.message) })
-        return vector
-    }
-    const validationConnection = (): string[] => {
-        let vector: string[] = []
-        error?.map((element: any) => { if (element.field?.startsWith("DTO")) return vector.push(element?.message) })
+        if(Array.isArray(error)){
+            if(name === ''){
+                error?.map((element: any) => { if (element.field?.startsWith("DTO")) return vector.push(element?.message+'. ') })
+            }else {
+                error?.map((element: any) => { if (name == element.field) return vector.push(element?.message+'. ') })
+            }
+        }
         return vector
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -97,9 +94,9 @@ export const Login = () => {
                             <Button onClick={resetItem}>Reset{existsToken()}</Button>
                         </div>
                         {ispending}
-                        <div>
-                            {error[0].message !== 'Network Error' ? <>© Marinha do Brasil</> : <>{validationConnection()}</>}
-                        </div>
+                        {Array.isArray(error) && error.map((erro: ErrorMessage, index: number)=>{
+                            return <>{erro.message}</>
+                        })}
                     </CenterItem>
                     <Toast className="notifications"></Toast>
                 </CenterContainer>
