@@ -170,6 +170,9 @@ export const CenterItem = styled('div', {
     flexDirection: 'column',
     alignItems: 'center',
     background: 'rgba(132, 169, 140, 0.85)',
+    'span': {
+        height: '2em',
+    },
     variants: {
         direction: {
             column: {

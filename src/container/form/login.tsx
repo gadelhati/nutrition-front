@@ -94,9 +94,11 @@ export const Login = () => {
                             <Button onClick={resetItem}>Reset{existsToken()}</Button>
                         </div>
                         {ispending}
+                        <span>
                         {Array.isArray(error) && error.map((erro: ErrorMessage, index: number)=>{
-                            return <>{erro.message}</>
+                            return <>{erro.message === "Unauthorized" && "Não Autorizado"}</>
                         })}
+                        </span>
                     </CenterItem>
                     <Toast className="notifications"></Toast>
                 </CenterContainer>
