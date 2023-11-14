@@ -53,8 +53,9 @@ export const Tooltip = styled('div',{
     variants: {
         hidden: {
             false: {
-                color: '$fifth',
-                border: '3px solid $fifteenth',
+                'input': {
+                    backgroundColor: '$fifteenth',
+                },
                 borderRadius: '.25rem',
             },
             true: {
