@@ -1,21 +1,20 @@
 import { useState, useEffect, useTransition } from 'react'
 import { Icon } from '../assets/svg.access';
-import { getPayload, getRoles } from '../service/service.token'
+import { getPayload } from '../service/service.token'
 import { Card, CardContainer } from './template/card'
 import { Header, TitleHeader } from './template/header'
 import { vector } from './menu';
 import { UriScreenFormat } from '../service/uri.format'
-import { retrieve } from '../service/service.crud'
 import { accessList } from './access.list'
 import { Button } from './template/button'
 
 export const Home = () => {
-    const [ispending, startTransition] = useTransition()
-    const [list, setList] = useState<boolean[]>([])
+    // const [ispending, startTransition] = useTransition()
+    const [list, setList] = useState<boolean[]>(accessList())
 
-    useEffect(()=> {
-        startTransition(() => setList(accessList()))
-    },[])
+    // useEffect(()=> {
+    //     startTransition(() => setList(accessList()))
+    // },[])
     return (
         <>
             <Header>

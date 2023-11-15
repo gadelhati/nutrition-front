@@ -5,17 +5,17 @@ import { Tooltip } from '../tooltip/tooltip'
 import { UriScreenFormat } from '../../service/uri.format'
 import { logout } from '../../service/service.crud'
 import { accessList } from '../access.list'
+import { vector } from '../menu'
 
 export const SideContainer = () => {
-  const [ispending, startTransition] = useTransition()
-  const [list, setList] = useState<boolean[]>([])
+  // const [ispending, startTransition] = useTransition()
+  const [list, setList] = useState<boolean[]>(accessList())
   const [show, setShow] = useState(true)
   const changeShow = () => { setShow( !show ) }
-  const vector: string[][] = [["user", "people-circle", "user"], ["role", "calendar3", "role"],["food", "toggles2", "food"], ["food category", "chat-quote-fill", "food_category"]/*, ["profile", "people-circle", "profile"], ["preparation", "table", "preparation"], ["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"],["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"],["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"],["a", "chat-quote-fill", "item a"], ["b", "people-circle", "item b"], ["c", "table", "item c"]*/]
 
-  useEffect(()=> {
-    startTransition(() => setList(accessList()))
-  },[])
+  // useEffect(()=> {
+  //   startTransition(() => setList(accessList()))
+  // },[])
   return (
       <Sidebar sidehide={show}>
         <SidebarHeader>
@@ -31,7 +31,7 @@ export const SideContainer = () => {
           return element === true && <SideItem key={vector[index][1]} href={`#/${vector[index][2]}`}><Tooltip data-tip={vector[index][0]}><Icon name={vector[index][1]} /></Tooltip><p>{UriScreenFormat(vector[index][2])}</p></SideItem>
         })}
         </SidebarHeader>
-        <SideItem key={'logout'} href={`#/${'login'}`} element={'final'} onClick={logout}><Tooltip data-tip="profile"><Icon name={'profile-circle'} /></Tooltip><p>logout</p></SideItem>
+        <SideItem key={'logout'} href={`#/${'login'}`} element={'final'} onClick={logout}><Tooltip data-tip={"profile"}><Icon name={'geo-fill'} /></Tooltip><p>logout</p></SideItem>
       </Sidebar>
   )
 }
