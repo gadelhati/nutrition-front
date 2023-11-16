@@ -28,6 +28,7 @@ import { Icon } from '../../assets/svg.access'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
+    const [composite, setComposite] = useState<any>(object.object)
     const [states, setStates] = useState<T[]>([object.object])
     const [subStates, setSubStates] = useState<Object[][]>(SubAtributeSet(state))
     const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
@@ -64,12 +65,14 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         setSearch(event.target.value)
     }
     const resetItem = () => {
+        setComposite(object.object)
         loadSubStates()
         setState(object.object)
         setError([initialErrorMessage])
     }
     const selectItem = async (data: any) => {
         loadSubStates()
+        setComposite(data)
         setState(data)
         handleModal()
     }
@@ -120,11 +123,15 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
             await remove(object.url, state.id).then((data) => {
                 validItem(data)
             }).catch(() => { networkError() })
-        } else {
+        } else if(composite.hasOwnProperty('dateObservation') || composite.hasOwnProperty('ii') && composite.hasOwnProperty('iii')) {
             await removeComposite(object.url, state?.dateObservation, state?.ddddddd, state?.ii, state?.iii).then((data) => {
                 validItem(data)
             }).catch(() => { networkError() })
-        }
+        } else if(composite.hasOwnProperty('name') && composite.hasOwnProperty('number')) {
+            await removeComposite(object.url, state?.name, state?.number, '', '').then((data) => {
+                validItem(data)
+        }).catch(() => { networkError() })
+    }
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
@@ -208,23 +215,19 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     // }
     const compositeOrNot = ():boolean => {
         let id: boolean = false
-        if (state.hasOwnProperty('name') && state?.name !== '' &&
-         state.hasOwnProperty('number') && state?.number !== 0) {
+        if (composite.hasOwnProperty('name') && composite?.name !== '' &&
+        composite.hasOwnProperty('number') && composite?.number !== 0) {
             id = true
-            console.log('1')
         }
-        if (state.hasOwnProperty('ii') && state?.ii !== '' &&
-         state.hasOwnProperty('iii') && state?.iii !== '') {
+        if (composite.hasOwnProperty('ii') && composite?.ii !== '' &&
+        composite.hasOwnProperty('iii') && composite?.iii !== '') {
             id = true
-            console.log('2')
         }
-        if (state.hasOwnProperty('ddddddd') && state?.ddddddd !== '') {
+        if (composite.hasOwnProperty('ddddddd') && composite?.ddddddd !== '') {
             id = true
-            console.log('3')
         }
         if (state.hasOwnProperty('id') && state?.id !== '') {
             id = true
-            console.log('4')
         }
         if (object.url.includes('istoric')) {
             id = true
@@ -285,7 +288,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                         <PDFDownloadLink document={<PDFDocument object={state} />} fileName="somename.pdf">
                                                 {({ loading }) => loading ? <Button category={'warning'} >Wait</Button> : <Button category={'warning'} >Download</Button> }
                                         </PDFDownloadLink>}
-                                        {JSON.stringify(state.number)}
                                         <Button category={'warning'} onClick={resetItem} type='reset' >Reset</Button>
                                         <Button category={'warning'} onClick={createItem} hidden={compositeOrNot()}>Create</Button>
                                         <Button category={'warning'} onClick={updateItem} hidden={!compositeOrNot()}>Update</Button>
