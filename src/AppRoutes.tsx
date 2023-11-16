@@ -18,6 +18,7 @@ import { Login } from "./container/form/login";
 import { Home } from "./container/home";
 import { Profile } from "./container/profile";
 import { MilitariesList } from "./container/service/MilitariesList";
+import { initialCompositeUnit } from "./component/composite_unit/composite.unit.initial";
 
 export const ROLES = {
     'USER': "ROLE_USER",
@@ -48,6 +49,7 @@ export default function AppRoutes() {
                                 <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
                                 <Route path="/preparation" element={<GenericForm key='preparation' object={initialPreparation} url={'preparation'} />}></Route>
                                 <Route path="/food_category" element={<GenericForm key='food_category' object={initialFoodCategory} url={'food_category'} />}></Route>
+                                <Route path="/composite_unit" element={<GenericForm key='composite_unit' object={initialCompositeUnit} url={'composite_unit'} />}></Route>
                             </Route>
                             <Route path="/pdf" element={
                                     // <PDFViewer>

@@ -1,1 +1,1 @@
-export const vector: string[][] = [["user", "people-circle", "user_entity"], ["role", "calendar3", "role"],["food", "toggles2", "food"], ["food category", "table", "food_category"], ["military", "chat-quote-fill", "military"]]
+export const vector: string[][] = [["user", "people-circle", "user_entity"], ["role", "calendar3", "role"],["food", "toggles2", "food"], ["food category", "table", "food_category"], ["military", "chat-quote-fill", "military"], ["composite_unit", "collection", "composite_unit"]]
