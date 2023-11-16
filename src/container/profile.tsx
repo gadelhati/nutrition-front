@@ -67,8 +67,9 @@ export const Profile = () => {
     return (
         <>
             <Header>
-                <TitleHeader><h1>Profile</h1></TitleHeader>
-                <TitleHeader><h1>{getPayload().sub}</h1></TitleHeader>
+                <TitleHeader>Profile
+                <h1>{getPayload().sub}</h1>
+                </TitleHeader>
                 <p>{getRoles()}</p>
                 <Button onClick={logoutUser}>Logout</Button>
             </Header>
