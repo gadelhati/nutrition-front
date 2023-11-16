@@ -33,13 +33,11 @@ It is called nutritional information, also known as nutritional labeling, the ta
 - [ ] counter only increases by 1
 
 ### in concept
-- [ ] consume service that provide sidebar access
 - [ ] sidebar: personal icons
 - [ ] implements pure css
 - [ ] context menu
 - [ ] charts
 - [ ] schedule
-- [ ] dashboard
 - [ ] breadcrumb
 - [ ] input mask
 - [ ] spinner with scrool to select number
