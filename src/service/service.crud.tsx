@@ -80,7 +80,7 @@ export const remove = async<T,>(url: string, id: string) => {
 }
 
 export const removeComposite = async<T,>(url: string, one: string, two: string, three: string, four: string) => {
-    if(three !== null && four !== null){
+    if(three !== '' && four !== ''){
         return await api.delete<T>(`/${url}/${one}/${three}/${four}`)
             .then(response => { return response.data })
             .catch(error => { return addError(error) })
