@@ -74,7 +74,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         handleModal()
     }
     const validItem = (data: any) => {
-        if (data?.id || data?.ii && data?.iii || data?.ddddddd) {
+        if (data?.id || data?.ii && data?.iii || data?.ddddddd || data?.name && data?.number) {
             handleModal()
             retrieveItem()
             createToast(toastDetails[0])
@@ -206,7 +206,31 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     //     button?.style.setProperty("--x", event.clientX - button?.getBoundingClientRect().x)
     //     button?.style.setProperty("--y", event.clientY - button?.getBoundingClientRect().y)
     // }
-
+    const compositeOrNot = ():boolean => {
+        let id: boolean = false
+        if (state.hasOwnProperty('name') && state?.name !== '' &&
+         state.hasOwnProperty('number') && state?.number !== 0) {
+            id = true
+            console.log('1')
+        }
+        if (state.hasOwnProperty('ii') && state?.ii !== '' &&
+         state.hasOwnProperty('iii') && state?.iii !== '') {
+            id = true
+            console.log('2')
+        }
+        if (state.hasOwnProperty('ddddddd') && state?.ddddddd !== '') {
+            id = true
+            console.log('3')
+        }
+        if (state.hasOwnProperty('id') && state?.id !== '') {
+            id = true
+            console.log('4')
+        }
+        if (object.url.includes('istoric')) {
+            id = true
+        }
+        return id
+    }
     const onClickModal = (evt: React.MouseEvent) => {
         if ((evt.target as HTMLElement).className.includes('modal-div')) {
             setModal(false);
@@ -261,10 +285,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                         <PDFDownloadLink document={<PDFDocument object={state} />} fileName="somename.pdf">
                                                 {({ loading }) => loading ? <Button category={'warning'} >Wait</Button> : <Button category={'warning'} >Download</Button> }
                                         </PDFDownloadLink>}
+                                        {JSON.stringify(state.number)}
                                         <Button category={'warning'} onClick={resetItem} type='reset' >Reset</Button>
-                                        <Button category={'warning'} onClick={createItem} hidden={state.id !== "" && !object.url.includes('istoric') || object.url.includes('istoric') ? true : false}>Create</Button>
-                                        <Button category={'warning'} onClick={updateItem} hidden={state.id === "" || object.url.includes('istoric') ? true : false}>Update</Button>
-                                        <Button category={'danger'} onClick={deleteItem} hidden={state.id === "" || object.url.includes('istoric') ? true : false}>Delete</Button>
+                                        <Button category={'warning'} onClick={createItem} hidden={compositeOrNot()}>Create</Button>
+                                        <Button category={'warning'} onClick={updateItem} hidden={!compositeOrNot()}>Update</Button>
+                                        <Button category={'danger'} onClick={deleteItem} hidden={!compositeOrNot()}>Delete</Button>
                                         <Button category={'warning'} onClick={handleModal}>Close</Button>
                                     </footer>
                                 </>
