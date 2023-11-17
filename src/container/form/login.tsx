@@ -73,7 +73,7 @@ export const Login = () => {
             {isValidToken() ?
                 <Home></Home>
                 :
-                <CenterContainer onSubmit={loginUser}>
+                <CenterContainer>
                     <CenterItem>
                         <Rotate src={logo} alt="" width="120" height="128"></Rotate>
                         <Tooltip data-tip={validation('username')} hidden={validation('username').length === 0} >
