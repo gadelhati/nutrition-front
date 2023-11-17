@@ -77,7 +77,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         handleModal()
     }
     const validItem = (data: any) => {
-        if (data?.id || data?.ii && data?.iii || data?.ddddddd || data?.name && data?.number) {
+        if (data?.hasOwnProperty('id') || data?.hasOwnProperty('ii') && data?.hasOwnProperty('iii') || data?.hasOwnProperty('ddddddd') || data?.hasOwnProperty('name') && data?.hasOwnProperty('number')) {
             handleModal()
             retrieveItem()
             createToast(toastDetails[0])
