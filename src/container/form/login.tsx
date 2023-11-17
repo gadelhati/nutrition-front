@@ -55,11 +55,11 @@ export const Login = () => {
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        if(Array.isArray(error)){
-            if(name === ''){
-                error?.map((element: any) => { if (element.field?.startsWith("DTO")) return vector.push(element?.message+'. ') })
-            }else {
-                error?.map((element: any) => { if (name == element.field) return vector.push(element?.message+'. ') })
+        if (Array.isArray(error)) {
+            if (name === '') {
+                error?.map((element: any) => { if (element.field?.startsWith("DTO")) return vector.push(element?.message + '. ') })
+            } else {
+                error?.map((element: any) => { if (name == element.field) return vector.push(element?.message + '. ') })
             }
         }
         return vector
@@ -73,7 +73,7 @@ export const Login = () => {
             {isValidToken() ?
                 <Home></Home>
                 :
-                <CenterContainer>
+                <CenterContainer onSubmit={loginUser}>
                     <CenterItem>
                         <Rotate src={logo} alt="" width="120" height="128"></Rotate>
                         <Tooltip data-tip={validation('username')} hidden={validation('username').length === 0} >
@@ -88,16 +88,13 @@ export const Login = () => {
                                 <label htmlFor="password">Password</label>
                             </ContainerInput>
                         </Tooltip>
-                        <div>
-                            {!isValidToken() && <Button onClick={loginUser}>Login</Button>}
-                            {isValidToken() && <Button onClick={logoutUser}>Logout</Button>}
-                            <Button onClick={resetItem}>Reset{existsToken()}</Button>
-                        </div>
+                        {!isValidToken() && <Button onClick={loginUser}>Login</Button>}
+                        {isValidToken() && <Button onClick={logoutUser}>Logout</Button>}
                         {ispending}
                         <span>
-                        {Array.isArray(error) && error.map((erro: ErrorMessage, index: number)=>{
-                            return <>{erro.message === "Unauthorized" && "Não Autorizado"}</>
-                        })}
+                            {Array.isArray(error) && error.map((erro: ErrorMessage, index: number) => {
+                                return <>{erro.message === "Unauthorized" && "Não Autorizado"}</>
+                            })}
                         </span>
                     </CenterItem>
                     <Toast className="notifications"></Toast>
