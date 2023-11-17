@@ -152,7 +152,7 @@ export const SidebarHeader = styled('div',{
     flexDirection: 'column',
     color: '$ninth',
 })
-export const CenterContainer = styled('div',{
+export const CenterContainer = styled('form',{
     backgroundColor: '$second',
     backgroundImage: 'linear-gradient(to bottom, $second, $fourth)',
     minHeight: '100vh',
@@ -170,8 +170,14 @@ export const CenterItem = styled('div', {
     flexDirection: 'column',
     alignItems: 'center',
     background: 'rgba(132, 169, 140, 0.85)',
+    'img': {
+        margin: '2em',
+    },
     'span': {
-        height: '2em',
+        height: '1em',
+    },
+    'button': {
+        margin: '2em',
     },
     variants: {
         direction: {
