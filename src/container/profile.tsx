@@ -18,13 +18,14 @@ export const Profile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        {ispending}
+        { ispending }
         retrieveItem()
-    },[])
+    }, [])
     const retrieveItem = async () => {
         await retrieve('user_entity', 0, 20, 'username', getPayload().sub).then((data: any) => {
             startTransition(() => setState(data?.content[0]))
         }).catch(() => { networkError() })
+        setState({ ...state, password: '' })
     }
     const refresh = () => {
         window.location.reload()
@@ -68,15 +69,14 @@ export const Profile = () => {
         <>
             <Header>
                 <TitleHeader>Profile
-                <h1>{getPayload().sub}</h1>
+                    <h1>{getPayload().sub}</h1>
                 </TitleHeader>
                 <p>{getRoles()}</p>
                 <Button onClick={logoutUser}>Logout</Button>
             </Header>
             <Header>
                 <div style={{ display: 'flex' }}>
-                    {/* <ContainerInput2 error={validation("password").length !== 0 ? true : false} > */}
-                    <ContainerInput2>
+                    <ContainerInput2 error={validation("password").length !== 0 ? true : false} >
                         <span>
                             <input type={'password'} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
                             <label htmlFor={"password"}>New Password</label>

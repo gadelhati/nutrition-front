@@ -16,6 +16,10 @@ export const Header = styled('div', {
     justifyContent: 'space-between',
     alignItems: 'center',
     // flexWrap: 'wrap',
+    'span': {
+        display: 'flex',
+        alignItems: 'center',
+    },
     '@bp1': {
         'button': {
             fontSize: '75%',
@@ -23,7 +27,7 @@ export const Header = styled('div', {
     },
 })
 
-export const TitleHeader = styled('div',{
+export const TitleHeader = styled('div', {
     display: 'inline-block',
     padding: '$sm',
     paddingLeft: '$md',

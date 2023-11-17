@@ -9,7 +9,7 @@ import { ContainerInput } from './generic.field'
 import { Button } from '../template/button';
 import { logout } from '../../service/service.crud'
 import { existsToken, getPayload, isValidToken } from '../../service/service.token'
-import logo from '../../assets/image/coffee2.png'
+import logo from '../../assets/image/marinha.png'
 import { Rotate } from '../template/rotate'
 import { Toast } from '../toast/toast'
 import { Home } from '../home'
@@ -88,7 +88,7 @@ export const Login = () => {
                                 <label htmlFor="password">Password</label>
                             </ContainerInput>
                         </Tooltip>
-                        {!isValidToken() && <Button onClick={loginUser}>Login</Button>}
+                        {!isValidToken() && <Button category={'primary'} onClick={loginUser}>Login</Button>}
                         {isValidToken() && <Button onClick={logoutUser}>Logout</Button>}
                         {ispending}
                         <span>

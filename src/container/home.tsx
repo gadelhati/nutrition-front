@@ -19,7 +19,7 @@ export const Home = () => {
         <>
             <Header>
                 <TitleHeader><h1>Home</h1></TitleHeader>
-                <a href={`#/${'profile'}`}><Button category={'small'}>{getPayload().sub}</Button></a>
+                <a href={`#/${'profile'}`}><Button category={'secondary'}>{getPayload().sub}</Button></a>
             </Header>
             <CardContainer>
                 {list.map((element, index) => {

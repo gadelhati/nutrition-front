@@ -23,11 +23,12 @@ export const stitches = createStitches({
             twelfth: '#6C757D',
             thirteenth: '#06532F',
             fourteenth: '#124010',
-            fifteenth: '#B63E3E',
+            fifteenth: '#E24D4C',
             sixteenth: '#363636',
-            seventeenth: '#E24D4C',
-            eighteenth: '#CEBA33',
-            nineteenth: '#E9BD0C',
+            seventeenth: '#A30000',
+            eighteenth: '#FFBF00',
+            nineteenth: '#DAA520',
+            // #D1D100
             twentieth: '#0D6EFD',
             twentyFirst: '#3498DB',
 

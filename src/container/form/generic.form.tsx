@@ -284,25 +284,28 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                         <div>{validationDTO()}</div>
                                     </Container>
                                     <footer>
-                                        {modal &&
+                                        {/* {modal &&
                                             <PDFDownloadLink document={<PDFDocument object={state} />} fileName="somename.pdf">
-                                                {({ loading }) => loading ? <Button category={'warning'} >Wait</Button> : <Button category={'warning'} >Download</Button>}
+                                                {({ loading }) => loading ? <Button disabled={true} category={'secondary'} >Wait</Button> : <Button category={'secondary'} >Download</Button>}
                                             </PDFDownloadLink>}
-                                        <Button category={'warning'} onClick={resetItem} type='reset' >Reset</Button>
-                                        <Button category={'warning'} onClick={createItem} hidden={compositeOrNot()}>Create</Button>
+                                        <Button category={'primary'} onClick={resetItem} type='reset' >Reset</Button> */}
+                                        <Button category={'primary'} onClick={createItem} hidden={compositeOrNot()}>Create</Button>
                                         <Button category={'warning'} onClick={updateItem} hidden={!compositeOrNot()}>Update</Button>
                                         <Button category={'danger'} onClick={deleteItem} hidden={!compositeOrNot()}>Delete</Button>
-                                        <Button category={'warning'} onClick={handleModal}>Close</Button>
+                                        <Button category={'secondary'} onClick={handleModal}>Close</Button>
                                     </footer>
                                 </>
                             }
                         </article>
                     </Modal>
                     <Header>
-                        <TitleHeader>
-                            <h1>{UriScreenFormat(object.url)}</h1>
-                        </TitleHeader>
-                        <a href={`#/${'profile'}`}><Button category={'small'}>{getPayload().sub}</Button></a>
+                        <span>
+                            {!object.url.includes('istoric') && <Button category={'primary'} onClick={newItem}>New</Button>}
+                            <TitleHeader>
+                                <h1>{UriScreenFormat(object.url)}</h1>
+                            </TitleHeader>
+                        </span>
+                        <a href={`#/${'profile'}`}><Button category={'secondary'}>{getPayload().sub}</Button></a>
                     </Header>
                     {/* {ispending && <Load></Load>} */}
                     <Table>
@@ -311,7 +314,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                 <th colSpan={6}>
                                     <div className='header'>
                                         <div>
-                                            {!object.url.includes('istoric') && <Button category={'warning'} onClick={newItem}>New</Button>}
                                             <span>show</span>
                                             <select onChange={handleSize} >
                                                 <option value={5}>5</option>
@@ -348,7 +350,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         </ErrorBoundary>
                         <tfoot>
                             <tr>
-                                <th colSpan={100}>
+                                <th>
                                     <GroupButton>
                                         <ButtonPage onClick={() => handlePage(0)}>{'<<'}</ButtonPage>
                                         <ButtonPage onClick={() => handlePage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</ButtonPage>
@@ -357,10 +359,10 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                         <ButtonPage onClick={() => handlePage(page + 1)} hidden={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</ButtonPage>
                                         <ButtonPage onClick={() => handlePage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
                                         <ButtonPage onClick={() => handlePage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
-                                        Total amount {pageable.totalElements}
                                     </GroupButton>
                                 </th>
                             </tr>
+                            <tr><th>Total amount {pageable.totalElements}</th></tr>
                         </tfoot>
                     </Table>
                     <Toast className="notifications"></Toast>

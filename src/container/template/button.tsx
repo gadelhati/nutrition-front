@@ -11,12 +11,12 @@ export const Button = styled('button', {
     borderRadius: '4px',
     boxShadow: 'rgba(0, 0, 0, .3) 0 5px 15px',
     boxSizing: 'border-box',
-    color: '#fff',
+    color: '$sixth',
     cursor: 'pointer',
     fontFamily: 'Montserrat,sans-serif',
     fontSize: '.9em',
     margin: '5px',
-    padding: '10px 15px',
+    padding: '10px 1px',
     textAlign: 'center',
     userSelect: 'none',
     touchAction: 'manipulation',
@@ -33,19 +33,20 @@ export const Button = styled('button', {
     variants: {
         category: {
             primary: {
-                backgroundImage: 'linear-gradient($fourteenth, $thirteenth)',
+                backgroundImage: 'linear-gradient($fifth, $second)',
             },
             secondary: {
-                backgroundImage: 'linear-gradient($twelfth, $twelfth)',
+                backgroundImage: 'linear-gradient($twelfth, $sixteenth)',
             },
             success: {
                 backgroundImage: 'linear-gradient($fourteenth, $thirteenth)',
             },
             danger: {
-                backgroundImage: 'linear-gradient($seventeenth, $fifteenth)',
+                backgroundImage: 'linear-gradient($fifteenth, $seventeenth)',
             },
             warning: {
-                backgroundColor: 'linear-gradient($nineteenth, $eighteenth)',
+                color: '$sixteenth',
+                backgroundImage: 'linear-gradient($eighteenth, $nineteenth)',
             },
             info: {
                 backgroundImage: '$tenth',

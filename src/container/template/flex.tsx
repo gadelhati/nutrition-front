@@ -1,16 +1,23 @@
 import { stitches } from "../global.styles"
+import logo from '../../assets/image/marinha.png'
 
 const { styled } = stitches
 
-export const FlexCointainer = styled('div',{
+export const FlexCointainer = styled('div', {
     height: '100vh',
     width: '100%',
     display: 'flex',
     justifyContent: 'start',
     // alignItems: 'center',
     overflow: 'hidden',
+    backgroundImage: `url("https://cdn-defesaaereanaval.nuneshost.com/wp-content/uploads/2021/05/Marinha-do-brasil-Logo.jpg")`,
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed',
+    backgroundSize: 'cover',
+    backgroundBlendMode: 'soft-light',
     variants: {
-        element:{
+        element: {
             all: {
                 alignItems: 'stretch',
                 backgroundColor: '$ninth',
@@ -25,7 +32,7 @@ export const FlexCointainer = styled('div',{
             content: {
                 height: '94vh',
                 flexDirection: "row",
-                
+
                 color: '$fourth',
                 backgroundColor: '$fifth'
             },
@@ -35,17 +42,18 @@ export const FlexCointainer = styled('div',{
                 padding: '.5rem',
                 flexDirection: "row",
                 justifyContent: 'space-between',
-                
+
                 color: '$third',
                 backgroundColor: '$ninth'
             },
         },
     },
 })
-export const SideTitle = styled('a',{
+export const SideTitle = styled('a', {
     textDecoration: 'none',
-    color: '$third',
-    backgroundColor: '$tenth',
+    color: '$ninth',
+    // color: '$third',
+    // backgroundColor: '$tenth',
     height: '$md',
     width: '$xss',
     userSelect: 'none',
@@ -54,10 +62,14 @@ export const SideTitle = styled('a',{
     margin: '$xxxs',
     textTransform: 'capitalize',
     transition: '.5s',
-    p : {
+    p: {
         display: 'inline',
     },
-    boxShadow: '0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset',
+    '&:hover': {
+        color: '$second',
+        backgroundColor: '$ninth',
+        boxShadow: '0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset',
+    },
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -67,6 +79,8 @@ export const SideTitle = styled('a',{
                 'span:first-child': {
                     display: 'none',
                 },
+            },
+            true: {
                 'svg': {
                     transform: 'rotate(180deg)',
                 }
@@ -74,7 +88,10 @@ export const SideTitle = styled('a',{
         },
     },
 })
-export const SideItem = styled('a',{
+export const SideItem = styled('a', {
+    // display: 'flex',
+    // justifyContent: 'space-between',
+    // alignItems: 'center',
     textDecoration: 'none',
     color: '$ninth',
     height: '$xss',
@@ -95,11 +112,11 @@ export const SideItem = styled('a',{
         backgroundColor: '$tenth',
         boxShadow: '0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset',
     },
-    p : {
+    p: {
         display: 'inline',
     },
     variants: {
-        element:{
+        element: {
             final: {
                 alignSelf: 'stretch',
             },
@@ -107,7 +124,7 @@ export const SideItem = styled('a',{
     },
 })
 
-export const Sidebar = styled('aside',{
+export const Sidebar = styled('aside', {
     width: '256px',
     minHeight: '20rem',
     display: 'flex',
@@ -147,12 +164,12 @@ export const Sidebar = styled('aside',{
         },
     },
 })
-export const SidebarHeader = styled('div',{
+export const SidebarHeader = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     color: '$ninth',
 })
-export const CenterContainer = styled('div',{
+export const CenterContainer = styled('div', {
     backgroundColor: '$second',
     backgroundImage: 'linear-gradient(to bottom, $second, $fourth)',
     minHeight: '100vh',
@@ -162,14 +179,14 @@ export const CenterContainer = styled('div',{
 })
 export const CenterItem = styled('div', {
     color: '$fourteenth',
-    backgroundColor: '$fifth',
+    // backgroundColor: '$fifth',
     padding: '5rem 0rem 5rem 0',
     borderRadius: '.3rem',
     width: '18rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    background: 'rgba(132, 169, 140, 0.85)',
+    // background: 'rgba(132, 169, 140, 0.85)',
     'img': {
         margin: '2em',
     },
@@ -188,6 +205,50 @@ export const CenterItem = styled('div', {
                 minHeight: '0',
                 flexDirection: 'row',
                 justifyContent: 'center',
+            },
+        },
+    },
+})
+
+export const SidebarCollapsible = styled('div',{
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+    borderRadius: '.3rem',
+    'a:first-child': {
+        // color: 'red',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignContent: 'center',
+    },
+    variants: {
+        collapsible: {
+            true: {
+                backgroundColor: '$ninth',
+                'a:first-child': {
+                    color: '$second',
+                    backgroundColor: '$ninth',
+                    display: 'block',
+                    boxShadow: 'none',
+                },
+                'a': {
+                    color: '$ninth',
+                    backgroundColor: '$fourth',
+                },
+                'svg:last-child': {
+                    transform: 'rotate(270deg)',
+                },
+            },
+            false: {
+                'a:first-child': {
+                    display: 'block',
+                },
+                'a': {
+                    display: 'none',
+                },
+                'svg:last-child': {
+                    transform: 'rotate(90deg)',
+                },
             },
         },
     },

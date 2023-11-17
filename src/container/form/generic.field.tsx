@@ -2,7 +2,7 @@ import { stitches } from "../global.styles"
 
 const { styled } = stitches
 
-export const Container = styled('div',{
+export const Container = styled('div', {
     overflow: 'auto',
     display: 'flex',
     minHeight: '1rem',
@@ -35,7 +35,7 @@ export const Container = styled('div',{
     },
 })
 
-export const ContainerInput2 = styled('div',{
+export const ContainerInput2 = styled('div', {
     overflowX: 'clip',
     'input[type=checkbox]': {
         '+ label, + label + label': {
@@ -174,19 +174,19 @@ export const ContainerInput2 = styled('div',{
     },
 })
 
-export const ContainerInput = styled('div',{
+export const ContainerInput = styled('div', {
     fontSize: '.9rem',
     fontFamily: 'Segoe UI, sans-serif',
     margin: '1rem 0 0 0',
     // maxWidth: '190px',
     // position: 'relative',
-    padding: '.1rem',
+    padding: '.2rem',
     'input': {
         fontSize: '100%',
         padding: '0.7rem',
         outline: 'none',
         border: 'none',
-        borderBottom: '2px solid #ccc',
+        // borderBottom: '2px solid $sixth',
         borderRadius: '.3rem',
         backgroundColor: '$sixth',
         width: '100%',
@@ -207,17 +207,19 @@ export const ContainerInput = styled('div',{
         transform: 'scaleX(1)',
     },
     ':is(input:focus, input:valid)~label': {
+        color: '$sixth',
         transform: 'translateY(-85%) scale(.9)',
         margin: '0em',
         padding: '0.4em',
     },
     ':is(input:focus, input:valid)': {
         transition: 'all 0.3s ease',
-        borderBottom: '2px solid $second',
+        // borderBottom: '2px solid $second',
+        boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
     },
 })
 
-export const ContainerLabel = styled('label',{
+export const ContainerLabel = styled('label', {
     color: '#999',
     fontSize: '18px',
     fontWeight: 'normal',

@@ -3,13 +3,14 @@ import { stitches } from "../global.styles"
 const { styled } = stitches
 
 export const Table = styled('table', {
+    width: '100%',
     maxHeight: '75vh',
     overflowY: 'auto',
     fontFamily: 'arial, sans-serif',
-    fontSize: '0.9em',
+    fontSize: '0.95rem',
     color: '$sixteenth',
     padding: '$sm',
-    margin: '0 $xxs $xxs $xxs',
+    margin: '$xxs',
     boxSizing: 'border-box',
     borderSpacing: '0',
     backgroundColor: '$tenth',
@@ -22,6 +23,7 @@ export const Table = styled('table', {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        color: '$fourth',
         'div span:after': {
             content: " ",
         },
@@ -54,6 +56,14 @@ export const Table = styled('table', {
     'tr:hover': {
         cursor: 'pointer',
         backgroundColor: '$seventh',
+    },
+    'tfoot': {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        'th': {
+            border: 'none',
+        },
     },
     '@bp1': {
         '.header': {
