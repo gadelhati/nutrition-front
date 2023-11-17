@@ -22,8 +22,8 @@ import { UriScreenFormat } from '../../service/uri.format'
 // import { ShineButton } from './shine.button'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import { PDFDocument } from '../../component/pdf/PDFDocument'
-import { Input } from './input/Input'
-import { InputInterface } from './input/assets/input.interface'
+// import { Input } from './input/Input'
+// import { InputInterface } from './input/assets/input.interface'
 import { Icon } from '../../assets/svg.access'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any) => {
@@ -44,15 +44,15 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     const width = object.width ?? 100;
 
     useEffect(() => {
-        JSON.stringify({ispending})
+        JSON.stringify({ ispending })
         setAtribute(AtributeSet(object.object))
         retrieveItem()
         loadSubStates()
     }, [page, size])
-    useEffect(()=>{
+    useEffect(() => {
         searchValue()
     }, [key, search])
-    const searchValue = async() => {
+    const searchValue = async () => {
         await retrieve(object.url, page, size, key, search).then((data: any) => {
             startTransition(() => setPageable(data))
             startTransition(() => setStates(data.content))
@@ -119,37 +119,37 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         }).catch(() => { networkError() })
     }
     const deleteItem = async () => {
-        if(state.id !== undefined){
+        if (state.id !== undefined) {
             await remove(object.url, state.id).then((data) => {
                 validItem(data)
             }).catch(() => { networkError() })
-        } else if(composite.hasOwnProperty('dateObservation') || composite.hasOwnProperty('ii') && composite.hasOwnProperty('iii')) {
+        } else if (composite.hasOwnProperty('dateObservation') || composite.hasOwnProperty('ii') && composite.hasOwnProperty('iii')) {
             await removeComposite(object.url, state?.dateObservation, state?.ddddddd, state?.ii, state?.iii).then((data) => {
                 validItem(data)
             }).catch(() => { networkError() })
-        } else if(composite.hasOwnProperty('name') && composite.hasOwnProperty('number')) {
+        } else if (composite.hasOwnProperty('name') && composite.hasOwnProperty('number')) {
             await removeComposite(object.url, state?.name, state?.number, '', '').then((data) => {
                 validItem(data)
-        }).catch(() => { networkError() })
-    }
+            }).catch(() => { networkError() })
+        }
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        if(Array.isArray(error)){
-            error?.map((element: any) => { if (name == element.field) return vector.push(element?.message+'. ') })
+        if (Array.isArray(error)) {
+            error?.map((element: any) => { if (name == element.field) return vector.push(element?.message + '. ') })
         }
         return vector
     }
     const validationDTO = (): string[] => {
         let vector: string[] = []
-        if(Array.isArray(error)){
-            error?.map((element: any) => { if (element.field?.startsWith("DTO")) return vector.push(element?.message+'. ') })
+        if (Array.isArray(error)) {
+            error?.map((element: any) => { if (element.field?.startsWith("DTO")) return vector.push(element?.message + '. ') })
         }
         return vector
     }
-    const handleInputChangeFather = (object: InputInterface) => {
-        setState({ ...state, [object.name]: object.value })
-    }
+    // const handleInputChangeFather = (object: InputInterface) => {
+    //     setState({ ...state, [object.name]: object.value })
+    // }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
         setState({ ...state, [event.target.name]: value })
@@ -213,14 +213,14 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     //     button?.style.setProperty("--x", event.clientX - button?.getBoundingClientRect().x)
     //     button?.style.setProperty("--y", event.clientY - button?.getBoundingClientRect().y)
     // }
-    const compositeOrNot = ():boolean => {
+    const compositeOrNot = (): boolean => {
         let id: boolean = false
         if (composite.hasOwnProperty('name') && composite?.name !== '' &&
-        composite.hasOwnProperty('number') && composite?.number !== 0) {
+            composite.hasOwnProperty('number') && composite?.number !== 0) {
             id = true
         }
         if (composite.hasOwnProperty('ii') && composite?.ii !== '' &&
-        composite.hasOwnProperty('iii') && composite?.iii !== '') {
+            composite.hasOwnProperty('iii') && composite?.iii !== '') {
             id = true
         }
         if (composite.hasOwnProperty('ddddddd') && composite?.ddddddd !== '') {
@@ -256,26 +256,26 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                         {Object.entries(state).map(([key, value]: any, index) => {
                                             return (
                                                 // <Input childToParent={handleInputChangeFather} key={Math.random()} type={atribute[index]?.type} name={key} value={value} readOnly={false} show={modal}></Input>
-                                                <div style={atribute[index]?.type === 'hidden' ? { display: 'none' } : { display: 'flex'  }}>
-                                                        <ContainerInput2 error={validation(key).length !== 0 ? true : false}>
-                                                            <span>
-                                                                { Array.isArray(atribute[index]?.worth) ?
-                                                                    <select key={key} name={key} onChange={Array.isArray(value) ? handleInputChangeSubSelectArray : handleInputChangeSubSelect }
-                                                                        // defaultValue={typeof value[0] === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value[0]) : value[0]}
-                                                                        value={value[0]}>
-                                                                        <option selected key={Math.random()} value={value[0]}>{value[0].hasOwnProperty('name') ? value[0]?.name : value[0]?.id}</option>
-                                                                        {subStates[index]?.map(((result: any) => <option key={Math.random()} value={result.id}>{result?.name ? result.name : result.id}</option>))}
-                                                                    </select>
-                                                                    :
-                                                                    <input key={key} name={key} onChange={handleInputChange} autoComplete='off' required type={atribute[index]?.type}
-                                                                        // defaultValue={typeof value === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value) : value}    
-                                                                        defaultChecked={typeof value === 'boolean' ? value : undefined}
-                                                                        value={typeof value === 'boolean' ? undefined : value} />
-                                                                }
-                                                                <label className='label' htmlFor={key} hidden={atribute[index]?.type === 'hidden' || atribute[index]?.type === 'checkbox' ? true : false} >{key}</label>
-                                                                <label htmlFor={key}>{validation(key)}</label>
-                                                            </span>
-                                                        </ContainerInput2>
+                                                <div style={atribute[index]?.type === 'hidden' ? { display: 'none' } : { display: 'flex' }}>
+                                                    <ContainerInput2 error={validation(key).length !== 0 ? true : false}>
+                                                        <span>
+                                                            {Array.isArray(atribute[index]?.worth) ?
+                                                                <select key={key} name={key} onChange={Array.isArray(value) ? handleInputChangeSubSelectArray : handleInputChangeSubSelect}
+                                                                    // defaultValue={typeof value[0] === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value[0]) : value[0]}
+                                                                    value={value[0]}>
+                                                                    <option selected key={Math.random()} value={value[0]}>{value[0].hasOwnProperty('name') ? value[0]?.name : value[0]?.id}</option>
+                                                                    {subStates[index]?.map(((result: any) => <option key={Math.random()} value={result.id}>{result?.name ? result.name : result.id}</option>))}
+                                                                </select>
+                                                                :
+                                                                <input key={key} name={key} onChange={handleInputChange} autoComplete='off' required type={atribute[index]?.type}
+                                                                    // defaultValue={typeof value === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value) : value}    
+                                                                    defaultChecked={typeof value === 'boolean' ? value : undefined}
+                                                                    value={typeof value === 'boolean' ? undefined : value} />
+                                                            }
+                                                            <label className='label' htmlFor={key} hidden={atribute[index]?.type === 'hidden' || atribute[index]?.type === 'checkbox' ? true : false} >{key}</label>
+                                                            <label htmlFor={key}>{validation(key)}</label>
+                                                        </span>
+                                                    </ContainerInput2>
                                                 </div>
                                             )
                                         })}
@@ -285,9 +285,9 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                     </Container>
                                     <footer>
                                         {modal &&
-                                        <PDFDownloadLink document={<PDFDocument object={state} />} fileName="somename.pdf">
-                                                {({ loading }) => loading ? <Button category={'warning'} >Wait</Button> : <Button category={'warning'} >Download</Button> }
-                                        </PDFDownloadLink>}
+                                            <PDFDownloadLink document={<PDFDocument object={state} />} fileName="somename.pdf">
+                                                {({ loading }) => loading ? <Button category={'warning'} >Wait</Button> : <Button category={'warning'} >Download</Button>}
+                                            </PDFDownloadLink>}
                                         <Button category={'warning'} onClick={resetItem} type='reset' >Reset</Button>
                                         <Button category={'warning'} onClick={createItem} hidden={compositeOrNot()}>Create</Button>
                                         <Button category={'warning'} onClick={updateItem} hidden={!compositeOrNot()}>Update</Button>
@@ -329,11 +329,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                             <tr>
                                 {Object.entries(state).map(([key]: any, index) => {
                                     if (key !== 'id' && key !== 'password' && index < 7 && key !== 'role') {
-                                        if(!object.url.includes('weather') || index < 6) {
-                                                return (<th onClick={()=>searchKey(key)}>{key}</th>)
-                                            }
+                                        if (!object.url.includes('weather') || index < 6) {
+                                            return (<th onClick={() => searchKey(key)}>{key}</th>)
                                         }
-                                    })}
+                                    }
+                                })}
                             </tr>
                         </thead>
                         <ErrorBoundary fallback={<div> Something went wrong </div>} >
