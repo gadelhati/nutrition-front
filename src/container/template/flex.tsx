@@ -160,9 +160,9 @@ export const Sidebar = styled('aside', {
     backgroundColor: '$third',
     backgroundImage: 'linear-gradient(to bottom, $fourth, $third)',
     boxShadow: '0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .1rem #AAA inset',
-    // scrollBehavior: 'smooth',
-    // overflowY: 'auto',
-    // overflowX: 'hidden',
+    scrollBehavior: 'smooth',
+    overflowY: 'auto',
+    overflowX: 'hidden',
     transition: 'width .2s',
     '&:hover': {
         display: 'flex',
