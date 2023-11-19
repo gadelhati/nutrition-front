@@ -1,7 +1,6 @@
 import { useState, useEffect, useTransition } from 'react'
 import { SideTitle, SideItem, Sidebar, SidebarHeader, SidebarCollapsible } from '../template/flex'
 import { Icon } from '../../assets/svg.access'
-import { Tooltip } from '../tooltip/tooltip'
 import { UriScreenFormat } from '../../service/uri.format'
 import { logout } from '../../service/service.crud'
 import { accessList } from '../access.list'
@@ -29,20 +28,20 @@ export const SideContainer = () => {
     <Sidebar>
       <SidebarHeader>
         <SideTitle sidehide={show} key={0} href={`#/`} >
-          <p>Home</p><Tooltip data-tip={'collapse'}><img src={logo} /></Tooltip>
+          <p>Home</p><img src={logo} />
         </SideTitle>
         {list.map((element, index) => {
-          return element === true && <SideItem key={vector[index][1]} href={`#/${vector[index][2]}`}><Tooltip data-tip={vector[index][0]}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][2])}</p></Tooltip></SideItem>
+          return element === true && <SideItem key={vector[index][1]} href={`#/${vector[index][2]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][2])}</p></SideItem>
         })}
         <SidebarCollapsible collapsible={collapsible}>
             <SideItem key={0} onClick={showCollapsible}>
-              <Tooltip data-tip={'historic'}><span>historic</span><Icon name="geo2" /></Tooltip></SideItem>
+              <div><span>historic</span><Icon name="geo2" /></div></SideItem>
             {collapse.map((element) => {
-              return <SideItem key={element[1]} href={`#/${element[2]}`} ><Tooltip data-tip={element[0].replaceAll('_', ' ')}><Icon name={element[1]} /><p>{UriScreenFormat(element[2])}</p></Tooltip></SideItem>
+              return <SideItem key={element[1]} href={`#/${element[2]}`} ><Icon name={element[1]} /><p>{UriScreenFormat(element[2])}</p></SideItem>
             })}
         </SidebarCollapsible>
       </SidebarHeader>
-      <SideItem key={'logout'} href={`#/${'login'}`} element={'final'} onClick={logout}><Tooltip data-tip={"profile"}><Icon name={'geo-fill'} /></Tooltip><p>logout</p></SideItem>
+      <SideItem key={'logout'} href={`#/${'login'}`} element={'final'} onClick={logout}><Icon name={'geo-fill'} /><p>logout</p></SideItem>
     </Sidebar>
   )
 }

@@ -102,7 +102,7 @@ export const SideTitle = styled('a', {
 })
 export const SideItem = styled('a', {
     display: 'flex',
-    // justifyContent: 'left',
+    justifyContent: 'left',
     alignItems: 'center',
     'div': {
         display: 'flex',
