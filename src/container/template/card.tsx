@@ -14,7 +14,7 @@ export const Card = styled('div', {
     borderRadius: '.3rem',
     // borderCollapse: 'collapse',
     // border: 'solid $third .5px',
-    borderLeft: 'solid .5em',
+    borderLeft: 'solid $fourth .5em',
     boxShadow: '0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset',
     justifyContent: 'center',
     alignItems: 'center',
