@@ -6,6 +6,7 @@ import { UriScreenFormat } from '../../service/uri.format'
 import { logout } from '../../service/service.crud'
 import { accessList } from '../access.list'
 import { vector } from '../menu'
+import logo from '../../assets/image/coffee2.png'
 
 export const SideContainer = () => {
   // const [ispending, startTransition] = useTransition()
@@ -25,21 +26,17 @@ export const SideContainer = () => {
   //   startTransition(() => setList(accessList()))
   // },[])
   return (
-    <Sidebar sidehide={show}>
+    <Sidebar>
       <SidebarHeader>
         <SideTitle sidehide={show} key={0} href={`#/`} >
-          <span>Home</span>
-          <span onClick={changeShow} >
-            <Tooltip data-tip={'collapse'}>
-              <Icon name="geo2" />
-            </Tooltip>
-          </span>
+          <p>Home</p><Tooltip data-tip={'collapse'}><img src={logo} /></Tooltip>
         </SideTitle>
         {list.map((element, index) => {
           return element === true && <SideItem key={vector[index][1]} href={`#/${vector[index][2]}`}><Tooltip data-tip={vector[index][0]}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][2])}</p></Tooltip></SideItem>
         })}
         <SidebarCollapsible collapsible={collapsible}>
-            <SideItem key={0} onClick={showCollapsible}><Tooltip data-tip={'historic'}><Icon name="speedometer" /><p>historic</p></Tooltip><Icon name="geo2" /></SideItem>
+            <SideItem key={0} onClick={showCollapsible}>
+              <Tooltip data-tip={'historic'}><span>historic</span><Icon name="geo2" /></Tooltip></SideItem>
             {collapse.map((element) => {
               return <SideItem key={element[1]} href={`#/${element[2]}`} ><Tooltip data-tip={element[0].replaceAll('_', ' ')}><Icon name={element[1]} /><p>{UriScreenFormat(element[2])}</p></Tooltip></SideItem>
             })}
