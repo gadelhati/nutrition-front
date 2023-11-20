@@ -111,7 +111,7 @@ export const ContainerInput2 = styled('div', {
             },
         },
     },
-    'input:not([disabled]):focus, input:not([disabled]):active, select:not([disabled]):focus, select:not([disabled]):active': {
+    'input:not([disabled]):focus, input:not([disabled]):active, input:not([disabled]):hover, select:not([disabled]):focus, select:not([disabled]):active, select:not([disabled]):hover': {
         color: '$fourth',
         textIndent: '0',
         background: '$tenth',
@@ -160,9 +160,8 @@ export const ContainerInput2 = styled('div', {
                     color: '$tenth',
                     background: '$fifteenth',
                 },
-                'input:focus, input:active, select:focus, select:active': {
+                'input:focus, input:active, input:hover, select:focus, select:active, select:hover': {
                     '+ label + label': {
-                        color: 'blue',
                         height: '4rem',
                         background: '$fifteenth',
                         display: 'inline-block',
