@@ -200,9 +200,9 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                 })}
                             </> :
                             typeof value === 'object' ?
-                                <>{value == null ? '' : value?.name ? value.name : value.id}</>
+                                <>{value === null ? '' : value?.name ? value.name : value.id}</>
                                 :
-                                <>{value}</>
+                                <>{typeof value === 'boolean' ? JSON.stringify(value) : value}</>
                         }
                     </td>)
                 }
