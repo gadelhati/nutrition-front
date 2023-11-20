@@ -96,7 +96,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         }).catch(() => { networkError() })
     }
     const retrieveItem = async () => {
-        await retrieve(object.url, page, size, '', '').then((data: any) => {
+        await retrieve(object.url, page, size, key, search).then((data: any) => {
             startTransition(() => setPageable(data))
             startTransition(() => setStates(data.content))
         }).catch(() => { networkError() })
