@@ -9,7 +9,8 @@ export const Table = styled('table', {
     fontFamily: 'arial, sans-serif',
     fontSize: '0.95rem',
     color: '$sixteenth',
-    padding: '$sm',
+    padding: '0 $sm 0 $sm',
+    // padding: '$sm',
     margin: '$xxs',
     boxSizing: 'border-box',
     borderSpacing: '0',
@@ -30,7 +31,11 @@ export const Table = styled('table', {
     },
     'thead': {
         position: 'sticky',
-        top: '-.25rem',
+        top: '0',
+        boxShadow: '0 .3rem .6rem rgba(0,0,0,0.16)',
+        'tr th': {
+            padding: '1rem',
+        },
     },
     'thead > tr': {
         fontWeight: 'bold',
