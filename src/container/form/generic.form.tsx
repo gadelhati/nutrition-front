@@ -51,6 +51,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     }, [page, size])
     useEffect(() => {
         searchValue()
+        setPage(0)
     }, [key, search])
     const searchValue = async () => {
         await retrieve(object.url, page, size, key, search).then((data: any) => {
