@@ -75,7 +75,7 @@ export const Profile = () => {
                 <Button onClick={logoutUser}>Logout</Button>
             </Header>
             <Header>
-                <div style={{ display: 'flex' }}>
+                <div>
                     <ContainerInput2 error={validation("password").length !== 0 ? true : false} >
                         <span>
                             <input type={'password'} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
@@ -86,6 +86,12 @@ export const Profile = () => {
                 </div>
                 <Button onClick={changePasswordItem}>Change</Button>
             </Header >
+            <div>{/\d/.test(state.password) ? 'OK, contém números' : 'não contém números'}</div>
+            <div>{/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(state.password) ? 'OK, contém caracteres especiais' : 'não contém caracteres especiais'}</div>
+            <div>{/[a-z]/.test(state.password) ? 'OK, contém letras minúsculas' : 'não contém letras minúsculas'}</div>
+            <div>{/[A-Z]/.test(state.password) ? 'OK, contém letras maiúsculas' : 'não contém letras maiúsculas'}</div>
+            <div>{state.password.length >= 10 ? 'OK, contém 10 caracteres' : 'não contém 10 caracteres'}</div>
+            
         </>
     );
 }
