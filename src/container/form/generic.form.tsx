@@ -38,6 +38,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     const [pageable, setPageable] = useState<Pageable>(initialPageable)
     const [ispending, startTransition] = useTransition()
     const [modal, setModal] = useState<boolean>(false)
+    const [confirm, setConfirm] = useState<{message: '', show: boolean, action: string}>({message: '', show: false, action: ''})
     const [key, setKey] = useState<string>('name')
     const [search, setSearch] = useState<string>('')
 
@@ -79,10 +80,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     }
     const validItem = (data: any) => {
         if (data?.hasOwnProperty('id') || data?.hasOwnProperty('ii') && data?.hasOwnProperty('iii') || data?.hasOwnProperty('ddddddd') || data?.hasOwnProperty('name') && data?.hasOwnProperty('number')) {
-            handleModal()
+            setConfirm({...confirm, show:!confirm.show})
             retrieveItem()
             createToast(toastDetails[0])
         } else {
+            handleConfirm()
             startTransition(() => setError(data))
             createToast(toastDetails[1])
         }
@@ -175,6 +177,13 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         setModal(!modal)
         setError([initialErrorMessage])
     }
+    const handleConfirm = () => {
+        setConfirm({...confirm, show:!confirm.show})
+        handleModal()
+    }
+    const handleConfirmYes = (message: string, action: Function) => {
+        action()
+    }
     const newItem = () => {
         setModal(!modal)
         resetItem()
@@ -240,12 +249,27 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
             setModal(false);
         }
     }
-
+    const onConfirmModal = (evt: React.MouseEvent) => {
+        if ((evt.target as HTMLElement).className.includes('modal-confirm')) {
+            setConfirm({...confirm, show: false});
+        }
+    }
     return (
         <>
             {/* <ShineButton onMouseMove={shine} className='shiny'>Shine Button</ShineButton> */}
             {isValidToken() &&
                 <>
+                    <Modal show={confirm.show} className='modal-confirm' onClick={(evt) => {
+                        onConfirmModal(evt)
+                    }}>
+                        <article>
+                            <header><h2>{UriScreenFormat('Confirm')}</h2></header>
+                            <footer>
+                                <Button category={'danger'} onClick={()=>handleConfirmYes('deletar', deleteItem)} >Confirm</Button>
+                                <Button category={'secondary'} onClick={handleConfirm} type='reset' >Reset</Button>
+                            </footer>
+                        </article>
+                    </Modal>
                     <Modal show={modal} className='modal-div' onClick={(evt) => {
                         onClickModal(evt)
                     }}>
@@ -290,7 +314,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                         <Button category={'primary'} onClick={resetItem} type='reset' >Reset</Button> */}
                                         <Button category={'primary'} onClick={createItem} hidden={compositeOrNot()}>Create</Button>
                                         <Button category={'warning'} onClick={updateItem} hidden={!compositeOrNot()}>Update</Button>
-                                        <Button category={'danger'} onClick={deleteItem} hidden={!compositeOrNot()}>Delete</Button>
+                                        <Button category={'danger'} onClick={handleConfirm} hidden={!compositeOrNot()}>Delete</Button>
                                         <Button category={'secondary'} onClick={handleModal}>Close</Button>
                                     </footer>
                                 </>
