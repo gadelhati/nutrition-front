@@ -84,7 +84,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
             retrieveItem()
             createToast(toastDetails[0])
         } else {
-            handleConfirm()
+            handleConfirm('')
             startTransition(() => setError(data))
             createToast(toastDetails[1])
         }
@@ -177,12 +177,17 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         setModal(!modal)
         setError([initialErrorMessage])
     }
-    const handleConfirm = () => {
-        setConfirm({...confirm, show:!confirm.show})
+    const handleConfirm = (action: string) => {
+        setConfirm({...confirm, show:!confirm.show, action: action})
         handleModal()
     }
-    const handleConfirmYes = (message: string, action: Function) => {
-        action()
+    const handleConfirmYes = (message: string) => {
+        switch (confirm.action) {
+            case 'create': createItem(); break
+            case 'retrieve': retrieveItem(); break
+            case 'update': updateItem(); break
+            case 'delete': deleteItem(); break
+        }
     }
     const newItem = () => {
         setModal(!modal)
@@ -265,8 +270,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         <article>
                             <header><h2>{UriScreenFormat('Confirm')}</h2></header>
                             <footer>
-                                <Button category={'danger'} onClick={()=>handleConfirmYes('deletar', deleteItem)} >Confirm</Button>
-                                <Button category={'secondary'} onClick={handleConfirm} type='reset' >Reset</Button>
+                                <Button category={'danger'} onClick={()=>handleConfirmYes('delete')} >Confirm</Button>
+                                <Button category={'secondary'} onClick={()=>handleConfirm('')} type='reset' >Reset</Button>
                             </footer>
                         </article>
                     </Modal>
@@ -312,9 +317,9 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                                 {({ loading }) => loading ? <Button disabled={true} category={'secondary'} >Wait</Button> : <Button category={'secondary'} >Download</Button>}
                                             </PDFDownloadLink>}
                                         <Button category={'primary'} onClick={resetItem} type='reset' >Reset</Button> */}
-                                        <Button category={'primary'} onClick={createItem} hidden={compositeOrNot()}>Create</Button>
-                                        <Button category={'warning'} onClick={updateItem} hidden={!compositeOrNot()}>Update</Button>
-                                        <Button category={'danger'} onClick={handleConfirm} hidden={!compositeOrNot()}>Delete</Button>
+                                        <Button category={'primary'} onClick={()=>handleConfirm('create')} hidden={compositeOrNot()}>Create</Button>
+                                        <Button category={'warning'} onClick={()=>handleConfirm('update')} hidden={!compositeOrNot()}>Update</Button>
+                                        <Button category={'danger'} onClick={()=>handleConfirm('delete')} hidden={!compositeOrNot()}>Delete</Button>
                                         <Button category={'secondary'} onClick={handleModal}>Close</Button>
                                     </footer>
                                 </>
