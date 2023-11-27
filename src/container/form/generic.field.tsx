@@ -35,39 +35,37 @@ export const Container = styled('div', {
     },
 })
 
-export const ContainerInput2 = styled('div', {
+export const ContainerInput2 = styled('span', {
+    position: 'relative',
+    display: 'inline-block',
+    margin: 'min(.2em) min(.2em) 0em 0em',
     overflowX: 'clip',
+    ':has(label)': {
+        outline: '2px solid blue',
+    },
     'input[type=checkbox]': {
         '+ label, + label + label': {
             height: '1.4em',
         },
     },
-    'span': {
-        position: 'relative',
-        display: 'inline-block',
-        margin: 'min(.2em) min(.2em) 0em 0em',
-    },
     'select': {
         minHeight: '1.8em',
     },
-
     'input:disabled': {
         backgroundColor: '$eleventh',
         // pointerEvents: 'none',
         cursor: 'not-allowed',
     },
-
     'input, select': {
         display: 'inline-block',
-        width: '26em',
+        width: '20em',
         padding: '10px 0 10px 35px',
-        fontWeight: 'normal',
         color: '$fourth',
         background: '$tenth',
         border: '0',
         borderRadius: '.25rem',
         outline: '0',
-        textIndent: '60px',
+        textIndent: '50%',
         transition: 'all .3s ease-in-out',
         overflow: 'hidden',
         textOverflow: 'ellipsis ellipsis',
@@ -90,8 +88,7 @@ export const ContainerInput2 = styled('div', {
             bottom: '.7rem',
             padding: '.1em 1.5em',
             color: '#032429',
-            fontSize: '$xs',
-            fontWeight: 'bold',
+            fontSize: '$sm',
             textShadow: '0 1px 0 rgba(19,74,70,0)',
             transition: 'all .3s ease-in-out',
             borderRadius: '.25rem',
@@ -116,24 +113,27 @@ export const ContainerInput2 = styled('div', {
         textIndent: '0',
         background: '$tenth',
         '+ label': {
-            width: '100%',
+            width: '90%',
+            margin: '0 5%',
             overflow: 'visible',
             color: '$tenth',
             textShadow: '0 1px o rgba(19, 74, 70, .4)',
             background: 'rgba(122, 184, 147, 1)',
-            transform: 'translateY(-1.9rem)',
+            transform: 'translateY(-1.2rem)',
         },
         '+ label + label': {
+            width: '90%',
+            margin: '0 5%',
             marginTop: '.3rem',
             padding: '.5rem',
             opacity: '1',
             // display: 'none',
-            width: '100%',
+            // width: '100%',
             overflow: 'visible',
             color: '$tenth',
             textShadow: '0 1px o rgba(19, 74, 70, .4)',
             background: '$fifteenth',
-            transform: 'translateY(+1.9rem)',
+            transform: 'translateY(+1.1rem)',
         },
     },
     variants: {
