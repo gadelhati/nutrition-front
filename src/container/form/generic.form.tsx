@@ -264,13 +264,13 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
             {/* <ShineButton onMouseMove={shine} className='shiny'>Shine Button</ShineButton> */}
             {isValidToken() &&
                 <>
-                    <Modal show={confirm.show} className='modal-confirm' onClick={(evt) => {
+                    <Modal confirm={true} show={confirm.show} className='modal-confirm' onClick={(evt) => {
                         onConfirmModal(evt)
                     }}>
                         <article>
-                            <header><h2>{UriScreenFormat('Confirm')}</h2></header>
+                            <header><span onClick={()=>handleConfirm('')}>&times;</span><h2>{UriScreenFormat('Confirm')}</h2></header>
                             <footer>
-                                <Button category={'danger'} onClick={()=>handleConfirmYes('delete')} >Confirm</Button>
+                                <Button category={'danger'} onClick={()=>handleConfirmYes('delete')} >{UriScreenFormat(confirm.action)}</Button>
                                 <Button category={'secondary'} onClick={()=>handleConfirm('')} type='reset' >Reset</Button>
                             </footer>
                         </article>

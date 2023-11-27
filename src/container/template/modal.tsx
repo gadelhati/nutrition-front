@@ -66,5 +66,12 @@ export const Modal = styled('div', {
                 display: 'flex',
             },
         },
+        confirm: {
+            true: {
+                'article': {
+                    minHeight: '10rem',
+                }
+            }
+        }
     },
 })
