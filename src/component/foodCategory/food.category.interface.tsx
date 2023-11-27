@@ -1,4 +1,4 @@
 export interface FoodCategory {
-    id: string,
+    readonly id: string,
     name: string,
 }
