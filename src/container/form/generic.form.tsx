@@ -270,7 +270,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                                             <input key={key} name={key} onChange={handleInputChange} autoComplete='off' placeholder={''} type={atribute[index]?.type}
                                                                 // defaultValue={typeof value === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value) : value}
                                                                 defaultChecked={typeof value === 'boolean' ? value : undefined}
-                                                                value={typeof value === 'boolean' ? undefined : value === 0 ? null : value} />
+                                                                value={typeof value === 'boolean' ? undefined : value === 0 ? '' : value} />
                                                         }
                                                         <label className='label' htmlFor={key} hidden={atribute[index]?.type === 'hidden' || atribute[index]?.type === 'checkbox' ? true : false} >{key}</label>
                                                         <label htmlFor={key}>{validation(key)}</label>
