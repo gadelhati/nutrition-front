@@ -39,12 +39,8 @@ export const changePassword = async<User,>(data: User) => {
             return response.data
         })
         .catch(error => { 
-            console.log(error)
             return addError(error) })
 }
-// export const changePassword = (id: string, data: User) => {
-//     return api.put<User>(`/user/changePassword/${id}`, data)
-// }
 
 export const create = async<T,>(url: string, object: T) => {
     return await api.post(`/${url}`, object)
@@ -58,9 +54,6 @@ export const createAll = async<T,>(url: string, object: T[]) => {
         .catch(error => { return addError(error) })
 }
 
-// export const retrieve = async<T,>(url: string, page: number, size: number, sort: string) => {
-//     return await api.get(`/${url}`, { params: { page: page, size: size } } )
-    // return await api.get(`/${url}`, { params: { page: page, size: size, sort: sort } } )
 export const retrieve = async<T,>(url: string, page: number, size: number, key: string, value: string) => {
         return await api.get<T>(`/${url}?key=${key}&value=${value}`, { params: { page: page, size: size } } )
         .then(response => { return response.data })

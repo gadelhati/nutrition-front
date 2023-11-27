@@ -1,14 +1,4 @@
-/* @charset "UTF-8" */
 @import 'variables.css';
-
-/* // div {
-//     display: 'flex';
-//     min-height: '6rem';
-//     justify-content: 'center';
-//     align-items: 'center';
-//     flex-wrap: 'wrap';
-//     padding: '$space-lg';
-// } */
 
 input[type=checkbox] {
 
@@ -121,31 +111,3 @@ select:active {
         transform: translateY(+1.9rem);
     }
 }
-
-/* // .error {
-//     input,
-//     select {
-//         color: --color-tenth;
-//         background: --color-danger;
-//     }
-//     input:focus,
-//     input:active,
-//     select:focus,
-//     select:active {
-//         +label+label {
-//             height: 4rem;
-//             background: --color-danger;
-//             display: inline-block;
-//             z-index: 1;
-//         }
-//     }
-// }
-
-// .historic {
-//     input, select {
-//         width: 10em;
-//         +label {
-//             width: 8em;
-//         }
-//     }
-// } */

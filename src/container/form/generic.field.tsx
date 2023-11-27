@@ -53,7 +53,6 @@ export const ContainerInput2 = styled('span', {
     },
     'input:disabled': {
         backgroundColor: '$eleventh',
-        // pointerEvents: 'none',
         cursor: 'not-allowed',
     },
     'input, select': {
@@ -126,8 +125,6 @@ export const ContainerInput2 = styled('span', {
             marginTop: '.3rem',
             padding: '.5rem',
             filter: 'opacity(1)',
-            // display: 'none',
-            // width: '100%',
             color: '$tenth',
             textShadow: '0 1px o rgba(19, 74, 70, .4)',
             background: '$fifteenth',
@@ -175,15 +172,12 @@ export const ContainerInput = styled('div', {
     fontSize: '.9rem',
     fontFamily: 'Segoe UI, sans-serif',
     margin: '1rem 0 0 0',
-    // maxWidth: '190px',
-    // position: 'relative',
     padding: '.2rem',
     'input': {
         fontSize: '100%',
         padding: '0.7rem',
         outline: 'none',
         border: 'none',
-        // borderBottom: '2px solid $sixth',
         borderRadius: '.3rem',
         backgroundColor: '$sixth',
         width: '100%',
@@ -211,7 +205,6 @@ export const ContainerInput = styled('div', {
     },
     ':is(input:focus, input:valid)': {
         transition: 'all 0.3s ease',
-        // borderBottom: '2px solid $second',
         boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
     },
 })

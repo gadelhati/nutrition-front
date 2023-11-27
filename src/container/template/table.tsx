@@ -10,7 +10,6 @@ export const Table = styled('table', {
     fontSize: '0.95rem',
     color: '$sixteenth',
     padding: '0 $sm 0 $sm',
-    // padding: '$sm',
     margin: '$xxs',
     boxSizing: 'border-box',
     borderSpacing: '0',
@@ -18,7 +17,6 @@ export const Table = styled('table', {
     borderRadius: '.3rem',
     display: 'block',
     borderCollapse: 'collapse',
-    // border: 'solid $third 1px',
     boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
     '.header': {
         display: 'flex',

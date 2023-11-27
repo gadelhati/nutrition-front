@@ -8,7 +8,6 @@ export const FlexCointainer = styled('div', {
     width: '100%',
     display: 'flex',
     justifyContent: 'start',
-    // alignItems: 'center',
     overflow: 'hidden',
     backgroundImage: `url("https://cdn-defesaaereanaval.nuneshost.com/wp-content/uploads/2021/05/Marinha-do-brasil-Logo.jpg")`,
     backgroundPosition: 'center center',
@@ -52,10 +51,7 @@ export const FlexCointainer = styled('div', {
 export const SideTitle = styled('a', {
     textDecoration: 'none',
     color: '$ninth',
-    // color: '$third',
-    // backgroundColor: '$tenth',
     height: '2.2rem',
-    // width: '$xss',
     userSelect: 'none',
     borderRadius: '.3rem',
     padding: '$xs',
@@ -112,7 +108,6 @@ export const SideItem = styled('a', {
     textDecoration: 'none',
     color: '$ninth',
     height: '2.2rem',
-    // width: '$xss',
     userSelect: 'none',
     borderRadius: '.3rem',
     padding: '$xs',
@@ -127,7 +122,6 @@ export const SideItem = styled('a', {
     '&:focus': {
         color: '$first',
         backgroundColor: '$tenth',
-        // backgroundImage: 'linear-gradient(to left, $fifteenth, $tenth 15%)',
         boxShadow: '0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset',
     },
     p: {
@@ -179,24 +173,6 @@ export const Sidebar = styled('aside', {
             display: 'none',
         },
     },
-    // variants: {
-    //     sidehide: {
-    //         true: {
-    //             // '@bp4': {
-    //             //     display: 'none',
-    //             // },
-    //         },
-    //         false: {
-    //             width: '2.9rem',
-    //             'p': {
-    //                 display: 'none',
-    //             },
-    //             // '@bp4': {
-    //             //     display: 'none',
-    //             // },
-    //         },
-    //     },
-    // },
 })
 export const SidebarHeader = styled('div', {
     display: 'flex',
@@ -213,14 +189,12 @@ export const CenterContainer = styled('div', {
 })
 export const CenterItem = styled('div', {
     color: '$fourteenth',
-    // backgroundColor: '$fifth',
     padding: '5rem 0rem 5rem 0',
     borderRadius: '.3rem',
     width: '18rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    // background: 'rgba(132, 169, 140, 0.85)',
     'img': {
         margin: '2em',
     },

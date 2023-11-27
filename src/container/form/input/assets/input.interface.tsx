@@ -18,11 +18,3 @@ export interface InputInterfaceNumber extends InputInterface {
 export interface InputInterfaceBoolean extends InputInterface {
 	value: boolean,
 }
-
-// export interface InputInterfaceObject extends InputInterface {
-// 	value: Default,
-// }
-
-// export interface InputInterfaceArrayOfObject extends InputInterface {
-// 	value: [],
-// }
