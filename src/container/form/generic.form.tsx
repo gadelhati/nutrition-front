@@ -259,23 +259,21 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                                 // <Input childToParent={handleInputChangeFather} key={Math.random()} type={atribute[index]?.type} name={key} value={value} readOnly={false} show={modal}></Input>
                                                 <div style={atribute[index]?.type === 'hidden' ? { display: 'none' } : { display: 'flex' }}>
                                                     <ContainerInput2 error={validation(key).length !== 0 ? true : false}>
-                                                        <span>
-                                                            {Array.isArray(atribute[index]?.worth) ?
-                                                                <select key={key} name={key} onChange={Array.isArray(value) ? handleInputChangeSubSelectArray : handleInputChangeSubSelect}
-                                                                    // defaultValue={typeof value[0] === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value[0]) : value[0]}
-                                                                    value={value[0]}>
-                                                                    <option selected key={Math.random()} value={value[0]}>{value[0].hasOwnProperty('name') ? value[0]?.name : value[0]?.id}</option>
-                                                                    {subStates[index]?.map(((result: any) => <option key={Math.random()} value={result.id}>{result?.name ? result.name : result.id}</option>))}
-                                                                </select>
-                                                                :
-                                                                <input key={key} name={key} onChange={handleInputChange} autoComplete='off' required type={atribute[index]?.type}
-                                                                    // defaultValue={typeof value === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value) : value}    
-                                                                    defaultChecked={typeof value === 'boolean' ? value : undefined}
-                                                                    value={typeof value === 'boolean' ? undefined : value} />
-                                                            }
-                                                            <label className='label' htmlFor={key} hidden={atribute[index]?.type === 'hidden' || atribute[index]?.type === 'checkbox' ? true : false} >{key}</label>
-                                                            <label htmlFor={key}>{validation(key)}</label>
-                                                        </span>
+                                                        {Array.isArray(atribute[index]?.worth) ?
+                                                            <select key={key} name={key} onChange={Array.isArray(value) ? handleInputChangeSubSelectArray : handleInputChangeSubSelect}
+                                                                // defaultValue={typeof value[0] === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value[0]) : value[0]}
+                                                                value={value[0]}>
+                                                                <option selected key={Math.random()} value={value[0]}>{value[0].hasOwnProperty('name') ? value[0]?.name : value[0]?.id}</option>
+                                                                {subStates[index]?.map(((result: any) => <option key={Math.random()} value={result.id}>{result?.name ? result.name : result.id}</option>))}
+                                                            </select>
+                                                            :
+                                                            <input key={key} name={key} onChange={handleInputChange} autoComplete='off' placeholder={''} type={atribute[index]?.type}
+                                                                // defaultValue={typeof value === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value) : value}
+                                                                defaultChecked={typeof value === 'boolean' ? value : undefined}
+                                                                value={typeof value === 'boolean' ? undefined : value === 0 ? null : value} />
+                                                        }
+                                                        <label className='label' htmlFor={key} hidden={atribute[index]?.type === 'hidden' || atribute[index]?.type === 'checkbox' ? true : false} >{key}</label>
+                                                        <label htmlFor={key}>{validation(key)}</label>
                                                     </ContainerInput2>
                                                 </div>
                                             )
