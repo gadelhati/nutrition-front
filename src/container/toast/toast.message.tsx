@@ -40,10 +40,9 @@ export const createToast = (classe: ToastDetails) => {
                          <i>${classe.icon}</i>                     
                          <i>${classe.title}</i>
                          <p>${classe.text}</p>
-                      </div>
-                      <i onClick="removeToast(this.parentElement)">&#10006;</i>`;
+                      </div>`;
     notifications?.appendChild(toast);
-    setTimeout(()=> removeToast(toast), 5000)
+    setTimeout(()=> removeToast(toast), 4000)
 }
 
 const removeToast = (toast: any) => {
