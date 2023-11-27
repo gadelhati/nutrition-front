@@ -59,6 +59,7 @@ export const ContainerInput2 = styled('span', {
     'input, select': {
         display: 'inline-block',
         width: '20em',
+        margin: '.25rem',
         padding: '10px 0 10px 35px',
         color: '$fourth',
         background: '$tenth',
@@ -67,7 +68,6 @@ export const ContainerInput2 = styled('span', {
         outline: '0',
         textIndent: '50%',
         transition: 'all .3s ease-in-out',
-        overflow: 'hidden',
         textOverflow: 'ellipsis ellipsis',
         '+ label': {
             pointerEvents: 'none',
@@ -76,8 +76,7 @@ export const ContainerInput2 = styled('span', {
         },
         '+ label + label': {
             display: 'none',
-            opacity: '0',
-            transition: 'opacity 2s',
+            filter: 'opacity(0)',
         },
         '+ label, + label + label': {
             overflow: 'hidden',
@@ -112,7 +111,7 @@ export const ContainerInput2 = styled('span', {
         color: '$fourth',
         textIndent: '0',
         background: '$tenth',
-        '+ label': {
+                '+ label': {
             width: '90%',
             margin: '0 5%',
             overflow: 'visible',
@@ -121,15 +120,14 @@ export const ContainerInput2 = styled('span', {
             background: 'rgba(122, 184, 147, 1)',
             transform: 'translateY(-1.2rem)',
         },
-        '+ label + label': {
+        '+label+label': {
             width: '90%',
             margin: '0 5%',
             marginTop: '.3rem',
             padding: '.5rem',
-            opacity: '1',
+            filter: 'opacity(1)',
             // display: 'none',
             // width: '100%',
-            overflow: 'visible',
             color: '$tenth',
             textShadow: '0 1px o rgba(19, 74, 70, .4)',
             background: '$fifteenth',
