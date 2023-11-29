@@ -16,7 +16,7 @@ export interface Station {
     marsdenSubSquare_5: number,
 
     stationCategory?: StationCategory,
-    equipment?: Equipment,
+    equipment?: Equipment[],
     surveying?: Surveying,
     institution?: Institution,
     country?: Country,

@@ -1,3 +1,8 @@
+import { initialCountry } from "../country/country.initial";
+import { initialEquipment } from "../equipment/equipment.initial";
+import { initialInstitution } from "../institution/institution.initial";
+import { initialStationCategory } from "../station.category/station.category.initial";
+import { initialSurveying } from "../surveying/surveying.initial";
 import { StationHistoricOnShore } from "./station.historic.on.shore.interface";
 
 export const initialStationHistoricOnShore: StationHistoricOnShore = {
@@ -11,11 +16,11 @@ export const initialStationHistoricOnShore: StationHistoricOnShore = {
     wmoSquare: 0,
     marsdenSubSquare_5: 0,
     
-    stationCategory: undefined,
-    equipment: undefined,
-    surveying: undefined,
-    institution: undefined,
-    country: undefined,
+    stationCategory: initialStationCategory,
+    equipment: initialEquipment,
+    surveying: initialSurveying,
+    institution: initialInstitution,
+    country: initialCountry,
 
     number: 0,
     name: '',
