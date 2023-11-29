@@ -75,7 +75,7 @@ export default function AppRoutes() {
                                 <Route path="/food_category" element={<GenericForm key='food_category' object={initialFoodCategory} url={'food_category'} />}></Route>
                                 <Route path="/composite_unit" element={<GenericForm key='composite_unit' object={initialCompositeUnit} url={'composite_unit'} />}></Route>
 
-                                <Route path="/comission" element={<GenericForm key='comission' object={initialCommission} url={'comission'} />}></Route>
+                                <Route path="/commission" element={<GenericForm key='commission' object={initialCommission} url={'commission'} />}></Route>
                                 <Route path="/country" element={<GenericForm key='country' object={initialCountry} url={'country'} />}></Route>
                                 <Route path="/equipment" element={<GenericForm key='equipment' object={initialEquipment} url={'equipment'} />}></Route>
                                 <Route path="/harbor" element={<GenericForm key='harbor' object={initialHarbor} url={'harbor'} />}></Route>
@@ -88,16 +88,16 @@ export default function AppRoutes() {
                                 <Route path="/researcher" element={<GenericForm key='researcher' object={initialResearcher} url={'researcher'} />}></Route>
                                 <Route path="/station" element={<GenericForm key='station' object={initialStation} url={'station'} />}></Route>
                                 <Route path="/stationCategory" element={<GenericForm key='stationCategory' object={initialStationCategory} url={'stationCategory'} />}></Route>
-                                <Route path="/stationHistoric" element={<GenericForm key='stationHistoric' object={initialStationHistoric} url={'stationHistoric'} />}></Route>
+                                <Route path="/station/historic" element={<GenericForm key='stationHistoric' object={initialStationHistoric} url={'stationHistoric'} />}></Route>
                                 <Route path="/stationHistoricOffShore" element={<GenericForm key='stationHistoricOffShore' object={initialStationHistoricOffShore} url={'stationHistoricOffShore'} />}></Route>
                                 <Route path="/stationHistoricOnShore" element={<GenericForm key='stationHistoricOnShore' object={initialStationHistoricOnShore} url={'stationHistoricOnShore'} />}></Route>
                                 <Route path="/stationOffShore" element={<GenericForm key='stationOffShore' object={initialStationOffShore} url={'stationOffShore'} />}></Route>
                                 <Route path="/stationOnShore" element={<GenericForm key='stationOnShore' object={initialStationOnShore} url={'stationOnShore'} />}></Route>
                                 <Route path="/surveying" element={<GenericForm key='surveying' object={initialSurveying} url={'surveying'} />}></Route>
                                 <Route path="/weather" element={<GenericForm key='weather' object={initialWeather} url={'weather'} />}></Route>
-                                <Route path="/weatherHistoric" element={<GenericForm key='weatherHistoric' object={initialWeather} url={'weather'} />}></Route>
-                                <Route path="/weatherHistoricOffShore" element={<GenericForm key='weatherHistoricOffShore' object={initialWeatherHistoricOffShore} url={'weatherHistoricOffShore'} />}></Route>
-                                <Route path="/weatherHistoricOnShore" element={<GenericForm key='weatherHistoricOnShore' object={initialWeatherHistoricOnShore} url={'weatherHistoricOnShore'} />}></Route>
+                                <Route path="/weather/historic" element={<GenericForm key='weatherHistoric' object={initialWeather} url={'weatherHistoric'} />}></Route>
+                                <Route path="/weatherOffShore/historic" element={<GenericForm key='weatherHistoricOffShore' object={initialWeatherHistoricOffShore} url={'weatherHistoricOffShore'} />}></Route>
+                                <Route path="/weatherOnShore/historic" element={<GenericForm key='weatherHistoricOnShore' object={initialWeatherHistoricOnShore} url={'weatherHistoricOnShore'} />}></Route>
                                 <Route path="/weatherOffShore" element={<GenericForm key='weatherOffShore' object={initialWeatherOffShore} url={'weatherOffShore'} />}></Route>
                                 <Route path="/weatherOnShore" element={<GenericForm key='weatherOnShore' object={initialWeatherOnShore} url={'weatherOnShore'} />}></Route>
                             </Route>
