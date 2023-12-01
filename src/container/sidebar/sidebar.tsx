@@ -31,13 +31,13 @@ export const SideContainer = () => {
           <p>Home</p><img src={logo} />
         </SideTitle>
         {list.map((element, index) => {
-          return element === true && <SideItem key={vector[index][1]} href={`#/${vector[index][2]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][2])}</p></SideItem>
+          return element === true && <SideItem key={vector[index][1]} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></SideItem>
         })}
         <SidebarCollapsible collapsible={collapsible}>
             <SideItem key={0} onClick={showCollapsible}>
               <div><span>historic</span><Icon name="geo2" /></div></SideItem>
             {collapse.map((element) => {
-              return <SideItem key={element[1]} href={`#/${element[2]}`} ><Icon name={element[1]} /><p>{UriScreenFormat(element[2])}</p></SideItem>
+              return <SideItem key={element[1]} href={`#/${element[0]}`} ><Icon name={element[1]} /><p>{UriScreenFormat(element[0])}</p></SideItem>
             })}
         </SidebarCollapsible>
       </SidebarHeader>

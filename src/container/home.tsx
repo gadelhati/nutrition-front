@@ -23,7 +23,7 @@ export const Home = () => {
             </Header>
             <CardContainer>
                 {list.map((element, index) => {
-                    return element === true && <Card key={vector[index][1]}><a key={vector[index][1]} href={`#/${vector[index][2]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][2])}</p></a></Card>
+                    return element === true && <Card key={vector[index][1]}><a key={vector[index][1]} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></a></Card>
                 })}
             </CardContainer>
         </>

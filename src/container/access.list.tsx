@@ -5,7 +5,7 @@ export const accessList = () => {
     
     let list: boolean[] = []
     vector.map((element: string[], index: number) => {
-        retrieve(element[2], 20, 20, '', '').then((data: any) => {
+        retrieve(element[0], 20, 20, '', '').then((data: any) => {
             if (Array.isArray(data)) {
                 list[index]=false
             }else {
