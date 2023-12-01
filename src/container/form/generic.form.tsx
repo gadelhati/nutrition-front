@@ -159,7 +159,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         setState({ ...state, [event.target.name]: value })
     }
     const handleInputChangeSubSelect = async (event: ChangeEvent<HTMLSelectElement>) => {
-        await retrieve(event.target.name, page, size, event.target.name, event.target.value).then((data: any) => {
+        await retrieve(event.target.name, 0, size, 'id', event.target.value).then((data: any) => {
             setState({ ...state, [event.target.name]: data?.content[0] })
         }).catch(() => { networkError() })
     }
