@@ -181,7 +181,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         setConfirm({...confirm, show:!confirm.show, action: action})
         handleModal()
     }
-    const handleConfirmYes = (message: string) => {
+    const handleConfirmYes = () => {
         switch (confirm.action) {
             case 'create': createItem(); break
             case 'retrieve': retrieveItem(); break
@@ -270,7 +270,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         <article>
                             <header><span onClick={()=>handleConfirm('')}>&times;</span><h2>{UriScreenFormat('Confirm')}</h2></header>
                             <footer>
-                                <Button category={'danger'} onClick={()=>handleConfirmYes('delete')} >{UriScreenFormat(confirm.action)}</Button>
+                                <Button category={'danger'} onClick={handleConfirmYes} >{UriScreenFormat(confirm.action)}</Button>
                                 <Button category={'secondary'} onClick={()=>handleConfirm('')} type='reset' >Reset</Button>
                             </footer>
                         </article>
