@@ -106,7 +106,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     const loadSubStates = async () => {
         Object.entries(state).map(([key, value], index) => {
             return (
-                !(atribute[index]?.type === 'checkbox' || atribute[index]?.type === 'date' || value === null && atribute[index].worth === 0 || value === null && atribute[index].worth === '' || atribute[index]?.type !== 'undefined' && !Array.isArray(atribute[index]?.worth)) || atribute[index]?.type === 'object' &&
+                !(atribute[index]?.type === 'checkbox' || atribute[index]?.type === 'date' || value === null && atribute[index].worth === 0 || value === null && atribute[index].worth === '' || atribute[index]?.type !== 'undefined' && !Array.isArray(atribute[index]?.worth)) &&
                 retrieve(key, 0, 1000, '', '').then((data: any) => {
                     startTransition(() => {
                         subStates[index] = data.content
