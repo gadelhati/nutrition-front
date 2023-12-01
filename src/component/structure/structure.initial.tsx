@@ -15,5 +15,5 @@ export const initialStructure : Structure = {
     refletorRadar: true,
     visivelmenteConspicuo: true,
     format: '',
-    radar: initialRadar,
+    radar: undefined,
 }

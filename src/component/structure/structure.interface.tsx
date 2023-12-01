@@ -14,5 +14,5 @@ export interface Structure {
     refletorRadar: boolean,
     visivelmenteConspicuo: boolean,
     format: string,
-    radar: Radar,
+    radar?: Radar,
 }
