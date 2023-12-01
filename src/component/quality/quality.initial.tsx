@@ -1,6 +1,6 @@
-import { Privilege } from "./quality.interface";
+import { Quality } from "./quality.interface";
 
-export const initialPrivilege : Privilege = {
+export const initialQuality : Quality = {
     id: '',
     io: '',
     ie: '',

@@ -1,8 +1,8 @@
-import { initialManufacturer } from "../manufacturer/manufacturer.initial";
-import { Equipment } from "./instalation.interface";
+import { initialMaintainer } from "../maintainer/maintainer.initial";
+import { Instalation } from "./instalation.interface";
 
-export const initialEquipment : Equipment = {
+export const initialInstalation : Instalation = {
     id: '',
     name: '',
-    manufacturer: initialManufacturer,
+    maintainer: initialMaintainer,
 }

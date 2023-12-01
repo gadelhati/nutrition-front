@@ -1,7 +1,7 @@
-import { Manufacturer } from "../manufacturer/manufacturer.interface";
+import { Maintainer } from "../maintainer/maintainer.interface";
 
-export interface Equipment {
+export interface Instalation {
     readonly id: string,
     name: string,
-    manufacturer?: Manufacturer,
+    maintainer?: Maintainer,
 }

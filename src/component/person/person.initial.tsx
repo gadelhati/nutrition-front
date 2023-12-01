@@ -1,6 +1,6 @@
-import { Manufacturer } from "./person.interface";
+import { Person } from "./person.interface";
 
-export const initialManufacturer : Manufacturer = {
+export const initialPerson : Person = {
     id: '',
     name: '',
     birthdate: new Date(),

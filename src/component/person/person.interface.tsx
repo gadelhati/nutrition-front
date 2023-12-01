@@ -1,4 +1,4 @@
-export interface Manufacturer {
+export interface Person {
     readonly id: string,
     name: string,
     birthdate: Date,

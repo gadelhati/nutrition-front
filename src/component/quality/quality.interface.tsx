@@ -1,4 +1,4 @@
-export interface Privilege {
+export interface Quality {
     readonly id: string,
     io: string,
     ie: string,

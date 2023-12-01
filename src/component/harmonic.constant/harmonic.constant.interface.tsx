@@ -1,4 +1,4 @@
-export interface Blind {
+export interface HarmonicConstant {
     readonly id: string,
     starts: string,
     ending: string,

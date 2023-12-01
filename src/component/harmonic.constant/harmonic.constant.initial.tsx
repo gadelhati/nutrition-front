@@ -1,6 +1,6 @@
-import { Blind } from "./harmonic.constant.interface"
+import { HarmonicConstant } from "./harmonic.constant.interface"
 
-export const initialBlind : Blind = {
+export const initialHarmonicConstant : HarmonicConstant = {
     id: '',
     starts: '',
     ending: '',
