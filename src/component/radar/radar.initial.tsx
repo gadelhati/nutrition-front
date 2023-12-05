@@ -4,5 +4,5 @@ import { Radar } from "./radar.interface";
 export const initialRadar : Radar = {
     id: '',
     morse: '',
-    structure: initialStructure,
+    structure: undefined,
 }

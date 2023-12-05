@@ -4,5 +4,5 @@ import { Instalation } from "./instalation.interface";
 export const initialInstalation : Instalation = {
     id: '',
     name: '',
-    maintainer: initialMaintainer,
+    maintainer: undefined,
 }

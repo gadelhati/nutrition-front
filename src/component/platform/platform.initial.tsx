@@ -9,6 +9,6 @@ export const initialPlatform : Platform = {
     internationalCallsign: '',
     name: '',
     internationalName: '',
-    country: initialCountry,
-    platformCategory: initialPlatformCategory,
+    country: undefined,
+    platformCategory: undefined,
 }

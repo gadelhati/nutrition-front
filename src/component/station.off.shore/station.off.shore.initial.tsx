@@ -16,11 +16,11 @@ export const initialStationOffShore: StationOffShore = {
     wmoSquare: 0,
     marsdenSubSquare_5: 0,
     
-    stationCategory: initialStationCategory,
-    equipment: initialEquipment,
-    surveying: initialSurveying,
-    institution: initialInstitution,
-    country: initialCountry,
+    stationCategory: undefined,
+    equipment: undefined,
+    surveying: undefined,
+    institution: undefined,
+    country: undefined,
 
     telegraphicCallsign: '',
     commission: undefined,

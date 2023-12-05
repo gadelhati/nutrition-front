@@ -16,9 +16,9 @@ export const initialStation: Station = {
     wmoSquare: 0,
     marsdenSubSquare_5: 0,
     
-    stationCategory: initialStationCategory,
+    stationCategory: undefined,
     equipment: [initialEquipment],
-    surveying: initialSurveying,
-    institution: initialInstitution,
-    country: initialCountry,
+    surveying: undefined,
+    institution: undefined,
+    country: undefined,
 }

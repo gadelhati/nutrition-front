@@ -5,5 +5,5 @@ export const initialAddress : Address = {
     id: '',
     street: '',
     number: '',
-    country: initialCountry,
+    country: undefined,
 }
