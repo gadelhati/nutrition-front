@@ -17,7 +17,7 @@ export const initialStation: Station = {
     marsdenSubSquare_5: 0,
     
     stationCategory: undefined,
-    equipment: [initialEquipment],
+    equipment: undefined,
     surveying: undefined,
     institution: undefined,
     country: undefined,
