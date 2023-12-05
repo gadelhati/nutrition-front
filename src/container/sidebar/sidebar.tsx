@@ -30,8 +30,8 @@ export const SideContainer = () => {
         <SideTitle sidehide={show} key={0} href={`#/`} >
           <p>Home</p><img src={logo} />
         </SideTitle>
-        {list.map((element, index) => {
-          return element === true && <SideItem key={vector[index][1]} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></SideItem>
+        {vector.map((element, index) => {
+          return <SideItem key={vector[index][1]} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></SideItem>
         })}
         <SidebarCollapsible collapsible={collapsible}>
             <SideItem key={0} onClick={showCollapsible}>

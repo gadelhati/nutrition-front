@@ -22,8 +22,8 @@ export const Home = () => {
                 <a href={`#/${'profile'}`}><Button category={'secondary'}>{getPayload().sub}</Button></a>
             </Header>
             <CardContainer>
-                {list.map((element, index) => {
-                    return element === true && <Card key={vector[index][1]}><a key={vector[index][1]} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></a></Card>
+                {vector.map((element, index) => {
+                    return <Card key={vector[index][1]}><a key={vector[index][1]} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></a></Card>
                 })}
             </CardContainer>
         </>
