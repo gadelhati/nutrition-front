@@ -29,6 +29,12 @@ export const Modal = styled('div', {
         animationName: `${animatetop}`,
         animationDuration: '0.4s',
         borderRadius: '.5rem .5rem .3rem .3rem',
+        '.tab': {
+            display: 'flex',
+        },
+        '.hide': {
+            display: 'none',
+        },
     },
     'span': {
         color: '$eleventh',
@@ -71,7 +77,15 @@ export const Modal = styled('div', {
                 'article': {
                     minHeight: '10rem',
                 }
-            }
-        }
+            },
+        },
+        weather: {
+            true:{
+                'article': {
+                    height: '35rem',
+                    width: '95%',
+                }
+            },
+        },
     },
 })

@@ -56,6 +56,7 @@ import { initialQuality } from "./component/quality/quality.initial";
 import { initialRadar } from "./component/radar/radar.initial";
 import { initialStructure } from "./component/structure/structure.initial";
 import { initialPrivilege } from "./component/privilege/privilege.initial";
+import { WeatherForm } from "./container/form/weather.form";
 
 export const ROLES = {
     'USER': "ROLE_USER",
@@ -114,7 +115,7 @@ export default function AppRoutes() {
                                 <Route path="/stationOnShore" element={<GenericForm key='stationOnShore' object={initialStationOnShore} url={'stationOnShore'} />}></Route>
                                 <Route path="/structure" element={<GenericForm key='structure' object={initialStructure} url={'structure'} />}></Route>
                                 <Route path="/surveying" element={<GenericForm key='surveying' object={initialSurveying} url={'surveying'} />}></Route>
-                                <Route path="/weather" element={<GenericForm key='weather' object={initialWeather} url={'weather'} />}></Route>
+                                <Route path="/weather" element={<WeatherForm key='weather' object={initialWeather} url={'weather'} />}></Route>
                                 <Route path="/weather/historic" element={<GenericForm key='weatherHistoric' object={initialWeather} url={'weatherHistoric'} />}></Route>
                                 <Route path="/weatherOffShore/historic" element={<GenericForm key='weatherHistoricOffShore' object={initialWeatherHistoricOffShore} url={'weatherHistoricOffShore'} />}></Route>
                                 <Route path="/weatherOnShore/historic" element={<GenericForm key='weatherHistoricOnShore' object={initialWeatherHistoricOnShore} url={'weatherHistoricOnShore'} />}></Route>
