@@ -16,10 +16,10 @@ export const SideContainer = () => {
   const changeShow = () => { setShow(!show) }
 
   const collapse: string[][] = [
-    ["weather_historic", "bootstrap", "weather/historic"],
-    ["weather_historic_off_hore", "table", "weatherOffShore/historic"],
-    ["weather_historic_on_hore", "geo-fill", "weatherOnShore/historic"],
-    ["station_historic", "cpu-fill", "station/historic"]]
+    ["weather/historic", "bootstrap", "sixth"],
+    ["weatherOffShore/historic", "table", "sixth"],
+    ["weatherOnShore/historic", "geo-fill", "sixth"],
+    ["station/historic", "cpu-fill", "sixth"]]
 
   // useEffect(()=> {
   //   startTransition(() => setList(accessList()))
