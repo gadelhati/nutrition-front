@@ -45,7 +45,7 @@ export const Table = styled('table', {
         paddingLeft: '1em',
         textAlign: 'left',
         height: '3em',
-        width: '10%',
+        width: '17%',
     },
     'tr:nth-child(even)': {
         backgroundColor: '$tenth',

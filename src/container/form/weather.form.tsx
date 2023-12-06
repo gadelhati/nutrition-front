@@ -1003,7 +1003,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                     <Table>
                         <thead>
                             <tr>
-                                <th colSpan={6}>
+                                <th colSpan={9}>
                                     <div className='header'>
                                         <div>
                                             <span>show</span>
@@ -1023,9 +1023,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                             <tr>
                                 {Object.entries(state).map(([key]: any, index) => {
                                     if (key !== 'id' && key !== 'password' && index < 7 && key !== 'role') {
-                                        if (!object.url.includes('weather') || index < 6) {
-                                            return (<th onClick={() => searchKey(key)}>{key}</th>)
-                                        }
+                                        return (<th onClick={() => searchKey(key)}>{key}</th>)
                                     }
                                 })}
                             </tr>
