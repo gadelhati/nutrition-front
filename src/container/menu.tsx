@@ -1,6 +1,6 @@
 export const vector: string[][] = [
-    ["userEntity", "people-circle", "first"],
-    ["role", "calendar3", "second"],
+    // ["userEntity", "people-circle", "first"],
+    // ["role", "calendar3", "second"],
     // ["food", "toggles2", "third"],
     // ["food_category", "table", "fourth"],
     // ["military", "chat-quote-fill", "fifth"],
@@ -23,10 +23,10 @@ export const vector: string[][] = [
     // ["platform_category", "chat-quote-fill", "sixth"],
     // ["researcher", "collection", "sixth"],
     ["station", "cpu-fill", "sixth"],
-    ["stationCategory", "gear-fill", "sixth"],
+    // ["stationCategory", "gear-fill", "sixth"],
     // ["station_historic", "cpu-fill", "sixth"],
-    ["stationOffShore", "speedometer", "sixth"],
-    ["stationOnShore", "toggles2", "sixth"],
+    // ["stationOffShore", "speedometer", "sixth"],
+    // ["stationOnShore", "toggles2", "sixth"],
     // ["surveying", "collection", "sixth"],
     // ["user", "grid", "sixth"],
     // ["tooltip role", "chevron-right", "sixth"]
