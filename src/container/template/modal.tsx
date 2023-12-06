@@ -29,8 +29,33 @@ export const Modal = styled('div', {
         animationName: `${animatetop}`,
         animationDuration: '0.4s',
         borderRadius: '.5rem .5rem .3rem .3rem',
+        '.show': {
+            backgroundColor: '#354F52',
+            border: 'none',
+            padding: '2vh',
+            fontSize: '1rem',
+            color: 'white',
+            fontFamily: 'roboto',
+            boxSizing: 'border-box',
+            boxShadow: '2px 1px 1px 0px rgb(100, 100, 100)',
+            zIndex: '1',
+            width: '20vh',
+        },
+        '.inative': {
+            border: 'none',
+            width: '20vh',
+            fillOpacity: '50%',
+        },
         '.tab': {
             display: 'flex',
+            paddingTop: '0.1vh',
+        },
+        '.tabs': {
+            padding: '1rem',
+            display: 'flex',
+            'button': {
+                borderRadius: '1rem 1rem 0rem 0rem',
+            },
         },
         '.hide': {
             display: 'none',
