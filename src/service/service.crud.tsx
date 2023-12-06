@@ -54,10 +54,16 @@ export const createAll = async<T,>(url: string, object: T[]) => {
         .catch(error => { return addError(error) })
 }
 
-export const retrieve = async<T,>(url: string, page: number, size: number, key: string, value: string) => {
+export const retrieve = async<T,>(url: string, page?: number, size?: number, key?: string, value?: string) => {
+    if(key === undefined){
+        return await api.get<T>(`/${url}`)
+        .then(response => { return response.data })
+        .catch(error => { return addError(error) })
+    } else {
         return await api.get<T>(`/${url}?key=${key}&value=${value}`, { params: { page: page, size: size } } )
         .then(response => { return response.data })
         .catch(error => { return addError(error) })
+    }
 }
 
 export const update = async<T,>(url: string, object: T) => {
