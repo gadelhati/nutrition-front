@@ -18,9 +18,11 @@ export const MilitariesList = () => {
         let d: Date = day
         while(range>0){
             if(entrance < militaries.length) {
-                if(militaries[entrance]?.vacation[0]?.begin !== undefined && militaries[entrance]?.vacation[0]?.finish !== undefined &&
-                    new Date(d.setDate(d.getDate() + 1)).getTime() >= new Date(militaries[entrance]?.vacation[0]?.begin).getTime() &&
-                    new Date(d.setDate(d.getDate() + 1)).getTime() <= new Date(militaries[entrance]?.vacation[0]?.finish).getTime()){
+                if(militaries[entrance]?.vacation[0]?.begin !== undefined && militaries[entrance]?.vacation[0]?.finish !== undefined
+                    // &&
+                    // new Date(d.setDate(d.getDate() + 1)).getTime() >= new Date(militaries[entrance]?.vacation[0]?.begin).getTime() &&
+                    // new Date(d.setDate(d.getDate() + 1)).getTime() <= new Date(militaries[entrance]?.vacation[0]?.finish).getTime()
+                    ){
                     entrance++
                 } else {
                     services.push(militaries[entrance])
