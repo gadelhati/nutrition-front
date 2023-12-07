@@ -22,7 +22,7 @@ export const Profile = () => {
         retrieveItem()
     }, [])
     const retrieveItem = async () => {
-        await retrieve('user_entity', 0, 20, 'username', getPayload().sub).then((data: any) => {
+        await retrieve('userEntity', 0, 20, 'username', getPayload().sub).then((data: any) => {
             startTransition(() => setState(data?.content[0]))
         }).catch(() => { networkError() })
         setState({ ...state, password: '' })
