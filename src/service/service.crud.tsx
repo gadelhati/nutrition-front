@@ -34,7 +34,7 @@ export const logout = () => {
 }
 
 export const changePassword = async<User,>(data: User) => {
-    return await api.put<User>(`/user_entity/changePassword`, data)
+    return await api.put<User>(`/userEntity/changePassword`, data)
         .then(response => {
             return response.data
         })
@@ -78,13 +78,13 @@ export const remove = async<T,>(url: string, id: string) => {
         .catch(error => { return addError(error) })
 }
 
-export const removeComposite = async<T,>(url: string, one: string, two: string, three: string, four: string) => {
+export const removeComposite = async<T,>(url: string, object: Object, one: string, two: string, three: string, four: string) => {
     if(three !== '' && four !== ''){
-        return await api.delete<T>(`/${url}/${one}/${three}/${four}`)
+        return await api.delete<T>(`/${url}`, object)
             .then(response => { return response.data })
             .catch(error => { return addError(error) })
     } else {
-        return await api.delete<T>(`/${url}/${one}/${two}`)
+        return await api.delete<T>(`/${url}/${one}/${two}`, object)
             .then(response => { return response.data })
             .catch(error => { return addError(error) })
     }

@@ -128,11 +128,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                 validItem(data)
             }).catch(() => { networkError() })
         } else if (composite.hasOwnProperty('dateObservation') || composite.hasOwnProperty('ii') && composite.hasOwnProperty('iii')) {
-            await removeComposite(object.url, state?.dateObservation, state?.ddddddd, state?.ii, state?.iii).then((data) => {
+            await removeComposite(object.url, state, state?.dateObservation, state?.ddddddd, state?.ii, state?.iii).then((data) => {
                 validItem(data)
             }).catch(() => { networkError() })
         } else if (composite.hasOwnProperty('name') && composite.hasOwnProperty('number')) {
-            await removeComposite(object.url, state?.name, state?.number, '', '').then((data) => {
+            await removeComposite(object.url, state, state?.name, state?.number, '', '').then((data) => {
                 validItem(data)
             }).catch(() => { networkError() })
         }
