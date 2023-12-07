@@ -5,7 +5,7 @@ const token = getAccessToken();
 
 export const api = axios.create({
   // baseURL: "http://localhost:3119/nutrition-back",
-  baseURL: "http://localhost:3120/weather-back",
+  baseURL: "http://localhost:3120/weather",
   // baseURL: "https://10.5.193.20/weather",
   // headers: { 'content-type': 'application/json' }
 });
