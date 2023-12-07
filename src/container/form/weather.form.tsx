@@ -133,11 +133,11 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                 validItem(data)
             }).catch(() => { networkError() })
         } else if (composite.hasOwnProperty('dateObservation') || composite.hasOwnProperty('ii') && composite.hasOwnProperty('iii')) {
-            await removeComposite(object.url, state?.dateObservation, state?.ddddddd, state?.ii, state?.iii).then((data) => {
+            await removeComposite(object.url, state, state?.dateObservation, state?.ddddddd, state?.ii, state?.iii).then((data) => {
                 validItem(data)
             }).catch(() => { networkError() })
         } else if (composite.hasOwnProperty('name') && composite.hasOwnProperty('number')) {
-            await removeComposite(object.url, state?.name, state?.number, '', '').then((data) => {
+            await removeComposite(object.url, state, state?.name, state?.number, '', '').then((data) => {
                 validItem(data)
             }).catch(() => { networkError() })
         }
@@ -211,7 +211,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
     const showObject = (values: any): any => {
         return (
             Object.entries(values).map(([key, value]: any, index) => {
-                if (key !== 'id' && key !== 'password' && index < 7 && key !== 'role') {
+                if (key !== 'id' && key !== 'password' && index <= 7 && key !== 'role') {
                     return (<td>
                         {Array.isArray(value) ?
                             <>
