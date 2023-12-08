@@ -340,7 +340,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                     <Table>
                         <thead>
                             <tr>
-                                <th colSpan={6}>
+                                <th colSpan={9}>
                                     <div className='header'>
                                         <div>
                                             <span>show</span>
