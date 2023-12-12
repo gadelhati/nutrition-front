@@ -4,7 +4,7 @@ export const initialWeather: Weather = {
     //SECTION 0
     mimi: '',
     mjmj: 'XX',
-    estacao: '',
+    // estacao: '',
     ddddddd: '',
     a1: '',
     bw: '',

@@ -5,7 +5,7 @@ export interface Weather {
     //SECTION 0
     mimi?: string,
     mjmj?: string,
-    estacao?: string,
+    // estacao?: string,
     ddddddd: string,
     a1?: string,
     bw?: string,
