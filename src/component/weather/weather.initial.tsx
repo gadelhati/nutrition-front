@@ -2,8 +2,8 @@ import { Weather } from "./weather.interface";
 
 export const initialWeather: Weather = {
     //SECTION 0
-    mimi: '',
-    mjmj: 'XX',
+    miMi: 'AA',
+    mjMj: 'XX',
     // estacao: '',
     ddddddd: '',
     a1: '',

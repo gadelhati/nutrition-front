@@ -3,8 +3,8 @@ import { Observer } from "../observer/observer.interface";
 
 export interface Weather {
     //SECTION 0
-    mimi?: string,
-    mjmj?: string,
+    miMi?: string,
+    mjMj?: string,
     // estacao?: string,
     ddddddd: string,
     a1?: string,
