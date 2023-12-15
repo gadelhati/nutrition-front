@@ -344,7 +344,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('ddddddd').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false} 
+                                                            <input disabled={state.miMi === 'AA'? true : false} 
                                                             type="text" name={"ddddddd"} value={state.ddddddd} onChange={handleInputChange}/>
                                                             
                                                             <label htmlFor={"ddddddd"}>{"ddddddd"}</label>
@@ -354,7 +354,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('ii').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'AA'? true : false}
+                                                            <input disabled={state.miMi === 'BB'? true : false}
                                                              type="text" name={"ii"} value={state.ii} onChange={handleInputChange}/>
                                                             <label htmlFor={"ii"}>{"ii"}</label>
                                                             <label htmlFor={"ii"}>{validation("ii")}</label>
@@ -363,7 +363,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('iii').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'AA'? true : false}type="text" name={"iii"} value={state.iii} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"iii"} value={state.iii} onChange={handleInputChange}/>
                                                             <label htmlFor={"iii"}>{"iii"}</label>
                                                             <label htmlFor={"iii"}>{validation("iii")}</label>
                                                             </span>
@@ -403,7 +403,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('laLaLa').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"laLaLa"} value={state.laLaLa} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"laLaLa"} value={state.laLaLa} onChange={handleInputChange}/>
                                                             <label htmlFor={"laLaLa"}>{"laLaLa"}</label>
                                                             <label htmlFor={"laLaLa"}>{validation("laLaLa")}</label>
                                                             </span>
@@ -411,7 +411,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('qc').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"qc"} value={state.qc} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"qc"} value={state.qc} onChange={handleInputChange}/>
                                                             <label htmlFor={"qc"}>{"qc"}</label>
                                                             <label htmlFor={"qc"}>{validation("qc")}</label>
                                                             </span>
@@ -419,7 +419,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('loLoLoLo').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"loLoLoLo"} value={state.loLoLoLo} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"loLoLoLo"} value={state.loLoLoLo} onChange={handleInputChange}/>
                                                             <label htmlFor={"loLoLoLo"}>{"loLoLoLo"}</label>
                                                             <label htmlFor={"loLoLoLo"}>{validation("loLoLoLo")}</label>
                                                             </span>
@@ -429,7 +429,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                         <div className={tab === 1 ? 'tab' : 'hide'}>
                                                         <ContainerInput2 error={validation('ir').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"ir"} value={state.ir} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"ir"} value={state.ir} onChange={handleInputChange}/>
                                                             <label htmlFor={"ir"}>{"ir"}</label>
                                                             <label htmlFor={"ir"}>{validation("ir")}</label>
                                                             </span>
@@ -437,7 +437,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('ix').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"ix"} value={state.ix} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"ix"} value={state.ix} onChange={handleInputChange}/>
                                                             <label htmlFor={"ix"}>{"ix"}</label>
                                                             <label htmlFor={"ix"}>{validation("ix")}</label>
                                                             </span>
@@ -445,7 +445,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('h').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"h"} value={state.h} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"h"} value={state.h} onChange={handleInputChange}/>
                                                             <label htmlFor={"h"}>{"h"}</label>
                                                             <label htmlFor={"h"}>{validation("h")}</label>
                                                             </span>
@@ -453,7 +453,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('vv').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"vv"} value={state.vv} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"vv"} value={state.vv} onChange={handleInputChange}/>
                                                             <label htmlFor={"vv"}>{"vv"}</label>
                                                             <label htmlFor={"vv"}>{validation("vv")}</label>
                                                             </span>
@@ -461,7 +461,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('n').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"n"} value={state.n} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"n"} value={state.n} onChange={handleInputChange}/>
                                                             <label htmlFor={"n"}>{"n"}</label>
                                                             <label htmlFor={"n"}>{validation("n")}</label>
                                                             </span>
@@ -469,7 +469,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('dd').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"dd"} value={state.dd} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"dd"} value={state.dd} onChange={handleInputChange}/>
                                                             <label htmlFor={"dd"}>{"dd"}</label>
                                                             <label htmlFor={"dd"}>{validation("dd")}</label>
                                                             </span>
@@ -477,7 +477,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('ff').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"ff"} value={state.ff} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"ff"} value={state.ff} onChange={handleInputChange}/>
                                                             <label htmlFor={"ff"}>{"ff"}</label>
                                                             <label htmlFor={"ff"}>{validation("ff")}</label>
                                                             </span>
@@ -485,7 +485,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('fff').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"fff"} value={state.fff} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"fff"} value={state.fff} onChange={handleInputChange}/>
                                                             <label htmlFor={"fff"}>{"fff"}</label>
                                                             <label htmlFor={"fff"}>{validation("fff")}</label>
                                                             </span>
@@ -523,13 +523,13 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                             </span>
                                                         </ContainerInput2>
 
-                                                        {/* <ContainerInput2 error={validation('poPoPoPo').length !== 0 ? true : false} historic={true}>
+                                                        <ContainerInput2 error={validation('poPoPoPo').length !== 0 ? true : false} historic={true}>
                                                             <span>
                                                             <input type="text" name={"poPoPoPo"} value={state.poPoPoPo} onChange={handleInputChange}/>
                                                             <label htmlFor={"poPoPoPo"}>{"poPoPoPo"}</label>
                                                             <label htmlFor={"poPoPoPo"}>{validation("poPoPoPo")}</label>
                                                             </span>
-                                                        </ContainerInput2> */}
+                                                        </ContainerInput2>
 
                                                         <ContainerInput2 error={validation('pppp').length !== 0 ? true : false} historic={true}>
                                                             <span>
@@ -549,7 +549,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         {/* <ContainerInput2 error={validation('hhh').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"hhh"} value={state.hhh} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"hhh"} value={state.hhh} onChange={handleInputChange}/>
                                                             <label htmlFor={"hhh"}>{"hhh"}</label>
                                                             <label htmlFor={"hhh"}>{validation("hhh")}</label>
                                                             </span>
@@ -571,13 +571,13 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                             </span>
                                                         </ContainerInput2>
 
-                                                        {/* <ContainerInput2 error={validation('rrr').length !== 0 ? true : false} historic={true}>
+                                                        <ContainerInput2 error={validation('rrr').length !== 0 ? true : false} historic={true}>
                                                             <span>
                                                             <input type="text" name={"rrr"} value={state.rrr} onChange={handleInputChange}/>
                                                             <label htmlFor={"rrr"}>{"rrr"}</label>
                                                             <label htmlFor={"rrr"}>{validation("rrr")}</label>
                                                             </span>
-                                                        </ContainerInput2> */}
+                                                        </ContainerInput2>
 
                                                         {/* <ContainerInput2 error={validation('tr').length !== 0 ? true : false} historic={true}>
                                                             <span>
@@ -603,7 +603,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                             </span>
                                                         </ContainerInput2>
 
-                                                        <ContainerInput2 error={validation('waWa').length !== 0 ? true : false} historic={true}>
+                                                        {/* <ContainerInput2 error={validation('waWa').length !== 0 ? true : false} historic={true}>
                                                             <span>
                                                             <input type="text" name={"waWa"} value={state.waWa} onChange={handleInputChange}/>
                                                             <label htmlFor={"waWa"}>{"waWa"}</label>
@@ -625,7 +625,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                             <label htmlFor={"wa2"}>{"wa2"}</label>
                                                             <label htmlFor={"wa2"}>{validation("wa2")}</label>
                                                             </span>
-                                                        </ContainerInput2>
+                                                        </ContainerInput2> */}
 
                                                         <ContainerInput2 error={validation('nh').length !== 0 ? true : false} historic={true}>
                                                             <span>
@@ -661,7 +661,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         {/* <ContainerInput2 error={validation('gggg').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"gggg"} value={state.gggg} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"gggg"} value={state.gggg} onChange={handleInputChange}/>
                                                             <label htmlFor={"gggg"}>{"gggg"}</label>
                                                             <label htmlFor={"gggg"}>{validation("gggg")}</label>
                                                             </span>
@@ -671,7 +671,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                         <div className={tab === 2 ? 'tab' : 'hide'}>
                                                         <ContainerInput2 error={validation('ds').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"ds"} value={state.ds} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"ds"} value={state.ds} onChange={handleInputChange}/>
                                                             <label htmlFor={"ds"}>{"ds"}</label>
                                                             <label htmlFor={"ds"}>{validation("ds")}</label>
                                                             </span>
@@ -679,7 +679,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('vs').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"vs"} value={state.vs} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"vs"} value={state.vs} onChange={handleInputChange}/>
                                                             <label htmlFor={"vs"}>{"vs"}</label>
                                                             <label htmlFor={"vs"}>{validation("vs")}</label>
                                                             </span>
@@ -807,7 +807,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('is_ice').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"is_ice"} value={state.is_ice} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"is_ice"} value={state.is_ice} onChange={handleInputChange}/>
                                                             <label htmlFor={"is_ice"}>{"is_ice"}</label>
                                                             <label htmlFor={"is_ice"}>{validation("is_ice")}</label>
                                                             </span>
@@ -815,7 +815,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('ci').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"ci"} value={state.ci} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"ci"} value={state.ci} onChange={handleInputChange}/>
                                                             <label htmlFor={"ci"}>{"ci"}</label>
                                                             <label htmlFor={"ci"}>{validation("ci")}</label>
                                                             </span>
@@ -823,7 +823,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('si').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"si"} value={state.si} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"si"} value={state.si} onChange={handleInputChange}/>
                                                             <label htmlFor={"si"}>{"si"}</label>
                                                             <label htmlFor={"si"}>{validation("si")}</label>
                                                             </span>
@@ -831,7 +831,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('bi').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"bi"} value={state.bi} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"bi"} value={state.bi} onChange={handleInputChange}/>
                                                             <label htmlFor={"bi"}>{"bi"}</label>
                                                             <label htmlFor={"bi"}>{validation("bi")}</label>
                                                             </span>
@@ -839,7 +839,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('di').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"di"} value={state.di} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"di"} value={state.di} onChange={handleInputChange}/>
                                                             <label htmlFor={"di"}>{"di"}</label>
                                                             <label htmlFor={"di"}>{validation("di")}</label>
                                                             </span>
@@ -847,7 +847,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('zi').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false}type="text" name={"zi"} value={state.zi} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"zi"} value={state.zi} onChange={handleInputChange}/>
                                                             <label htmlFor={"zi"}>{"zi"}</label>
                                                             <label htmlFor={"zi"}>{validation("zi")}</label>
                                                             </span>
@@ -923,7 +923,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                         <div className={tab === 4 ? 'tab' : 'hide'}>
                                                         <ContainerInput2 error={validation('iChw').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false} type="text" name={"iChw"} value={state.iChw} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"iChw"} value={state.iChw} onChange={handleInputChange}/>
                                                             <label htmlFor={"iChw"}>{"iChw"}</label>
                                                             <label htmlFor={"iChw"}>{validation("iChw")}</label>
                                                             </span>
@@ -931,7 +931,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('iCm').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false} type="text" name={"iCm"} value={state.iCm} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"iCm"} value={state.iCm} onChange={handleInputChange}/>
                                                             <label htmlFor={"iCm"}>{"iCm"}</label>
                                                             <label htmlFor={"iCm"}>{validation("iCm")}</label>
                                                             </span>
@@ -939,7 +939,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('cs').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false} type="text" name={"cs"} value={state.cs} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"cs"} value={state.cs} onChange={handleInputChange}/>
                                                             <label htmlFor={"cs"}>{"cs"}</label>
                                                             <label htmlFor={"cs"}>{validation("cs")}</label>
                                                             </span>
@@ -947,7 +947,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('iCf').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false} type="text" name={"iCf"} value={state.iCf} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"iCf"} value={state.iCf} onChange={handleInputChange}/>
                                                             <label htmlFor={"iCf"}>{"iCf"}</label>
                                                             <label htmlFor={"iCf"}>{validation("iCf")}</label>
                                                             </span>
@@ -955,7 +955,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('iCp').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false} type="text" name={"iCp"} value={state.iCp} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"iCp"} value={state.iCp} onChange={handleInputChange}/>
                                                             <label htmlFor={"iCp"}>{"iCp"}</label>
                                                             <label htmlFor={"iCp"}>{validation("iCp")}</label>
                                                             </span>
@@ -963,7 +963,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
 
                                                         <ContainerInput2 error={validation('iCq').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                            <input disabled={state.miMi === 'BB'? true : false} type="text" name={"iCq"} value={state.iCq} onChange={handleInputChange}/>
+                                                            <input disabled={state.miMi === 'AA'? true : false} type="text" name={"iCq"} value={state.iCq} onChange={handleInputChange}/>
                                                             <label htmlFor={"iCq"}>{"iCq"}</label>
                                                             <label htmlFor={"iCq"}>{validation("iCq")}</label>
                                                             </span>
