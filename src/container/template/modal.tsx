@@ -117,7 +117,13 @@ export const Modal = styled('div', {
             true:{
                 'article': {
                     height: '35rem',
-                    width: '95%',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: "space-between",
+                    center: {
+                        height: '22rem',
+                    },
                 }
             },
         },
