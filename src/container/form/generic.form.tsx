@@ -369,7 +369,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         </thead>
                         <ErrorBoundary fallback={<div> Something went wrong </div>} >
                             <tbody>
-                                {states.map((element) => {
+                                {states && states.map((element) => {
                                     return (
                                         <tr onClick={() => selectItem(element)}>
                                             <>{showObject(element)}</>
