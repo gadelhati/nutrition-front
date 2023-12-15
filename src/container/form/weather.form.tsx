@@ -186,6 +186,9 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
         setModal(!modal)
         setError([initialErrorMessage])
     }
+    const handleNext = () => {
+        if(tab < 4 ){changeTab(tab + 1)}
+    }
     const handleConfirm = (action: string) => {
         setConfirm({...confirm, show:!confirm.show, action: action})
         handleModal()
@@ -296,7 +299,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                 <button className={tab === 1 ? 'show' : 'inative'} onClick={()=>changeTab(1)}>Seção 1</button>
                                 <button className={tab === 2 ? 'show' : 'inative'} onClick={()=>changeTab(2)}>Seção 2</button>
                                 <button className={tab === 3 ? 'show' : 'inative'} onClick={()=>changeTab(3)}>Seção 3</button>
-                                <button className={tab === 5 ? 'show' : 'inative'} onClick={()=>changeTab(5)}>Seção 5</button>
+                                <button className={tab === 4 ? 'show' : 'inative'} onClick={()=>changeTab(4)}>Seção 5</button>
                                 </div>
                                                 <Container align={'line'} style={{ flex: '1', overflow: 'auto'}}>
 
@@ -916,7 +919,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                         </ContainerInput2>
                                                         </div>
                                                         {/*begning of section 5*/}
-                                                        <div className={tab === 5 ? 'tab' : 'hide'}>
+                                                        <div className={tab === 4 ? 'tab' : 'hide'}>
                                                         <ContainerInput2 error={validation('iChw').length !== 0 ? true : false} historic={true}>
                                                             <span>
                                                             <input disabled={state.miMi === 'BB'? true : false} type="text" name={"iChw"} value={state.iChw} onChange={handleInputChange}/>
@@ -976,7 +979,8 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                 {({ loading }) => loading ? <Button disabled={true} category={'secondary'} >Wait</Button> : <Button category={'secondary'} >Download</Button>}
                                             </PDFDownloadLink>}
                                         <Button category={'primary'} onClick={resetItem} type='reset' >Reset</Button> */}
-                                        <Button category={'primary'} onClick={()=>handleConfirm('create')} hidden={compositeOrNot()}>Create</Button>
+                                        <Button category={'primary'} onClick={()=>handleNext()} hidden={tab === 4}>Next</Button>
+                                        <Button category={'primary'} onClick={()=>handleConfirm('create')} hidden={compositeOrNot() || tab !== 4}>Create</Button>
                                         <Button category={'warning'} onClick={()=>handleConfirm('update')} hidden={!compositeOrNot()}>Update</Button>
                                         <Button category={'danger'} onClick={()=>handleConfirm('delete')} hidden={!compositeOrNot()}>Delete</Button>
                                         <Button category={'secondary'} onClick={handleModal}>Close</Button>
