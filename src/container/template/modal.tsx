@@ -18,6 +18,12 @@ export const Modal = styled('div', {
     height: '100%',
     backgroundColor: 'rgba(0,0,0,0.4)',
     'article': {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: "space-between",
+        center: {
+            height: '22rem',
+        },
         minHeight: '28rem',
         maxHeight: '90vh',
         minWidth: '32rem',
@@ -114,16 +120,10 @@ export const Modal = styled('div', {
             },
         },
         weather: {
-            true:{
+            true: {
                 'article': {
                     height: '35rem',
                     width: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: "space-between",
-                    center: {
-                        height: '22rem',
-                    },
                 }
             },
         },

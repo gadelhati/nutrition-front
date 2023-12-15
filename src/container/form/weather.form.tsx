@@ -975,10 +975,10 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                             </center>
                             <footer>
                                 {/* {modal &&
-                                                <PDFDownloadLink document={<PDFDocument object={state} />} fileName="somename.pdf">
-                                                    {({ loading }) => loading ? <Button disabled={true} category={'secondary'} >Wait</Button> : <Button category={'secondary'} >Download</Button>}
-                                                </PDFDownloadLink>}
-                                            <Button category={'primary'} onClick={resetItem} type='reset' >Reset</Button> */}
+                                    <PDFDownloadLink document={<PDFDocument object={state} />} fileName="somename.pdf">
+                                        {({ loading }) => loading ? <Button disabled={true} category={'secondary'} >Wait</Button> : <Button category={'secondary'} >Download</Button>}
+                                    </PDFDownloadLink>}
+                                <Button category={'primary'} onClick={resetItem} type='reset' >Reset</Button> */}
                                 <Button category={'primary'} onClick={() => handleNext()} hidden={tab === 4}>Next</Button>
                                 <Button category={'primary'} onClick={() => handleConfirm('create')} hidden={compositeOrNot() || tab !== 4}>Create</Button>
                                 <Button category={'warning'} onClick={() => handleConfirm('update')} hidden={!compositeOrNot()}>Update</Button>

@@ -80,7 +80,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     }
     const validItem = (data: any) => {
         if (data?.hasOwnProperty('id') || data?.hasOwnProperty('ii') && data?.hasOwnProperty('iii') || data?.hasOwnProperty('ddddddd') || data?.hasOwnProperty('name') && data?.hasOwnProperty('number')) {
-            setConfirm({...confirm, show:!confirm.show})
+            setConfirm({ ...confirm, show: !confirm.show })
             retrieveItem()
             createToast(toastDetails[0])
         } else {
@@ -113,7 +113,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         setSubStates(subStates)
                     })
                 }).catch(() => { networkError() })
-                :{}
+                : {}
             )
         })
     }
@@ -257,7 +257,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     }
     const onConfirmModal = (evt: React.MouseEvent) => {
         if ((evt.target as HTMLElement).className.includes('modal-confirm')) {
-            setConfirm({...confirm, show: false});
+            setConfirm({ ...confirm, show: false });
         }
     }
     return (
@@ -269,10 +269,10 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         onConfirmModal(evt)
                     }}>
                         <article>
-                            <header><span onClick={()=>handleConfirm('')}>&times;</span><h2>{UriScreenFormat('Confirm')}</h2></header>
+                            <header><span onClick={() => handleConfirm('')}>&times;</span><h2>{UriScreenFormat('Confirm')}</h2></header>
                             <footer>
                                 <Button category={'danger'} onClick={handleConfirmYes} >{UriScreenFormat(confirm.action)}</Button>
-                                <Button category={'secondary'} onClick={()=>handleConfirm('')} type='reset' >Reset</Button>
+                                <Button category={'secondary'} onClick={() => handleConfirm('')} type='reset' >Reset</Button>
                             </footer>
                         </article>
                     </Modal>
@@ -283,6 +283,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                             <header><span onClick={handleModal}>&times;</span><h2>{UriScreenFormat(object.url)}</h2></header>
                             {atribute &&
                                 <>
+                                <center>
                                     <Container align={'inputs'}>
                                         {Object.entries(state).map(([key, value]: any, index) => {
                                             return (
@@ -312,18 +313,19 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                     <Container align={'response'}>
                                         <div>{validationDTO()}</div>
                                     </Container>
-                                    <footer>
-                                        {/* {modal &&
-                                            <PDFDownloadLink document={<PDFDocument object={state} />} fileName="somename.pdf">
-                                                {({ loading }) => loading ? <Button disabled={true} category={'secondary'} >Wait</Button> : <Button category={'secondary'} >Download</Button>}
-                                            </PDFDownloadLink>}
-                                        <Button category={'primary'} onClick={resetItem} type='reset' >Reset</Button> */}
-                                        <Button category={'primary'} onClick={()=>handleConfirm('create')} hidden={compositeOrNot()}>Create</Button>
-                                        <Button category={'warning'} onClick={()=>handleConfirm('update')} hidden={!compositeOrNot()}>Update</Button>
-                                        <Button category={'danger'} onClick={()=>handleConfirm('delete')} hidden={!compositeOrNot()}>Delete</Button>
-                                        <Button category={'secondary'} onClick={handleModal}>Close</Button>
-                                    </footer>
-                                </>
+                                </center>
+                                <footer>
+                                    {/* {modal &&
+                                        <PDFDownloadLink document={<PDFDocument object={state} />} fileName="somename.pdf">
+                                            {({ loading }) => loading ? <Button disabled={true} category={'secondary'} >Wait</Button> : <Button category={'secondary'} >Download</Button>}
+                                        </PDFDownloadLink>}
+                                    <Button category={'primary'} onClick={resetItem} type='reset' >Reset</Button> */}
+                                    <Button category={'primary'} onClick={()=>handleConfirm('create')} hidden={compositeOrNot()}>Create</Button>
+                                    <Button category={'warning'} onClick={()=>handleConfirm('update')} hidden={!compositeOrNot()}>Update</Button>
+                                    <Button category={'danger'} onClick={()=>handleConfirm('delete')} hidden={!compositeOrNot()}>Delete</Button>
+                                    <Button category={'secondary'} onClick={handleModal}>Close</Button>
+                                </footer>
+                            </>
                             }
                         </article>
                     </Modal>
