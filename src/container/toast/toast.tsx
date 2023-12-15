@@ -20,6 +20,7 @@ const progress = keyframes ({
 })
 
 export const Toast = styled('ul', {
+    zIndex: '1',
     position: 'fixed',
     top: '30px',
     right: '20px',
