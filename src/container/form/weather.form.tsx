@@ -161,7 +161,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
     // }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
-        setState({ ...state, [event.target.name]: value })
+        setState({ ...state, [event.target.name]: typeof value !== 'boolean' ? value.toUpperCase(): value })
     }
     const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
         setState({...state, [event.target.name]: event.target.value})   
