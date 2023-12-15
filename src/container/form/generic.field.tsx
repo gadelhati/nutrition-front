@@ -64,7 +64,7 @@ export const ContainerInput2 = styled('span', {
         background: '$tenth',
         border: '0',
         borderRadius: '.25rem',
-        outline: '0',
+        // outline: '0',
         textIndent: '50%',
         transition: 'all .3s ease-in-out',
         textOverflow: 'ellipsis ellipsis',
