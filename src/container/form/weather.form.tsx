@@ -321,18 +321,15 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                         </ContainerInput2>
                                                         <ContainerInput2 error={validation('miMi').length !== 0 ? true : false} historic={true}>
                                                             <span>
-                                                                        <>
-                                                                            <select name={"miMi"} required value={state.miMi} onChange={handleSelectChange}>
-                                                                             <option value={'AA'}>AA</option>
-                                                                             <option value={'BB'}>BB</option>   
-                                                                            </select>
-                                                                            <label htmlFor={"miMi"} >{"miMi"}</label>
-                                                                            <label htmlFor={"miMi"}>{validation("miMi")}</label>
-                                                                        </>
-                                                                        
+                                                                <select key={'miMi'} name={"miMi"} required onChange={handleSelectChange}
+                                                                    value={state.miMi} >
+                                                                    <option selected value={'AA'}>AA</option>
+                                                                    <option value={'BB'}>BB</option>   
+                                                                </select>
+                                                                <label htmlFor={"miMi"} >{"miMi"}</label>
+                                                                <label htmlFor={"miMi"}>{validation("miMi")}</label>
                                                             </span>
                                                         </ContainerInput2>
-
                                                         {/* <ContainerInput2 error={validation('mjMj').length !== 0 ? true : false} historic={true}>
                                                             <span>
                                                             <input type="text" name={"mjMj"} required value={state.mjMj} placeholder='XX' readOnly= {true} onChange={handleInputChange}/>
