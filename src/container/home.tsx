@@ -23,7 +23,7 @@ export const Home = () => {
             </Header>
             <CardContainer>
                 {vector.map((element, index) => {
-                    return <Card key={vector[index][1]}><a key={vector[index][1]} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></a></Card>
+                    return <Card key={Math.random()}><a key={Math.random()} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></a></Card>
                 })}
             </CardContainer>
         </>

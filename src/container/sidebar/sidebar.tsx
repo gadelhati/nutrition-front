@@ -31,7 +31,7 @@ export const SideContainer = () => {
           <p>Home</p><img src={logo} />
         </SideTitle>
         {vector.map((element, index) => {
-          return <SideItem key={vector[index][1]} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></SideItem>
+          return <SideItem key={Math.random()} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></SideItem>
         })}
         {/* <SidebarCollapsible collapsible={collapsible}>
             <SideItem key={0} onClick={showCollapsible}>

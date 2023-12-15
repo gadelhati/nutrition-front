@@ -211,7 +211,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
         return (
             Object.entries(values).map(([key, value]: any, index) => {
                 if (key !== 'id' && key !== 'password' && index <= 7 && key !== 'role') {
-                    return (<td>
+                    return (<td key={Math.random()}>
                         {Array.isArray(value) ?
                             <>
                                 {value.map((key) => {
@@ -1001,8 +1001,8 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                     {/* {ispending && <Load></Load>} */}
                     <Table>
                         <thead>
-                            <tr>
-                                <th colSpan={9}>
+                            <tr key={Math.random()}>
+                                <th key={Math.random()} colSpan={9}>
                                     <div className='header'>
                                         <div>
                                             <span>show</span>
@@ -1019,10 +1019,10 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                     </div>
                                 </th>
                             </tr>
-                            <tr>
+                            <tr key={Math.random()}>
                                 {Object.entries(state).map(([key]: any, index) => {
                                     if (key !== 'id' && key !== 'password' && index < 7 && key !== 'role') {
-                                        return (<th onClick={() => searchKey(key)}>{key}</th>)
+                                        return (<th key={Math.random()} onClick={() => searchKey(key)}>{key}</th>)
                                     }
                                 })}
                             </tr>
@@ -1031,14 +1031,14 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                             <tbody>
                                 {states && states.map((element) => {
                                     return (
-                                        <tr onClick={() => selectItem(element)}>
+                                        <tr key={Math.random()} onClick={() => selectItem(element)}>
                                             <>{showObject(element)}</>
                                         </tr>)
                                 })}
                             </tbody>
                         </ErrorBoundary>
                         <tfoot>
-                            <tr>
+                            <tr key={Math.random()}>
                                 <th>
                                     <GroupButton>
                                         <ButtonPage onClick={() => handlePage(0)}>{'<<'}</ButtonPage>

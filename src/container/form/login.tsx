@@ -93,7 +93,7 @@ export const Login = () => {
                         {ispending}
                         <span>
                             {Array.isArray(error) && error.map((erro: ErrorMessage, index: number) => {
-                                return <>{erro.message === "Unauthorized" && "Não Autorizado"}</>
+                                return <p key={Math.random()}>{erro.message === "Unauthorized" && "Não Autorizado"}</p>
                             })}
                         </span>
                     </CenterItem>
