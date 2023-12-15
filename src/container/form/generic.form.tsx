@@ -287,8 +287,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                         {Object.entries(state).map(([key, value]: any, index) => {
                                             return (
                                                 // <Input childToParent={handleInputChangeFather} key={Math.random()} type={atribute[index]?.type} name={key} value={value} readOnly={false} show={modal}></Input>
-                                                <div key={Math.random()} style={atribute[index]?.type === 'hidden' ? { display: 'none' } : { display: 'flex' }}>
-                                                    <ContainerInput2 key={Math.random()} error={validation(key).length !== 0 ? true : false}>
+                                                <div key={key} style={atribute[index]?.type === 'hidden' ? { display: 'none' } : { display: 'flex' }}>
+                                                    <ContainerInput2 key={key} error={validation(key).length !== 0 ? true : false}>
                                                         {Array.isArray(atribute[index]?.worth) || atribute[index]?.type === 'object' || atribute[index]?.type === 'undefined' ?
                                                             <select key={key} name={key} onChange={Array.isArray(value) ? handleInputChangeSubSelectArray : handleInputChangeSubSelect}
                                                                 // defaultValue={typeof value[0] === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value[0]) : value[0]}
