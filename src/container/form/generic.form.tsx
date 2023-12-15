@@ -293,7 +293,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                                             <select key={key} name={key} onChange={Array.isArray(value) ? handleInputChangeSubSelectArray : handleInputChangeSubSelect}
                                                                 // defaultValue={typeof value[0] === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value[0]) : value[0]}
                                                                 value={Array.isArray(value) ? value[0] : value}>
-                                                                <option selected key={Math.random()} value={value === undefined || value === null || value[0] === undefined ? null : Array.isArray(value) ? value[0] : value}>{value === undefined || value === null ? null : Array.isArray(value) ? (value[0].hasOwnProperty('name') ? value[0]?.name : value[0]?.id) : value.name !== undefined ? value?.name : value?.id}</option>
+                                                                <option selected value={value === undefined || value === null || value[0] === undefined ? null : Array.isArray(value) ? value[0] : value}>{value === undefined || value === null ? null : Array.isArray(value) ? (value[0].hasOwnProperty('name') ? value[0]?.name : value[0]?.id) : value.name !== undefined ? value?.name : value?.id}</option>
                                                                 {subStates[index]?.map(((result: any) => <option key={Math.random()} value={result.id}>{result?.name ? result.name : result.id}</option>))}
                                                             </select>
                                                             :
@@ -339,8 +339,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                     {/* {ispending && <Load></Load>} */}
                     <Table>
                         <thead>
-                            <tr key={Math.random()}>
-                                <th key={Math.random()} colSpan={9}>
+                            <tr>
+                                <th colSpan={9}>
                                     <div className='header'>
                                         <div>
                                             <span>show</span>
@@ -357,7 +357,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                     </div>
                                 </th>
                             </tr>
-                            <tr key={Math.random()}>
+                            <tr>
                                 {Object.entries(state).map(([key]: any, index) => {
                                     if (key !== 'id' && key !== 'password' && index < 7 && key !== 'role') {
                                         if (!object.url.includes('weather') || index < 6) {
@@ -378,7 +378,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                             </tbody>
                         </ErrorBoundary>
                         <tfoot>
-                            <tr key={Math.random()}>
+                            <tr>
                                 <th>
                                     <GroupButton>
                                         <ButtonPage onClick={() => handlePage(0)}>{'<<'}</ButtonPage>

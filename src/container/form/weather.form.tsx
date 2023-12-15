@@ -304,7 +304,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                         <ContainerInput2 error={validation('observer').length !== 0 ? true : false} historic={true}>
                                                             <select key={'observer'} name={'observer'} onChange={handleInputChangeSubSelect}
                                                                     value={state.observer}>
-                                                                    <option selected key={Math.random()} value={state.observer === undefined || state.observer === null || state.observer[0] === null ? null : state.observer}>{state.observer === undefined || state.observer === null ? null : state.observer.name !== undefined ? state.observer?.name : state.observer?.id}</option>
+                                                                    <option selected value={state.observer === undefined || state.observer === null || state.observer[0] === null ? null : state.observer}>{state.observer === undefined || state.observer === null ? null : state.observer.name !== undefined ? state.observer?.name : state.observer?.id}</option>
                                                                     {subStates[Object.keys(state).indexOf('observer')]?.map(((result: any) => <option key={Math.random()} value={result.id}>{result?.name ? result.name : result.id}</option>))}
                                                             </select>
                                                             <label className='label' htmlFor={'observer'} >observer</label>
@@ -313,7 +313,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                         <ContainerInput2 error={validation('station').length !== 0 ? true : false} historic={true}>
                                                             <select key={'station'} name={'station'} onChange={handleInputChangeSubSelect}
                                                                     value={state.station}>
-                                                                    <option selected key={Math.random()} value={state.station === undefined || state.station === null || state.station[0] === null ? null : state.station}>{state.station === undefined || state.station === null ? null : state.station.name !== undefined ? state.station?.name : state.station?.id}</option>
+                                                                    <option selected value={state.station === undefined || state.station === null || state.station[0] === null ? null : state.station}>{state.station === undefined || state.station === null ? null : state.station.name !== undefined ? state.station?.name : state.station?.id}</option>
                                                                     {subStates[Object.keys(state).indexOf('station')]?.map(((result: any) => <option key={Math.random()} value={result.id}>{result?.name ? result.name : result.id}</option>))}
                                                             </select>
                                                             <label className='label' htmlFor={'station'} >station</label>
@@ -1001,8 +1001,8 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                     {/* {ispending && <Load></Load>} */}
                     <Table>
                         <thead>
-                            <tr key={Math.random()}>
-                                <th key={Math.random()} colSpan={9}>
+                            <tr>
+                                <th colSpan={9}>
                                     <div className='header'>
                                         <div>
                                             <span>show</span>
@@ -1019,7 +1019,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                     </div>
                                 </th>
                             </tr>
-                            <tr key={Math.random()}>
+                            <tr>
                                 {Object.entries(state).map(([key]: any, index) => {
                                     if (key !== 'id' && key !== 'password' && index < 7 && key !== 'role') {
                                         return (<th key={Math.random()} onClick={() => searchKey(key)}>{key}</th>)
@@ -1038,7 +1038,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                             </tbody>
                         </ErrorBoundary>
                         <tfoot>
-                            <tr key={Math.random()}>
+                            <tr>
                                 <th>
                                     <GroupButton>
                                         <ButtonPage onClick={() => handlePage(0)}>{'<<'}</ButtonPage>
