@@ -48,7 +48,11 @@ export const ContainerInput2 = styled('span', {
             height: '1.4em',
         },
     },
+    'input': {
+        textIndent: '50%',
+    },
     'select': {
+        textIndent: '15%',
         minHeight: '1.8em',
     },
     'input:disabled': {
@@ -65,7 +69,6 @@ export const ContainerInput2 = styled('span', {
         border: '0',
         borderRadius: '.25rem',
         // outline: '0',
-        textIndent: '50%',
         transition: 'all .3s ease-in-out',
         textOverflow: 'ellipsis ellipsis',
         '+ label': {
