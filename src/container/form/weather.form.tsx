@@ -183,6 +183,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
         setSize(Number(event.target.value))
     }
     const handleModal = () => {
+        setTab(0)
         setModal(!modal)
         setError([initialErrorMessage])
     }
