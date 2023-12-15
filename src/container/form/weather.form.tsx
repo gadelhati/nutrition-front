@@ -494,7 +494,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                         <ContainerInput2 error={validation('sn1_1').length !== 0 ? true : false} historic={true}>
                                                             <span>
                                                             <input type="text" name={"sn1_1"} value={state.sn1_1} onChange={handleInputChange}/>
-                                                            <label htmlFor={"sn1_1"}>{"sn1_1"}</label>
+                                                            <label htmlFor={"sn1_1"}>{"sn"}</label>
                                                             <label htmlFor={"sn1_1"}>{validation("sn1_1")}</label>
                                                             </span>
                                                         </ContainerInput2>
@@ -510,7 +510,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                         <ContainerInput2 error={validation('sn2_1').length !== 0 ? true : false} historic={true}>
                                                             <span>
                                                             <input type="text" name={"sn2_1"} value={state.sn2_1} onChange={handleInputChange}/>
-                                                            <label htmlFor={"sn2_1"}>{"sn2_1"}</label>
+                                                            <label htmlFor={"sn2_1"}>{"sn"}</label>
                                                             <label htmlFor={"sn2_1"}>{validation("sn2_1")}</label>
                                                             </span>
                                                         </ContainerInput2>
@@ -874,7 +874,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                         <ContainerInput2 error={validation('sn1_3').length !== 0 ? true : false} historic={true}>
                                                             <span>
                                                             <input type="text" name={"sn1_3"} value={state.sn1_3} onChange={handleInputChange}/>
-                                                            <label htmlFor={"sn1_3"}>{"sn1_3"}</label>
+                                                            <label htmlFor={"sn1_3"}>{"sn"}</label>
                                                             <label htmlFor={"sn1_3"}>{validation("sn1_3")}</label>
                                                             </span>
                                                         </ContainerInput2>
@@ -890,7 +890,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                         <ContainerInput2 error={validation('sn2_3').length !== 0 ? true : false} historic={true}>
                                                             <span>
                                                             <input type="text" name={"sn2_3"} value={state.sn2_3} onChange={handleInputChange}/>
-                                                            <label htmlFor={"sn2_3"}>{"sn2_3"}</label>
+                                                            <label htmlFor={"sn2_3"}>{"sn"}</label>
                                                             <label htmlFor={"sn2_3"}>{validation("sn2_3")}</label>
                                                             </span>
                                                         </ContainerInput2>
@@ -974,7 +974,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                     <Container align={'response'}>
                                         <div>{validationDTO()}</div>
                                     </Container>
-                                    <footer>
+                                                                        <footer>
                                         {/* {modal &&
                                             <PDFDownloadLink document={<PDFDocument object={state} />} fileName="somename.pdf">
                                                 {({ loading }) => loading ? <Button disabled={true} category={'secondary'} >Wait</Button> : <Button category={'secondary'} >Download</Button>}
