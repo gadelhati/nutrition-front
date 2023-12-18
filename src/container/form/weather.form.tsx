@@ -3,7 +3,7 @@ import { getPayload, isValidToken } from '../../service/service.token'
 import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { create, update, remove, retrieve, removeComposite } from '../../service/service.crud'
-import { Container, ContainerInput2 } from './generic.field'
+import { Container, ContainerInput2, InputGroup } from './generic.field'
 import { AtributeSet } from './generic.atribute'
 import { Atribute } from '../../component/atribute/atribute.interface'
 import { Table } from '../template/table'
@@ -374,7 +374,12 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                                                 <label htmlFor={"nbNbNb"}>{validation("nbNbNb")}</label>
                                                                 </span>
                                                             </ContainerInput2> */}
-
+                                        <InputGroup>
+                                            <input className="child label" value="SS" type="submit" tabIndex={-1}/>
+                                            <input type="text" name={"yy"} required value={state.yy} onChange={handleInputChange} />
+                                            <input type="text" name={"gg"} required value={state.gg} onChange={handleInputChange} />
+                                            <input type="text" name={"iw"} required value={state.iw} onChange={handleInputChange} />
+                                        </InputGroup>
                                         <ContainerInput2 error={validation('yy').length !== 0 ? true : false} historic={true}>
                                             <span>
                                                 <input type="text" name={"yy"} required value={state.yy} onChange={handleInputChange} />

@@ -222,3 +222,43 @@ export const ContainerLabel = styled('label', {
     top: '10px',
     transition: '0.2s ease all',
 })
+
+export const InputGroup = styled('span', {
+    display: 'flex',
+    alignItems: 'center',
+    'input:first-child': {
+        borderRadius: '.3rem 0 0 .3rem',
+    },
+    'input:not(:last-child)': {
+        borderRight: 'none',
+    },
+    'input:last-child': {
+        borderRadius: '0 .3rem .3rem 0',
+    },
+    input: {
+        height: '2rem',
+        width: '4rem',
+        padding: '0 1rem',
+        color: '#354F52',
+        fontSize: '15px',
+        border: '1px solid #354F52',
+        backgroundColor: '$sixth',
+    },
+    '.label': {
+        pointerEvents: 'none',
+        // cursor: 'not-allowed',
+        padding: '.5em 1em',
+        border: 'none',
+        backgroundColor: '#354F52',
+        color: '#fff',
+        fontSize: '15px',
+        transition: 'background-color .3s ease-in-out',
+    },
+    '.label:hover': {
+        backgroundColor: '#52796F',
+    },
+    'input:focus, input:focus-visible': {
+        borderColor: '#84A98C',
+        outline: 'none',
+    },
+})
